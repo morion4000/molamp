@@ -58,5 +58,8 @@ module Lastfmyoutube
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Valid values are :development and :production
+    config.ember.variant = :development
   end
 end

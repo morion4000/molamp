@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require ember
+//= require handlebars
+//= require ember-data
+//= require_self
+//= require lastfmyoutube
 //= require_tree .
+
+Lastfmyoutube = Ember.Application.create();
