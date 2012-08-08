@@ -9,6 +9,7 @@ gem 'pg'
 gem 'thin'
 gem 'bootstrap-sass'
 gem 'ember-rails'
+gem 'handlebars', '~> 0.3.1'
 
 gem 'json'
 
