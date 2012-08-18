@@ -1,41 +1,23 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="#">Project Play</a>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li class="active"><a href="#">Play</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
+
+<div class="hero-unit">
+  <h1>Discover your favorite music</h1>
+  <p>For every song and band you listen, you can can discover similar ones.</p>
 </div>
 
-<div class="container">
-	<div class="row">
-	  <div class="span5">
-			<form class="well" name="search" method="POST">
-			  <label>Search for an artist</label>
-			  <input type="text" class="span3" placeholder="Type artist name…" name="search">
-			  <span class="help-block">Enter an artist name to find his top played tracks on <a href="http://last.fm" target="_blank">Last.fm</a> and listen them on <a href="http://youtube.com" target="_blank">YouTube</a>.</span>
-			  <button type="submit" class="btn">Find me some music!</button>
-			</form>
-
-			<div class="well" style="height:400px;overflow-y:scroll;">
-			<ul id="songs_list" class="nav nav-list">
-				<li>Please search an artist...</li>
-			</ul>
+<form class="well" name="search" method="POST">
+	<div class="input-append">
+		Search for:
+		<div class="btn-group" data-toggle="buttons-radio">
+		  <button class="btn">Song</button>
+		  <button class="btn active">Artist</button>
+		  <button class="btn">Album</button>
 		</div>
-	  </div>
-
-	  <div class="span7">
-	  	<div id="ytplayer"></div>
-	  </div>
+		
+		<br />
+		
+		<div>
+			<input class="span4" size="32" type="text" placeholder="Black Sabbath, Bohemian Rhapsody...">
+			<button class="btn" type="button"><i class="icon-search"></i></button>
+		</div>
 	</div>
-</div>
+</form>

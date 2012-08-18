@@ -12,7 +12,30 @@
 </head>
 <body>
 
-<%= yield %>
+	<div class="container" style="width:900px">
+		<div class="header">
+			<a href="/"><%= image_tag("logoalike.png", :alt => "alike.fm") %></a>
+		<div>
+		
+		<div class="well">
+			<%= yield %>
+		</div>
+		
+		<div class="row-fluid">
+	  		<div class="span10">
+	  			<footer class="footer">
+					<p>&copy; ALike.fm 2012. Made with <a href="">Bootstrap</a>, <a href="#">Rails</a> and <a href="">EmberJS</a>.<br />Powered by <a href="">Last.fm</a> and <a href="">Youtube</a>.</p>
+				</footer>
+	  		</div>
+	  		<div class="span2">
+	  			<ul style="display:block">
+	  				<li><a href="#">About</a></li>
+	  				<li><a href="#">Privacy</a></li>
+	  				<li><a href="#">Contact</a></li>
+	  			</ul>
+	  		</div>
+		</div>	
+	</div>
 
 </body>
 </html>
