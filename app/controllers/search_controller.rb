@@ -1,6 +1,8 @@
-class TracksController < ApplicationController
-  def show
-    @query = params[:id]
+class SearchController < ApplicationController
+  # GET /search
+  # GET /search.json
+  def index
+    @query = params[:q]
     
     lastfm = Lastfm.new('f21088bf9097b49ad4e7f487abab981e', '7ccaec2093e33cded282ec7bc81c6fca')
     

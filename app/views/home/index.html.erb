@@ -2,22 +2,25 @@
 <div class="hero-unit">
   <h1>Discover your favorite music</h1>
   <p>For every song and band you listen, you can can discover similar ones.</p>
-</div>
 
-<form class="well" name="search" method="POST">
-	<div class="input-append">
-		Search for:
-		<div class="btn-group" data-toggle="buttons-radio">
-		  <button class="btn">Song</button>
-		  <button class="btn active">Artist</button>
-		  <button class="btn">Album</button>
-		</div>
+	<form name="search" method="GET" action="/search">
+		<input type="hidden" name="w" value="artist" />
 		
-		<br />
-		
-		<div>
-			<input class="span4" size="32" type="text" placeholder="Black Sabbath, Bohemian Rhapsody...">
-			<button class="btn" type="button"><i class="icon-search"></i></button>
+		<div class="input-append">
+			Search for:
+			<div class="btn-group" data-toggle="buttons-radio">
+			  <button class="btn">Song</button>
+			  <button class="btn active">Artist</button>
+			  <button class="btn">Album</button>
+			</div>
+			
+			<br />
+			
+			<div>
+				<input class="span4" size="32" name="q" type="text" placeholder="Black Sabbath, Bohemian Rhapsody...">
+				<button class="btn" type="button"><i class="icon-search"></i></button>
+			</div>
 		</div>
-	</div>
-</form>
+	</form>
+
+</div>

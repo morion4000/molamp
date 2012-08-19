@@ -4,6 +4,7 @@ Lastfmyoutube::Application.routes.draw do
   resources :artists
   resources :albums
   resources :tracks
+  resources :search
 
   root :to => "home#index"
 
