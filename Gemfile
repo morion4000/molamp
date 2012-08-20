@@ -9,7 +9,7 @@ gem 'pg'
 gem 'thin'
 gem 'bootstrap-sass'
 gem 'ember-rails'
-gem 'lastfm'
+gem 'lastfm', :git => "git://github.com/morion4000/ruby-lastfm.git"
 
 gem 'json'
 
