@@ -76,6 +76,8 @@ function play(artist, song) {
 		});
 	}
 
+$('#aboutModal').modal(options)
+
 // $(function() {
 	// $('form[name=search]').submit(function(e) {
 		// e.preventDefault();
