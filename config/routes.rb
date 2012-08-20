@@ -1,5 +1,5 @@
 Lastfmyoutube::Application.routes.draw do
-  #get "albums/show"
+  #get "artists/show"
 
   resources :artists
   resources :albums

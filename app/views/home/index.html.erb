@@ -6,20 +6,18 @@
 	<form name="search" method="GET" action="/search">
 		<input type="hidden" name="w" value="artist" />
 		
+		Search for:
+		<div class="btn-group" data-toggle="buttons-radio">
+		  <button class="btn">Song</button>
+		  <button class="btn active">Artist</button>
+		  <button class="btn">Album</button>
+		</div>
+		
+		<br />
+		
 		<div class="input-append">
-			Search for:
-			<div class="btn-group" data-toggle="buttons-radio">
-			  <button class="btn">Song</button>
-			  <button class="btn active">Artist</button>
-			  <button class="btn">Album</button>
-			</div>
-			
-			<br />
-			
-			<div>
-				<input class="span4" size="32" name="q" type="text" placeholder="Black Sabbath, Bohemian Rhapsody...">
-				<button class="btn" type="button"><i class="icon-search"></i></button>
-			</div>
+			<input class="span4" size="32" name="q" type="text" placeholder="Black Sabbath, Bohemian Rhapsody...">
+			<button class="btn" type="button"><i class="icon-search"></i></button>
 		</div>
 	</form>
 

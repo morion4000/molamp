@@ -3,8 +3,9 @@ class SearchController < ApplicationController
   # GET /search.json
   def index
     @query = params[:q]
+    @what = params[:w]
     
-    lastfm = Lastfm.new('f21088bf9097b49ad4e7f487abab981e', '7ccaec2093e33cded282ec7bc81c6fca')
+    lastfm = Lastfm.new('930976e93a9a305ccd319242e2a90e58', 'fa79a2ce3ac9477157b158fd08bf06f4')
     
     @results = lastfm.artist.search(@query)
     

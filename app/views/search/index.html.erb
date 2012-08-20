@@ -1,20 +1,23 @@
-<h1>Search results:</h1>
+<div>Search results for <strong><%= @query %></strong>:</div>
 <br />
-<table class="table table-striped table-bordered table-condensed">
-	  <thead>
-  <tr>
-    <th>Artist</th>
-    <th>URL</th>
-  </tr>
-  </thead>
-  <tbody>
-<% @results['results']['artistmatches']['artist'].each do |artist| %>
-
-	<tr>
-		<td><%= artist['name'] %></td>
-		<td><%= link_to(artist['url'], artist['url']) %></td>
-	</tr>
-		
-<% end %>
- </tbody>
+<table class="table">
+	<thead>
+	</thead>
+	<tbody>
+	<% @results['results']['artistmatches']['artist'].each do |artist| %>
+		<tr>
+			<td>
+				<div class="row-fluid">
+				  <div class="span1">
+				  	<%= image_tag(artist['image'][1]['content'], :alt => artist['name']) %>
+				  </div>
+				  <div class="span11">
+				  	<h3><%=  link_to(artist['name'], '/artists/' + artist['name']) %></h3>
+					<p><strong><%= artist['listeners'] %></strong> listeners on Last.fm</p>
+				  </div>
+				</div>
+			</td>
+		</tr>	
+	<% end %>
+	</tbody>
 </table>
