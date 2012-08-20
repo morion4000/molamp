@@ -9,7 +9,8 @@ gem 'pg'
 gem 'thin'
 gem 'bootstrap-sass'
 gem 'ember-rails'
-gem 'lastfm', :git => "git://github.com/morion4000/ruby-lastfm.git"
+gem 'sanitize'
+gem 'lastfm', :git => 'git://github.com/morion4000/ruby-lastfm.git'
 
 gem 'json'
 

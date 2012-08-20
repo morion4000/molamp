@@ -3,19 +3,40 @@
   	<%= image_tag(@artist['image'][4]['content'], :alt => @artist['name']) %>
   </div>
   <div class="span9">
-  	<h3><%= @artist['name'] %></h3>
+  	<h2><%= @artist['name'] %></h2>
 	<p>
 		<strong><%= @artist['stats']['listeners'] %></strong> listeners on Last.fm<br />
-		<%= @artist['bio']['summary'] %>
+		<%= Sanitize.clean(@artist['bio']['summary']) %>
 	</p>
 	Similar:
-	<ul>
+	<ul class="unstyled">
 		<% @artist['similar']['artist'].each do |artist| %>
-		<li>
-  			<%= image_tag(artist['image'][1]['content'], :alt => artist['name']) %><br />
-			<%= artist['name'] %>
+		<li style="display: inline;">
+  			<a href="/artists/<%= artist['name'] %>"><%= image_tag(artist['image'][1]['content'], :alt => artist['name']) %></a>
 		</li>
-		<% end %>h
+		<% end %>
   	</ul>
   </div>
 </div>
+
+<table class="table table-striped table-bordered table-condensed">
+	<thead></thead>
+	<tbody>
+		<% i=1; @top_tracks.each do |track| %>
+		<tr>
+			<td><%= i %></td>
+			<td>
+				<div class="row-fluid">
+  					<div class="span1">
+  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : nil %>
+  					</div>
+  					<div class="span11">
+  						<h4><%= track['name'] %></h4><br />
+  						<strong><%= track['playcount'] %></strong> played on Last.fm
+  					</div>
+				</div>
+			</td>
+		</tr>
+		<% i=i+1; end %>
+	</tbody>
+</table>
