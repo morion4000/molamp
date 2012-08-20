@@ -9,7 +9,7 @@
 			<td>
 				<div class="row-fluid">
 				  <div class="span1">
-				  	<%= image_tag(artist['image'][1]['content'], :alt => artist['name']) %>
+				  	<%= artist['image'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : nil %>
 				  </div>
 				  <div class="span11">
 				  	<h3><%=  link_to(artist['name'], '/artists/' + artist['name']) %></h3>
