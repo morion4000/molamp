@@ -1,1 +1,21 @@
-<%= @artist %>
+<div class="row-fluid">
+  <div class="span3">
+  	<%= image_tag(@artist['image'][4]['content'], :alt => @artist['name']) %>
+  </div>
+  <div class="span9">
+  	<h3><%= @artist['name'] %></h3>
+	<p>
+		<strong><%= @artist['stats']['listeners'] %></strong> listeners on Last.fm<br />
+		<%= @artist['bio']['summary'] %>
+	</p>
+	Similar:
+	<ul>
+		<% @artist['similar']['artist'].each do |artist| %>
+		<li>
+  			<%= image_tag(artist['image'][1]['content'], :alt => artist['name']) %><br />
+			<%= artist['name'] %>
+		</li>
+		<% end %>
+  	</ul>
+  </div>
+</div>

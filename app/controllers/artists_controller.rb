@@ -13,7 +13,15 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
-    @artist = params[:id]
+    @query = params[:id]
+    
+    lastfm = Lastfm.new('930976e93a9a305ccd319242e2a90e58', 'fa79a2ce3ac9477157b158fd08bf06f4')
+    
+    @artist = lastfm.artist.get_info(@query)
+     
+    #@artist = {
+    #  :info => lastfm.artist.getInfo(@query)
+    #}
 
     respond_to do |format|
       format.html # show.html.erb
