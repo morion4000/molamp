@@ -28,7 +28,7 @@
 			<td>
 				<div class="row-fluid">
   					<div class="span1">
-  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : nil %>
+  						<%= track['image'][1]['content'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
   					</div>
   					<div class="span11">
   						<h4><%= track['name'] %></h4><br />
