@@ -76,7 +76,7 @@ function play(id) {
 		});
 	}
 
-$('#aboutModal').modal(options)
+$('#aboutModal').modal()
 
 // $(function() {
 	// $('form[name=search]').submit(function(e) {
