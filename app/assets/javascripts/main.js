@@ -5,7 +5,6 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var currentSong = null;
-var songs = [];
 
 // Replace the 'ytplayer' element with an <iframe> and
 // YouTube player after the API code downloads.
@@ -26,21 +25,11 @@ function eventFired(e) {
 	switch(e.data) {
 		case 0:
 			console.log('ended');
-			var playcount = $('ul#songs_list').find('li[class=active]').next('li').attr('id');
-
-			console.log(playcount);
-
-			song = findSong(playcount);
-			play($('input[name=search]').val(), song);
+			
+			var song = Artist.songs.length > currentSong ? currentSong + 1 : 0; 
+			
+			play(song);
 		break;
-	}
-}
-
-function findSong(playcount) {
-	for (var i=0, l=songs.length; i<l; i++) {
-		if (songs[i].playcount == playcount) {
-			return songs[i];
-		}
 	}
 }
 
@@ -59,16 +48,10 @@ function play(id) {
 
 				player.loadVideoById(matched[0]);
 
-				if (currentSong != null) {
-					$('ul#songs_list').find('li#'+currentSong.playcount).attr('class', 'inactive');
-				}
-
-				$('ul#songs_list').find('li#'+song.playcount).attr('class', 'active');
-
-				currentSong = song;
+				currentSong = id;
 			},
 			data: {
-				q: Artist.name + ' ' + Artist.songs[id],
+				q: Artist.name + ' ' + Artist.songs[id].title,
 				orderby: 'relevance',
 				alt: 'json',
 				restriction: 'RO'
