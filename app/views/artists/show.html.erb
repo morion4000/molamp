@@ -9,34 +9,55 @@
 		<%= Sanitize.clean(@artist['bio']['summary']) %>
 	</p>
 	Similar:
-	<ul class="unstyled">
-		<% @artist['similar']['artist'].each do |artist| %>
-		<li style="display: inline;">
-  			<a href="/artists/<%= artist['name'] %>"><%= image_tag(artist['image'][1]['content'], :alt => artist['name']) %></a>
-		</li>
-		<% end %>
-  	</ul>
+	
+	<ul class="thumbnails">
+	<% @artist['similar']['artist'].each do |artist| %>
+	  <li class="span2" style="background-color: #fff;">
+	    <div class="thumbnail">
+	      <%= image_tag(artist['image'][1]['content'], :alt => artist['name']) %>
+	      <center><%= link_to(artist['name'], '/artists/'+artist['name']) %></center>
+	    </div>
+	  </li>
+	<% end %>
+	</ul>
   </div>
 </div>
 
-<table class="table table-striped table-bordered table-condensed">
-	<thead></thead>
-	<tbody>
-		<% i=1; @top_tracks.each do |track| %>
-		<tr>
-			<td><%= i %></td>
-			<td>
-				<div class="row-fluid">
-  					<div class="span1">
-  						<%= track['image'][1]['content'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-  					</div>
-  					<div class="span11">
-  						<h4><%= track['name'] %></h4><br />
-  						<strong><%= track['playcount'] %></strong> played on Last.fm
-  					</div>
-				</div>
-			</td>
-		</tr>
-		<% i=i+1; end %>
-	</tbody>
-</table>
+<div class="row-fluid">
+	<div class="span9">
+		<table class="table table-striped table-bordered table-condensed">
+			<thead></thead>
+			<tbody>
+				<% i=1; @top_tracks.each do |track| %>
+				<tr>
+					<td><%= i %></td>
+					<td>
+						<div class="row-fluid">
+		  					<div class="span1">
+		  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+		  					</div>
+		  					<div class="span11">
+		  						<h4><%= link_to(track['name'], 'javascript:play("'+i.to_s()+'")') %></h4><br />
+		  						<strong><%= track['playcount'] %></strong> played on Last.fm
+		  					</div>
+						</div>
+					</td>
+				</tr>
+				<% i=i+1; end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="span3">
+		<div id="ytplayer" style="width:200px;height:250px;"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var Artist = {
+	name: "<%= @artist['name'] %>",
+	songs: []
+};
+<% i=1; @top_tracks.each do |track| %>
+Artist.songs.push({uid: <%= i.to_s() %>, title: "<%= track['name'] %>"});
+<% i=i+1; end %>
+</script>

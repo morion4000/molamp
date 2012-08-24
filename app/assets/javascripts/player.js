@@ -41,5 +41,4 @@ function onYouTubePlayerAPIReady() {
 	});
 
 	player.YT.addEventListener('onStateChange', 'eventFired');
-
 }

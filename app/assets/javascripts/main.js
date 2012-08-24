@@ -13,8 +13,8 @@ var player;
 
 function onYouTubePlayerAPIReady() {	
 	player = new YT.Player('ytplayer', {
-	  height: '390',
-	  width: '640'
+	  height: '250',
+	  width: '200'
 	});
 
 	player.addEventListener('onStateChange', 'eventFired');
@@ -44,7 +44,7 @@ function findSong(playcount) {
 	}
 }
 
-function play(artist, song) {
+function play(id) {
 		var url = 'https://gdata.youtube.com/feeds/api/videos'; 
 		//?q=black%20sabbath%20Sabbath%20Bloody%20Sabbath&orderby=relevance&v=2&alt=atom&restriction=RO';
 
@@ -68,7 +68,7 @@ function play(artist, song) {
 				currentSong = song;
 			},
 			data: {
-				q: artist + ' ' + song.name,
+				q: Artist.name + ' ' + Artist.songs[id],
 				orderby: 'relevance',
 				alt: 'json',
 				restriction: 'RO'
