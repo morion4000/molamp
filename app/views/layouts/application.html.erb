@@ -14,7 +14,21 @@
 
 	<div class="container" style="width:900px">
 		<div class="header">
-			<a href="/"><%= image_tag("logoalike.png", :alt => "alike.fm") %></a>
+			<div class="row-fluid">
+				<div class="span8">
+					<a href="/"><%= image_tag("logoalike.png", :alt => "alike.fm") %></a>
+				</div>
+				<div class="span4">
+					<br /><br />
+					<form name="search" method="GET" action="/search">
+						<input type="hidden" name="w" value="artist" />
+						<div class="input-append">
+							<input size="12" name="q" type="text" placeholder="Search">
+							<button class="btn" type="button"><i class="icon-search"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
 		<div>
 		
 		<div class="well">
