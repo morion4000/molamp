@@ -1,12 +1,14 @@
+<% title @artist['name'], false %>
+
 <div class="row-fluid">
   <div class="span3">
-  	<%= image_tag(@artist['image'][4]['content'], :alt => @artist['name']) %>
+  	<%= image_tag @artist['image'][4]['content'], :alt => @artist['name'] %>
   </div>
   <div class="span9">
   	<h2><%= @artist['name'] %></h2>
 	<p>
 		<strong><%= @artist['stats']['listeners'] %></strong> listeners on Last.fm<br />
-		<%= Sanitize.clean(@artist['bio']['summary']) %>
+		<%= @artist.has_key?('bio') ? Sanitize.clean(@artist['bio']['summary']) : 'No bio' %>
 	</p>
 	Similar:
 	
@@ -14,8 +16,8 @@
 	<% @artist['similar']['artist'].each do |artist| %>
 	  <li class="span2" style="background-color: #fff;">
 	    <div class="thumbnail">
-	      <%= image_tag(artist['image'][1]['content'], :alt => artist['name']) %>
-	      <center><%= link_to(artist['name'], '/artists/'+artist['name']) %></center>
+	      <%= image_tag artist['image'][1]['content'], :alt => artist['name'] %>
+	      <center><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></center>
 	    </div>
 	  </li>
 	<% end %>

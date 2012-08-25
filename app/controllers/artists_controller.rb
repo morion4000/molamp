@@ -8,16 +8,16 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
-    @query = params[:id]
-
+    @query = params[:id].gsub('+', ' ')
+    
     artist = Artist.new(@query, @lastfm)
     
     @top_tracks = artist.top_tracks
     @artist = artist.info
-     
+    
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @artist }
+      format.json { render :json => @query }
     end
   end
 end

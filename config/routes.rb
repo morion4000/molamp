@@ -1,10 +1,11 @@
 Lastfmyoutube::Application.routes.draw do
   #get "artists/show"
-
-  resources :artists
+  
   resources :albums
   resources :tracks
   resources :search
+
+  match 'artists/:id' => 'artists#show', :id => /[a-zA-Z.+]+/
 
   root :to => "home#index"
 
