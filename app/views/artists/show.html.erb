@@ -37,7 +37,7 @@
 		  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 		  					</div>
 		  					<div class="span11">
-		  						<h4><%= link_to(track['name'], 'javascript:play("'+i.to_s()+'")') %></h4><br />
+		  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4><br />
 		  						<strong><%= track['playcount'] %></strong> played on Last.fm
 		  					</div>
 						</div>
@@ -53,11 +53,10 @@
 </div>
 
 <script type="text/javascript">
-var Artist = {
-	name: "<%= @artist['name'] %>",
-	songs: []
-};
-<% i=0; @top_tracks.each do |track| %>
-Artist.songs.push({uid: <%= i.to_s() %>, title: "<%= track['name'] %>"});
-<% i=i+1; end %>
+$(function() {
+	Playlist.artist = "<%= @artist['name'] %>";
+	<% i=0; @top_tracks.each do |track| %>
+	Playlist.tracks.push({uid: <%= i.to_s() %>, title: "<%= track['name'] %>"});
+	<% i=i+1; end %>
+});
 </script>
