@@ -1,3 +1,3 @@
-class Artist < ActiveRecord::Base
-  attr_accessible :id
+class Artist
+  
 end
