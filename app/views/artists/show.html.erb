@@ -27,11 +27,11 @@
 
 <div class="row-fluid">
 	<div class="span9">
-		<table class="table table-striped table-bordered table-condensed">
+		<table class="table table-bordered table-condensed">
 			<thead></thead>
 			<tbody>
 				<% i=0; @top_tracks.each do |track| %>
-				<tr>
+				<tr id="track-<%= i.to_s() %>">
 					<td><%= i+1 %></td>
 					<td>
 						<div class="row-fluid">

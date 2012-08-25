@@ -18,6 +18,7 @@ var Playlist = {
 
 				Youtube.player.loadVideoById(matched[0]);
 
+				Playlist.highlightTrack(id);
 				Playlist.currentTrack = id;
 			},
 			data: {
@@ -27,5 +28,10 @@ var Playlist = {
 				restriction: 'RO'
 			}
 		});
+	},
+	
+	highlightTrack: function(index) {
+		$('#track-'+Playlist.currentTrack).css('backgroundColor', 'white');
+		$('#track-'+index).css('backgroundColor', 'blue');
 	}
 };
