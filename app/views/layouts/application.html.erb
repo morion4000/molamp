@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>ALike.fm - Discover your favorite music</title>
+    <title><%= content_for?(:title) ? yield(:title) : 'ALike.fm - Discover your music' %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,10 +16,10 @@
 		<div class="header">
 			<div class="row-fluid">
 				<div class="span8">
-					<a href="/"><%= image_tag("logoalike.png", :alt => "alike.fm") %></a>
+					<a href="/"><%= image_tag("logoalike.png", :alt => "alike.fm", :height => 70) %></a>
 				</div>
 				<div class="span4">
-					<br /><br />
+					<br />
 					<form name="search" method="GET" action="/search">
 						<input type="hidden" name="w" value="artist" />
 						<div class="input-append">
@@ -38,7 +38,7 @@
 		<div class="row-fluid">
 	  		<div class="span10">
 	  			<footer class="footer">
-					<p>&copy; ALike.fm 2012. Made with <a href="">Bootstrap</a>, <a href="#">Rails</a> and <a href="">EmberJS</a>.<br />Powered by <a href="">Last.fm</a> and <a href="">Youtube</a>.</p>
+					<p>&copy; <%= Date.today.year %> ALike.fm. Made with <a href="">Bootstrap</a> and <a href="#">Rails</a>.
 				</footer>
 	  		</div>
 	  		<div class="span2">

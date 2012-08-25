@@ -13,14 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require handlebars
-//= require ember
-//= require ember-data
 //= require_self
-//= require lastfmyoutube
 //= require javascript-last.fm-api/lastfm.api.js
 //= require javascript-last.fm-api/lastfm.api.md5.js
 //= require javascript-last.fm-api/lastfm.api.cache.js
 //= require_tree .
-
-Lastfmyoutube = Ember.Application.create();

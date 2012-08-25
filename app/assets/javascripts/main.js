@@ -59,7 +59,7 @@ function play(id) {
 		});
 	}
 
-$('#aboutModal').modal()
+$('#aboutModal').modal();
 
 // $(function() {
 	// $('form[name=search]').submit(function(e) {
