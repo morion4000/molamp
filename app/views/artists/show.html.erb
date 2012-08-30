@@ -1,3 +1,6 @@
+<% if !@artist %>
+	<div class="alert alert-error">The artist could not be found. Please try searching again.</div>
+<% else %>
 <% title @artist['name'], false %>
 
 <div class="row-fluid">
@@ -33,6 +36,7 @@
 		<table class="table table-bordered table-condensed">
 			<thead></thead>
 			<tbody>
+			<% if @top_tracks %>
 				<% i=0; @top_tracks.each do |track| %>
 				<tr id="track-<%= i.to_s() %>">
 					<td><%= i+1 %></td>
@@ -49,6 +53,11 @@
 					</td>
 				</tr>
 				<% i=i+1; end %>
+			<% else %>
+				<tr>
+					<td>Artist has no tracks.</td>
+				</tr>
+			<% end %>
 			</tbody>
 		</table>
 	</div>
@@ -57,6 +66,7 @@
 	</div>
 </div>
 
+<% if @top_tracks %>
 <script type="text/javascript">
 $(function() {
 	Playlist.artist = "<%= @artist['name'] %>";
@@ -65,3 +75,7 @@ $(function() {
 	<% i=i+1; end %>
 });
 </script>
+<% end %>
+
+<% end %>
+

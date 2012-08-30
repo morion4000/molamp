@@ -10,10 +10,15 @@ class ArtistsController < ApplicationController
   def show
     @query = params[:id].gsub('+', ' ')
     
-    artist = Artist.new(@query, @lastfm)
-    
-    @top_tracks = artist.top_tracks
-    @artist = artist.info
+    begin
+      artist = Artist.new(@query, @lastfm)
+      
+      @top_tracks = artist.top_tracks
+      @artist = artist.info
+    rescue
+      @top_tracks = nil
+      @artist = nil
+    end
     
     respond_to do |format|
       format.html # show.html.erb
