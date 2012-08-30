@@ -4,6 +4,7 @@ Lastfmyoutube::Application.routes.draw do
   resources :albums
   resources :tracks
   resources :search
+  resources :artists
 
   match 'artists/:id' => 'artists#show', :id => /[a-zA-Z.&+]+/
 
