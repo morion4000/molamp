@@ -6,6 +6,7 @@
 	<thead>
 	</thead>
 	<tbody>
+	<% if !@results['results']['artistmatches']['artist'].nil? %>
 	<% @results['results']['artistmatches']['artist'].each do |artist| %>
 		<tr>
 			<td>
@@ -20,6 +21,13 @@
 				</div>
 			</td>
 		</tr>	
+	<% end %>
+	<% else %>
+		<tr>
+			<td>
+				No records found...
+			</td>
+		</tr>
 	<% end %>
 	</tbody>
 </table>
