@@ -17,7 +17,7 @@ class ArtistsController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @query }
+      format.json { render :json => @artist }
     end
   end
 end

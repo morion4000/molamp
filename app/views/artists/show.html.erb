@@ -8,7 +8,7 @@
   	<h2><%= @artist['name'] %></h2>
 	<p>
 		<strong><%= @artist['stats']['listeners'] %></strong> listeners on Last.fm<br />
-		<%= @artist.has_key?('bio') ? Sanitize.clean(@artist['bio']['summary']) : 'No bio' %>
+		<%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %>
 	</p>
 	Similar:
 	
