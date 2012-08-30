@@ -11,6 +11,7 @@ namespace :heroku do
   
   task :version do
     puts "Updating app version number on Heroku..."
-    sh "heroku config:add rel=$(heroku releases | head -2 | tail -1 |awk '{print $6\".\"$7\".\"$1}')"
+    #sh "heroku config:add rel=$(heroku releases | head -2 | tail -1 |awk '{print $6\".\"$7\".\"$1}')"
+    sh "heroku config:add rel=$(heroku releases | head -2 | tail -1 |awk '{print $1}')"
   end
 end
