@@ -12,16 +12,19 @@
 	</p>
 	Similar:
 	
+	<% if @artist['similar']['artist'].size > 0 %>
 	<ul class="thumbnails">
 	<% @artist['similar']['artist'].each do |artist| %>
 	  <li class="span2" style="background-color: #fff;">
 	    <div class="thumbnail">
-	      <%= image_tag artist['image'][1]['content'], :alt => artist['name'] %>
+	      <%= artist['image'][1]['content'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 	      <center><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></center>
 	    </div>
 	  </li>
 	<% end %>
 	</ul>
+	<% end %>
+	
   </div>
 </div>
 
