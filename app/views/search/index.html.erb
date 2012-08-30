@@ -6,8 +6,8 @@
 	<thead>
 	</thead>
 	<tbody>
-	<% if !@results['results']['artistmatches']['artist'].nil? %>
-	<% @results['results']['artistmatches']['artist'].each do |artist| %>
+	<% if !@artists['results']['artistmatches']['artist'].nil? %>
+	<% @artists['results']['artistmatches']['artist'].each do |artist| %>
 		<tr>
 			<td>
 				<div class="row-fluid">
@@ -25,7 +25,7 @@
 	<% else %>
 		<tr>
 			<td>
-				No records found...
+				No results found...
 			</td>
 		</tr>
 	<% end %>

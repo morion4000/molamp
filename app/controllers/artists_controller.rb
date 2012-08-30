@@ -14,15 +14,17 @@ class ArtistsController < ApplicationController
       artist = Artist.new(@query, @lastfm)
       
       @top_tracks = artist.top_tracks
+      @top_albums = artist.top_albums
       @artist = artist.info
     rescue
-      @top_tracks = nil
+      @top_tracks  = nil
+      @top_albums  = nil
       @artist = nil
     end
     
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @artist }
+      format.json { render :json => @top_albums }
     end
   end
 end

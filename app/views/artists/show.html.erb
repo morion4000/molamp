@@ -33,33 +33,76 @@
 
 <div class="row-fluid">
 	<div class="span9">
-		<table class="table table-bordered table-condensed">
-			<thead></thead>
-			<tbody>
-			<% if @top_tracks %>
-				<% i=0; @top_tracks.each do |track| %>
-				<tr id="track-<%= i.to_s() %>">
-					<td><%= i+1 %></td>
-					<td>
-						<div class="row-fluid">
-		  					<div class="span1">
-		  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-		  					</div>
-		  					<div class="span11">
-		  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4><br />
-		  						<strong><%= track['playcount'] %></strong> played on Last.fm
-		  					</div>
-						</div>
-					</td>
-				</tr>
-				<% i=i+1; end %>
-			<% else %>
-				<tr>
-					<td>Artist has no tracks.</td>
-				</tr>
-			<% end %>
-			</tbody>
-		</table>
+		<ul class="nav nav-tabs">
+		  <li class="active"><a href="#top-tracks" data-toggle="tab">Top tracks</a></li>
+		  <li><a href="#top-albums" data-toggle="tab">Top albums</a></li>
+		</ul>
+ 
+		<div class="tab-content">
+		  <div class="tab-pane active" id="top-tracks">
+				<table class="table table-bordered table-condensed">
+					<thead></thead>
+					<tbody>
+					<% if @top_tracks %>
+						<% i=0; @top_tracks.each do |track| %>
+						<tr id="track-<%= i.to_s() %>">
+							<td><%= i+1 %></td>
+							<td>
+								<div class="row-fluid">
+				  					<div class="span1">
+				  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+				  					</div>
+				  					<div class="span9">
+				  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4><br />
+				  						<strong><%= track['playcount'] %></strong> played on Last.fm
+				  					</div>
+				  					<div class="span2">
+				  						<a href="#" class="btn"><i class="icon-th-list"></i></a>
+				  					</div>
+								</div>
+							</td>
+						</tr>
+						<% i=i+1; end %>
+					<% else %>
+						<tr>
+							<td>Artist has no tracks.</td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+		  </div>
+		  
+		  <div class="tab-pane" id="top-albums">
+		  		<table class="table table-bordered table-condensed">
+					<thead></thead>
+					<tbody>
+					<% if @top_albums %>
+						<% i=0; @top_albums.each do |album| %>
+						<tr id="track-<%= i.to_s() %>">
+							<td><%= i+1 %></td>
+							<td>
+								<div class="row-fluid">
+				  					<div class="span2">
+				  						<%= album['image'] ? image_tag(album['image'][1]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+				  					</div>
+				  					<div class="span10">
+				  						<h4><%= link_to(album['name'], '/') %></h4><br />
+				  						<strong><%= album['playcount'] %></strong> played on Last.fm
+				  					</div>
+								</div>
+							</td>
+						</tr>
+						<% i=i+1; end %>
+					<% else %>
+						<tr>
+							<td>Artist has no albums.</td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+		  </div>
+		</div>
+		
 	</div>
 	<div class="span3">
 		<div id="ytplayer" style="width:200px;height:250px;"></div>

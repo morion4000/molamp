@@ -14,6 +14,10 @@ class Artist
     return @lastfm.artist.get_top_tracks(@name)
   end
   
+  def top_albums
+    return @lastfm.artist.get_top_albums(@name)
+  end
+  
   def find(*name)
     if !name
       name = @name  
