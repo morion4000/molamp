@@ -7,15 +7,16 @@
     @query = params[:q]
     @where = params[:w]
     
-    if @where == 'home'
-      redirect_to '/artists/' + @query.gsub(' ', '+')
+    artist = Artist.new(@query, @lastfm)
+    album = Album.new(@query, @lastfm)
+    
+    @artists = artist.find()
+    @albums = album.find()
+    
+    if @where == 'home' and !@artists['results']['artistmatches']['artist'].nil?
+      first_artist = @artists['results']['artistmatches']['artist'][0]
+      redirect_to '/artists/' + first_artist['name'].gsub(' ', '+')
     else
-      artist = Artist.new(@query, @lastfm)
-      album = Album.new(@query, @lastfm)
-      
-      @artists = artist.find()
-      @albums = album.find()
-      
       respond_to do |format|
         format.html # index.html.erb
         format.json { render :json => @artists }

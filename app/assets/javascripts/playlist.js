@@ -31,7 +31,7 @@ var Playlist = {
 	},
 	
 	highlightTrack: function(index) {
-		$('#track-'+Playlist.currentTrack).css('backgroundColor', 'white');
-		$('#track-'+index).css('backgroundColor', 'blue');
+		$('#track-'+Playlist.currentTrack).css('backgroundColor', '#FFF');
+		$('#track-'+index).css('backgroundColor', '#EEE');
 	}
 };

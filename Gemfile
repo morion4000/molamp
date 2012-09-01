@@ -7,7 +7,7 @@ gem 'rails', '3.2.6'
 
 gem 'pg'
 gem 'thin'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 2.0.4.1'
 gem 'sanitize'
 gem 'lastfm', :git => 'git://github.com/morion4000/ruby-lastfm.git'
 

@@ -9,16 +9,13 @@
   </div>
   <div class="span9">
   	<h2><%= @artist['name'] %></h2>
-	<p>
-		<strong><%= @artist['stats']['listeners'] %></strong> listeners on Last.fm<br />
-		<%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %>
-	</p>
-	Similar:
-	
+	<p><strong><%= @artist['stats']['listeners'] %></strong> listeners on last.fm</p>
+	<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>
+	<h3>Similar:</h3>	
 	<% if @artist['similar']['artist'].size > 0 %>
 	<ul class="thumbnails">
 	<% @artist['similar']['artist'].each do |artist| %>
-	  <li class="span2" style="background-color: #fff;">
+	  <li class="span2" style="background-color: #FFF;">
 	    <div class="thumbnail">
 	      <%= artist['image'][1]['content'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 	      <center><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></center>
@@ -45,20 +42,22 @@
 					<tbody>
 					<% if @top_tracks %>
 						<% i=0; @top_tracks.each do |track| %>
-						<tr id="track-<%= i.to_s() %>">
+						<tr id="track-<%= i.to_s() %>" style="background-color: #FFF">
 							<td><%= i+1 %></td>
 							<td>
 								<div class="row-fluid">
 				  					<div class="span1">
-				  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+				  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name'], :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 				  					</div>
 				  					<div class="span9">
 				  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4><br />
-				  						<strong><%= track['playcount'] %></strong> played on Last.fm
+				  						<strong><%= track['playcount'] %></strong> times played on last.fm
 				  					</div>
+				  					<!--
 				  					<div class="span2">
 				  						<a href="#" class="btn"><i class="icon-th-list"></i></a>
 				  					</div>
+				  					-->
 								</div>
 							</td>
 						</tr>
@@ -78,7 +77,7 @@
 					<tbody>
 					<% if @top_albums %>
 						<% i=0; @top_albums.each do |album| %>
-						<tr id="track-<%= i.to_s() %>">
+						<tr id="album-<%= i.to_s() %>" style="background-color: #FFF">
 							<td><%= i+1 %></td>
 							<td>
 								<div class="row-fluid">
