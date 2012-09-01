@@ -11,11 +11,11 @@ class Artist
   end
   
   def top_tracks
-    return @lastfm.artist.get_top_tracks(@name)
+    return @lastfm.artist.get_top_tracks(:artist => @name, :limit => 30)
   end
   
   def top_albums
-    return @lastfm.artist.get_top_albums(@name)
+    return @lastfm.artist.get_top_albums(:artist => @name, :limit => 10)
   end
   
   def find(*name)
@@ -23,6 +23,6 @@ class Artist
       name = @name  
     end
     
-    return @lastfm.artist.search(@name)
+    return @lastfm.artist.search(:artist => @name)
   end
 end
