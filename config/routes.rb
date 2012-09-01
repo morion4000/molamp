@@ -7,7 +7,7 @@ Lastfmyoutube::Application.routes.draw do
   resources :artists
 
   match 'artists/:id' => 'artists#show', :id => /[a-zA-Z.&+]+/
-  match 'artists/:artist/:album' => 'albums#show', :artist => /[a-zA-Z.&+]+/, :album => /[a-zA-Z.&+]+/
+  match 'artists/:artist/:album' => 'albums#show', :artist => /[a-zA-Z.&+]+/, :album => /[a-zA-Z.&'()+]+/
 
   root :to => "home#index"
 

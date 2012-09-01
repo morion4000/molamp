@@ -104,9 +104,16 @@
 		
 	</div>
 	<div class="span3">
-		<div id="ytplayer" style="width:200px;height:250px;"></div>
+		<div id="right_content">
+			<div id="ytplayer" style="width:200px;height:250px;"></div>
+		</div>
 	</div>
 </div>
+
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li class="active"><%= @artist['name'] %></li>
+</ul>
 
 <% if @top_tracks %>
 <script type="text/javascript">
