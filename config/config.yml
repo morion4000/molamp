@@ -9,7 +9,7 @@ test:
   lastfm_api_secret: fa79a2ce3ac9477157b158fd08bf06f4
 
 production:
-  perform_authentication: true
+  perform_authentication: false
   username: admin
   password: secret
   lastfm_api_key: 930976e93a9a305ccd319242e2a90e58
