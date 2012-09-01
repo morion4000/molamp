@@ -8,10 +8,10 @@
     @where = params[:w]
     
     artist = Artist.new(@query, @lastfm)
-    album = Album.new(@query, @lastfm)
+    #album = Album.new(@query, nil, @lastfm)
     
     @artists = artist.find()
-    @albums = album.find()
+    #@albums = album.find()
     
     if @where == 'home' and !@artists['results']['artistmatches']['artist'].nil?
       first_artist = @artists['results']['artistmatches']['artist'][0]

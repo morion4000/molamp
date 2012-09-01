@@ -85,7 +85,7 @@
 				  						<%= album['image'] ? image_tag(album['image'][1]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 				  					</div>
 				  					<div class="span10">
-				  						<h4><%= link_to(album['name'], '/') %></h4><br />
+				  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name'])) %></h4><br />
 				  						<strong><%= album['playcount'] %></strong> played on Last.fm
 				  					</div>
 								</div>

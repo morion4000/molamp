@@ -1,2 +1,69 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<% if !@album %>
+	<div class="alert alert-error">The album could not be found. Please try searching again.</div>
+<% else %>
+<% title @album['artist'] + ' - ' + @album['name'], false %>
+
+<div class="row-fluid">
+  <div class="span3">
+  	<%= @album['image'][4]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+  </div>
+  <div class="span9">
+  	<h2><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) + ' / ' + @album['name'] %></h2>
+	<p><strong><%= @album['playcount'] %></strong> times played on last.fm</p>
+  </div>
+</div>
+
+<br />
+
+<div class="row-fluid">
+	<div class="span9">
+		<table class="table table-bordered table-condensed">
+			<thead></thead>
+			<tbody>
+			<% if @album['tracks']['track'].size > 0 %>
+				<% i=0; @album['tracks']['track'].each do |track| %>
+				<tr id="track-<%= i.to_s() %>" style="background-color: #FFF">
+					<td><%= i+1 %></td>
+					<td>
+						<div class="row-fluid">
+		  					<div class="span1">
+		  						<%= @album['image'] ? image_tag(@album['image'][1]['content'], :alt => @album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+		  					</div>
+		  					<div class="span9">
+		  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4>
+		  					</div>
+		  					<!--
+		  					<div class="span2">
+		  						<a href="#" class="btn"><i class="icon-th-list"></i></a>
+		  					</div>
+		  					-->
+						</div>
+					</td>
+				</tr>
+				<% i=i+1; end %>
+			<% else %>
+				<tr>
+					<td>Album has no tracks.</td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="span3">
+		<div id="ytplayer" style="width:200px;height:250px;"></div>
+	</div>
+</div>
+
+<% if @album['tracks']['track'].size > 0 %>
+<script type="text/javascript">
+$(function() {
+	Playlist.artist = "<%= @album['artist'] %>";
+	<% i=0; @album['tracks']['track'].each do |track| %>
+	Playlist.tracks.push({uid: <%= i.to_s() %>, title: "<%= track['name'] %>"});
+	<% i=i+1; end %>
+});
+</script>
+<% end %>
+
+<% end %>
+
