@@ -10,11 +10,12 @@ var Playlist = {
 		$.ajax({
 			url: url,
 			success: function(data) {
-				var song_url = data.feed.entry[0].link[0].href;
+				var response = JSON.parse(data);
+				var song_url = response.feed.entry[0].link[0].href;
 				var regex = /[a-zA-Z0-9_-]+(?=&)/;
 				var matched = regex.exec(song_url);
 
-				console.log(song_url);
+				//console.log(song_url);
 
 				Youtube.player.loadVideoById(matched[0]);
 
