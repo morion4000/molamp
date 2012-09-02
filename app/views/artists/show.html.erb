@@ -5,7 +5,7 @@
 
 <div class="row-fluid">
   <div class="span3">
-  	<%= @artist['image'][4]['content'] ? image_tag(@artist['image'][4]['content'], :alt => @artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][4]['content'], :alt => @artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
   </div>
   <div class="span9">
   	<h2><%= @artist['name'] %></h2>
@@ -76,6 +76,12 @@
 					<thead></thead>
 					<tbody>
 					<% if @top_albums %>
+						<% 
+							# if the artist only has one album then lastfm sends a hash instead of an array
+							if @top_albums.is_a?(Hash)
+								@top_albums = [@top_albums]
+							end 
+						%>
 						<% i=0; @top_albums.each do |album| %>
 						<tr id="album-<%= i.to_s() %>" style="background-color: #FFF">
 							<td><%= i+1 %></td>

@@ -5,7 +5,7 @@
 
 <div class="row-fluid">
   <div class="span3">
-  	<%= @album['image'][4]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+  	<%= @album['image'][3]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
   </div>
   <div class="span9">
   	<h2><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) + ' / ' + @album['name'] %></h2>
