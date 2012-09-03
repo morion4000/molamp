@@ -9,6 +9,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @query = params[:id].gsub('+', ' ')
+    @autoplay = params[:autoplay]
     
     begin
       artist = Artist.new(@query, @lastfm)
@@ -24,7 +25,7 @@ class ArtistsController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @top_albums }
+      format.json { render :json => @artist }
     end
   end
 end

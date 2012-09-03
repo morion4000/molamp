@@ -5,59 +5,56 @@
 
 <div class="row-fluid">
   <div class="span3">
-  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][4]['content'], :alt => @artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
   </div>
   <div class="span9">
   	<h2><%= @artist['name'] %></h2>
-	<p><strong><%= @artist['stats']['listeners'] %></strong> listeners on last.fm</p>
-	<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>
-	<h3>Similar:</h3>	
+	<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a></p>
+	<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
 	<% if @artist['similar']['artist'].size > 0 %>
-	<ul class="thumbnails">
-	<% @artist['similar']['artist'].each do |artist| %>
-	  <li class="span2" style="background-color: #FFF;">
-	    <div class="thumbnail">
-	      <%= artist['image'][1]['content'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-	      <center><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></center>
-	    </div>
-	  </li>
-	<% end %>
-	</ul>
-	<% end %>
-	
+		<h3>Similar artists:</h3>
+		<ul class="thumbnails">
+		<% @artist['similar']['artist'].each do |artist| %>
+		  <li class="span2" style="background-color: #FFF;">
+		    <div class="thumbnail">
+		      <%= artist['image'][1]['content'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+		      <center><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></center>
+		    </div>
+		  </li>
+		<% end %>
+		</ul>
+	<% end %>	
   </div>
 </div>
 
 <div class="row-fluid">
 	<div class="span8">
-		<ul class="nav nav-tabs">
+		<ul class="nav nav-tabs" style="border-bottom: none; margin-bottom: 0">
 		  <li class="active"><a href="#top-tracks" data-toggle="tab">Top tracks</a></li>
 		  <li><a href="#top-albums" data-toggle="tab">Top albums</a></li>
 		</ul>
  
 		<div class="tab-content">
 		  <div class="tab-pane active" id="top-tracks">
-				<table class="table table-bordered table-condensed">
+				<table class="table table-bordered table-condensed" style="border-top: none">
 					<thead></thead>
 					<tbody>
 					<% if @top_tracks %>
 						<% i=0; @top_tracks.each do |track| %>
-						<tr id="track-<%= i.to_s() %>" style="background-color: #FFF">
+						<tr id="track-<%= i.to_s() %>" style="background-color: #FFF"> <!--onclick="javascript:Playlist.play('<%= i.to_s() %>')">-->
 							<td><%= i+1 %></td>
 							<td>
 								<div class="row-fluid">
 				  					<div class="span1">
-				  						<%= track['image'] ? image_tag(track['image'][1]['content'], :alt => track['name'], :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+				  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 				  					</div>
 				  					<div class="span9">
-				  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4><br />
-				  						<strong><%= track['playcount'] %></strong> times played on last.fm
+				  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4>
+				  						<!--<span class="badge"><%= track['playcount'] %></span> times played on <a href="<%= track['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a>-->
 				  					</div>
-				  					<!--
 				  					<div class="span2">
-				  						<a href="#" class="btn"><i class="icon-th-list"></i></a>
+				  						<!--<a href="javascript:;" class="btn"><i class="icon-info-sign"></i></a>-->
 				  					</div>
-				  					-->
 								</div>
 							</td>
 						</tr>
@@ -72,7 +69,7 @@
 		  </div>
 		  
 		  <div class="tab-pane" id="top-albums">
-		  		<table class="table table-bordered table-condensed">
+		  		<table class="table table-bordered table-condensed" style="border-top: none">
 					<thead></thead>
 					<tbody>
 					<% if @top_albums %>
@@ -87,12 +84,12 @@
 							<td><%= i+1 %></td>
 							<td>
 								<div class="row-fluid">
-				  					<div class="span2">
-				  						<%= album['image'] ? image_tag(album['image'][1]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+				  					<div class="span1">
+				  						<%= album['image'] ? image_tag(album['image'][0]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 				  					</div>
-				  					<div class="span10">
-				  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name'])) %></h4><br />
-				  						<strong><%= album['playcount'] %></strong> played on Last.fm
+				  					<div class="span11">
+				  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name'])) %></h4>
+				  						<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a>
 				  					</div>
 								</div>
 							</td>
@@ -128,6 +125,13 @@ $(function() {
 	<% i=0; @top_tracks.each do |track| %>
 	Playlist.tracks.push({uid: <%= i.to_s() %>, title: "<%= track['name'] %>"});
 	<% i=i+1; end %>
+	
+	<% if @autoplay == '1' %>
+	// Need to wait until the youtube player initializes
+	setTimeout(function() {
+		Playlist.play("0");
+	}, 3000); 
+	<% end %>
 });
 </script>
 <% end %>

@@ -2,7 +2,7 @@ var Youtube = {
 	player: null,
 	domElement: 'ytplayer',
 	options: {
-	  height: '250',
+	  height: '270',
 	  width: '200'
 	},
 	
@@ -18,7 +18,7 @@ var Youtube = {
 function onYoutubeEventFired(e) {	
 	switch(e.data) {
 		case 0:
-			console.log('ended');
+			// console.log('ended');
 			
 			var song = Playlist.tracks.length > parseInt(Playlist.currentTrack) ? parseInt(Playlist.currentTrack) + 1 : 0; 
 			
@@ -31,4 +31,6 @@ function onYouTubePlayerAPIReady() {
 	Youtube.player = new YT.Player(Youtube.domElement, Youtube.options);
 
 	Youtube.player.addEventListener('onStateChange', 'onYoutubeEventFired');
+	
+	Alike.youtubeLoaded();
 }
