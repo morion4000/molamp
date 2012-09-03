@@ -7,6 +7,12 @@
 	</thead>
 	<tbody>
 	<% if !@artists['results']['artistmatches']['artist'].nil? %>
+	<% 
+		# if the search only has one result then lastfm sends a hash instead of an array
+		if @artists['results']['artistmatches']['artist'].is_a?(Hash)
+			@artists['results']['artistmatches']['artist'] = [@artists['results']['artistmatches']['artist']]
+		end 
+	%>
 	<% @artists['results']['artistmatches']['artist'].each do |artist| %>
 		<tr>
 			<td>
