@@ -16,11 +16,17 @@
 <br />
 
 <div class="row-fluid">
-	<div class="span9">
+	<div class="span8">
 		<table class="table table-bordered table-condensed">
 			<thead></thead>
 			<tbody>
 			<% if @album['tracks']['track'].size > 0 %>
+				<%
+					# if the album only has one track then lastfm sends a hash instead of an array
+					if @album['tracks']['track'].is_a?(Hash)
+						@album['tracks']['track'] = [@album['tracks']['track']]
+					end 
+				%>
 				<% i=0; @album['tracks']['track'].each do |track| %>
 				<tr id="track-<%= i.to_s() %>" style="background-color: #FFF">
 					<td><%= i+1 %></td>
@@ -49,9 +55,9 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="span3">
+	<div class="span4">
 		<div id="right_content">
-			<div id="ytplayer" style="width:200px;height:250px;"></div>
+			<div id="ytplayer" style="width:270px;height:250px;"></div>
 		</div>
 	</div>
 </div>
