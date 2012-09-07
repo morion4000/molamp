@@ -17,12 +17,9 @@ var Youtube = {
 
 function onYoutubeEventFired(e) {	
 	switch(e.data) {
+		// Ended
 		case 0:
-			// console.log('ended');
-			
-			var song = Playlist.tracks.length > parseInt(Playlist.currentTrack) ? parseInt(Playlist.currentTrack) + 1 : 0; 
-			
-			Playlist.play(song);
+			Playlist.next();
 		break;
 	}
 }

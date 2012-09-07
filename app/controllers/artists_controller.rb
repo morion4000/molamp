@@ -25,7 +25,7 @@ class ArtistsController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @artist }
+      format.json { render :json => @top_tracks }
     end
   end
 end
