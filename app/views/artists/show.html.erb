@@ -41,24 +41,35 @@
 					<tbody>
 					<% if @top_tracks %>
 						<% i=0; @top_tracks.each do |track| %>
-						<tr id="track-<%= i.to_s() %>" style="background-color: #FFF"> <!--onclick="javascript:Playlist.play('<%= i.to_s() %>')">-->
+						<tr id="track-<%= i.to_s() %>" rel="<%= track['mbid'] %>" style="background-color: #FFF"> <!--onclick="javascript:Playlist.play('<%= i.to_s() %>')">-->
 							<td><%= i+1 %></td>
 							<td>
 								<div class="row-fluid">
 				  					<div class="span1">
 				  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 				  					</div>
-				  					<div class="span9">
-				  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4>
-				  						<!--<span class="badge"><%= track['playcount'] %></span> times played on <a href="<%= track['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a>-->
-				  					</div>
-				  					<div class="span2">
-				  						<!--<a href="javascript:;" class="btn"><i class="icon-info-sign"></i></a>-->
-				  					</div>
+				  					<% if track['mbid'].is_a?(String) %>
+					  					<div class="span9">
+					  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
+					  						<!--<span class="badge"><%= track['playcount'] %></span> times played on <a href="<%= track['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a>-->
+					  					</div>
+					  					<div class="span2">
+					  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
+					  					</div>
+				  					<% else %>
+				  						<div class="span11">
+				  							<h4><%= track['name'] %></h4>
+				  						</div>
+				  					<% end %>
 								</div>
 							</td>
 						</tr>
 						<% i=i+1; end %>
+						<tr>
+							<td colspan="2">
+								<center><a href="javascript:;" class="btn btn-primary disabled">More...</a></center>
+							</td>
+						</tr>
 					<% else %>
 						<tr>
 							<td>Artist has no tracks.</td>
@@ -121,10 +132,16 @@
 <% if @top_tracks %>
 <script type="text/javascript">
 $(function() {
-	Playlist.artist = "<%= @artist['name'] %>";
 	<% i=0; @top_tracks.each do |track| %>
-	Playlist.tracks.push({uid: <%= i.to_s() %>, title: "<%= track['name'] %>"});
-	<% i=i+1; end %>
+	<% if track['mbid'].is_a?(String) %>
+	Playlist.tracks.push({
+		uid: <%= i.to_s() %>,
+		mbid: "<%= track['mbid'] %>",
+		artist: "<%= @artist['name'] %>", 
+		title: "<%= track['name'] %>",
+		similar: []
+	});
+	<% i=i+1; end; end %>
 	
 	<% if @autoplay == '1' %>
 	// Need to wait until the youtube player initializes

@@ -1,46 +1,29 @@
 var Lastfm = {
-	call : function() {
-		var artist = $('input[name=search]').val();
-
+	pointer: null,
+	 
+	init: function() {
 		/* Create a cache object */
 		var cache = new LastFMCache();
 
 		/* Create a LastFM object */
-		var lastfm = new LastFM({
-			apiKey : 'f21088bf9097b49ad4e7f487abab981e',
-			apiSecret : '7ccaec2093e33cded282ec7bc81c6fca',
-			cache : cache
+		Lastfm.pointer = new LastFM({
+			apiKey: '930976e93a9a305ccd319242e2a90e58',
+			apiSecret: 'fa79a2ce3ac9477157b158fd08bf06f4',
+			cache: cache
 		});
-
-		/* Load some artist info. */
-		lastfm.artist.getTopTracks({
-			artist : artist,
-			autocorrect : 1,
-			limit : 50
+	},
+	
+	similarTracks: function(mbid) {
+		Lastfm.pointer.track.getSimilar({
+			mbid: mbid,
+			limit: 5
 		}, {
-			success : function(data) {
-				/* Use data. */
-
-				//console.log(data);
-
-				$('ul#songs_list').html('<li class="nav-header">Top rated songs</li>');
-
-				songs = data.toptracks.track;
-
-				for (var i = 0, l = data.toptracks.track.length; i < l; i++) {
-					var song = data.toptracks.track[i];
-
-					console.log(song);
-
-					$('ul#songs_list').append($('<li/>').append($('<a/>').text(song.name).attr('href', 'javascript:;').click((function(s) {
-						return function() {
-							play(artist, s);
-						}
-					})(song))).attr('id', song.playcount));
-				}
+			success: function(data) {
+				Alike.appendSimilarTracks(mbid, data);
 			},
-			error : function(code, message) {
+			error: function(code, message) {
 				/* Show error message. */
+				alert(message);
 			}
 		});
 	}
