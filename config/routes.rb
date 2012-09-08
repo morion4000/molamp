@@ -2,14 +2,16 @@ Lastfmyoutube::Application.routes.draw do
   #get "artists/show"
   
   resources :albums
-  resources :tracks
   resources :search
   resources :artists
 
   match 'artists/:id' => 'artists#show', :id => /[0-9a-zA-Z.&+%]+/
   match 'artists/:artist/:album' => 'albums#show', :artist => /[0-9a-zA-Z.&+%]+/, :album => /[0-9a-zA-Z.&'()+]+/
 
+  match 'tracks/scrobble' => 'tracks#scrobble'
+
   match 'auth/lastfm' => 'auth#lastfm'
+  match 'auth/logout' => 'auth#logout'
 
   root :to => "home#index"
 

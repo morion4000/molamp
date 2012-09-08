@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   
   def set_lastfm
     @lastfm = Lastfm.new(APP_CONFIG['lastfm_api_key'], APP_CONFIG['lastfm_api_secret'])
+    
+    if cookies[:lastfm_session]
+      @lastfm.session = cookies.signed[:lastfm_session]
+    end
   end
   
   protected

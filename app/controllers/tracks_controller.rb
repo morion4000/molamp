@@ -1,16 +1,26 @@
 class TracksController < ApplicationController
-  def show
-    @query = params[:id]
-    
-    lastfm = Lastfm.new('f21088bf9097b49ad4e7f487abab981e', '7ccaec2093e33cded282ec7bc81c6fca')
-    
-    #TODO get rid of this
-    
-    @results = lastfm.artist.search()
-    
+  def show    
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @results }
+      format.json { render :json => nil }
+    end
+  end
+  
+  def scrobble
+    artist = params[:artist]
+    track = params[:track]
+    result = {:result => 'failed'}
+    
+    if cookies[:lastfm_session] and Rails.env.production?
+      tracks = Track.new(track, artist, @lastfm)
+      
+      if tracks.scrobble
+        result = {:result => 'successfull'}
+      end
+    end
+    
+    respond_to do |format|
+      format.html { render :json => result }
     end
   end
 end

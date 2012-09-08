@@ -45,7 +45,11 @@
 							</div>
 						</div>
 						<div class="pull-right">
-							<a href="http://www.last.fm/api/auth/?api_key=<%= APP_CONFIG['lastfm_api_key'] %>">Sign in with <img src="/assets/lastfm_icon.png" /></a>
+							<% if cookies[:lastfm_session] %>
+								<img src="/assets/lastfm_icon.png" /> <%= link_to cookies.signed[:lastfm_user], 'http://last.fm/user/' + cookies.signed[:lastfm_user], :target => '_blank' %> | <%= link_to 'Logout', '/auth/logout' %>
+							<% else %>
+								<a href="http://www.last.fm/api/auth/?api_key=<%= APP_CONFIG['lastfm_api_key'] %>">Sign in with <img src="/assets/lastfm_icon.png" /></a>
+							<% end %>
 						</div>
 					</form>
 				</div>

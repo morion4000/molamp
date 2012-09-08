@@ -14,4 +14,8 @@ class Track
   def similar
     return @lastfm.track.get_similar(:artist => @artist, :track => @name)
   end
+  
+  def scrobble
+      return @lastfm.track.scrobble(:artist => @artist, :track => @name)
+  end
 end

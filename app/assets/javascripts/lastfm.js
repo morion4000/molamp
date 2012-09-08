@@ -26,5 +26,19 @@ var Lastfm = {
 				alert(message);
 			}
 		});
+	},
+	
+	scrobble: function(artist, track) {
+		$.ajax({
+			url: '/tracks/scrobble',
+			success: function(data) {
+				// Do something
+			},
+			data: {
+				artist: artist,
+				track: track
+			},
+			dataType: 'json'
+		});
 	}
 };
