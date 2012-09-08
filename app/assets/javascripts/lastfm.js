@@ -32,7 +32,10 @@ var Lastfm = {
 		$.ajax({
 			url: '/tracks/scrobble',
 			success: function(data) {
-				// Do something
+				$.gritter.add({
+					title: 'Track scrobbled...',
+					text: '<strong>' + artist + ' - ' + track + '</strong> was scrobbled on Last.fm'
+				});
 			},
 			data: {
 				artist: artist,

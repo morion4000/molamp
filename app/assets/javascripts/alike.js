@@ -53,12 +53,18 @@ var Alike = {
 					mbid: tracks[i].mbid,
 					artist: tracks[i].artist.name,
 					title: tracks[i].name,
+					image: tracks[i].image[0]['#text'],
 					similar: track.uid 
 				});
 			}
 		}
 		
 		$('tr[class=similar_row]').show('slow');
+		
+		$.gritter.add({
+			title: 'Similar tracks...',
+			text: 'Retreived tracks similar to <strong>' + track.artist + ' - ' + track.title + '</strong>'
+		});
 	},
 	
 	removeSimilarTracks: function(mbid) {

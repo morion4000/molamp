@@ -139,6 +139,7 @@ $(function() {
 		mbid: "<%= track['mbid'] %>",
 		artist: "<%= @artist['name'] %>", 
 		title: "<%= track['name'] %>",
+		image: "<%= track['image'] ? track['image'][0]['content'] : '/assets/noimage.jpg' %>",
 		similar: []
 	});
 	<% i=i+1; end %>

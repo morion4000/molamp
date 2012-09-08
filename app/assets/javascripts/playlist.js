@@ -28,6 +28,12 @@ var Playlist = {
 
 				Playlist.highlightTrack(track);
 				Playlist.currentTrack = track;
+				
+				$.gritter.add({
+					title: 'Now playing...',
+					image: track.image,
+					text: track.artist + ' - ' + track.title
+				});
 			},
 			data: {
 				q: track.artist + ' ' + track.title,
