@@ -2,13 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= content_for?(:title) ? yield(:title) : 'ALike - Discover your music' %></title>
+    <title><%= content_for?(:title) ? yield(:title) : 'Molamp - Discover your music' %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Music Online Amplifier">
+    <meta name="author" content="Ionut Moraru">
   	<%= stylesheet_link_tag    "application", :media => "all" %>
   	<%= javascript_include_tag "application" %>
   	<%= csrf_meta_tags %>
+  	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  	<% if Rails.env.production? %>
   	<script type="text/javascript">
 	
 	  var _gaq = _gaq || [];
@@ -22,6 +24,7 @@
 	  })();
 	
 	</script>
+	<% end %>
 </head>
 <body>
 
@@ -29,20 +32,27 @@
 		<div class="header">
 			<div class="row-fluid">
 				<div class="span8">
-					<a href="/"><%= image_tag("logoalike.png", :alt => "alike.fm", :height => 70) %></a>
+					<a href="/"><%= image_tag("logo.png", :alt => "molamp.net", :height => 70) %></a>
 				</div>
 				<div class="span4">
 					<br />
 					<form name="search" method="GET" action="/search">
-						<input type="hidden" name="w" value="generic" />
-						<div class="input-append">
-							<input size="12" name="q" type="text" placeholder="Search">
-							<button class="btn" type="submit"><i class="icon-search"></i></button>
+						<div class="pull-right">
+							<input type="hidden" name="w" value="generic" />
+							<div class="input-append">
+								<input size="12" name="q" type="text" placeholder="Search">
+								<button class="btn" type="submit"><i class="icon-search"></i></button>
+							</div>
+						</div>
+						<div class="pull-right">
+							<a href="http://www.last.fm/api/auth/?api_key=<%= APP_CONFIG['lastfm_api_key'] %>">Sign in with <img src="/assets/lastfm_icon.png" /></a>
 						</div>
 					</form>
 				</div>
 			</div>
 		<div>
+		
+		<br />
 		
 		<div class="well">
 			<%= yield %>
@@ -52,7 +62,7 @@
 	  		<div class="span11">
 	  			<footer class="footer">
 					<p>
-						&copy; <%= Date.today.year %> ALike <sup><span class="label label-info">alpha</span></sup>. 
+						&copy; <%= Date.today.year %> Molamp <sup><span class="label label-info">beta</span></sup>. 
 						Made with <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>. 
 						Powered by <a href="http://www.last.fm" target="_blank"><img src="/assets/lastfm_icon.png" /></a>.<br />
 						<i><%= ENV['rel'] %></i>
@@ -81,6 +91,7 @@
 	  </div>
 </div>
 
+<% if Rails.env.production? %>
 <script type="text/javascript">
   var uvOptions = {};
   (function() {
@@ -89,6 +100,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
   })();
 </script>
+<% end %>
 
 </body>
 </html>
