@@ -52,6 +52,7 @@ GEM
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    gritter (1.0.2)
     hike (1.2.1)
     httparty (0.8.3)
       multi_json (~> 1.0)
@@ -129,6 +130,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.0.4.1)
   coffee-rails (~> 3.2.1)
+  gritter (= 1.0.2)
   jquery-rails
   json
   lastfm!
