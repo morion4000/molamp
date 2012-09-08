@@ -58,6 +58,13 @@
 		
 		<br />
 		
+		<% if flash[:notice] %>
+		<div class="alert">
+		  <button type="button" class="close" data-dismiss="alert">×</button>
+		  <strong>Hurray!</strong> <%= flash[:notice] %>
+		</div>
+		<% end %>
+		
 		<div class="well">
 			<%= yield %>
 		</div>
@@ -80,7 +87,6 @@
 	  		</div>
 		</div>	
 	</div>
-	
 	
 	<div class="modal hide" id="aboutModal">
 	  <div class="modal-header">
