@@ -7,4 +7,8 @@ module LayoutHelper
   def show_title?
     @show_title
   end
+  
+  def description(description)
+    content_for(:description) { h(description.to_s) }
+  end
 end

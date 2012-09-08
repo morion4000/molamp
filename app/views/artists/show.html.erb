@@ -2,6 +2,7 @@
 	<div class="alert alert-error">The artist could not be found. Please try searching again.</div>
 <% else %>
 <% title @artist['name'], false %>
+<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist['bio']['summary']), :length => 150) %>
 
 <div class="row-fluid">
   <div class="span3">
