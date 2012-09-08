@@ -2,8 +2,8 @@ var Youtube = {
 	player: null,
 	domElement: 'ytplayer',
 	options: {
-	  height: '270',
-	  width: '200'
+	  height: '340',
+	  width: '250'
 	},
 	
 	init: function() {
