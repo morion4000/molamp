@@ -16,7 +16,7 @@
 <br />
 
 <div class="row-fluid">
-	<div class="span8">
+	<div class="span7">
 		<table class="table table-bordered table-condensed">
 			<thead></thead>
 			<tbody>
@@ -27,8 +27,15 @@
 						@album['tracks']['track'] = [@album['tracks']['track']]
 					end 
 				%>
-				<% i=0; @album['tracks']['track'].each do |track| %>
-				<tr id="track-<%= i.to_s() %>" style="background-color: #FFF">
+				<% 
+					i=0 
+					@album['tracks']['track'].each do |track|
+						# some songs don't have an mbid so i'll generate one
+						if !track['mbid'].is_a?(String)
+							track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @album['artist'])
+						end 
+				%>
+				<tr id="track-<%= i.to_s() %>" rel="<%= track['mbid'] %>" style="background-color: #FFF">
 					<td><%= i+1 %></td>
 					<td>
 						<div class="row-fluid">
@@ -36,13 +43,11 @@
 		  						<%= @album['image'] ? image_tag(@album['image'][1]['content'], :alt => @album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 		  					</div>
 		  					<div class="span9">
-		  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+i.to_s()+'")') %></h4>
+		  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
 		  					</div>
-		  					<!--
 		  					<div class="span2">
-		  						<a href="#" class="btn"><i class="icon-th-list"></i></a>
+		  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
 		  					</div>
-		  					-->
 						</div>
 					</td>
 				</tr>
@@ -55,9 +60,9 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="span4">
+	<div class="span5">
 		<div id="right_content">
-			<div id="ytplayer" style="width:270px;height:250px;"></div>
+			<div id="ytplayer" style="width:340px;height:250px;"></div>
 		</div>
 	</div>
 </div>
@@ -73,7 +78,14 @@
 $(function() {
 	Playlist.artist = "<%= @album['artist'] %>";
 	<% i=0; @album['tracks']['track'].each do |track| %>
-	Playlist.tracks.push({uid: <%= i.to_s() %>, title: "<%= track['name'] %>"});
+	Playlist.tracks.push({
+		uid: <%= i.to_s() %>, 
+		mbid: "<%= track['mbid'] %>",
+		artist: "<%= @album['artist'] %>", 
+		title: "<%= track['name'] %>",
+		image: "<%= @album['image'] ? @album['image'][0]['content'] : '/assets/noimage.jpg' %>",
+		similar: []
+	});
 	<% i=i+1; end %>
 });
 </script>

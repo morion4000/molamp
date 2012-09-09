@@ -17,7 +17,7 @@ var Alike = {
 	},
 	
 	appendSimilarTracks: function(mbid, data) {
-		var tr = $('div#top-tracks table tbody').find('tr[rel="'+mbid+'"]'),
+		var tr = $('table tbody').find('tr[rel="'+mbid+'"]'),
 			tracks = data.similartracks.track,
 			track = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid)
 				
