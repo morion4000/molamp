@@ -18,4 +18,5 @@
 //= require javascript-last.fm-api/lastfm.api.md5.js
 //= require javascript-last.fm-api/lastfm.api.cache.js
 //= require jquery-scrolltofixed-min.js
+//= require handlebars-1.0.0.beta.6.js
 //= require_tree .

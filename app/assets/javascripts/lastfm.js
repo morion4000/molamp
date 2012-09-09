@@ -28,6 +28,21 @@ var Lastfm = {
 		});
 	},
 	
+	moreTracks: function() {
+		Lastfm.pointer.artist.getTopTracks({
+			artist: Playlist.tracks[0].artist,
+			page: Playlist.page,
+			limit: Playlist.limit
+		}, {
+			success: function(data) {
+				Alike.appendTracks(data);
+			},
+			error: function(code, message) {
+				alert(message);
+			}
+		});
+	},
+	
 	scrobble: function(artist, track) {
 		$.ajax({
 			url: '/tracks/scrobble',

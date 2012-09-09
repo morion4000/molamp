@@ -113,5 +113,32 @@
 </script>
 <% end %>
 
+<script id="similar-template" type="text/x-handlebars-template">
+<div class="row-fluid">
+	<div class="span1">
+	</div>
+	<div class="span1">
+  		<img alt="{{name}}" class="img-rounded" src="{{image}}">
+  	</div>
+  	<div class="span10">
+  		<h4><a href="javascript:Playlist.play('{{parent_mbid}}', '{{mbid}}')">{{artist}} - {{name}}</a></h4>
+  	</div>
+</div>
+</script>
+
+<script id="track-template" type="text/x-handlebars-template">
+<div class="row-fluid">
+	<div class="span1">
+		<img src="{{image}}" alt="{{name}}" />
+	</div>
+	<div class="span9">
+		<h4><a href="javascript:Playlist.play('{{mbid}}', null)">{{name}}</a></h4>
+	</div>
+	<div class="span2">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
+	</div>
+</div>
+</script>
+
 </body>
 </html>

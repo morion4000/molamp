@@ -1,6 +1,8 @@
 var Playlist = {
 	currentTrack: null,
 	artist: null,
+	page: 3,
+	limit: 10,
 	tracks: [],
 	
 	play: function(mbid, similar) {
@@ -9,10 +11,9 @@ var Playlist = {
 		//?q=black%20sabbath%20Sabbath%20Bloody%20Sabbath&orderby=relevance&v=2&alt=atom&restriction=RO';
 
 		if (similar != null) {
-			var parent = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid),
-				tracks = Playlist.tracks[parent.uid].similar;
+			var parent = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid);
 			
-			track = Playlist.searchTrack(tracks, 'mbid', similar);
+			track = Playlist.searchTrack(parent.similar, 'mbid', similar);
 		} else {
 			track = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid);
 		}

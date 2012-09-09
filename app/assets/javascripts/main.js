@@ -14,7 +14,7 @@ $(function() {
 	
 	$('#right_content').scrollToFixed();
 	
-	$('.similar_tracks').click(function(e) {
+	$('.similar_tracks').live('click', function(e) {
 		var mbid = $(this).parent().parent().parent().parent().attr('rel'),
 			track = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid);
 				
@@ -37,5 +37,9 @@ $(function() {
 			$(this).children('i').removeClass('icon-plus-sign');
 			$(this).children('i').addClass('icon-minus-sign');
 		}
+	});
+	
+	$('#more-tracks').live('click', function(e) {
+		Alike.moreTracks();
 	});
 });
