@@ -1,0 +1,68 @@
+<% if !@user %>
+	<div class="alert alert-error">The username could not be found.</div>
+<% else %>
+<% title @user['name'], false %>
+
+<div class="row-fluid">
+  <div class="span3">
+  	<%= image_tag(get_image(@user['image'], 3), :alt => @user['name']) %>
+  </div>
+  <div class="span9">
+  	<div class="span10">
+		<h2><%= @user['name'] %></h2>
+		<p><span class="badge"><%= @user['playcount'] %></span> tracks listened on <a href="#" target="_blank"><img src="/assets/lastfm_icon.png" /></a></p>
+	</div>
+	<div class="span2">
+		<div style="margin-bottom: 5px;" class="fb-like" data-href="<%= 'http://www.molamp.net/users/' + @user['name'] %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
+		<br />
+		<a href="https://twitter.com/share" class="twitter-share-button" data-via="molamp">Tweet</a>
+	</div>
+  </div>
+</div>
+
+<br />
+
+<div class="row-fluid">
+	<div class="span7">
+		<table class="table table-bordered table-condensed">
+			<thead></thead>
+			<tbody>
+				<%	
+				if @top_artists.size > 0
+					i=0 
+					@top_artists.each do |artist|
+				%>
+				<tr style="background-color: #FFF">
+					<td><%= i+1 %></td>
+					<td>
+						<div class="row-fluid">
+		  					<div class="span1">
+		  						<%= image_tag(get_image(artist['image'], 1), :alt => artist['name']) %>
+		  					</div>
+		  					<div class="span11">
+		  						<h4><%= link_to(artist['name'], '/artists/' + url_to_lastfm(artist['name'])) %></h4>
+		  					</div>
+						</div>
+					</td>
+				</tr>
+				<% i=i+1; end %>
+			<% else %>
+				<tr>
+					<td>User has no top artists.</td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="span5">
+		<div id="right_content">
+			<div id="ytplayer" style="width:340px;height:250px;"></div>
+		</div>
+	</div>
+</div>
+
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li class="active"><%= @user['name'] %></li>
+</ul>
+<% end %>
