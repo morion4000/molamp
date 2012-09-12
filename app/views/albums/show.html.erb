@@ -47,7 +47,7 @@
 					<td>
 						<div class="row-fluid">
 		  					<div class="span1">
-		  						<%= @album['image'] ? image_tag(@album['image'][1]['content'], :alt => @album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+		  						<%= image_tag(get_image(@album['image'], 1), :alt => @album['name']) %>
 		  					</div>
 		  					<div class="span9">
 		  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
@@ -90,7 +90,7 @@ $(function() {
 		mbid: "<%= track['mbid'] %>",
 		artist: "<%= @album['artist'] %>", 
 		title: "<%= track['name'] %>",
-		image: "<%= @album['image'] ? @album['image'][0]['content'] : '/assets/noimage.jpg' %>",
+		image: "<%= get_image @album['image'], 0 %>",
 		similar: []
 	});
 	<% i=i+1; end %>

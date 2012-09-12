@@ -6,7 +6,7 @@ Lastfmyoutube::Application.routes.draw do
   resources :artists
 
   match 'artists/:id' => 'artists#show', :id => /[0-9a-zA-Z.&+%]+/
-  match 'artists/:artist/:album' => 'albums#show', :artist => /[0-9a-zA-Z.&+%]+/, :album => /[0-9a-zA-Z.&':()+]+/
+  match 'artists/:artist/:album' => 'albums#show', :artist => /[0-9a-zA-Z.&+%]+/, :album => %r{[0-9a-zA-Z.&':()+/]+}i
 
   match 'tracks/scrobble' => 'tracks#scrobble'
 
