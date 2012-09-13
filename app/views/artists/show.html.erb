@@ -12,7 +12,7 @@
   	<div class="row-fluid">
   		<div class="span10">
   			<h2><%= @artist['name'] %></h2>
-  			<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a></p>
+  			<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
   		</div>
   		<div class="span2">
 			<div style="margin-bottom: 5px;" class="fb-like" data-href="<%= 'http://www.molamp.net/artists/' + url_to_lastfm(@artist['name']) %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
@@ -115,7 +115,7 @@
 				  					</div>
 				  					<div class="span11">
 				  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %></h4>
-				  						<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a>
+				  						<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
 				  					</div>
 								</div>
 							</td>
