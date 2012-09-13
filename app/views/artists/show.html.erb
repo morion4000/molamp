@@ -51,8 +51,13 @@
 					<tbody>
 					<% if @top_tracks %>
 						<% 
+							# if the artist only has one song then lastfm sends a hash instead of an array
+							if @top_tracks.is_a?(Hash)
+								@top_tracks = [@top_tracks]
+							end 
+							
 							i=0 
-							@top_tracks.each do |track|
+							@top_tracks.each do |track|							
 								# some songs don't have an mbid so i'll generate one
 								if !track['mbid'].is_a?(String)
 									track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @artist['name'])
