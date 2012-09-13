@@ -8,1502 +8,1618 @@
 
 <url>
   <loc>http://molamp.net/</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Black+Keys</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Grateful+Dead</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Motörhead</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Zaz</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Clash</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Dan+Auerbach</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/BlakRoc</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+White+Stripes</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Radio+Moscow</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Raconteurs</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/Brothers</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/Attack+&amp;+Release</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/Rubber+Factory</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/The+Big+Come+Up</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/Thickfreakness</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/Magic+Potion</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/Attack+And+Release</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/Chulahoma</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/The+Moan</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Black+Keys/Tighten+Up</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Jerry+Garcia</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Jerry+Garcia+Band</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Phish</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+String+Cheese+Incident</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/American+Beauty</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/Dead+Set</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/Skeletons+From+the+Closet:+The+Best+of+the+Grateful+Dead</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/Workingman's+Dead</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/In+the+Dark</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/Reckoning</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/Aoxomoxoa</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/Blues+for+Allah</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/Shakedown+Street</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Grateful+Dead/Wake+of+the+Flood</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Black+Sabbath</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Anthrax</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Judas+Priest</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Venom</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Slayer</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/Ace+Of+Spades</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/No+Remorse</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/Overkill</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/1916</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/Orgasmatron</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/Inferno</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/Motörizer</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/The+World+Is+Yours</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/Bastards</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Motörhead/Iron+Fist</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Raphael+Haroche</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Caro+Emerald</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Hindi+Zahra</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Yves+Jamait</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Nouvelle+Vague</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Zaz</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Like+An+Animal</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Je+veux</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Sans+Tsu+Tsou</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Zaz+Live+Tour</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Eblouie+par+la+nuit</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Le+Long+De+La+Route</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Zaz+-+Special+Edition</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Climb+Aboard+(Bonus+Songs)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Zaz/Mi+Va</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Joe+Strummer</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+101'ers</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Sex+Pistols</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Ramones</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/London+Calling</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/The+Essential+Clash</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/Combat+Rock</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/The+Clash</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/The+Singles</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/Clash+On+Broadway</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/Give+'Em+Enough+Rope</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/Sandinista!</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Clash/Super+Black+Market+Clash</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Junior+Kimbrough</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Greenhornes</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Dan+Auerbach/Keep+It+Hid</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Mos+Def</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Black+Star</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/BlakRoc/Blakroc</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Dead+Weather</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Jack+White</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Kills</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/Elephant</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/White+Blood+Cells</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/Icky+Thump</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/Get+Behind+Me+Satan</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/De+Stijl</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/The+White+Stripes</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/Elephant-ADVANCE+VINYL</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/Jolene+Live+Under+Blackpool+Lights</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/Conquest</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+White+Stripes/Seven+Nation+Army</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Left+Lane+Cruiser</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Black+Diamond+Heavies</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Buffalo+Killers</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Soledad+Brothers</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Radio+Moscow/Radio+Moscow</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Radio+Moscow/Brain+Cycles</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Raconteurs/Consolers+of+the+Lonely</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Raconteurs/Broken+Boy+Soldiers</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Raconteurs/Broken+Boy+Soldier</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Phil+Lesh</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Bob+Weir</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Garcia</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Live+At+Keystone,+Volume+2</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Reflections</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Compliments</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Run+For+The+Roses</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Keystone+Encores</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/The+Pizza+Tapes</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Cats+Under+the+Stars</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Almost+Acoustic</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia/Lonesome+Prison+Blues</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Legion+Of+Mary</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/Jerry+Garcia+Band+(disc+2)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/Jerry+Garcia+Band</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/How+Sweet+It+Is</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/Don't+Let+Go+(disc+1)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/Jerry+Garcia+Band+(disc+1)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/Don't+Let+Go+(disc+2)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/Shining+Star+(disc+1)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/Shining+Star+(disc+2)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jerry+Garcia+Band/How+Sweet+It+Is.../</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Trey+Anastasio</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Mike+Gordon</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/moe.</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/Farmhouse</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/Billy+Breathes</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/The+Story+of+the+Ghost</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/A+Picture+of+Nectar</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/A+Live+One</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/Hoist</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/Lawn+Boy</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/Rift</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/Joy</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phish/Junta</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/New+Monsoon</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Leftover+Salmon</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/There+and+Back+Again</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/1998-04-20:+The+Warfield+Theater,+San+Fransico,+CA,+USA</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/2005-11-22:+NJPAC,+Newark,+NJ,+USA+(disc+3)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/2005-11-22:+NJPAC,+Newark,+NJ,+USA+(disc+1)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/2005-11-22:+NJPAC,+Newark,+NJ,+USA+(disc+2)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/28+April+2001</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/1999-04-15:+San+Francisco,+CA,+USA+(disc+3)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/1999-04-15:+San+Francisco,+CA,+USA+(disc+1)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/2002-06-23:+Manchester,+TN,+USA+(disc+1)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh+&amp;+Friends/Mason's+Children</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Keller+Williams</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Railroad+Earth</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Yonder+Mountain+String+Band</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Umphrey's+McGee</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/One+Step+Closer</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/Born+on+the+Wrong+Planet</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/Live+at+Austin+City+Limits+Music+Festival+2006:+The+String+Cheese+Incident</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/A+String+Cheese+Incident</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/Round+The+Wheel</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/Untying+the+Not</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/Outside+Inside</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/'Round+the+Wheel</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/Rhythm+of+the+Road:+Volume+One,+Incident+in+Atlanta+-11.17.00</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+String+Cheese+Incident/Trick+Or+Treat:+Best+Of+The+String+Cheese+Incident</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Ozzy+Osbourne</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Heaven+&amp;+Hell</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Dio</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Deep+Purple</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Paranoid</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Master+of+Reality</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Black+Sabbath</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Sabbath+Bloody+Sabbath</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Heaven+And+Hell</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Sabotage</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/We+Sold+Our+Soul+for+Rock+'n'+Roll</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Greatest+Hits</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Mob+Rules</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Sabbath/Never+Say+Die!</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Exodus</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Testament</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Overkill</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Megadeth</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Annihilator</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/Among+The+Living</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/Spreading+The+Disease</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/Persistence+Of+Time</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/State+Of+Euphoria</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/Worship+Music</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/Fistful+of+Metal</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/Sound+of+White+Noise</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/The+Greater+Of+Two+Evils</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/We've+Come+For+You+All</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Anthrax/Attack+Of+The+Killer+B's</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Halford</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Accept</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Saxon</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Iron+Maiden</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/British+Steel</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Painkiller</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Screaming+For+Vengeance</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Angel+Of+Retribution</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Defenders+Of+The+Faith</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Sad+Wings+of+Destiny</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Playlist:+The+Very+Best+of+Judas+Priest</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Turbo</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Stained+Class</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Judas+Priest/Sin+After+Sin</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Sodom</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Hellhammer</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Bathory</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Possessed</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Sarcófago</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/Black+Metal</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/Welcome+To+Hell</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/Metal+Black</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/At+War+With+Satan</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/MMV</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/Fallen+Angels</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/Resurrection</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/Possessed</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/Cast+In+Stone</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Venom/Prime+Evil</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Kreator</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/Reign+in+Blood</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/Seasons+in+the+Abyss</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/South+of+Heaven</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/God+Hates+Us+All</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/Show+No+Mercy</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/World+Painted+Blood</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/Christ+Illusion</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/Hell+Awaits</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/Diabolus+in+musica</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Slayer/Divine+Intervention</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/lunas+y+mariposas</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Mireille+Mathieu</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Bellvara</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Miguel+Dantart</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Room+Eleven</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Gare+du+Nord</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Trijntje+Oosterhuis</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Eliza+Doolittle</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Caro+Emerald/Deleted+Scenes+From+The+Cutting+Room+Floor</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Caro+Emerald/Back+It+Up</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Caro+Emerald/A+Night+Like+This</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Caro+Emerald/Stuck</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Caro+Emerald/Back+It+Up+(Kraak+&amp;+Smaak+Remix)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Caro+Emerald/Back+It+Up+feat.+Madcon</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Blundetto</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Jehan+Barbur</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Büyük+Ev+Ablukada</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Birsen+Tezer</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Oi+Va+Voi</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Hindi+Zahra/Handmade</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Hindi+Zahra/Handmade+(.)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Hindi+Zahra/Handmade+(New+Version+-+Includes+Bonus)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Hindi+Zahra/Until+The+Next+Journey</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Hindi+Zahra/Beautiful+Tango</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Hindi+Zahra/Hindi+Zahra</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Hindi+Zahra/Fascination</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Jamait</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Les+Ogres+De+Barback</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Agnès+Bihl</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Debout+sur+le+zinc</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Les+Croquants</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Yves+Jamait/Les+Zigs</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Mélanie+Pain</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Hollywood,+Mon+Amour</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Philippe+Sarde</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Koop</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Michel+Colombier</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/Nouvelle+Vague</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/Bande+a+Part</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/3</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/Nouvelle+Vague+(Limited+French+Version)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/Couleurs+Sur+Paris</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/Best+Of</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/Bande+à+Part</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/Version+Française</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/Bande+A+Part+-+Ltd+Edition</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Nouvelle+Vague/3+(USA+Tour+Edition)</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Big+Audio+Dynamite</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Global+a+Go-go</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Streetcore</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Rock+Art+and+the+X-Ray+Style</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Rock,+Art+And+The+X-Ray+Style</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Global+Agogo</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Bringing+It+All+Back+Home:+Liverpool+University+22+Nov+2002+the+Last+Ever+Gig</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Going+Out+to+the+100+Club</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Redemption+Song+(disc+2)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer+and+the+Mescaleros/Les+Shirley</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer/Streetcore</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer/Earthquake+Weather</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer/Walker</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer/The+Future+Is+Unwritten</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer/Rock+Art+and+the+X-Ray+Style</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer/Island+Hopping</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer/Global+a+Go-Go</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Joe+Strummer/House+of+Blues+(disc+2)</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Eddie+&amp;+The+Hot+Rods</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Boys</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+101'ers/Elgin+Avenue+Breakdown</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+101'ers/Elgin+Avenue+Breakdown+Revisited</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+101'ers/Elgin+Avenue+Breakdown+(Revisited)</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Sid+Vicious</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Exploited</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Misfits</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/Never+Mind+the+Bollocks</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/Never+Mind+the+Bollocks+Here's+the+Sex+Pistols</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/Kiss+This</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/Never+Mind+The+Bollocks,+Here's+The+Sex+Pistols</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/The+Sex+Pistols</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/The+Great+Rock+'N'+Roll+Swindle</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/Nevermind+The+Bollocks,+Here's+The+Sex+Pistols</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/Never+Mind+the+Bollocks.../</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/Flogging+a+Dead+Horse</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Sex+Pistols/God+Save+the+Queen</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Dee+Dee+Ramone</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Joey+Ramone</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Adicts</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/Ramones</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/Rocket+to+Russia</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/Ramones+Mania</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/Leave+Home</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/Greatest+Hits</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/Loud,+Fast,+Ramones:++Their+Toughest+Hits</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/End+of+the+Century</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/Road+to+Ruin</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/It's+Alive</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Ramones/Brain+Drain</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/T-Model+Ford</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/R.l.+Burnside</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Robert+Belfour</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Asie+Payton</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/All+Night+Long</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/You+Better+Run:+The+Essential+Junior+Kimbrough</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/Meet+Me+in+the+City</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/Sad+Days,+Lonely+Nights</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/God+Knows+I+Tried</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/You+Better+Run</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/Most+Things+Haven't+Worked+Out</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/First+Recordings</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/Most++Things+Haven't+Worked+Out</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Junior+Kimbrough/Sunday+Nights+-+The+Songs+of+Junior+Kimbrough</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Holly+Golightly</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Greenhornes/Dual+Mono</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Greenhornes/Sewed+Soles</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Greenhornes/The+Greenhornes</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Greenhornes/Gun+for+You</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Greenhornes/East+Grand+Blues+(EP)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Greenhornes/East+Grand+Blues</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Greenhornes/Greenhornes</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Greenhornes/Pattern+Skies</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Talib+Kweli</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Mike+Zoot</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Common</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Roots</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/Black+On+Both+Sides</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/The+Ecstatic</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/The+New+Danger</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/TRUE+MAGIC</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/Mos+Definite</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/Sex,+Love+&amp;+Money</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/Quiet+Dog</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/Life+In+Marvelous+Times</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/Casa+Bey</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mos+Def/Mos+Def+EP</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Reflection+Eternal</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Mos+Def+&amp;+Talib+Kweli+Are+Black+Star</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Black+Star</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Mos+Def+&amp;+Talib+Kweli+Are+BlackStar</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Mos+Def+and+Talib+Kweli+Are+Black+Star</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Blackstar</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Just+Black+Star</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Penuh+Diksi+EP</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Bebek+Cantik+(Single)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/The+Singles</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Star/Respiration</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Band+of+Skulls</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Dead+Weather/Horehound</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Dead+Weather/Treat+Me+Like+Your+Mother</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Dead+Weather/I+Cut+Like+A+Buffalo</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Dead+Weather/Hang+You+From+The+Heavens</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Hentchmen</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Alabama+Shakes</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jack+White/Blunderbuss</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jack+White/Love+Interruption</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jack+White/Sixteen+Saltines</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jack+White/Cold+Mountain+(Music+From+the+Miramax+Motion+Picture)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jack+White/Southern+Songbook</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jack+White/Freedom+At+21</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Jack+White/2004-03-02:+Peel+Session</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Blood+Red+Shoes</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Horrors</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/Blood+Pressures</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/Midnight+Boom</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/No+Wow</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/Keep+On+Your+Mean+Side</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/The+Last+Goodbye</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/Black+Rooster+EP</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/Cheap+and+Cheerful</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/The+Good+Ones</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/Love+Is+a+Deserter</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/The+Kills/Fried+My+Little+Brains</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Honkeyfinger</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Scott+H.+Biram</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Left+Lane+Cruiser/Gettin'+Down+On+It</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Left+Lane+Cruiser/Bring+Yo'+Ass+to+the+Table</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/James+Leg</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Brimstone+Howl</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Black+Diamond+Heavies/Every+Damn+Time</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Shake</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Little+Killers</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Heavy+Trash</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Buffalo+Killers/Buffalo+Killers</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/Voice+Of+Treason</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/Live</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/Steal+Your+Soul+And+Dare+Your+Spirit+To+Move</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/The+Hardest+Walk</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/The+Soledad+Brothers</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/Soledad+Brothers</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/Recorded+Live+At+The+Gold+Dollar+6</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/Hardest+Walk</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Soledad+Brothers/Good+Feeling</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Furthur</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Ratdog</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Bob+Weir+&amp;+Ratdog</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/The+Dead</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Phil+Lesh/There+and+Back+Again</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Manassas</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Neil+Young+International+Harvesters</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Tedeschi+Trucks+Band</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Bob+Dylan+&amp;+The+Grateful+Dead</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Crazy+Horse</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Bob+Weir/Ace</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Bob+Weir/Kingfish</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Bob+Weir/Heaven+Help+The+Fool</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Bob+Weir/Bobby+&amp;+the+Midnites</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Bob+Weir/King+Biscuit+Flower+Hour+Prese</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Bob+Weir/Weir+Here:+The+Best+of+Bob+Weir+(disc+1)</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Page+McConnell</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Tea+Leaf+Green</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/The+Horseshoe+Curve</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/Shine</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/Bar+17</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/Trey+Anastasio</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/Seis+de+Mayo</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/Plasma+(disc+1)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/Plasma</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/One+Man's+Trash</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/2001-03-03:+Columbia,+SC+(disc+2)</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Trey+Anastasio/Plasma+(disc+2)</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Leo+Kottke+&amp;+Mike+Gordon</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mike+Gordon/The+Green+Sparrow</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mike+Gordon/Inside+In</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mike+Gordon/Moss</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Mike+Gordon/2003-10-14:+Toad's+Place,+New+Haven,+CT,+USA</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./No+Doy</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./Tin+Cans+and+Car+Tires</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./Dither</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./Live+at+Lollapalooza+2007:+moe.</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./Wormwood</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./tin+cans+&amp;+car+tires</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./WHAT+HAPPENED+TO+THE+LA+LAs</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./Headseed</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/moe./Fatboy</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/RAQ</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/Live+At+Granada+Theater++April+20th+2006</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/Last+Concert+Cafe+Houston,+TX+Nov+17th,+2006</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/Last+Concert+Cafe+Houston,+TX++Nov+18th+2006</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/Live+at+the+Telluride+Bluegrass+Festival</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/Downstream</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/The+Sound</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/Live</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/New+Monsoon+V</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/Live+At+Aggie+Theater+Aug+26th+2006</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/New+Monsoon/Hydrophonic</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/Euphoria</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/The+Nashville+Sessions</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/Aquatic+Hitchhiker</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/Bridges+To+Bert</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/Ask+The+Fish</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/Leftover+Salmon</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/Live</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/1999-11-10:+Fitzgerald+Theater,+St.+Paul,+MN,+USA</loc>
-</url>
-<url>
-  <loc>http://molamp.net/artists/Leftover+Salmon/2002-12-04:+Higher+Ground,+Winooski,+VT,+USA</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://molamp.net/artists/Keller+Williams+&amp;+The+Keels</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/12</loc>
+  <loc>http://molamp.net/artists/Cornmeal</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/dream</loc>
+  <loc>http://molamp.net/artists/Hot+Buttered+Rum</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/Laugh</loc>
+  <loc>http://molamp.net/artists/Greensky+Bluegrass</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/Breathe</loc>
+  <loc>http://molamp.net/artists/Acoustic+Syndicate</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/Home</loc>
+  <loc>http://molamp.net/artists/The+Disco+Biscuits</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/High+Sierra+7-6-02</loc>
+  <loc>http://molamp.net/artists/Lotus</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/Bass</loc>
+  <loc>http://molamp.net/artists/Black+Label+Society</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/Kids</loc>
+  <loc>http://molamp.net/artists/Elf</loc>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://molamp.net/artists/Keller+Williams/Loop</loc>
+  <loc>http://molamp.net/artists/Iommi</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Rainbow</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Uriah+Heep</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Ian+Gillan</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Whitesnake</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Destruction</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Death+Angel</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/MD.45</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Metallica</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Fight</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Glenn+Tipton</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Two</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/U.D.O.</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Running+Wild</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Grave+Digger</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Tygers+of+Pan+Tang</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Bruce+Dickinson</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Tankard</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Dark+Angel</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Blasphemy</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Celtic+Frost</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Morbid</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Tormentor</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Quorthon</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Darkthrone</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Burzum</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Mayhem</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Immortal</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Razor</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Exumer</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Sadus</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/SexTrash</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Vulcano</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Mutilator</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Rent+(OMPS)</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Mente+Enferma</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Ills</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/As+The+Stars+Fall</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Nana+Mouskouri</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Salvatore+Adamo</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Dalida</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Marie+Laforêt</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Sheila</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Alfredo+González</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Diego+Cantero</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/El+Sobrino+Del+Diablo</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Kiko+Tovar</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Paco+Cifuentes</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Javier+Bergia</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Paco+Ortega</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Antonio+de+Pinto</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Schradinova</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Marike+Jager</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Stevie+Ann</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Wouter+Hamel</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Sabrina+Starke</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Giovanca</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/New+Cool+Collective</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Total+Touch</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Alain+Clark</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Ilse+DeLange</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Glennis+Grace</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Paloma+Faith</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Lily+Allen</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Duffy</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Diana+Vickers</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Tontelas</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Dario+Caminita+presents+Da.Ma.Project</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Lisa+Bassenge+&amp;+The+J-Chestra</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Cannibal+kiss</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Duptribe</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Bülent+Ortaçgil</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Ezginin+Günlüğü</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Ceylan+Ertem</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Jülide+Özçelik</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Sakin</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Yasemin+Mori</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Gevende</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Athena</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Hüsnü+Arkan</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Batlik</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Acorps+de+rue</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Les+Tit'+Nassels</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/La+Rue+Kétanou</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Têtes+Raides</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Les+Hurlements+d'Léo</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Les+Ogres+de+Barback+&amp;+Les+Hurlements+d'Léo</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/La+Tordue</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Weepers+Circus</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Jeanne+Cherhal</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Les+Amis+d'ta+Femme</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Phoebe+Killdeer+and+the+Short+Straws</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Marina+Céleste</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Eloisia</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Marc+Collin</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Les+Petroleuses</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Isabelle+Antena</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Rick+&quot;Poppa&quot;+Howard</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/LateComer</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Nicola+Conte</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Hird</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Waldeck</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/De-Phazz</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Jean+Claude+Brialy</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Jean-Claude+Vannier</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Big+Audio+Dynamite+II</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Big+Audio</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Slaughter+And+The+Dogs</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Lurkers</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Rezillos</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/999</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Carpettes</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Eater</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Chelsea</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/John+Lydon</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Professionals</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Neurotic+Outsiders</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Casualties</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/GBH</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Dezerter</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Chaos+UK</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Analogs</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Michale+Graves</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Blitzkid</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Samhain</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Calabrese</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Marky+Ramone</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Dee+Dee+Ramone+I.C.L.C.</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Marky+Ramone+&amp;+The+Speed+Kings</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Dee+Dee+King</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/OFF!</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Cock+Sparrer</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Bulbulators</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/UK+Subs</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Charles+Caldwell</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Mississippi+Fred+McDowell</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Kenny+Brown</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Cedell+Davis</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Deltahead</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Hillstomp</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Robert+Cage</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/ben+prestage</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Holly+Golightly+&amp;+The+Brokeoffs</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Fabienne+DelSol</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Billy+Childish+&amp;+Holly+Golightly</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Thee+Headcoats</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Thee+Headcoatees</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Talib+Kweli+&amp;+Hi-Tek</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Hi-Tek</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/A.D.L.I.B.</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Da+Bush+Babees</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Urban+Thermo+Dynamics</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Common+Sense</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Nas</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/John+Legend+&amp;+The+Roots</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Pharoahe+Monch</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Talib+Kweli+&amp;+Madlib</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Little+Brother</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Come+Ons</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Bantam+Rooster</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Go</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Blacktop</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Lumineers</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Edward+Sharpe+&amp;+The+Magnetic+Zeros</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Michael+Kiwanuka</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Father+John+Misty</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Subways</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Duke+Spirit</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Maccabees</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Cat's+Eyes</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/S.C.U.M</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Spider+and+The+Flies</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/S.C.U.M.</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Neils+Children</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Immortal+Lee+County+Killers</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Blackwater+Fever</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Bob+Log+III</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Possessed+By+Paul+James</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+.357+String+Band</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Joe+Buck+Yourself</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Joey+Allcorn</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Henry's+Funeral+Shoe</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+Bloody+Hollies</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/JB+Burnett</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Black+Moses</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Speedball+Baby</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Trey+Anastasio+Band</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Moonalice</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Robert+Hunter</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Bob+Weir+and+Ratdog</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Scarecrow+Collection</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Juggling+Suns</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Mars+Mushrooms</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Emmitt-Nershi+Band</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/U-Melt</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Stephen+Stills+&amp;+Manassas</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Chicago+Transit+Authority</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Jim+Ford</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/David+Lowery</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Warren+Haynes+Band</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Back+Door+Slam</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Royal+Southern+Brotherhood</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Matt+Schofield</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Blackberry+Smoke</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/David+and+the+Dorks</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Bob+Dylan;The+Grateful+Dead;Dylan+&amp;+The+Dead</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Roy+Wood</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Vida+Blue</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/EOTO</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/South+Austin+Jug+Band</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Split+Lip+Rayfield</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Uncle+Earl</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Danny+Barnes</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Rob+Ickes</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Disco+Biscuits</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Brothers+Past</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/The+New+Deal</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/STS9</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Zakk+Wylde</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Pride+&amp;+Glory</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Pantera</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Down</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Glenn+Hughes</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Tony+Iommi</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Hughes+Turner+Project</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Ken+Hensley</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Nazareth</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/UFO</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Gillan</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Victor+Brox</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Barry+Dennen</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Gillan+&amp;+Glover</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Ian+Gillan+Band</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/David+Coverdale</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Dokken</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Def+Leppard</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Heathen</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Forbidden</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Marty+Friedman</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Beyond+Fear</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Tim+Ripper+Owens</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/16Volt</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Sinner</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Exciter</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Manilla+Road</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Gamma+Ray</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Rebellion</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Primal+Fear</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Raven</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Tokyo+Blade</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Angel+Witch</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Samson</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Jaguar</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Blaze+Bayley</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Blaze</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://molamp.net/artists/Whiplash</loc>
+  <changefreq>monthly</changefreq>
 </url>
 </urlset>
