@@ -4,3 +4,4 @@
 User-Agent: *
 # Ban all albums pages (too many pages already...)
 Disallow: /*/*/
+Disallow: /*/*/*/
