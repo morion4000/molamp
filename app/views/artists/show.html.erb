@@ -114,7 +114,7 @@
 				  						<%= album['image'] ? image_tag(album['image'][0]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 				  					</div>
 				  					<div class="span11">
-				  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name'])) %></h4>
+				  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %></h4>
 				  						<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a>
 				  					</div>
 								</div>
