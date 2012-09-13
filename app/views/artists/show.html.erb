@@ -28,7 +28,7 @@
 		  <li class="span2" style="background-color: #FFF;">
 		    <div class="thumbnail">
 		      <%= artist['image'][1]['content'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-		      <center><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></center>
+		      <div align="center"><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></div>
 		    </div>
 		  </li>
 		<% end %>
