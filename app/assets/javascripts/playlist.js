@@ -37,7 +37,7 @@ var Playlist = {
 				});
 			},
 			data: {
-				q: '%22' + track.artist + ' ' + track.title + '%22',
+				q: track.artist + ' ' + track.title,
 				orderby: 'relevance',
 				alt: 'json',
 				format: 5,
