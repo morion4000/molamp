@@ -37,10 +37,11 @@ var Playlist = {
 				});
 			},
 			data: {
-				q: track.artist + ' ' + track.title,
+				q: '%22' + track.artist + ' ' + track.title + '%22',
 				orderby: 'relevance',
 				alt: 'json',
-				restriction: 'RO'
+				format: 5,
+				//restriction: 'RO'
 			},
 			dataType: 'json'
 		});
