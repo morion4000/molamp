@@ -1,165 +1,163 @@
 <% if !@artist %>
 	<div class="alert alert-error">The artist could not be found. Please try searching again.</div>
 <% else %>
-<% title @artist['name'], false %>
-<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist['bio']['summary']), :length => 150) %>
-
-<div class="row-fluid">
-  <div class="span3">
-  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-  </div>
-  <div class="span9">
-  	<div class="row-fluid">
+	<% title @artist['name'], false %>
+	<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist['bio']['summary']), :length => 150) %>
+	
+	<div class="row-fluid">
+	  <div class="span3">
+	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+	  </div>
+	  <div class="span9">
 		<h2><%= @artist['name'] %></h2>
 		<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
-  	</div>
-	<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
-	<% if @artist['similar']['artist'].size > 0 %>
-		<h3>Similar artists:</h3>
-		<ul class="thumbnails">
-		<% @artist['similar']['artist'].each do |artist| %>
-		  <li class="span2" style="background-color: #FFF;">
-		    <div class="thumbnail">
-		      <%= artist['image'][1]['content'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-		      <div align="center"><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></div>
-		    </div>
-		  </li>
+		<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
+		<% if @artist['similar']['artist'].size > 0 %>
+			<h3>Similar artists:</h3>
+			<ul class="thumbnails">
+			<% @artist['similar']['artist'].each do |artist| %>
+			  <li class="span2" style="background-color: #FFF;">
+			    <div class="thumbnail">
+			      <%= artist['image'][1]['content'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+			      <div align="center"><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></div>
+			    </div>
+			  </li>
+			<% end %>
+			</ul>
 		<% end %>
-		</ul>
-	<% end %>
-  </div>
-</div>
-
-<div class="row-fluid">
-	<div class="span7">
-		<ul class="nav nav-tabs" style="border-bottom: none; margin-bottom: 0">
-		  <li class="active"><a href="#top-tracks" data-toggle="tab">Top tracks</a></li>
-		  <li><a href="#top-albums" data-toggle="tab">Top albums</a></li>
-		</ul>
- 
-		<div class="tab-content">
-		  <div class="tab-pane active" id="top-tracks">
-				<table class="table table-bordered table-condensed" style="border-top: none">
-					<thead></thead>
-					<tbody>
-					<% if @top_tracks %>
-						<% 
-							# if the artist only has one song then lastfm sends a hash instead of an array
-							if @top_tracks.is_a?(Hash)
-								@top_tracks = [@top_tracks]
-							end 
-							
-							i=0 
-							@top_tracks.each do |track|							
-								# some songs don't have an mbid so i'll generate one
-								if !track['mbid'].is_a?(String)
-									track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @artist['name'])
-								end
-						%>
-						<tr id="<%= track['mbid'] %>" style="background-color: #FFF">
-							<td><%= i+1 %></td>
-							<td>
-								<div class="row-fluid">
-				  					<div class="span1">
-				  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-				  					</div>
-				  					<div class="span9">
-				  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
-				  					</div>
-				  					<div class="span2">
-				  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
-				  					</div>
-								</div>
-							</td>
-						</tr>
-						<% i=i+1; end %>
-						<tr id="more-row">
-							<td colspan="2">
-								<div align="center"><a href="javascript:;" class="btn btn-primary" id="more-tracks">More tracks...</a></div>
-							</td>
-						</tr>
-					<% else %>
-						<tr>
-							<td>Artist has no tracks.</td>
-						</tr>
-					<% end %>
-					</tbody>
-				</table>
-		  </div>
-		  
-		  <div class="tab-pane" id="top-albums">
-		  		<table class="table table-bordered table-condensed" style="border-top: none">
-					<thead></thead>
-					<tbody>
-					<% if @top_albums %>
-						<% 
-							# if the artist only has one album then lastfm sends a hash instead of an array
-							if @top_albums.is_a?(Hash)
-								@top_albums = [@top_albums]
-							end 
-						%>
-						<% i=0; @top_albums.each do |album| %>
-						<tr id="album-<%= i.to_s() %>" style="background-color: #FFF">
-							<td><%= i+1 %></td>
-							<td>
-								<div class="row-fluid">
-				  					<div class="span1">
-				  						<%= album['image'] ? image_tag(album['image'][0]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-				  					</div>
-				  					<div class="span11">
-				  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %></h4>
-				  						<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
-				  					</div>
-								</div>
-							</td>
-						</tr>
-						<% i=i+1; end %>
-					<% else %>
-						<tr>
-							<td>Artist has no albums.</td>
-						</tr>
-					<% end %>
-					</tbody>
-				</table>
-		  </div>
+	  </div>
+	</div>
+	
+	<div class="row-fluid">
+		<div class="span7">
+			<ul class="nav nav-tabs" style="border-bottom: none; margin-bottom: 0">
+			  <li class="active"><a href="#top-tracks" data-toggle="tab">Top tracks</a></li>
+			  <li><a href="#top-albums" data-toggle="tab">Top albums</a></li>
+			</ul>
+	 
+			<div class="tab-content">
+			  <div class="tab-pane active" id="top-tracks">
+					<table class="table table-bordered table-condensed" style="border-top: none">
+						<thead></thead>
+						<tbody>
+						<% if @top_tracks %>
+							<% 
+								# if the artist only has one song then lastfm sends a hash instead of an array
+								if @top_tracks.is_a?(Hash)
+									@top_tracks = [@top_tracks]
+								end 
+								
+								i=0 
+								@top_tracks.each do |track|							
+									# some songs don't have an mbid so i'll generate one
+									if !track['mbid'].is_a?(String)
+										track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @artist['name'])
+									end
+							%>
+							<tr id="<%= track['mbid'] %>" style="background-color: #FFF">
+								<td><%= i+1 %></td>
+								<td>
+									<div class="row-fluid">
+					  					<div class="span1">
+					  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+					  					</div>
+					  					<div class="span9">
+					  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
+					  					</div>
+					  					<div class="span2">
+					  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
+					  					</div>
+									</div>
+								</td>
+							</tr>
+							<% i=i+1; end %>
+							<tr id="more-row">
+								<td colspan="2">
+									<div align="center"><a href="javascript:;" class="btn btn-primary" id="more-tracks">More tracks...</a></div>
+								</td>
+							</tr>
+						<% else %>
+							<tr>
+								<td>Artist has no tracks.</td>
+							</tr>
+						<% end %>
+						</tbody>
+					</table>
+			  </div>
+			  
+			  <div class="tab-pane" id="top-albums">
+			  		<table class="table table-bordered table-condensed" style="border-top: none">
+						<thead></thead>
+						<tbody>
+						<% if @top_albums %>
+							<% 
+								# if the artist only has one album then lastfm sends a hash instead of an array
+								if @top_albums.is_a?(Hash)
+									@top_albums = [@top_albums]
+								end 
+							%>
+							<% i=0; @top_albums.each do |album| %>
+							<tr id="album-<%= i.to_s() %>" style="background-color: #FFF">
+								<td><%= i+1 %></td>
+								<td>
+									<div class="row-fluid">
+					  					<div class="span1">
+					  						<%= album['image'] ? image_tag(album['image'][0]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+					  					</div>
+					  					<div class="span11">
+					  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %></h4>
+					  						<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
+					  					</div>
+									</div>
+								</td>
+							</tr>
+							<% i=i+1; end %>
+						<% else %>
+							<tr>
+								<td>Artist has no albums.</td>
+							</tr>
+						<% end %>
+						</tbody>
+					</table>
+			  </div>
+			</div>
 		</div>
 		
-	</div>
-	<div class="span5">
-		<div id="right_content">
-			<div id="ytplayer" style="width:340px;height:250px;"></div>
+		<div class="span5">
+			<div id="right_content">
+				<div id="ytplayer" style="width:340px;height:250px;"></div>
+			</div>
 		</div>
 	</div>
-</div>
-
-<ul class="breadcrumb">
-  <li><a href="/">Home</a> <span class="divider">/</span></li>
-  <li class="active"><%= @artist['name'] %></li>
-</ul>
-
-<% if @top_tracks %>
-<script type="text/javascript">
-$(function() {
-	<% i=0; @top_tracks.each do |track| %>
-	Playlist.tracks.push({
-		uid: <%= i.to_s() %>,
-		mbid: "<%= track['mbid'] %>",
-		artist: "<%= @artist['name'] %>", 
-		title: "<%= track['name'] %>",
-		image: "<%= track['image'] ? track['image'][0]['content'] : '/assets/noimage.jpg' %>",
-		similar: []
-	});
-	<% i=i+1; end %>
 	
-	<% if @autoplay == '1' %>
-	// Need to wait until the youtube player initializes
-	setTimeout(function() {
-		Playlist.play("0");
-	}, 3000); 
+	<ul class="breadcrumb">
+	  <li><a href="/">Home</a> <span class="divider">/</span></li>
+	  <li class="active"><%= @artist['name'] %></li>
+	</ul>
+	
+	<% if @top_tracks %>
+	<script type="text/javascript">
+	$(function() {
+		<% i=0; @top_tracks.each do |track| %>
+		Playlist.tracks.push({
+			uid: <%= i.to_s() %>,
+			mbid: "<%= track['mbid'] %>",
+			artist: "<%= @artist['name'] %>", 
+			title: "<%= track['name'] %>",
+			image: "<%= track['image'] ? track['image'][0]['content'] : '/assets/noimage.jpg' %>",
+			similar: []
+		});
+		<% i=i+1; end %>
+		
+		<% if @autoplay == '1' %>
+		// Need to wait until the youtube player initializes
+		setTimeout(function() {
+			Playlist.play("0");
+		}, 3000); 
+		<% end %>
+	});
+	</script>
 	<% end %>
-});
-</script>
-<% end %>
-
+	
 <% end %>
 

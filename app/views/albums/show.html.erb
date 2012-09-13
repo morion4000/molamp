@@ -1,95 +1,95 @@
 <% if !@album %>
 	<div class="alert alert-error">The album could not be found. Please try searching again.</div>
 <% else %>
-<% title @album['artist'] + ' - ' + @album['name'], false %>
-
-<div class="row-fluid">
-  <div class="span3">
-  	<%= @album['image'][3]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-  </div>
-  <div class="span9">
-	<h2><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) + ' / ' + @album['name'] %></h2>
-	<p><span class="badge"><%= @album['playcount'] %></span> times played on <a href="<%= @album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
-  </div>
-</div>
-
-<br />
-
-<div class="row-fluid">
-	<div class="span7">
-		<table class="table table-bordered table-condensed">
-			<thead></thead>
-			<tbody>
-			<% if @album['tracks']['track'].size > 0 %>
-				<%
-					# if the album only has one track then lastfm sends a hash instead of an array
-					if @album['tracks']['track'].is_a?(Hash)
-						@album['tracks']['track'] = [@album['tracks']['track']]
-					end 
-				%>
-				<% 
-					i=0 
-					@album['tracks']['track'].each do |track|
-						# some songs don't have an mbid so i'll generate one
-						if !track['mbid'].is_a?(String)
-							track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @album['artist'])
-						end 
-				%>
-				<tr id="<%= track['mbid'] %>" style="background-color: #FFF">
-					<td><%= i+1 %></td>
-					<td>
-						<div class="row-fluid">
-		  					<div class="span1">
-		  						<%= image_tag(get_image(@album['image'], 1), :alt => @album['name']) %>
-		  					</div>
-		  					<div class="span9">
-		  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
-		  					</div>
-		  					<div class="span2">
-		  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
-		  					</div>
-						</div>
-					</td>
-				</tr>
-				<% i=i+1; end %>
-			<% else %>
-				<tr>
-					<td>Album has no tracks.</td>
-				</tr>
-			<% end %>
-			</tbody>
-		</table>
+	<% title @album['artist'] + ' - ' + @album['name'], false %>
+	
+	<div class="row-fluid">
+	  <div class="span3">
+	  	<%= @album['image'][3]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+	  </div>
+	  <div class="span9">
+		<h2><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) + ' / ' + @album['name'] %></h2>
+		<p><span class="badge"><%= @album['playcount'] %></span> times played on <a href="<%= @album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
+	  </div>
 	</div>
-	<div class="span5">
-		<div id="right_content">
-			<div id="ytplayer" style="width:340px;height:250px;"></div>
+	
+	<br />
+	
+	<div class="row-fluid">
+		<div class="span7">
+			<table class="table table-bordered table-condensed">
+				<thead></thead>
+				<tbody>
+				<% if @album['tracks']['track'].size > 0 %>
+					<%
+						# if the album only has one track then lastfm sends a hash instead of an array
+						if @album['tracks']['track'].is_a?(Hash)
+							@album['tracks']['track'] = [@album['tracks']['track']]
+						end 
+					%>
+					<% 
+						i=0 
+						@album['tracks']['track'].each do |track|
+							# some songs don't have an mbid so i'll generate one
+							if !track['mbid'].is_a?(String)
+								track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @album['artist'])
+							end 
+					%>
+					<tr id="<%= track['mbid'] %>" style="background-color: #FFF">
+						<td><%= i+1 %></td>
+						<td>
+							<div class="row-fluid">
+			  					<div class="span1">
+			  						<%= image_tag(get_image(@album['image'], 1), :alt => @album['name']) %>
+			  					</div>
+			  					<div class="span9">
+			  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
+			  					</div>
+			  					<div class="span2">
+			  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
+			  					</div>
+							</div>
+						</td>
+					</tr>
+					<% i=i+1; end %>
+				<% else %>
+					<tr>
+						<td>Album has no tracks.</td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="span5">
+			<div id="right_content">
+				<div id="ytplayer" style="width:340px;height:250px;"></div>
+			</div>
 		</div>
 	</div>
-</div>
-
-<ul class="breadcrumb">
-  <li><a href="/">Home</a> <span class="divider">/</span></li>
-  <li><a href="/artists/<%= url_to_lastfm(@album['artist']) %>"><%= @album['artist'] %></a> <span class="divider">/</span></li>
-  <li class="active"><%= @album['name'] %></li>
-</ul>
-
-<% if @album['tracks']['track'].size > 0 %>
-<script type="text/javascript">
-$(function() {
-	Playlist.artist = "<%= @album['artist'] %>";
-	<% i=0; @album['tracks']['track'].each do |track| %>
-	Playlist.tracks.push({
-		uid: <%= i.to_s() %>, 
-		mbid: "<%= track['mbid'] %>",
-		artist: "<%= @album['artist'] %>", 
-		title: "<%= track['name'] %>",
-		image: "<%= get_image @album['image'], 0 %>",
-		similar: []
+	
+	<ul class="breadcrumb">
+	  <li><a href="/">Home</a> <span class="divider">/</span></li>
+	  <li><a href="/artists/<%= url_to_lastfm(@album['artist']) %>"><%= @album['artist'] %></a> <span class="divider">/</span></li>
+	  <li class="active"><%= @album['name'] %></li>
+	</ul>
+	
+	<% if @album['tracks']['track'].size > 0 %>
+	<script type="text/javascript">
+	$(function() {
+		Playlist.artist = "<%= @album['artist'] %>";
+		<% i=0; @album['tracks']['track'].each do |track| %>
+		Playlist.tracks.push({
+			uid: <%= i.to_s() %>, 
+			mbid: "<%= track['mbid'] %>",
+			artist: "<%= @album['artist'] %>", 
+			title: "<%= track['name'] %>",
+			image: "<%= get_image @album['image'], 0 %>",
+			similar: []
+		});
+		<% i=i+1; end %>
 	});
-	<% i=i+1; end %>
-});
-</script>
-<% end %>
+	</script>
+	<% end %>
 
 <% end %>
 
