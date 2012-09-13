@@ -3,11 +3,11 @@ Lastfmyoutube::Application.routes.draw do
   
   resources :albums
   resources :search
-  resources :artists
+  #resources :artists
   resources :users
 
-  match 'artists/:id' => 'artists#show', :id => /[0-9a-zA-Z.&+%]+/
-  match 'artists/:artist/:album' => 'albums#show', :artist => /[0-9a-zA-Z.&+%'_-]+/, :album => %r{[0-9a-zA-Z.&':()+/!-_]+}i
+  match 'artists/:id' => 'artists#show', :constraints => { :id => /[^\/]*/ } #:id => /[0-9a-zA-Z.&+%]+/
+  match 'artists/:artist/:album' => 'albums#show', :constraints => { :artist => /[^\/]*/, :album => /[^\/]*/ } #:artist => /[0-9a-zA-Z.&+%'_-]+/, :album => %r{[0-9a-zA-Z.&':()+/!-_]+}i
 
   match 'tracks/scrobble' => 'tracks#scrobble'
 
