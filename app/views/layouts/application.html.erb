@@ -59,7 +59,7 @@
 							<% if cookies[:lastfm_session] %>
 								<%= link_to cookies.signed[:lastfm_user], '/users/' + cookies.signed[:lastfm_user] %> | <%= link_to 'Logout', '/auth/logout' %>
 							<% else %>
-								<a href="http://www.last.fm/api/auth/?api_key=<%= APP_CONFIG['lastfm_api_key'] %>">Sign in with <img src="/assets/lastfm_icon.png" /></a>
+								<a href="http://www.last.fm/api/auth/?api_key=<%= APP_CONFIG['lastfm_api_key'] %>">Sign in with <img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
 							<% end %>
 						</div>
 					</form>
@@ -86,7 +86,7 @@
 					<p>
 						&copy; <%= Date.today.year %> Molamp <sup><span class="label label-info">beta</span></sup>. 
 						Made with <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>. 
-						Powered by <a href="http://www.last.fm" target="_blank"><img src="/assets/lastfm_icon.png" /></a>.<br />
+						Powered by <a href="http://www.last.fm" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>.<br />
 						<i><%= ENV['rel'] %></i>
 					</p>
 				</footer>
