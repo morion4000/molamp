@@ -103,10 +103,10 @@ var Playlist = {
 				// Similar
 				var parent = Playlist.tracks[Playlist.currentTrack.similar];
 				
-				$('tr[rel="'+ parent.mbid + '_' + Playlist.currentTrack.mbid+'"]').css('backgroundColor', '#FFF');
+				$('tr[id="'+ parent.mbid + '_' + Playlist.currentTrack.mbid+'"]').css('backgroundColor', '#FFF');
 			} else {
 				// Regular
-				$('tr[rel="'+Playlist.currentTrack.mbid+'"]').css('backgroundColor', '#FFF');
+				$('tr[id="'+Playlist.currentTrack.mbid+'"]').css('backgroundColor', '#FFF');
 			}
 		}
 		
@@ -114,10 +114,10 @@ var Playlist = {
 			// Similar
 			var parent = Playlist.tracks[parseInt(track.similar)];
 			
-			$('tr[rel="' + parent.mbid + '_' + track.mbid + '"]').css('backgroundColor', '#EEE');	
+			$('tr[id="' + parent.mbid + '_' + track.mbid + '"]').css('backgroundColor', '#EEE');	
 		} else {
 			// Regular			
-			$('tr[rel="'+track.mbid+'"]').css('backgroundColor', '#EEE');
+			$('tr[id="'+track.mbid+'"]').css('backgroundColor', '#EEE');
 		}
 	},
 	

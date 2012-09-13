@@ -42,7 +42,7 @@
 							track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @album['artist'])
 						end 
 				%>
-				<tr id="track-<%= i.to_s() %>" rel="<%= track['mbid'] %>" style="background-color: #FFF">
+				<tr id="<%= track['mbid'] %>" style="background-color: #FFF">
 					<td><%= i+1 %></td>
 					<td>
 						<div class="row-fluid">

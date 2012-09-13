@@ -15,7 +15,7 @@ $(function() {
 	$('#right_content').scrollToFixed();
 	
 	$('.similar_tracks').live('click', function(e) {
-		var mbid = $(this).parent().parent().parent().parent().attr('rel'),
+		var mbid = $(this).parent().parent().parent().parent().attr('id'),
 			track = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid);
 				
 		if (track.similar.length > 0) {

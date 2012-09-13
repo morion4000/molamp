@@ -17,7 +17,7 @@ var Alike = {
 	},
 	
 	appendSimilarTracks: function(mbid, data) {
-		var tr = $('table tbody').find('tr[rel="'+mbid+'"]'),
+		var tr = $('table tbody').find('tr[id="'+mbid+'"]'),
 			tracks = data.similartracks.track,
 			track = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid),
 			source = $("#similar-template").html();
@@ -37,8 +37,7 @@ var Alike = {
 					backgroundColor: '#FFF',
 					display: 'none'
 				}).attr({
-					id: 'track-_' + i,
-					rel: track.mbid + '_' + tracks[i].mbid,
+					id: track.mbid + '_' + tracks[i].mbid,
 					'class': 'similar_row'
 				}).append(
 					$('<td>').attr({colspan: 2}).append(container)
@@ -66,11 +65,11 @@ var Alike = {
 	},
 	
 	removeSimilarTracks: function(mbid) {
-		var tr = $('table tbody').find('tr[rel="'+mbid+'"]'),
+		var tr = $('table tbody').find('tr[id="'+mbid+'"]'),
 			track = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid);
 		
 		for (i=0, l=track.similar.length; i<l; i++) {
-			$('tr[class=similar_row][rel="' + track.mbid + '_' + track.similar[i].mbid+'"]').remove();	
+			$('tr[class=similar_row][id="' + track.mbid + '_' + track.similar[i].mbid+'"]').remove();	
 		}
 		
 		track.similar = [];
