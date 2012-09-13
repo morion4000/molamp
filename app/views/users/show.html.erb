@@ -10,7 +10,7 @@
   <div class="span9">
   	<div class="span10">
 		<h2><%= @user['name'] %></h2>
-		<p><span class="badge"><%= @user['playcount'] %></span> tracks listened on <a href="#" target="_blank"><img src="/assets/lastfm_icon.png" /></a></p>
+		<p><span class="badge"><%= @user['playcount'] %></span> tracks listened on <a href="http://www.last.fm/user/<%= @user['name'] %>" target="_blank"><img src="/assets/lastfm_icon.png" /></a></p>
 	</div>
 	<div class="span2">
 		<div style="margin-bottom: 5px;" class="fb-like" data-href="<%= 'http://www.molamp.net/users/' + @user['name'] %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
