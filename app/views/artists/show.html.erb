@@ -10,15 +10,8 @@
   </div>
   <div class="span9">
   	<div class="row-fluid">
-  		<div class="span10">
-  			<h2><%= @artist['name'] %></h2>
-  			<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
-  		</div>
-  		<div class="span2">
-			<div style="margin-bottom: 5px;" class="fb-like" data-href="<%= 'http://www.molamp.net/artists/' + url_to_lastfm(@artist['name']) %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
-			<br />
-			<a href="https://twitter.com/share" class="twitter-share-button" data-via="molamp">Tweet</a>
-  		</div>
+		<h2><%= @artist['name'] %></h2>
+		<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
   	</div>
 	<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
 	<% if @artist['similar']['artist'].size > 0 %>
