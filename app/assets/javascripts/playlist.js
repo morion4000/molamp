@@ -41,6 +41,7 @@ var Playlist = {
 				orderby: 'relevance',
 				alt: 'json',
 				format: 5,
+				key: Youtube.key
 				//restriction: 'RO'
 			},
 			dataType: 'json'
