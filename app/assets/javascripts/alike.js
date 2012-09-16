@@ -29,7 +29,7 @@ var Alike = {
 				parent_mbid: track.mbid, 
 				name: tracks[i].name,
 				artist: tracks[i].artist.name,
-				image: tracks[i].image.length > 0 ? tracks[i].image[0]['#text'] : '/assets/noimage.png'
+				image: Alike.getImage(tracks[i].image, 0)
 			});
 			
 			tr.after(
@@ -50,7 +50,7 @@ var Alike = {
 					mbid: tracks[i].mbid,
 					artist: tracks[i].artist.name,
 					title: tracks[i].name,
-					image: tracks[i].image[0]['#text'],
+					image: Alike.getImage(tracks[i].image, 0),
 					similar: track.uid 
 				});
 			}
@@ -81,12 +81,14 @@ var Alike = {
 			tracks = data.toptracks.track,
 			table = $('#top-tracks table tbody'),
 			moreRow = $('#top-tracks table tbody').find('tr#more-row');
+		
+		moreRow.remove();
 				
 		for (var i=0, l=tracks.length; i<l; i++) {				
 			var container = template({
 				mbid: tracks[i].mbid, 
 				name: tracks[i].name,
-				image: tracks[i].image.length > 0 ? tracks[i].image[0]['#text'] : '/assets/noimage.png' // TODO: this does not work
+				image: Alike.getImage(tracks[i].image, 0)
 			});
 			
 			table.append(
@@ -106,12 +108,10 @@ var Alike = {
 				mbid: tracks[i].mbid,
 				artist: tracks[i].artist.name,
 				title: tracks[i].name,
-				image: tracks[i].image[0]['#text'],
+				image: Alike.getImage(tracks[i].image, 0),
 				similar: [] 
 			});
 		}
-		
-		moreRow.remove();
 		
 		table.append(moreRow);
 		
@@ -125,5 +125,17 @@ var Alike = {
 		Playlist.page += 1;
 		
 		Lastfm.moreTracks();
+	},
+	
+	getImage: function(array, size) {
+		var imagePath = '/assets/noimage.jpg';
+				
+		if (typeof array !== 'undefined') {
+			if (array.length > 0) {
+				imagePath = array[size]['#text'];
+			}
+		}
+		
+		return imagePath;
 	}
 };
