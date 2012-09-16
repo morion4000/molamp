@@ -23,7 +23,11 @@ var Alike = {
 			source = $("#similar-template").html();
 			template = Handlebars.compile(source);
 				
-		for (i=tracks.length-1; i>=0; i--) {				
+		for (i=tracks.length-1; i>=0; i--) {
+			if (tracks[i].mbid == '') {
+				tracks[i].mbid = '_' + md5(tracks[i].name + tracks[i].artist.name);
+			}
+					
 			var container = template({
 				mbid: tracks[i].mbid,
 				parent_mbid: track.mbid, 
@@ -84,7 +88,11 @@ var Alike = {
 		
 		moreRow.remove();
 				
-		for (var i=0, l=tracks.length; i<l; i++) {				
+		for (var i=0, l=tracks.length; i<l; i++) {
+			if (tracks[i].mbid == '') {
+				tracks[i].mbid = '_' + md5(tracks[i].name + tracks[i].artist.name);
+			}
+						
 			var container = template({
 				mbid: tracks[i].mbid, 
 				name: tracks[i].name,
@@ -95,8 +103,7 @@ var Alike = {
 				$('<tr>').css({
 					backgroundColor: '#FFF'
 				}).attr({
-					id: 'track-' + (Playlist.tracks.length + 1),
-					rel: tracks[i].mbid
+					id: tracks[i].mbid
 				}).append([
 					$('<td>').text(Playlist.tracks.length + 1),
 					$('<td>').append(container)
