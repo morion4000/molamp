@@ -12,21 +12,10 @@
 		<h2><%= @artist['name'] %></h2>
 		<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
 		<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
-		<% if @artist['similar']['artist'].size > 0 %>
-			<h3>Similar artists:</h3>
-			<ul class="thumbnails">
-			<% @artist['similar']['artist'].each do |artist| %>
-			  <li class="span2" style="background-color: #FFF;">
-			    <div class="thumbnail">
-			      <%= artist['image'][1]['content'] ? image_tag(artist['image'][1]['content'], :alt => artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
-			      <div align="center"><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></div>
-			    </div>
-			  </li>
-			<% end %>
-			</ul>
-		<% end %>
 	  </div>
 	</div>
+	
+	<br />
 	
 	<div class="row-fluid">
 		<div class="span7">
@@ -123,9 +112,29 @@
 			</div>
 		</div>
 		
-		<div class="span5">
+		<div class="span5">		
 			<div id="right_content">
 				<div id="ytplayer" style="width:340px;height:250px;"></div>
+				<br />
+				<br />
+				
+				<% if @artist['similar']['artist'].size > 0 %>
+				<h3>Similar artists:</h3>
+				<div class="well" style="background-color:#EEE">
+					<div class="row-fluid">
+						<% @artist['similar']['artist'].each do |artist| %>
+				    	<div class="span2" style="width:90px;text-align:center;margin-top:10px;">
+					    	<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
+						      	<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :height => 90) : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
+						      	<br />
+						     	<%= artist['name'] %>
+					     	</a>
+				    	</div>
+						<% end %>
+						<div class="span2"></div>
+					</div>
+				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
