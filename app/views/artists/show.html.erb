@@ -6,7 +6,7 @@
 	
 	<div class="row-fluid">
 	  <div class="span3">
-	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name']) : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
 	  </div>
 	  <div class="span9">
 		<h2><%= @artist['name'] %></h2>
