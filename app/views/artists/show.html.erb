@@ -90,12 +90,14 @@
 								<td><%= i+1 %></td>
 								<td>
 									<div class="row-fluid">
-					  					<div class="span1">
-					  						<%= album['image'] ? image_tag(album['image'][0]['content'], :alt => album['name'], :width => 35) : image_tag('noimage.jpg', :alt => 'Sorry, no image available', :width => 35) %>
+					  					<div class="span2">
+					  						<a href="<%= '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']) %>" rel="nofollow">
+					  							<%= album['image'] ? image_tag(album['image'][1]['content'], :alt => album['name'], :width => 70, :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available', :width => 70, :class => 'img-rounded') %>
+					  						</a>
 					  					</div>
-					  					<div class="span11">
-					  						<h5><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %></h5>
-					  						<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
+					  					<div class="span10" style="vertical-align:top">
+					  						&nbsp;&nbsp;<%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %><br />
+					  						&nbsp;&nbsp;<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
 					  					</div>
 									</div>
 								</td>

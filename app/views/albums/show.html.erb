@@ -3,12 +3,12 @@
 <% else %>
 	<% title @album['artist'] + ' - ' + @album['name'], false %>
 	
-	<div class="row-fluid">
+	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">
-	  	<%= @album['image'][3]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name'], :class => 'img-rounded') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
+	  	<%= @album['image'][3]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name'], :class => 'img-polaroid') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available', :class => 'img-polaroid') %>
 	  </div>
 	  <div class="span9">
-		<h2><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) + ' / ' + @album['name'] %></h2>
+		<h1 itemprop="name"><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) + ' / ' + @album['name'] %></h1>
 		<p><span class="badge"><%= @album['playcount'] %></span> times played on <a href="<%= @album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
 	  </div>
 	</div>
@@ -35,18 +35,18 @@
 								track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @album['artist'])
 							end 
 					%>
-					<tr id="<%= track['mbid'] %>" style="background-color: #FFF">
+					<tr id="<%= track['mbid'] %>" style="background-color: #FFF;cursor: pointer" onclick="javascript:Playlist.play('<%= track['mbid'] %>', null)">
 						<td><%= i+1 %></td>
 						<td>
-							<div class="row-fluid">
+							<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
 			  					<div class="span1">
 			  						<%= image_tag(get_image(@album['image'], 1), :alt => @album['name'], :width => 35) %>
 			  					</div>
-			  					<div class="span9">
-			  						&nbsp;<%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %>
+			  					<div class="span9" itemprop="name" style="color: #08C">
+			  						&nbsp;<%= track['name'] %>
 			  					</div>
 			  					<div class="span2">
-			  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
+			  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>
 			  					</div>
 							</div>
 						</td>
