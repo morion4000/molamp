@@ -22,4 +22,6 @@
 //= require phpjs/utf8_encode.js
 //= require phpjs/md5.js
 //= require phpjs/strstr.js
+//= require phpjs/date.js
+//= require phpjs/gmdate.js
 //= require_tree .

@@ -50,8 +50,12 @@
 					  					<div class="span1">
 					  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :width => 35) : image_tag('noimage.jpg', :alt => 'Sorry, no image available', :width => 35) %>
 					  					</div>
-					  					<div class="span9" itemprop="name" style="color: #08C">
+					  					<div class="span7" itemprop="name" style="color: #08C">
 					  						&nbsp;<%= track['name'] %>
+					  					</div>
+					  					<div class="span2">
+					  						<span class="label pull-right"><%= convert_seconds_to_time track['duration'].to_i, false %></span>
+					  						<meta itemprop="duration" content="PT<%= convert_seconds_to_time track['duration'].to_i, true %>" />
 					  					</div>
 					  					<div class="span2">
 					  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>

@@ -33,7 +33,8 @@ var Alike = {
 				parent_mbid: track.mbid, 
 				name: tracks[i].name,
 				artist: tracks[i].artist.name,
-				image: Alike.getImage(tracks[i].image, 0)
+				image: Alike.getImage(tracks[i].image, 0),
+				duration: gmdate('i:s', tracks[i].duration/1000)
 			});
 			
 			tr.after(container);
@@ -87,7 +88,8 @@ var Alike = {
 				no: Playlist.tracks.length + 1,
 				mbid: tracks[i].mbid, 
 				name: tracks[i].name,
-				image: Alike.getImage(tracks[i].image, 0)
+				image: Alike.getImage(tracks[i].image, 0),
+				duration: gmdate('i:s', tracks[i].duration)
 			});
 			
 			table.append(container);
