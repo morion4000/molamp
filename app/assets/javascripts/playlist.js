@@ -7,8 +7,13 @@ var Playlist = {
 	
 	play: function(mbid, similar) {
 		var url = 'https://gdata.youtube.com/feeds/api/videos',
-			track = null; 
-		//?q=black%20sabbath%20Sabbath%20Bloody%20Sabbath&orderby=relevance&v=2&alt=atom&restriction=RO';
+			track = null,
+			target = event.target || event.srcElement,
+			targetClass = $(target).attr('class');
+
+		if (strstr(targetClass, 'icon') || strstr(targetClass, 'btn')) {
+			return true;
+		}
 
 		if (similar != null) {
 			var parent = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid);

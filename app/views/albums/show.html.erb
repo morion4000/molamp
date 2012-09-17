@@ -43,7 +43,7 @@
 			  						<%= image_tag(get_image(@album['image'], 1), :alt => @album['name'], :width => 35) %>
 			  					</div>
 			  					<div class="span9">
-			  						<h5><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h5>
+			  						&nbsp;<%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %>
 			  					</div>
 			  					<div class="span2">
 			  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>

@@ -29,8 +29,6 @@
 </head>
 <body>
 	
-
-
 <div class="container" style="width:900px">
 	<div class="navbar">
       <div class="navbar-inner">
@@ -73,7 +71,6 @@
         </div>
       </div><!-- /navbar-inner -->
     </div>	
-	
 	
 <!--
 	<div class="header">
@@ -166,7 +163,7 @@
 <% end %>
 
 <script id="similar-template" type="text/x-handlebars-template">
-<tr class="similar_row" style="display:none;background-color:#FFF" id="{{parent_mbid}}_{{mbid}}">
+<tr class="similar_row" style="display:none;background-color:#FFF;cursor:pointer" id="{{parent_mbid}}_{{mbid}}" onclick="javascript:Playlist.play('{{parent_mbid}}', '{{mbid}}')">
 	<td colspan="2">
 		<div class="row-fluid">
 			<div class="span1">
@@ -175,7 +172,7 @@
 		  		<img alt="{{name}}" src="{{image}}" width="35" />
 		  	</div>
 		  	<div class="span10">
-		  		<h5><a href="javascript:Playlist.play('{{parent_mbid}}', '{{mbid}}')">{{artist}} - {{name}}</a></h5>
+		  		&nbsp;{{artist}} - {{name}}
 		  	</div>
 		</div>
 	</td>
@@ -183,7 +180,7 @@
 </script>
 
 <script id="track-template" type="text/x-handlebars-template">
-<tr class="similar_row" style="background-color:#FFF" id="{{mbid}}">
+<tr class="similar_row" style="background-color:#FFF;cursor:pointer" id="{{mbid}}" onclick="javascript:Playlist.play('{{mbid}}', null)">
 	<td>{{no}}</td>
 	<td>
 		<div class="row-fluid">
@@ -191,7 +188,7 @@
 				<img src="{{image}}" alt="{{name}}" width="35" />
 			</div>
 			<div class="span9">
-				<h5><a href="javascript:Playlist.play('{{mbid}}', null)">{{name}}</a></h5>
+				&nbsp;{{name}}
 			</div>
 			<div class="span2">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>

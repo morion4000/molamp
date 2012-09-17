@@ -21,4 +21,5 @@
 //= require handlebars-1.0.0.beta.6.js
 //= require phpjs/utf8_encode.js
 //= require phpjs/md5.js
+//= require phpjs/strstr.js
 //= require_tree .
