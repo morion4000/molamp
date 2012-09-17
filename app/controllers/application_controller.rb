@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   before_filter :set_lastfm, :authenticate
+
+  Rails.env.production? do
+    before_filter :check_url
+  end
+
+  def check_url
+    redirect_to request.protocol + "www." + request.host_with_port + request.fullpath if !/^www/.match(request.host)
+  end
   
   def set_lastfm
     @lastfm = Lastfm.new(APP_CONFIG['lastfm_api_key'], APP_CONFIG['lastfm_api_secret'])
