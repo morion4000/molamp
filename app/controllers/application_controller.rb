@@ -1,14 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :set_lastfm, :authenticate
-
-  Rails.env.production? do
-    before_filter :check_url
-  end
+  before_filter :check_url, :set_lastfm, :authenticate
 
   def check_url
-    redirect_to request.protocol + "www." + request.host_with_port + request.fullpath if !/^www/.match(request.host)
+    redirect_to request.protocol + "www." + request.host_with_port + request.fullpath if !/^www/.match(request.host) if Rails.env.production? 
   end
   
   def set_lastfm
