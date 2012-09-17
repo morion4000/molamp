@@ -5,7 +5,7 @@
 	
 	<div class="row-fluid">
 	  <div class="span3">
-	  	<%= @album['image'][3]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name']) : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
+	  	<%= @album['image'][3]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name'], :class => 'img-rounded') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
 	  </div>
 	  <div class="span9">
 		<h2><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) + ' / ' + @album['name'] %></h2>
@@ -43,7 +43,7 @@
 			  						<%= image_tag(get_image(@album['image'], 1), :alt => @album['name']) %>
 			  					</div>
 			  					<div class="span9">
-			  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
+			  						<h5><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h5>
 			  					</div>
 			  					<div class="span2">
 			  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>

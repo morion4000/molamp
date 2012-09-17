@@ -7,7 +7,7 @@ gem 'rails', '3.2.6'
 
 gem 'pg'
 gem 'thin'
-gem 'bootstrap-sass', '~> 2.0.4.1'
+gem 'bootstrap-sass', '~> 2.1.0.0'
 gem 'sanitize'
 gem 'lastfm', :git => 'git://github.com/morion4000/ruby-lastfm.git'
 gem 'gritter', '1.0.2'
@@ -17,7 +17,7 @@ gem 'json'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails',   '~> 3.1'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes

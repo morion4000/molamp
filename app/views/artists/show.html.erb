@@ -6,7 +6,7 @@
 	
 	<div class="row-fluid">
 	  <div class="span3">
-	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name']) : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
+	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name'], :class => "img-rounded") : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
 	  </div>
 	  <div class="span9">
 		<h2><%= @artist['name'] %></h2>
@@ -48,10 +48,10 @@
 								<td>
 									<div class="row-fluid">
 					  					<div class="span1">
-					  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+					  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 					  					</div>
 					  					<div class="span9">
-					  						<h4><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h4>
+					  						<h5><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h5>
 					  					</div>
 					  					<div class="span2">
 					  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
@@ -94,7 +94,7 @@
 					  						<%= album['image'] ? image_tag(album['image'][0]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
 					  					</div>
 					  					<div class="span11">
-					  						<h4><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %></h4>
+					  						<h5><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %></h5>
 					  						<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
 					  					</div>
 									</div>
@@ -125,7 +125,7 @@
 						<% @artist['similar']['artist'].each do |artist| %>
 				    	<div class="span2" style="width:90px;height:140px;text-align:center;">
 					    	<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
-						      	<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :height => 90) : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
+						      	<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :height => 90, :class => 'img-rounded') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
 						      	<br />
 						     	<%= artist['name'] %>
 					     	</a>
