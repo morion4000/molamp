@@ -115,11 +115,9 @@
 		<div class="span5">		
 			<div id="right_content">
 				<div id="ytplayer" style="width:340px;height:250px;"></div>
-				<br />
-				<br />
 				
 				<% if @artist['similar']['artist'].size > 0 %>
-				<h3>Similar artists:</h3>
+				<h4>Similar artists:</h4>
 				<div class="well" style="background-color:#EEE">
 					<div class="row-fluid">
 						<% @artist['similar']['artist'].each do |artist| %>
