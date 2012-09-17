@@ -36,17 +36,7 @@ var Alike = {
 				image: Alike.getImage(tracks[i].image, 0)
 			});
 			
-			tr.after(
-				$('<tr>').css({
-					backgroundColor: '#FFF',
-					display: 'none'
-				}).attr({
-					id: track.mbid + '_' + tracks[i].mbid,
-					'class': 'similar_row'
-				}).append(
-					$('<td>').attr({colspan: 2}).append(container)
-				)
-			);
+			tr.after(container);
 			
 			if (track != null) {
 				track.similar.push({
@@ -94,21 +84,13 @@ var Alike = {
 			}
 						
 			var container = template({
+				no: Playlist.tracks.length + 1,
 				mbid: tracks[i].mbid, 
 				name: tracks[i].name,
 				image: Alike.getImage(tracks[i].image, 0)
 			});
 			
-			table.append(
-				$('<tr>').css({
-					backgroundColor: '#FFF'
-				}).attr({
-					id: tracks[i].mbid
-				}).append([
-					$('<td>').text(Playlist.tracks.length + 1),
-					$('<td>').append(container)
-				])
-			);
+			table.append(container);
 			
 			Playlist.tracks.push({
 				uid: Playlist.tracks.length,

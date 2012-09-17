@@ -166,30 +166,39 @@
 <% end %>
 
 <script id="similar-template" type="text/x-handlebars-template">
-<div class="row-fluid">
-	<div class="span1">
-	</div>
-	<div class="span1">
-  		<img alt="{{name}}" src="{{image}}" width="35" />
-  	</div>
-  	<div class="span10">
-  		<h5><a href="javascript:Playlist.play('{{parent_mbid}}', '{{mbid}}')">{{artist}} - {{name}}</a></h5>
-  	</div>
-</div>
+<tr class="similar_row" style="display:none;background-color:#FFF" id="{{parent_mbid}}_{{mbid}}">
+	<td colspan="2">
+		<div class="row-fluid">
+			<div class="span1">
+			</div>
+			<div class="span1">
+		  		<img alt="{{name}}" src="{{image}}" width="35" />
+		  	</div>
+		  	<div class="span10">
+		  		<h5><a href="javascript:Playlist.play('{{parent_mbid}}', '{{mbid}}')">{{artist}} - {{name}}</a></h5>
+		  	</div>
+		</div>
+	</td>
+</tr>
 </script>
 
 <script id="track-template" type="text/x-handlebars-template">
-<div class="row-fluid">
-	<div class="span1">
-		<img src="{{image}}" alt="{{name}}" width="35" />
-	</div>
-	<div class="span9">
-		<h5><a href="javascript:Playlist.play('{{mbid}}', null)">{{name}}</a></h5>
-	</div>
-	<div class="span2">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
-	</div>
-</div>
+<tr class="similar_row" style="background-color:#FFF" id="{{mbid}}">
+	<td>{{no}}</td>
+	<td>
+		<div class="row-fluid">
+			<div class="span1">
+				<img src="{{image}}" alt="{{name}}" width="35" />
+			</div>
+			<div class="span9">
+				<h5><a href="javascript:Playlist.play('{{mbid}}', null)">{{name}}</a></h5>
+			</div>
+			<div class="span2">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>
+			</div>
+		</div>
+	</td>
+</tr>
 </script>
 
 </body>

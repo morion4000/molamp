@@ -4,12 +4,12 @@
 	<% title @artist['name'], false %>
 	<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist['bio']['summary']), :length => 150) %>
 	
-	<div class="row-fluid">
+	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">
-	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name'], :class => "img-rounded") : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
+	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name'], :class => 'img-polaroid') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
 	  </div>
 	  <div class="span9">
-		<h2><%= @artist['name'] %></h2>
+		<h1 itemprop="name"><%= @artist['name'] %></h1>
 		<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
 		<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
 	  </div>
@@ -26,7 +26,7 @@
 	 
 			<div class="tab-content">
 			  <div class="tab-pane active" id="top-tracks">
-					<table class="table table-bordered table-condensed" style="border-top: none">
+					<table class="table table-bordered table-condensed table-hover" style="border-top: none">
 						<thead></thead>
 						<tbody>
 						<% if @top_tracks %>
@@ -44,17 +44,17 @@
 									end
 							%>
 							<tr id="<%= track['mbid'] %>" style="background-color: #FFF">
-								<td><%= i+1 %></td>
+								<td valign="middle"><%= i+1 %></td>
 								<td>
-									<div class="row-fluid">
+									<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
 					  					<div class="span1">
 					  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :width => 35) : image_tag('noimage.jpg', :alt => 'Sorry, no image available', :width => 35) %>
 					  					</div>
-					  					<div class="span9">
-					  						<h5><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h5>
+					  					<div class="span9" itemprop="name">
+					  						&nbsp;<%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %>
 					  					</div>
 					  					<div class="span2">
-					  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info similar_tracks"><i class="icon-plus-sign"></i></a>
+					  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>
 					  					</div>
 									</div>
 								</td>
@@ -62,7 +62,7 @@
 							<% i=i+1; end %>
 							<tr id="more-row">
 								<td colspan="2">
-									<div align="center"><a href="javascript:;" class="btn btn-primary" id="more-tracks">More tracks...</a></div>
+									<a href="javascript:;" class="btn btn-block btn-primary" id="more-tracks">More tracks...</a>
 								</td>
 							</tr>
 						<% else %>
@@ -75,7 +75,7 @@
 			  </div>
 			  
 			  <div class="tab-pane" id="top-albums">
-			  		<table class="table table-bordered table-condensed" style="border-top: none">
+			  		<table class="table table-bordered table-condensed table-hover" style="border-top: none">
 						<thead></thead>
 						<tbody>
 						<% if @top_albums %>
@@ -121,9 +121,10 @@
 				<div class="well" style="background-color:#EEE">
 					<div class="row-fluid">
 						<% @artist['similar']['artist'].each do |artist| %>
-				    	<div class="span2" style="width:90px;height:140px;text-align:center;">
+				    	<div class="span2" style="width:90px;padding:10px;height:140px;text-align:center;">
 					    	<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
-						      	<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :height => 90, :class => 'img-rounded') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
+						      	<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :height => 90, :class => 'img-polaroid') : 
+						      										image_tag('noimage_big.jpg', :alt => 'Sorry, no image available', :height => 90, :class => 'img-polaroid') %>
 						      	<br />
 						     	<%= artist['name'] %>
 					     	</a>
