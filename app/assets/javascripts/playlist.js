@@ -8,7 +8,8 @@ var Playlist = {
 	play: function(mbid, similar) {
 		var url = 'https://gdata.youtube.com/feeds/api/videos',
 			track = null,
-			target = event.target || event.srcElement,
+			e = typeof event != 'undefined' ? event : {},
+			target = e.target || e.srcElement,
 			targetClass = $(target).attr('class');
 
 		if (strstr(targetClass, 'icon') || strstr(targetClass, 'btn')) {
