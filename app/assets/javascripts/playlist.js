@@ -104,16 +104,22 @@ var Playlist = {
 		}
 	},
 	
-	highlightTrack: function(track) {
+	highlightTrack: function(track) {		
 		if (Playlist.currentTrack != null) {
 			if (typeof Playlist.currentTrack.similar != 'object') {
 				// Similar
 				var parent = Playlist.tracks[Playlist.currentTrack.similar];
 				
-				$('tr[id="'+ parent.mbid + '_' + Playlist.currentTrack.mbid+'"]').css('backgroundColor', '#FFF');
+				$('tr[id="'+ parent.mbid + '_' + Playlist.currentTrack.mbid+'"]').css({
+					backgroundColor: '#FFF',
+					fontWeight: 'normal'
+				});
 			} else {
 				// Regular
-				$('tr[id="'+Playlist.currentTrack.mbid+'"]').css('backgroundColor', '#FFF');
+				$('tr[id="'+Playlist.currentTrack.mbid+'"]').css({
+					backgroundColor: '#FFF',
+					fontWeight: 'normal'
+				});
 			}
 		}
 		
@@ -121,10 +127,16 @@ var Playlist = {
 			// Similar
 			var parent = Playlist.tracks[parseInt(track.similar)];
 			
-			$('tr[id="' + parent.mbid + '_' + track.mbid + '"]').css('backgroundColor', '#EEE');	
+			$('tr[id="' + parent.mbid + '_' + track.mbid + '"]').css({
+				backgroundColor: '#EEE',
+				fontWeight: 'bold'
+			});	
 		} else {
 			// Regular			
-			$('tr[id="'+track.mbid+'"]').css('backgroundColor', '#EEE');
+			$('tr[id="'+track.mbid+'"]').css({
+				backgroundColor: '#EEE',
+				fontWeight: 'bold'
+			});
 		}
 	},
 	
