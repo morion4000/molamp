@@ -48,7 +48,7 @@
 								<td>
 									<div class="row-fluid">
 					  					<div class="span1">
-					  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+					  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :width => 35) : image_tag('noimage.jpg', :alt => 'Sorry, no image available', :width => 35) %>
 					  					</div>
 					  					<div class="span9">
 					  						<h5><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h5>
@@ -91,7 +91,7 @@
 								<td>
 									<div class="row-fluid">
 					  					<div class="span1">
-					  						<%= album['image'] ? image_tag(album['image'][0]['content'], :alt => album['name']) : image_tag('noimage.jpg', :alt => 'Sorry, no image available') %>
+					  						<%= album['image'] ? image_tag(album['image'][0]['content'], :alt => album['name'], :width => 35) : image_tag('noimage.jpg', :alt => 'Sorry, no image available', :width => 35) %>
 					  					</div>
 					  					<div class="span11">
 					  						<h5><%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']), :rel => 'nofollow') %></h5>

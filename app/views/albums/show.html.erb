@@ -40,7 +40,7 @@
 						<td>
 							<div class="row-fluid">
 			  					<div class="span1">
-			  						<%= image_tag(get_image(@album['image'], 1), :alt => @album['name']) %>
+			  						<%= image_tag(get_image(@album['image'], 1), :alt => @album['name'], :width => 35) %>
 			  					</div>
 			  					<div class="span9">
 			  						<h5><%= link_to(track['name'], 'javascript:Playlist.play("'+track['mbid']+'", null)') %></h5>
