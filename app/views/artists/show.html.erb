@@ -56,6 +56,7 @@
 					  					<div class="span2">
 					  						<span class="label pull-right"><%= convert_seconds_to_time track['duration'].to_i, false %></span>
 					  						<meta itemprop="duration" content="PT<%= convert_seconds_to_time track['duration'].to_i, true %>" />
+					  						<meta itemprop="interactionCount" content="UserPlays:<%= track['playcount'] %>"/>
 					  					</div>
 					  					<div class="span2">
 					  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>
