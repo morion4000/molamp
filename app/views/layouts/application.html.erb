@@ -173,7 +173,9 @@
 		  		&nbsp;{{artist}} - {{name}}
 		  	</div>
 		  	<div class="span2">
+		  		{{#if duration}}
   				<span class="label pull-right">{{duration}}</span>
+  				{{/if}}
   			</div>
 		</div>
 	</td>
@@ -192,7 +194,9 @@
 				&nbsp;{{name}}
 			</div>
 			<div class="span2">
+				{{#if duration}}
   				<span class="label pull-right">{{duration}}</span>
+  				{{/if}}
   			</div>
 			<div class="span2">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>

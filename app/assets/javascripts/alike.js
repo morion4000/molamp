@@ -34,7 +34,7 @@ var Alike = {
 				name: tracks[i].name,
 				artist: tracks[i].artist.name,
 				image: Alike.getImage(tracks[i].image, 0),
-				duration: gmdate('i:s', tracks[i].duration/1000)
+				duration: tracks[i].duration != 0 ? gmdate('i:s', tracks[i].duration/1000) : null
 			});
 			
 			tr.after(container);
@@ -89,7 +89,7 @@ var Alike = {
 				mbid: tracks[i].mbid, 
 				name: tracks[i].name,
 				image: Alike.getImage(tracks[i].image, 0),
-				duration: gmdate('i:s', tracks[i].duration)
+				duration: tracks[i].duration != 0 ? gmdate('i:s', tracks[i].duration) : null
 			});
 			
 			table.append(container);
