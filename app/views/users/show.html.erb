@@ -8,15 +8,8 @@
 	  	<%= image_tag(get_image(@user['image'], 3), :alt => @user['name']) %>
 	  </div>
 	  <div class="span9">
-	  	<div class="span10">
-			<h2><%= @user['name'] %></h2>
-			<p><span class="badge"><%= @user['playcount'] %></span> tracks listened on <a href="http://www.last.fm/user/<%= @user['name'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
-		</div>
-		<div class="span2">
-			<div style="margin-bottom: 5px;" class="fb-like" data-href="<%= 'http://www.molamp.net/users/' + @user['name'] %>" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
-			<br />
-			<a href="https://twitter.com/share" class="twitter-share-button" data-via="molamp">Tweet</a>
-		</div>
+		<h1><%= @user['name'] %></h1>
+		<p><span class="badge"><%= @user['playcount'] %></span> tracks listened on <a href="http://www.last.fm/user/<%= @user['name'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
 	  </div>
 	</div>
 	
