@@ -7,17 +7,21 @@ class Artist
   end
   
   def info
-    return @lastfm.artist.get_info(@name)
+    Rails.cache.fetch("/artists/#{@name}/info", :expires_in => 7.days) do
+      @lastfm.artist.get_info(@name)
+    end
   end
   
   def top_tracks
-    Rails.cache.fetch("/artists/#{@name}", :expires_in => 7.days) do
+    Rails.cache.fetch("/artists/#{@name}/top_tracks", :expires_in => 7.days) do
       @lastfm.artist.get_top_tracks(:artist => @name, :limit => 30)
     end
   end
   
   def top_albums
-    return @lastfm.artist.get_top_albums(:artist => @name, :limit => 10)
+    Rails.cache.fetch("/artists/#{@name}/top_albums", :expires_in => 7.days) do
+      @lastfm.artist.get_top_albums(:artist => @name, :limit => 10)
+    end
   end
   
   def find(*name)

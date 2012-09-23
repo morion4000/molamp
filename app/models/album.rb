@@ -8,7 +8,9 @@ class Album
   end
   
   def info
-    return @lastfm.album.get_info(:artist => @artist, :album => @name)
+    Rails.cache.fetch("/albums/#{@artist}/#{@name}/info", :expires_in => 7.days) do
+      @lastfm.album.get_info(:artist => @artist, :album => @name)
+    end
   end
   
   def find(*name)
