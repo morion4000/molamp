@@ -41,6 +41,8 @@ var Playlist = {
 					image: track.image,
 					text: track.artist + ' - ' + track.title
 				});
+				
+				_gaq.push(['_trackEvent', 'Tracks', 'Play', track.artist + ' - ' + track.title]);
 			},
 			data: {
 				q: track.artist + ' ' + track.title,

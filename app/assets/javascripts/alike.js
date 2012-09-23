@@ -57,6 +57,8 @@ var Alike = {
 			title: 'Similar tracks...',
 			text: 'Retreived tracks similar to <strong>' + track.artist + ' - ' + track.title + '</strong>'
 		});
+		
+		_gaq.push(['_trackEvent', 'Tracks', 'Similar', track.artist + ' - ' + track.title]);
 	},
 	
 	removeSimilarTracks: function(mbid) {
@@ -110,6 +112,8 @@ var Alike = {
 			title: 'More tracks...',
 			text: 'Added ' + Playlist.limit + ' more tracks for <strong>' + tracks[0].artist.name + '</strong>'
 		});
+		
+		_gaq.push(['_trackEvent', 'More', 'Click', tracks[0].artist.name]);
 	},
 	
 	moreTracks: function() {
