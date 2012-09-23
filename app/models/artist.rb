@@ -29,6 +29,8 @@ class Artist
       name = @name  
     end
     
-    return @lastfm.artist.search(:artist => @name)
+    Rails.cache.fetch("/artists/#{@name}/search", :expires_in => 7.days, :compress => true) do
+      @lastfm.artist.search(:artist => @name)
+    end
   end
 end
