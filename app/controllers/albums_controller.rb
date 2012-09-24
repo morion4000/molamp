@@ -2,6 +2,7 @@ class AlbumsController < ApplicationController
   def show
     artist = params[:artist].gsub('+', ' ')
     album = params[:album].gsub('+', ' ')
+    @autoplay = params[:autoplay]
     
     album = Album.new(album, artist, @lastfm)
     @album = album.info
