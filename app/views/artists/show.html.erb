@@ -22,11 +22,15 @@
 			<ul class="nav nav-tabs" style="border-bottom: none; margin-bottom: 0">
 			  <li class="active"><a href="#top-tracks" data-toggle="tab">Top tracks</a></li>
 			  <li><a href="#top-albums" data-toggle="tab">Top albums</a></li>
+			  <li>
+			  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  	<input type="text" class="typeahead" data-provide="typeahead" placeholder="Search for a track..." />
+			  </li>
 			</ul>
 	 
 			<div class="tab-content">
 			  <div class="tab-pane active" id="top-tracks">
-					<table class="table table-bordered table-condensed table-hover" style="border-top: none;">
+					<table class="table table-bordered table-condensed table-hover datatable" style="border-top: none;">
 						<thead></thead>
 						<tbody>
 						<% if @top_tracks %>
@@ -154,7 +158,7 @@
 	
 	<% if @top_tracks %>
 	<script type="text/javascript">
-	$(function() {
+	$(function() {		
 		<% i=0; @top_tracks.each do |track| %>
 		Playlist.tracks.push({
 			uid: <%= i.to_s() %>,
@@ -164,6 +168,8 @@
 			image: "<%= track['image'] ? track['image'][0]['content'] : '/assets/noimage.jpg' %>",
 			similar: []
 		});
+		
+		Playlist.searchData.push("<%= track['name'] %>");
 		<% i=i+1; end %>
 		
 		<% if @autoplay == '1' or @autoplay == 'true' %>
@@ -172,6 +178,10 @@
 			Playlist.play(Playlist.tracks[0].mbid, null);
 		}, 3000); 
 		<% end %>
+		
+		$('.typeahead').typeahead({
+			source: Playlist.searchData
+		});
 	});
 	</script>
 	<% end %>

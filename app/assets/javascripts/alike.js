@@ -48,6 +48,8 @@ var Alike = {
 					image: Alike.getImage(tracks[i].image, 0),
 					similar: track.uid 
 				});
+				
+				//Playlist.searchData.push(tracks[i].name);
 			}
 		}
 		
@@ -104,6 +106,8 @@ var Alike = {
 				image: Alike.getImage(tracks[i].image, 0),
 				similar: [] 
 			});
+			
+			Playlist.searchData.push(tracks[i].name);
 		}
 		
 		table.append(moreRow);

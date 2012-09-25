@@ -4,6 +4,7 @@ var Playlist = {
 	page: 3,
 	limit: 10,
 	tracks: [],
+	searchData: [],
 	
 	play: function(mbid, similar) {
 		var url = 'https://gdata.youtube.com/feeds/api/videos',
