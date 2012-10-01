@@ -180,7 +180,14 @@
 		<% end %>
 		
 		$('.typeahead').typeahead({
-			source: Playlist.searchData
+			source: Playlist.searchData,
+			updater:function (item) {
+				var track = Playlist.searchTrack(Playlist.tracks, 'title', item);
+
+				Playlist.play(track.mbid, null);
+				
+	        	return '';
+    		}
 		});
 	});
 	</script>
