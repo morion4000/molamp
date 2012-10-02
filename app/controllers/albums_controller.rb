@@ -4,8 +4,12 @@ class AlbumsController < ApplicationController
     album = params[:album].gsub('+', ' ')
     @autoplay = params[:autoplay]
     
-    album = Album.new(album, artist, @lastfm)
-    @album = album.info
+    begin
+      album = Album.new(album, artist, @lastfm)
+      @album = album.info
+    rescue
+      @album = nil
+    end
     
     respond_to do |format|
       format.html # show.html.erb
