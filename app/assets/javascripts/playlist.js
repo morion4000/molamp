@@ -38,6 +38,8 @@ var Playlist = {
 					Playlist.highlightTrack(track);
 					Playlist.currentTrack = track;
 					
+					document.title = track.artist + ' - ' + track.title;
+					
 					$.gritter.add({
 						title: 'Now playing...',
 						image: track.image,
