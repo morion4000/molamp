@@ -70,20 +70,32 @@ var Playlist = {
 		 */
 		
 		if (typeof Playlist.currentTrack.similar === 'object') {		
-			// Play next normal track
-			if (Playlist.tracks.length > parseInt(Playlist.currentTrack.uid) + 1) {
-				// Next normal track
-				uid = Playlist.currentTrack.uid + 1;
+			// Track is normal
+			var similarTracksNo = Playlist.currentTrack.similar.length;
+			
+			if (similarTracksNo > 0) {
+				// Play similar track
+				uid = Playlist.currentTrack.similar[similarTracksNo-1].uid;
+				
+				mbid = Playlist.searchTrack(Playlist.currentTrack.similar, 'uid', uid).mbid;
+				
+				Playlist.play(Playlist.currentTrack.mbid, mbid);
 			} else {
-				// Reset to the first normal track
-				uid = 0;
+				// Play normal track
+				if (Playlist.tracks.length > parseInt(Playlist.currentTrack.uid) + 1) {
+					// Next normal track
+					uid = Playlist.currentTrack.uid + 1;
+				} else {
+					// Reset to the first normal track
+					uid = 0;
+				}
+				
+				mbid = Playlist.searchTrack(Playlist.tracks, 'uid', uid).mbid;
+				
+				Playlist.play(mbid, null);
 			}
-			
-			mbid = Playlist.searchTrack(Playlist.tracks, 'uid', uid).mbid;
-			
-			Playlist.play(mbid, null);
 		} else {
-			// Play next similar track
+			// Track is similar
 			var parent = Playlist.tracks[Playlist.currentTrack.similar];
 			
 			if (parent.similar.length > parseInt(Playlist.currentTrack.uid) + 1) {
