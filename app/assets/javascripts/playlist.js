@@ -27,23 +27,31 @@ var Playlist = {
 		
 		$.ajax({
 			url: url,
-			success: function(data) {
-				var song_url = data.feed.entry[0].link[0].href,
-					regex = /[a-zA-Z0-9_-]+(?=&)/,
-					matched = regex.exec(song_url);
-
-				Youtube.player.loadVideoById(matched[0]);
-
-				Playlist.highlightTrack(track);
-				Playlist.currentTrack = track;
-				
-				$.gritter.add({
-					title: 'Now playing...',
-					image: track.image,
-					text: track.artist + ' - ' + track.title
-				});
-				
-				_gaq.push(['_trackEvent', 'Tracks', 'Play', track.artist + ' - ' + track.title]);
+			success: function(data) {				
+				if (typeof data.feed.entry !== 'undefined') {
+					var song_url = data.feed.entry[0].link[0].href,
+						regex = /[a-zA-Z0-9_-]+(?=&)/,
+						matched = regex.exec(song_url);
+	
+					Youtube.player.loadVideoById(matched[0]);
+	
+					Playlist.highlightTrack(track);
+					Playlist.currentTrack = track;
+					
+					$.gritter.add({
+						title: 'Now playing...',
+						image: track.image,
+						text: track.artist + ' - ' + track.title
+					});
+					
+					_gaq.push(['_trackEvent', 'Tracks', 'Play', track.artist + ' - ' + track.title]);
+				} else {
+					$.gritter.add({
+						title: 'Track not found...',
+						image: track.image,
+						text: track.artist + ' - ' + track.title
+					});
+				}
 			},
 			data: {
 				q: track.artist + ' ' + track.title,

@@ -19,7 +19,14 @@ var Lastfm = {
 			limit: 5
 		}, {
 			success: function(data) {
-				Alike.appendSimilarTracks(mbid, data);
+				if (typeof data.similartracks.track === 'object') {
+					Alike.appendSimilarTracks(mbid, data);	
+				} else {
+					$.gritter.add({
+						title: 'Similar tracks...',
+						text: 'We couldn\'t find any similar tracks'
+					});
+				}
 			},
 			error: function(code, message) {
 				/* Show error message. */
