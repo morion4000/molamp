@@ -20,13 +20,13 @@
 			<table class="table table-bordered table-condensed table-hover">
 				<thead></thead>
 				<tbody>
-				<% if @album['tracks']['track'].size > 0 %>
-					<%
-						# if the album only has one track then lastfm sends a hash instead of an array
-						if @album['tracks']['track'].is_a?(Hash)
-							@album['tracks']['track'] = [@album['tracks']['track']]
-						end 
-					%>
+				<%
+					# if the album only has one track then lastfm sends a hash instead of an array
+					if @album['tracks']['track'].is_a?(Hash)
+						@album['tracks']['track'] = [@album['tracks']['track']]
+					end 
+				%>
+				<% if @album['tracks']['track'] and @album['tracks']['track'].size > 0 %>
 					<% 
 						i=0 
 						@album['tracks']['track'].each do |track|
@@ -79,7 +79,7 @@
 	  <li class="active"><%= @album['name'] %></li>
 	</ul>
 	
-	<% if @album['tracks']['track'].size > 0 %>
+	<% if @album['tracks']['track'] and @album['tracks']['track'].size > 0 %>
 	<script type="text/javascript">
 	$(function() {
 		Playlist.artist = "<%= @album['artist'] %>";
