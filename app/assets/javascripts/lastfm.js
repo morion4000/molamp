@@ -30,7 +30,10 @@ var Lastfm = {
 			},
 			error: function(code, message) {
 				/* Show error message. */
-				alert(message);
+				$.gritter.add({
+					title: 'Similar tracks...',
+					text: 'We couldn\'t find any similar tracks'
+				});
 			}
 		});
 	},
