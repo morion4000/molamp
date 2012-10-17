@@ -25,10 +25,19 @@ function onYoutubeEventFired(e) {
 	}
 }
 
+function onYoutubeErrorFired(e) {	
+	switch(e.data) {
+		default:
+			Playlist.next();
+		break;
+	}
+}
+
 function onYouTubePlayerAPIReady() {	
 	Youtube.player = new YT.Player(Youtube.domElement, Youtube.options);
 
 	Youtube.player.addEventListener('onStateChange', 'onYoutubeEventFired');
+	Youtube.player.addEventListener('onError', 'onYoutubeErrorFired');
 	
 	Alike.youtubeLoaded();
 }
