@@ -10,7 +10,8 @@
 	  <div class="span9">
   		<div class="row-fluid">
 			<div class="span9">
-				<h1 itemprop="name"><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) + ' / ' + @album['name'] %></h1>
+				<h1 itemprop="name"><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) %></h1>
+				<h2><%= @album['name'] %></h2>
 				<p><span class="badge"><%= @album['playcount'] %></span> times played on <a href="<%= @album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
 			</div>
 			<div class="span3">
