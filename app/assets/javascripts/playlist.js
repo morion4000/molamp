@@ -72,7 +72,9 @@ var Playlist = {
 			mbid = null;
 		
 		// Scrobble the current track first
-		Lastfm.scrobble(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+		if (Alike.scrobble === true) {
+			Lastfm.scrobble(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+		}
 		
 		/*
 		 * If similar is an array (object) then the track is a normal track

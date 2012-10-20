@@ -1,9 +1,12 @@
 var Alike = {
 	youtubeLoaders: [],
+	scrobble: false,
 	
 	init: function() {
 		Youtube.init();
 		Lastfm.init();
+		
+		Alike.checkScrobble();
 	},
 	
 	youtubeLoaded: function() {
@@ -136,5 +139,24 @@ var Alike = {
 		}
 		
 		return imagePath;
+	},
+	
+	checkScrobble: function() {
+		var state = $.cookie('scrobble_setting') != null ? $.cookie('scrobble_setting') : 'off';
+		
+		if (state === 'on') {
+			Alike.scrobble = true;
+		} else {
+			Alike.scrobble = false;
+		}
+		
+		if (strstr($('#scrobble_setting_on').attr('class'), 'disabled') ||
+			strstr($('#scrobble_setting_on').attr('class'), 'disabled')) {
+			Alike.scrobble = false;
+		}
+	},
+	
+	toggleScrobble: function(state) {
+		$.cookie('scrobble_setting', state);
 	}
 };

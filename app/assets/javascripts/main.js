@@ -42,4 +42,12 @@ $(function() {
 	$('#more-tracks').live('click', function(e) {
 		Alike.moreTracks();
 	});
+	
+	$('#scrobble_setting_off').click(function() {
+		Alike.toggleScrobble('off');
+	});
+	
+	$('#scrobble_setting_on').click(function() {
+		Alike.toggleScrobble('on');
+	});
 });

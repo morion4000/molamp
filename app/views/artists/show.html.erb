@@ -9,8 +9,19 @@
 	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name'], :class => 'img-polaroid') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
 	  </div>
 	  <div class="span9">
-		<h1 itemprop="name"><%= @artist['name'] %></h1>
-		<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
+	  	<div class="row-fluid">
+			<div class="span9">
+				<h1 itemprop="name"><%= @artist['name'] %></h1>
+				<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
+			</div>
+			<div class="span3">
+				Scrobble Mode <a href="/faq#scrobble-mode" target="_blank" title="Learn about Scrobble Mode"><i class="icon-info-sign"></i></a> 
+				<div class="btn-group" data-toggle="buttons-radio" id="scrobble_setting">
+	  				<button id="scrobble_setting_off" type="button" class="btn btn-danger <%= !cookies[:lastfm_session] ? 'disabled' : '' %>">Off</button>
+	  				<button id="scrobble_setting_on" type="button" class="btn btn-info <%= !cookies[:lastfm_session] ? 'disabled' : '' %>">On</button>
+				</div>
+			</div>
+		</div>
 		<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
 	  </div>
 	</div>
