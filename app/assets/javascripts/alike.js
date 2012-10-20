@@ -151,11 +151,11 @@ var Alike = {
 			if (state === 'on') {
 				Alike.scrobble = true;
 				
-				$('#scrobble_setting_on').attr('class', 'active');
+				$('#scrobble_setting_on').addClass('active');
 			} else {
 				Alike.scrobble = false;
 				
-				$('#scrobble_setting_off').attr('class', 'active');
+				$('#scrobble_setting_off').addClass('active');
 			}
 		}
 	},
