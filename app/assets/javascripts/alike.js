@@ -143,16 +143,20 @@ var Alike = {
 	
 	checkScrobble: function() {
 		var state = $.cookie('scrobble_setting') != null ? $.cookie('scrobble_setting') : 'off';
-		
-		if (state === 'on') {
-			Alike.scrobble = true;
-		} else {
-			Alike.scrobble = false;
-		}
-		
+				
 		if (strstr($('#scrobble_setting_on').attr('class'), 'disabled') ||
 			strstr($('#scrobble_setting_on').attr('class'), 'disabled')) {
 			Alike.scrobble = false;
+		} else {
+			if (state === 'on') {
+				Alike.scrobble = true;
+				
+				$('#scrobble_setting_on').attr('class', 'active');
+			} else {
+				Alike.scrobble = false;
+				
+				$('#scrobble_setting_off').attr('class', 'active');
+			}
 		}
 	},
 	
