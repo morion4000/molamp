@@ -1,8 +1,8 @@
 var Playlist = {
 	currentTrack: null,
 	artist: null,
-	page: 3,
-	limit: 10,
+	page: 1,
+	limit: 30,
 	tracks: [],
 	searchData: [],
 	
