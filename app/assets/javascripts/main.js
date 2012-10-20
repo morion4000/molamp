@@ -45,9 +45,11 @@ $(function() {
 	
 	$('#scrobble_setting_off').click(function() {
 		Alike.toggleScrobble('off');
+		Alike.scrobble = false;
 	});
 	
 	$('#scrobble_setting_on').click(function() {
 		Alike.toggleScrobble('on');
+		Alike.scrobble = true;
 	});
 });
