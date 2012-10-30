@@ -1,4 +1,4 @@
-class User 
+class LastfmUser 
   attr_accessor :name, :lastfm
   
   def initialize(name, lastfm)

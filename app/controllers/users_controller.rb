@@ -18,6 +18,25 @@ class UsersController < ApplicationController
   
   def show
     @user = @current_user
+    
+    if cookies[:lastfm_session]
+      begin
+        @query = cookies.signed[:lastfm_user]
+        
+        user = LastfmUser.new(@query, @lastfm)
+        
+        @top_artists = user.top_artists
+        @lastfm_user = user.info
+      rescue
+        @top_artists  = nil
+        @lastfm_user = nil
+      end
+    end
+    
+   respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @lastfm_user }
+   end
   end
 
   def edit

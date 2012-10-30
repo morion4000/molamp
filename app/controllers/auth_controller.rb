@@ -7,7 +7,7 @@ class AuthController < ApplicationController
     cookies.permanent.signed[:lastfm_session] = session['key']
     cookies.permanent.signed[:lastfm_user] = session['name']
     
-    redirect_to '/', :notice => 'You have successfully been logged in with your Last.fm account.'
+    redirect_to '/account', :notice => 'You have successfully been logged in with your Last.fm account.'
   end
   
   def logout

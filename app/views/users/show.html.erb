@@ -1,23 +1,51 @@
 <h1>My Account</h1>
 
+<% if cookies[:lastfm_session] and 1==0 %>
+
+<ul class="thumbnails">			
+	<%	
+		if @top_artists.size > 0
+			@top_artists.each do |artist|
+	%>
+		  	<li class="span1">
+				<a class="thumbnail" href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
+  					<%= image_tag(get_image(artist['image'], 1), :alt => artist['name'], :width => 90, :class => 'img-rounded') %>
+  				</a>
+			</li>	  					
+		<% end %>
+	<% else %>
+		
+	<% end %>
+</ul>
+
+<% end %>
+
 <div class="tabbable tabs-left">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Profile</a></li>
-    <li><a href="#tab2" data-toggle="tab">Social</a></li>
+    <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+    <li><a href="#social" data-toggle="tab">Social</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="tab1">
+    <div class="tab-pane active" id="profile">
       	<h3>Editing user</h3>
 
 		<%= render 'form' %>
     </div>
-    <div class="tab-pane" id="tab2">
+    <div class="tab-pane" id="social">
       <h3>Last.fm</h3>
       <% if cookies[:lastfm_session] %>
-      	Connected as <%= link_to cookies.signed[:lastfm_user], 'http://www.last.fm/user/'+cookies.signed[:lastfm_user] %>  
-      	<a href="/auth/logout">Disconnect</a>
+      	<div class="row-fluid">
+      		<div class="span2">
+      			<%= image_tag @lastfm_user['image'][1]['content'], :class => 'img-rounded' %>
+      		</div>
+      	  	<div class="span10">
+      	  		Connected as <%= link_to @lastfm_user['name'], @lastfm_user['url'], :target => '_blank' %>
+      	  		<br />
+      			<a href="/auth/logout" class="btn">Disconnect</a>
+      		</div>
+      	</div>
       <% else %>
-	  <a href="http://www.last.fm/api/auth/?api_key=<%= APP_CONFIG['lastfm_api_key'] %>">Connect with Last.fm</a>
+	  <a href="http://www.last.fm/api/auth/?api_key=<%= APP_CONFIG['lastfm_api_key'] %>" class="btn">Connect with Last.fm</a>
 	  <% end %>
     </div>
   </div>
