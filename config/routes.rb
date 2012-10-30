@@ -1,8 +1,12 @@
 Lastfmyoutube::Application.routes.draw do
+  resource :account, :controller => "users"
+  resources :users
+  resource :user_session
+  #root :controller => "user_sessions", :action => "new"
+  
   resources :albums
   resources :search
   #resources :artists
-  resources :users
   resources :faq
 
   match 'artists/:id' => 'artists#show', :constraints => { :id => /[^\/]*/ } #:id => /[0-9a-zA-Z.&+%]+/

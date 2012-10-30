@@ -1,0 +1,63 @@
+<% if !@user %>
+	<div class="alert alert-error">The username could not be found.</div>
+<% else %>
+<% title @user['name'], false %>
+
+	<div class="row-fluid">
+	  <div class="span3">
+	  	<%= image_tag(get_image(@user['image'], 3), :alt => @user['name']) %>
+	  </div>
+	  <div class="span9">
+		<h1><%= @user['name'] %></h1>
+		<p><span class="badge"><%= @user['playcount'] %></span> tracks listened on <a href="http://www.last.fm/user/<%= @user['name'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
+	  </div>
+	</div>
+	
+	<br />
+	
+	<div class="row-fluid">
+		<div class="span7">
+			<table class="table table-bordered table-condensed table-hover">
+				<thead></thead>
+				<tbody>
+					<%	
+					if @top_artists.size > 0
+						i=0 
+						@top_artists.each do |artist|
+					%>
+					<tr style="background-color: #FFF">
+						<td><%= i+1 %></td>
+						<td>
+							<div class="row-fluid">
+			  					<div class="span2">
+			  						<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
+			  							<%= image_tag(get_image(artist['image'], 1), :alt => artist['name'], :width => 60, :class => 'img-rounded') %>
+			  						</a>
+			  					</div>
+			  					<div class="span10" style="vertical-align:top">
+			  						&nbsp;&nbsp;<%= link_to(artist['name'], '/artists/' + url_to_lastfm(artist['name'])) %>
+			  					</div>
+							</div>
+						</td>
+					</tr>
+					<% i=i+1; end %>
+				<% else %>
+					<tr>
+						<td>User has no top artists.</td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="span5">
+			<div id="right_content">
+				<div id="ytplayer" style="width:340px;height:250px;"></div>
+			</div>
+		</div>
+	</div>
+	
+	<ul class="breadcrumb">
+	  <li><a href="/">Home</a> <span class="divider">/</span></li>
+	  <li class="active"><%= @user['name'] %></li>
+	</ul>
+<% end %>
