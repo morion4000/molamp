@@ -115,17 +115,14 @@
 	</div>
 	
 	<div class="row-fluid">
-  		<div class="span10">
+  		<div class="span9">
   			<footer class="footer">
 				<p>
-					&copy; <%= Date.today.year %> Molamp <sup><span class="label label-info">beta</span></sup>. 
-					Made with <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>. 
-					Powered by <a href="http://www.last.fm" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>.<br />
-					<i><%= ENV['rel'] %></i>
+					&copy; <%= Date.today.year %> Molamp <sup><span class="label label-info">beta</span></sup>. <i><%= ENV['rel'] %></i>
 				</p>
 			</footer>
   		</div>
-  		<div class="span2">
+  		<div class="span3">
   			<ul class="unstyled pull-right">
   				<li style="display: inline;margin-left:10px"><a data-toggle="modal" href="#aboutModal">About</a></li>
   				<li style="display: inline;margin-left:10px"><a href="/faq">FAQ</a></li>
@@ -140,7 +137,19 @@
 		<h3>About</h3>
 	</div>
 	<div class="modal-body">
-		<p>You can contact me at morion4000[at]gmail.com</p>
+		<p>The goal of this application is to allow people to listen to artists/bands tracklists and discover new ones for free.</p>
+		<p>
+		Follow Molamp: 
+		<a href="http://www.last.fm/group/Molamp" target="_blank">Last.fm</a> |
+		<a href="http://www.twitter.com/molamp" target="_blank">Twitter</a> |
+		<a href="http://www.facebook.com/pages/Molamp/282623645175841" target="_blank">Facebook</a> |
+		<a href="http://stats.pingdom.com/bqylo5xy0dcj" target="_blank">Service Status</a>
+		</p>
+		<br />
+		<p>
+		Made with <a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a>. 
+	    Powered by <a href="http://www.last.fm" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>.
+	    </p>	    
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="btn" data-dismiss="modal">Close</a>
