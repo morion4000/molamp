@@ -10,6 +10,7 @@ gem 'thin'
 gem 'bootstrap-sass', '~> 2.1.0.0'
 gem 'sanitize'
 gem 'lastfm', :git => 'git://github.com/morion4000/ruby-lastfm.git'
+gem 'koala'
 gem 'gritter', '1.0.2'
 gem 'json'
 

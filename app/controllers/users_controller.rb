@@ -33,9 +33,13 @@ class UsersController < ApplicationController
       end
     end
     
+    if cookies[:facebook_session]
+      @profile = @facebook.get_object('me')
+    end
+    
    respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @lastfm_user }
+      format.json { render :json => @profile }
    end
   end
 

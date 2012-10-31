@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :check_url, :set_lastfm, :authenticate
+  before_filter :check_url, :set_lastfm, :set_facebook, :authenticate
   
   helper :all
   helper_method :current_user_session, :current_user
@@ -64,6 +64,12 @@ class ApplicationController < ActionController::Base
     
     if cookies[:lastfm_session]
       @lastfm.session = cookies.signed[:lastfm_session]
+    end
+  end
+  
+  def set_facebook
+    if cookies[:facebook_session]
+      @facebook = Koala::Facebook::API.new(cookies.signed[:facebook_session])
     end
   end
 end
