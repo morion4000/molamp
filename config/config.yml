@@ -2,11 +2,15 @@ development:
   perform_authentication: false
   lastfm_api_key: 930976e93a9a305ccd319242e2a90e58
   lastfm_api_secret: fa79a2ce3ac9477157b158fd08bf06f4
+  facebook_api_key: 224617567667902
+  facebook_api_secret: 44309bdacf4fa3a1db3de688d9d96503
 
 test:
   perform_authentication: false
   lastfm_api_key: 930976e93a9a305ccd319242e2a90e58
   lastfm_api_secret: fa79a2ce3ac9477157b158fd08bf06f4
+  facebook_api_key: 224617567667902
+  facebook_api_secret: 44309bdacf4fa3a1db3de688d9d96503
 
 production:
   perform_authentication: false
@@ -14,3 +18,5 @@ production:
   password: secret
   lastfm_api_key: 930976e93a9a305ccd319242e2a90e58
   lastfm_api_secret: fa79a2ce3ac9477157b158fd08bf06f4
+  facebook_api_key: 224617567667902
+  facebook_api_secret: 44309bdacf4fa3a1db3de688d9d96503

@@ -14,6 +14,7 @@ Lastfmyoutube::Application.routes.draw do
 
   match 'tracks/scrobble' => 'tracks#scrobble'
 
+  match 'auth/facebook' => 'auth#facebook'
   match 'auth/lastfm' => 'auth#lastfm'
   match 'auth/logout' => 'auth#logout'
 
