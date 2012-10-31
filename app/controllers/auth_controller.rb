@@ -2,12 +2,16 @@ class AuthController < ApplicationController
   def lastfm
     token = params[:token]
     
-    session = @lastfm.auth.get_session(:token => token)
-    
-    cookies.permanent.signed[:lastfm_session] = session['key']
-    cookies.permanent.signed[:lastfm_user] = session['name']
-    
-    redirect_to '/account', :notice => 'You have successfully been connected with your Last.fm account.'
+    if token.to_s.blank?
+      redirect_to 'http://www.last.fm/api/auth/?api_key=' + APP_CONFIG['lastfm_api_key'].to_s
+    else
+      session = @lastfm.auth.get_session(:token => token)
+      
+      cookies.permanent.signed[:lastfm_session] = session['key']
+      cookies.permanent.signed[:lastfm_user] = session['name']
+      
+      redirect_to '/account', :notice => 'You have successfully been connected with your Last.fm account.'
+    end
   end
   
   def facebook
@@ -37,7 +41,9 @@ class AuthController < ApplicationController
       response = Net::HTTP.get_response(URI.parse(session_url)).body
       parameters = Rack::Utils.parse_nested_query(response)
       
-      cookies.permanent.signed[:facebook_session] = parameters[:access_token]    
+      cookies.permanent.signed[:facebook_session] = parameters[:access_token]
+      
+      redirect_to '/account', :notice => 'You have successfully been connected with your Facebook account.'    
     else
       #die  
     end
