@@ -12,6 +12,10 @@ module LayoutHelper
     content_for(:description) { h(description.to_s) }
   end
   
+  def meta(meta)
+    content_for(:meta) { h(meta.to_s) }
+  end
+  
   def get_image(image, size)
     result = '/assets/noimage.jpg'
     

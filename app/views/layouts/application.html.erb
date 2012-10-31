@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#"> 
+  	<%= content_for?(:meta) ? yield(:meta) : '' %>
     <meta charset="utf-8">
     <title><%= content_for?(:title) ? yield(:title) : 'Molamp - Discover your music' %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
