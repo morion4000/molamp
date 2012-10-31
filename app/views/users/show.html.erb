@@ -36,7 +36,20 @@
 	  <a href="http://www.youtube.com" class="btn disabled">Connect with Youtube</a>
 	  
       <h3>Facebook</h3>
+      <% if cookies[:facebook_session] %>
+      	<div class="row-fluid">
+      		<div class="span2">
+      			
+      		</div>
+      	  	<div class="span10">
+      	  		Connected as ...
+      	  		<br />
+      			<a href="/auth/logout" class="btn">Disconnect</a>
+      		</div>
+      	</div>
+      <% else %>
 	  <a href="/auth/facebook" class="btn">Connect with Facebook</a>
+	  <% end %>
 	  
       <h3>Last.fm</h3>
       <% if cookies[:lastfm_session] %>
