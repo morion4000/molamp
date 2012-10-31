@@ -36,6 +36,7 @@ class UsersController < ApplicationController
     if cookies[:facebook_session]
       begin
         @profile = @facebook.get_object('me')
+        @profile_pic = @facebook.get_picture('me')
       rescue
         @profile = nil
       end

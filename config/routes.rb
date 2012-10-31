@@ -19,7 +19,8 @@ Lastfmyoutube::Application.routes.draw do
 
   match 'auth/facebook' => 'auth#facebook'
   match 'auth/lastfm' => 'auth#lastfm'
-  match 'auth/logout' => 'auth#logout'
+  match 'auth/facebook/logout' => 'auth#logout_facebook'
+  match 'auth/lastfm/logout' => 'auth#logout_lastfm'
 
   root :to => "home#index"
 

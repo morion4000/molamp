@@ -55,14 +55,18 @@ class AuthController < ApplicationController
     end
   end
   
-  def logout
+  def logout_lastfm
     if cookies[:lastfm_session]
       cookies.delete :lastfm_session
       cookies.delete :lastfm_user
     end
     
+    redirect_to '/account', :notice => 'You have successfully been disconnected from your Last.fm account.'
+  end
+  
+  def logout_facebook
     cookies.delete :facebook_session
     
-    redirect_to '/account', :notice => 'You have successfully been disconnected from all your accounts.'
+    redirect_to '/account', :notice => 'You have successfully been disconnected from your Facebook account.'
   end
 end

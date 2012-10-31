@@ -22,29 +22,21 @@
 
 <div class="tabbable tabs-left">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-    <li><a href="#social" data-toggle="tab">Social</a></li>
+  	<li class="active"><a href="#social" data-toggle="tab">Social</a></li>
+   	<li><a href="#profile" data-toggle="tab">Profile</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="profile">
-      	<h3>Editing user</h3>
-
-		<%= render 'form' %>
-    </div>
-    <div class="tab-pane" id="social">
-      <h3>Youtube</h3>
-	  <a href="http://www.youtube.com" class="btn disabled">Connect with Youtube</a>
-	  
+    <div class="tab-pane active" id="social">
       <h3>Facebook</h3>
       <% if cookies[:facebook_session] %>
       	<div class="row-fluid">
-      		<div class="span2">
-      			
+      		<div class="span1">
+      			<%= image_tag @profile_pic, :width => 50, :class => 'img-rounded' %>
       		</div>
-      	  	<div class="span10">
-      	  		Connected as ...
+      	  	<div class="span11">
+      	  		Connected as <%= link_to @profile['name'], @profile['link'], :target => '_blank' %>
       	  		<br />
-      			<a href="/auth/logout" class="btn">Disconnect</a>
+      			<a href="/auth/facebook/logout" class="btn">Disconnect</a>
       		</div>
       	</div>
       <% else %>
@@ -54,18 +46,21 @@
       <h3>Last.fm</h3>
       <% if cookies[:lastfm_session] %>
       	<div class="row-fluid">
-      		<div class="span2">
-      			<%= image_tag @lastfm_user['image'][1]['content'], :class => 'img-rounded' %>
+      		<div class="span1">
+      			<%= image_tag @lastfm_user['image'][1]['content'], :width => 50, :class => 'img-rounded' %>
       		</div>
-      	  	<div class="span10">
+      	  	<div class="span11">
       	  		Connected as <%= link_to @lastfm_user['name'], @lastfm_user['url'], :target => '_blank' %>
       	  		<br />
-      			<a href="/auth/logout" class="btn">Disconnect</a>
+      			<a href="/auth/lastfm/logout" class="btn">Disconnect</a>
       		</div>
       	</div>
       <% else %>
 	  <a href="/auth/lastfm" class="btn">Connect with Last.fm</a>
 	  <% end %>
+    </div>
+    <div class="tab-pane" id="profile">
+		<%= render 'form_edit' %>
     </div>
   </div>
 </div>
