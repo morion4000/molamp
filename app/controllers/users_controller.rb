@@ -34,7 +34,11 @@ class UsersController < ApplicationController
     end
     
     if cookies[:facebook_session]
-      @profile = @facebook.get_object('me')
+      begin
+        @profile = @facebook.get_object('me')
+      rescue
+        @profile = nil
+      end
     end
     
    respond_to do |format|
