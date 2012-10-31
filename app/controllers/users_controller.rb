@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     
    respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @profile }
+      format.json { render :json => cookies.signed[:facebook_session] }
    end
   end
 
