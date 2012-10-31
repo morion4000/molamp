@@ -47,9 +47,9 @@ class AuthController < ApplicationController
       response = https.request_get(fb_access_token_url.path + '?' + fb_access_token_url.query)
       parameters = Rack::Utils.parse_nested_query(response.body)
       
-      cookies.permanent.signed[:facebook_session] = parameters[:access_token]
+      cookies.permanent.signed[:facebook_session] = parameters['access_token']
       
-      redirect_to '/account', :notice => 'You have successfully been connected with your Facebook account.'    
+      redirect_to '/account', :notice => 'You have successfully been connected with your Facebook account.'   
     else  
       # state is does not match
     end
@@ -63,6 +63,6 @@ class AuthController < ApplicationController
     
     cookies.delete :facebook_session
     
-    redirect_to '/account', :notice => 'You have successfully been disconnected from your accounts.'
+    redirect_to '/account', :notice => 'You have successfully been disconnected from all your accounts.'
   end
 end
