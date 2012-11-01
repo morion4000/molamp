@@ -18,7 +18,7 @@ class AuthController < ApplicationController
   def facebook
     code = params[:code]
     redirect_url = 'http://www.molamp.net/auth/facebook'
-    scope = 'user_about_me,user_likes,friends_likes,publish_actions,user_actions.music,friends_actions.music'
+    scope = 'user_likes,publish_actions'
         
     if code.to_s.blank?
       session[:facebook_state] = Digest::MD5.hexdigest(rand(1000).to_s);
