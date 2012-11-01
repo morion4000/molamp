@@ -1,6 +1,4 @@
 Lastfmyoutube::Application.routes.draw do
-  get "privacy/index"
-
   resource :account, :controller => "users"
   resources :users
   resource :user_session
@@ -11,9 +9,11 @@ Lastfmyoutube::Application.routes.draw do
   #resources :artists
   resources :faq
   resources :privacy
+  resources :tos
 
   match 'artists/:id' => 'artists#show', :constraints => { :id => /[^\/]*/ } #:id => /[0-9a-zA-Z.&+%]+/
   match 'artists/:artist/:album' => 'albums#show', :constraints => { :artist => /[^\/]*/, :album => /[^\/]*/ } #:artist => /[0-9a-zA-Z.&+%'_-]+/, :album => %r{[0-9a-zA-Z.&':()+/!-_]+}i
+  match 'artists/:artist/_/:track' => 'tracks#show', :constraints => { :artist => /[^\/]*/, :track => /[^\/]*/ }
 
   match 'tracks/scrobble' => 'tracks#scrobble'
 
@@ -21,6 +21,9 @@ Lastfmyoutube::Application.routes.draw do
   match 'auth/lastfm' => 'auth#lastfm'
   match 'auth/facebook/logout' => 'auth#logout_facebook'
   match 'auth/lastfm/logout' => 'auth#logout_lastfm'
+  
+  match 'ajax/scrobble_mode' => 'ajax#scrobble_mode'
+  match 'ajax/activity_mode' => 'ajax#activity_mode'
 
   root :to => "home#index"
 
