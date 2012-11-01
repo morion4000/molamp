@@ -1,20 +1,62 @@
-<h1>Songs</h1>
+<% if !@track %>
+	<div class="alert alert-error">The track could not be found. Please try searching again.</div>
+<% else %>
+<% title @track['artist']['name'] + ' - ' + @track['name'], false %>
+	<% meta_var = 
+			'<meta property="fb:app_id" content="224617567667902" />'+
+			'<meta property="og:type" content="music.song" />'+
+			'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@track['artist']['name'])+'/_/'+url_to_lastfm(@track['name'])+'" />'+
+			'<meta property="og:title" content="'+@track['name']+'" />'+
+			'<meta property="og:image" content="'+@track['album']['image'][0]['content']+'" />'+
+			'<meta property="music:album:url" content="http://www.molamp.com/artists/'+url_to_lastfm(@track['artist']['name'])+'/'+url_to_lastfm(@track['album']['title'])+'" />'
+	meta meta_var.html_safe %>
 
-<table class="table table-striped table-bordered table-condensed">
-	  <thead>
-  <tr>
-    <th>Artist</th>
-    <th>URL</th>
-  </tr>
-  </thead>
-  <tbody>
-<% @results['results']['artistmatches']['artist'].each do |artist| %>
+	<div class="row-fluid">
+		<div class="span7">
+			<h2><%= @track['name'] %></h2>
+			<h3><%= link_to @track['artist']['name'], '/artists/' + url_to_lastfm(@track['artist']['name'])  %></h3>
+			
+			<%= image_tag @track['album']['image'][3]['content'] %>
+		</div>
+		<div class="span5">
+			<div id="ytplayer" style="width:340px;height:270px;"></div>
+		</div>
+	</div>
 
-	<tr>
-		<td><%= artist['name'] %></td>
-		<td><%= artist['url'] %></td>
-	</tr>
-		
+<script type="text/javascript">
+	function searchYoutubeVideo() {
+		$.ajax({
+			url: Youtube.url,
+			success: function(data) {				
+				if (typeof data.feed.entry !== 'undefined') {
+					var song_url = data.feed.entry[0].link[0].href,
+						regex = /[a-zA-Z0-9_-]+(?=&)/,
+						matched = regex.exec(song_url);
+	
+					Youtube.player.loadVideoById(matched[0]);
+	
+					_gaq.push(['_trackEvent', 'Tracks', 'Play', track.artist + ' - ' + track.title]);
+				} else {
+					$.gritter.add({
+						title: 'Track not found...',
+						image: track.image,
+						text: track.artist + ' - ' + track.title
+					});
+				}
+			},
+			data: {
+				q: '<%= @track['artist']['name'] + ' ' + @track['name'] %>',
+				orderby: 'relevance',
+				alt: 'json',
+				format: 5,
+				key: Youtube.key
+				//restriction: 'RO'
+			},
+			dataType: 'json'
+		});
+	}
+	
+	setTimeout(searchYoutubeVideo, 2000);
+</script>
+
 <% end %>
- </tbody>
-</table>
