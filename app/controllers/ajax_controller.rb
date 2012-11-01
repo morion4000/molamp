@@ -24,7 +24,7 @@ class AjaxController < ApplicationController
     song_url = 'http://www.molamp.net/artists/' + artist.gsub(' ', '+') + '/_/' + track.gsub(' ', '+')
     
     if current_user.facebook_token and current_user.activity_mode === true and Rails.env.production?
-      @facebook.put_connections('me', 'music.listens', :song => song_url)
+      @facebook.put_connections('me', 'music.listens', :song => URI.escape(song_url))
     end
     
     respond_to do |format|
