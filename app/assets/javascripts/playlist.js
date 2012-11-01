@@ -7,8 +7,7 @@ var Playlist = {
 	searchData: [],
 	
 	play: function(mbid, similar) {
-		var url = 'https://gdata.youtube.com/feeds/api/videos',
-			track = null,
+		var track = null,
 			e = typeof event != 'undefined' ? event : {},
 			target = e.target || e.srcElement,
 			targetClass = $(target).attr('class');
@@ -26,7 +25,7 @@ var Playlist = {
 		}
 		
 		$.ajax({
-			url: url,
+			url: Youtube.url,
 			success: function(data) {				
 				if (typeof data.feed.entry !== 'undefined') {
 					var song_url = data.feed.entry[0].link[0].href,

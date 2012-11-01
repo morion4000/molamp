@@ -1,5 +1,6 @@
 var Youtube = {
 	player: null,
+	url: 'https://gdata.youtube.com/feeds/api/videos',
 	domElement: 'ytplayer',
 	options: {
 	  height: '340',
