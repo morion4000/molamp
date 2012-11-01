@@ -6,7 +6,7 @@
 			'<meta property="fb:app_id" content="224617567667902" />'+
 			'<meta property="og:type" content="music.song" />'+
 			'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@track['artist']['name'])+'/_/'+url_to_lastfm(@track['name'])+'" />'+
-			'<meta property="og:title" content="'+@track['name']+'" />'+
+			'<meta property="og:title" content="'+@track['artist']['name'] + ' - ' + @track['name']+'" />'+
 			'<meta property="og:image" content="'+@track['album']['image'][0]['content']+'" />'+
 			'<meta property="music:album:url" content="http://www.molamp.com/artists/'+url_to_lastfm(@track['artist']['name'])+'/'+url_to_lastfm(@track['album']['title'])+'" />'
 	meta meta_var.html_safe %>

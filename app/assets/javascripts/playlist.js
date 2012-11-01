@@ -75,6 +75,11 @@ var Playlist = {
 			Lastfm.scrobble(Playlist.currentTrack.artist, Playlist.currentTrack.title);
 		}
 		
+		// Activity feed
+		if (Alike.activity === true) {
+			Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+		}
+		
 		/*
 		 * If similar is an array (object) then the track is a normal track
 		 * and if similar is an integer then the track is similar

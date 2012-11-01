@@ -213,5 +213,12 @@
 </tr>
 </script>
 
+<script type="text/javascript">
+$(function() {
+	Alike.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
+	Alike.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
+});
+</script>
+
 </body>
 </html>

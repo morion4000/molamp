@@ -1,14 +1,11 @@
 var Alike = {
 	youtubeLoaders: [],
-	scrobble: true,
-	activity: true,
+	scrobble: false,
+	activity: false,
 	
 	init: function() {
 		Youtube.init();
 		Lastfm.init();
-		
-		Alike.checkScrobble();
-		Alike.checkActivity();
 	},
 	
 	youtubeLoaded: function() {
@@ -141,22 +138,6 @@ var Alike = {
 		}
 		
 		return imagePath;
-	},
-	
-	checkScrobble: function() {	
-		if (strstr($('#scrobble_setting_on').attr('class'), 'active')) {
-			Alike.scrobble = true;
-		} else {
-			Alike.scrobble = false;
-		}
-	},
-	
-	checkActivity: function() {	
-		if (strstr($('#activity_setting_on').attr('class'), 'active')) {
-			Alike.activity = true;
-		} else {
-			Alike.activity = false;
-		}
 	},
 	
 	toggleScrobble: function(state) {

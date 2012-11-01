@@ -55,7 +55,7 @@ var Lastfm = {
 	
 	scrobble: function(artist, track) {
 		$.ajax({
-			url: '/tracks/scrobble',
+			url: '/ajax/scrobble',
 			success: function(data) {
 				$.gritter.add({
 					title: 'Track scrobbled...',
@@ -68,5 +68,22 @@ var Lastfm = {
 			},
 			dataType: 'json'
 		});
-	}
+	},
+	
+	activity: function(artist, track) {
+		$.ajax({
+			url: '/ajax/activity',
+			success: function(data) {
+				$.gritter.add({
+					title: 'Track posted on activity feed...',
+					text: '<strong>' + artist + ' - ' + track + '</strong> was posted on Facebook activity feed'
+				});
+			},
+			data: {
+				artist: artist,
+				track: track
+			},
+			dataType: 'json'
+		});
+	},
 };
