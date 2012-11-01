@@ -18,10 +18,10 @@ class UsersController < ApplicationController
   
   def show
     @user = @current_user
-    
-    if cookies[:lastfm_session]
+     
+    if current_user.lastfm_token
       begin
-        @query = cookies.signed[:lastfm_user]
+        @query = current_user.lastfm_username
         
         user = LastfmUser.new(@query, @lastfm)
         
@@ -33,12 +33,14 @@ class UsersController < ApplicationController
       end
     end
     
-    if cookies[:facebook_session]
+    if current_user.facebook_token
       begin
         @profile = @facebook.get_object('me')
         @profile_pic = @facebook.get_picture('me')
+        #@likes = @facebook.get_connections('me', 'likes')
       rescue
         @profile = nil
+        @likes = nil
       end
     end
     

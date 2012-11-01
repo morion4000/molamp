@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   
   helper :all
   helper_method :current_user_session, :current_user
-  #filter_parameter_logging :password, :password_confirmation
   
   private
     def current_user_session
@@ -62,14 +61,14 @@ class ApplicationController < ActionController::Base
   def set_lastfm
     @lastfm = Lastfm.new(APP_CONFIG['lastfm_api_key'], APP_CONFIG['lastfm_api_secret'])
     
-    if cookies[:lastfm_session]
-      @lastfm.session = cookies.signed[:lastfm_session]
+    if current_user.lastfm_token
+      @lastfm.session = current_user.lastfm_token
     end
   end
   
   def set_facebook
-    if cookies[:facebook_session]
-      @facebook = Koala::Facebook::API.new(cookies.signed[:facebook_session])
+    if current_user.facebook_token
+      @facebook = Koala::Facebook::API.new(current_user.facebook_token)
     end
   end
 end

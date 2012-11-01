@@ -1,12 +1,14 @@
 var Alike = {
 	youtubeLoaders: [],
-	scrobble: false,
+	scrobble: true,
+	activity: true,
 	
 	init: function() {
 		Youtube.init();
 		Lastfm.init();
 		
 		Alike.checkScrobble();
+		Alike.checkActivity();
 	},
 	
 	youtubeLoaded: function() {
@@ -141,26 +143,27 @@ var Alike = {
 		return imagePath;
 	},
 	
-	checkScrobble: function() {
-		var state = $.cookie('scrobble_setting') != null ? $.cookie('scrobble_setting') : 'off';
-				
-		if (strstr($('#scrobble_setting_on').attr('class'), 'disabled') ||
-			strstr($('#scrobble_setting_on').attr('class'), 'disabled')) {
-			Alike.scrobble = false;
+	checkScrobble: function() {	
+		if (strstr($('#scrobble_setting_on').attr('class'), 'active')) {
+			Alike.scrobble = true;
 		} else {
-			if (state === 'on') {
-				Alike.scrobble = true;
-				
-				$('#scrobble_setting_on').addClass('active');
-			} else {
-				Alike.scrobble = false;
-				
-				$('#scrobble_setting_off').addClass('active');
-			}
+			Alike.scrobble = false;
+		}
+	},
+	
+	checkActivity: function() {	
+		if (strstr($('#activity_setting_on').attr('class'), 'active')) {
+			Alike.activity = true;
+		} else {
+			Alike.activity = false;
 		}
 	},
 	
 	toggleScrobble: function(state) {
-		$.cookie('scrobble_setting', state);
+		$.ajax('/ajax/scrobble_mode?mode='+state);
+	},
+	
+	toggleActivity: function(state) {
+		$.ajax('/ajax/activity_mode?mode='+state);
 	}
 };

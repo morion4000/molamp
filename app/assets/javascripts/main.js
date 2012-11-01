@@ -52,4 +52,14 @@ $(function() {
 		Alike.toggleScrobble('on');
 		Alike.scrobble = true;
 	});
+	
+	$('#activity_setting_off').click(function() {
+		Alike.toggleActivity('off');
+		Alike.activity = false;
+	});
+	
+	$('#activity_setting_on').click(function() {
+		Alike.toggleActivity('on');
+		Alike.activity = true;
+	});
 });

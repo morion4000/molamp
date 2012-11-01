@@ -7,8 +7,9 @@ class AuthController < ApplicationController
     else
       session = @lastfm.auth.get_session(:token => token)
       
-      cookies.permanent.signed[:lastfm_session] = session['key']
-      cookies.permanent.signed[:lastfm_user] = session['name']
+      current_user.lastfm_token = session['key']
+      current_user.lastfm_username = session['name']
+      current_user.save
       
       redirect_to '/account', :notice => 'You have successfully been connected with your Last.fm account.'
     end
@@ -46,8 +47,9 @@ class AuthController < ApplicationController
     
       response = https.request_get(fb_access_token_url.path + '?' + fb_access_token_url.query)
       parameters = Rack::Utils.parse_nested_query(response.body)
-      
-      cookies.permanent.signed[:facebook_session] = parameters['access_token']
+            
+      current_user.facebook_token = parameters['access_token']
+      current_user.save
       
       redirect_to '/account', :notice => 'You have successfully been connected with your Facebook account.'   
     else  
@@ -56,16 +58,18 @@ class AuthController < ApplicationController
   end
   
   def logout_lastfm
-    if cookies[:lastfm_session]
-      cookies.delete :lastfm_session
-      cookies.delete :lastfm_user
-    end
-    
+    current_user.lastfm_token = nil
+    current_user.lastfm_username = nil
+    current_user.scrobble_mode = true
+    current_user.save
+        
     redirect_to '/account', :notice => 'You have successfully been disconnected from your Last.fm account.'
   end
   
   def logout_facebook
-    cookies.delete :facebook_session
+    current_user.facebook_token = nil
+    current_user.activity_mode = true
+    current_user.save
     
     redirect_to '/account', :notice => 'You have successfully been disconnected from your Facebook account.'
   end

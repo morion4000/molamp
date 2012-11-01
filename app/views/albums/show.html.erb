@@ -1,6 +1,13 @@
 <% if !@album %>
 	<div class="alert alert-error">The album could not be found. Please try searching again.</div>
 <% else %>
+	<%
+		# if the album only has one track then lastfm sends a hash instead of an array
+		if @album['tracks']['track'].is_a?(Hash)
+			@album['tracks']['track'] = [@album['tracks']['track']]
+		end 
+	%>
+
 	<% title @album['artist'] + ' - ' + @album['name'], false %>
 	<% meta_var = 
 			'<meta property="fb:app_id" content="224617567667902" />'+
@@ -8,7 +15,7 @@
 			'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@album['artist'])+'/'+url_to_lastfm(@album['name'])+'" />'+
 			'<meta property="og:title" content="'+@album['name']+'" />'+
 			'<meta property="og:image" content="'+@album['image'][4]['content']+'" />'+
-			'<meta property="music:song:url" content="http://samples.ogp.me/461258627226537" />'
+			'<meta property="music:song:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@album['artist'])+'/_/'+url_to_lastfm(@album['tracks']['track'][0]['name'])+'" />'
 	meta meta_var.html_safe %>
 	
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
@@ -23,11 +30,7 @@
 				<p><span class="badge"><%= @album['playcount'] %></span> times played on <a href="<%= @album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
 			</div>
 			<div class="span3">
-				Scrobble Mode <a href="/faq#scrobble-mode" target="_blank" title="Learn about Scrobble Mode"><i class="icon-info-sign"></i></a> 
-				<div class="btn-group" data-toggle="buttons-radio" id="scrobble_setting">
-	  				<button id="scrobble_setting_off" type="button" class="btn btn-danger <%= !cookies[:lastfm_session] ? 'disabled' : '' %>">Off</button>
-	  				<button id="scrobble_setting_on" type="button" class="btn btn-info <%= !cookies[:lastfm_session] ? 'disabled' : '' %>">On</button>
-				</div>
+				
 			</div>
 		</div>
 	  </div>
@@ -40,12 +43,6 @@
 			<table class="table table-bordered table-condensed table-hover">
 				<thead></thead>
 				<tbody>
-				<%
-					# if the album only has one track then lastfm sends a hash instead of an array
-					if @album['tracks']['track'].is_a?(Hash)
-						@album['tracks']['track'] = [@album['tracks']['track']]
-					end 
-				%>
 				<% if @album['tracks']['track'] and @album['tracks']['track'].size > 0 %>
 					<% 
 						i=0 
