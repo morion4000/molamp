@@ -9,6 +9,7 @@
 	%>
 
 	<% title @album['artist'] + ' - ' + @album['name'], false %>
+	<% description 'Listen to all the tracks from the album ' + @album['name'] + ' by ' + @album['artist'] + ' and other great tracks from similar artists on Molamp' %>
 	<% meta_var = 
 			'<meta property="fb:app_id" content="224617567667902" />'+
 			'<meta property="og:type" content="music.album" />'+
@@ -25,8 +26,8 @@
 	  <div class="span9">
   		<div class="row-fluid">
 			<div class="span9">
-				<h1 itemprop="name"><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) %></h1>
-				<h2><%= @album['name'] %></h2>
+				<h1><%= @album['name'] %></h1>
+				<h2 itemprop="name"><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) %></h2>
 				<p><span class="badge"><%= @album['playcount'] %></span> times played on <a href="<%= @album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
 			</div>
 			<div class="span3">
@@ -62,6 +63,7 @@
 			  					<div class="span7" itemprop="name" style="color: #08C">
 			  						&nbsp;<%= track['name'] %>
 			  					</div>
+			  					<meta itemprop="url" content ="/artists/<%= url_to_lastfm(@album['artist']) + '/_/' + url_to_lastfm(track['name']) %>">
 			  					<div class="span2">
 			  						<% if !track['duration'].is_a?(Hash) %>
 					  				<span class="label pull-right"><%= convert_seconds_to_time track['duration'].to_i, false %></span>
