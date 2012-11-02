@@ -1,4 +1,10 @@
 class AuthController < ApplicationController
+  @@facebook_redirect_url = 'http://www.molamp.net/auth/facebook'
+  
+  def self.facebook_redirect_url
+    @@facebook_redirect_url
+  end
+  
   def lastfm
     token = params[:token]
     
@@ -33,28 +39,35 @@ class AuthController < ApplicationController
     end
     
     if session[:facebook_state] and session[:facebook_state] === params[:state]
-      fb_access_token_url = URI.parse(
-                              'https://graph.facebook.com/oauth/access_token?client_id=' +
-                              APP_CONFIG['facebook_api_key'].to_s +
-                              '&redirect_uri=' + redirect_url +
-                              '&client_secret=' + APP_CONFIG['facebook_api_secret'].to_s +
-                              '&code=' + code
-                            )
-    
-      https = Net::HTTP.new(fb_access_token_url.host, fb_access_token_url.port)    
-      https.use_ssl = true                                                         
-      https.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    
-      response = https.request_get(fb_access_token_url.path + '?' + fb_access_token_url.query)
-      parameters = Rack::Utils.parse_nested_query(response.body)
+      
             
-      current_user.facebook_token = parameters['access_token']
+      current_user.facebook_token = self.get_fb_access_token code
       current_user.save
       
       redirect_to '/account', :notice => 'You have successfully been connected with your Facebook account.'   
     else  
       # state is does not match
     end
+  end
+  
+  def get_fb_access_token(code)
+    fb_access_token_url = URI.parse(
+                              'https://graph.facebook.com/oauth/access_token?client_id=' +
+                              APP_CONFIG['facebook_api_key'].to_s +
+                              '&redirect_uri=' + @@facebook_redirect_url +
+                              '&client_secret=' + APP_CONFIG['facebook_api_secret'].to_s +
+                              '&code=' + code
+                            )
+        
+      https = Net::HTTP.new(fb_access_token_url.host, fb_access_token_url.port)    
+      https.use_ssl = true                                                         
+      https.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    
+      response = https.request_get(fb_access_token_url.path + '?' + fb_access_token_url.query)
+      
+      parameters = Rack::Utils.parse_nested_query(response.body)
+      
+      return parameters['access_token']
   end
   
   def logout_lastfm
