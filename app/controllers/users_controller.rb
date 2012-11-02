@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       auth_controller = AuthController.new
       facebook_token = auth_controller.get_fb_access_token code
       
-      @facebook = Koala::Facebook::API.new(facebook_token)
+      #@facebook = Koala::Facebook::API.new(facebook_token)
       
       @profile = facebook_token #@facebook.get_object('me')
     end
