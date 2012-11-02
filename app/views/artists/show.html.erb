@@ -64,6 +64,7 @@
 					  					<div class="span7" itemprop="name" style="color: #08C">
 					  						&nbsp;<%= track['name'] %>
 					  					</div>
+					  					<meta itemprop="url" content ="/artists/<%= url_to_lastfm(@artist['name']) + '/_/' + url_to_lastfm(track['name']) %>">
 					  					<div class="span2">
 					  						<% if !track['duration'].is_a?(Hash) %>
 					  						<span class="label pull-right"><%= convert_seconds_to_time track['duration'].to_i, false %></span>
