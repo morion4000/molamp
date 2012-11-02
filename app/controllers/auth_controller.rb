@@ -75,7 +75,7 @@ class AuthController < ApplicationController
     current_user.scrobble_mode = true
     current_user.save
         
-    redirect_to '/account', :notice => 'You have successfully been disconnected from your Last.fm account.'
+    redirect_to '/account/social', :notice => 'You have successfully been disconnected from your Last.fm account.'
   end
   
   def logout_facebook
@@ -83,6 +83,6 @@ class AuthController < ApplicationController
     current_user.activity_mode = true
     current_user.save
     
-    redirect_to '/account', :notice => 'You have successfully been disconnected from your Facebook account.'
+    redirect_to '/account/social', :notice => 'You have successfully been disconnected from your Facebook account.'
   end
 end
