@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     #  redirect_to '/account/new?code='+code
     #end
     
-    if current_user.lastfm_token
+    if current_user.respond_to?('lastfm_token') and current_user.lastfm_token
       begin
         @query = current_user.lastfm_username
         
@@ -18,7 +18,7 @@ class HomeController < ApplicationController
       end
     end
     
-    if current_user.facebook_token
+    if current_user.respond_to?('facebook_token') and current_user.facebook_token
       begin
         @likes = @facebook.get_connections('me', 'likes')
       rescue
