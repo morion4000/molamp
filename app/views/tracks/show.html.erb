@@ -8,21 +8,24 @@
 		'<meta property="og:type" content="music.song" />'+
 		'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@track['artist']['name'])+'/_/'+url_to_lastfm(@track['name'])+'" />'+
 		'<meta property="og:title" content="'+@track['artist']['name'] + ' - ' + @track['name']+'" />'+
-		'<meta property="og:image" content="'+@track['album']['image'][0]['content']+'" />'+
+		'<meta property="og:image" content="'+@track['album']['image'][1]['content']+'" />'+
 		'<meta property="music:album:url" content="http://www.molamp.com/artists/'+url_to_lastfm(@track['artist']['name'])+'/'+url_to_lastfm(@track['album']['title'])+'" />'
 meta meta_var.html_safe %>
 
-	<div class="row-fluid">
-		<div class="span7">
-			<h2><%= @track['name'] %></h2>
-			<h3><%= link_to @track['artist']['name'], '/artists/' + url_to_lastfm(@track['artist']['name'])  %></h3>
-			
-			<%= image_tag @track['album']['image'][3]['content'] %>
-		</div>
-		<div class="span5">
-			<div id="ytplayer" style="width:340px;height:270px;"></div>
-		</div>
+<div>
+	<div class="page-header">
+		<h3><%= link_to @track['artist']['name'], '/artists/' + url_to_lastfm(@track['artist']['name'])  %> <small><%= @track['name'] %></small></h3>
 	</div>
+	
+	<center><div id="ytplayer" style="width:600px;height:400px;"></div></center>
+	<br />
+</div>
+
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li><a href="/artists/<%= url_to_lastfm(@track['artist']['name']) %>"><%= @track['artist']['name'] %></a> <span class="divider">/</span></li>
+  <li class="active"><%= @track['name']  %></li>
+</ul>
 
 <script type="text/javascript">
 	function searchYoutubeVideo() {
@@ -34,7 +37,7 @@ meta meta_var.html_safe %>
 						regex = /[a-zA-Z0-9_-]+(?=&)/,
 						matched = regex.exec(song_url);
 	
-					Youtube.player.loadVideoById(matched[0]);
+					Youtube.player.cueVideoById(matched[0]);
 	
 					_gaq.push(['_trackEvent', 'Tracks', 'Play', track.artist + ' - ' + track.title]);
 				} else {
@@ -57,7 +60,9 @@ meta meta_var.html_safe %>
 		});
 	}
 	
-	setTimeout(searchYoutubeVideo, 2000);
+	$(function() {
+		setTimeout(searchYoutubeVideo, 2000); 
+	});
 </script>
 
 <% end %>
