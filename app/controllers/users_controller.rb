@@ -16,19 +16,21 @@ class UsersController < ApplicationController
     end
   end
   
-  def show
+  def index
     @user = @current_user
-     
+  end
+  
+  def social
+    @user = @current_user
+    
     if current_user.lastfm_token
       begin
         @query = current_user.lastfm_username
         
         user = LastfmUser.new(@query, @lastfm)
         
-        @top_artists = user.top_artists
         @lastfm_user = user.info
       rescue
-        @top_artists  = nil
         @lastfm_user = nil
       end
     end
@@ -37,10 +39,9 @@ class UsersController < ApplicationController
       begin
         @profile = @facebook.get_object('me')
         @profile_pic = @facebook.get_picture('me')
-        #@likes = @facebook.get_connections('me', 'likes')
       rescue
         @profile = nil
-        @likes = nil
+        @profile_pic = nil
       end
     end
     
@@ -48,6 +49,10 @@ class UsersController < ApplicationController
       format.html # show.html.erb
       format.json { render :json => @profile }
    end
+  end
+  
+  def show
+    @user = @current_user
   end
 
   def edit

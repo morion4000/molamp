@@ -1,0 +1,9 @@
+<div class="well">
+	<ul class="nav nav-list">
+	  <li class="nav-header">Account</li>
+	  <li<%= controller.action_name == 'show' ? ' class=active' : nil %>><a href="/account">Profile</a></li>
+	  <li<%= controller.action_name == 'social' ? ' class=active' : nil %>><a href="/account/social">Social</a></li>
+	  <li class="divider"></li>
+	  <li><a href="/faq">FAQ</a></li>
+	</ul>
+</div>

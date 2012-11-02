@@ -1,90 +1,10 @@
-<h1>My Account</h1>
-
-<% if cookies[:lastfm_session] and 1==0 %>
-
-<ul class="thumbnails">			
-	<%	
-		if @top_artists.size > 0
-			@top_artists.each do |artist|
-	%>
-		  	<li class="span1">
-				<a class="thumbnail" href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
-  					<%= image_tag(get_image(artist['image'], 1), :alt => artist['name'], :width => 90, :class => 'img-rounded') %>
-  				</a>
-			</li>	  					
-		<% end %>
-	<% else %>
-		
-	<% end %>
-</ul>
-
-<ul>
-<% @likes.each do |like| %>
-	<% if like['category'] == 'Musician/band' %>
-		<li><%= like['name'] %></li>
-	<% end %>
-<% end %>
-</ul>
-
-<% end %>
-
-<br />
-
-<div class="tabbable tabs-left">
-  <ul class="nav nav-tabs">
-  	<li class="active"><a href="#social" data-toggle="tab">Social</a></li>
-   	<li><a href="#profile" data-toggle="tab">Profile</a></li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="social">
-      <h3>Facebook</h3>
-      <% if @user.facebook_token %>
-      	<div class="row-fluid">
-      		<div class="span1">
-      			<%= image_tag @profile_pic, :width => 50, :class => 'img-rounded' %>
-      		</div>
-      	  	<div class="span8">
-      	  		Connected as <%= link_to @profile['name'], @profile['link'], :target => '_blank' %>
-      	  		<br />
-      			<a href="/auth/facebook/logout" class="btn">Disconnect</a>
-      		</div>
-      		<div class="span3">
-				Activity Mode <a href="/faq#activity-mode" target="_blank" title="Learn about Activity Mode"><i class="icon-info-sign"></i></a> 
-				<div class="btn-group" data-toggle="buttons-radio" id="activity_setting">
-	  				<button id="activity_setting_off" type="button" class="btn btn-danger <%= !@user.activity_mode ? 'active' : nil %>">Off</button>
-	  				<button id="activity_setting_on" type="button" class="btn btn-info <%= @user.activity_mode ? 'active' : nil %>">On</button>
-				</div>
-			</div>
-      	</div>
-      <% else %>
-	  <a href="/auth/facebook" class="btn">Connect with Facebook</a>
-	  <% end %>
-	  
-      <h3>Last.fm</h3>
-      <% if @user.lastfm_token %>
-      	<div class="row-fluid">
-      		<div class="span1">
-      			<%= image_tag @lastfm_user['image'][1]['content'], :width => 50, :class => 'img-rounded' %>
-      		</div>
-      	  	<div class="span8">
-      	  		Connected as <%= link_to @lastfm_user['name'], @lastfm_user['url'], :target => '_blank' %>
-      	  		<br />
-      			<a href="/auth/lastfm/logout" class="btn">Disconnect</a>
-      		</div>
-      		<div class="span3">
-				Scrobble Mode <a href="/faq#scrobble-mode" target="_blank" title="Learn about Scrobble Mode"><i class="icon-info-sign"></i></a> 
-				<div class="btn-group" data-toggle="buttons-radio" id="scrobble_setting">
-	  				<button id="scrobble_setting_off" type="button" class="btn btn-danger <%= !@user.scrobble_mode ? 'active' : nil %>">Off</button>
-	  				<button id="scrobble_setting_on" type="button" class="btn btn-info <%= @user.scrobble_mode ? 'active' : nil %>">On</button>
-				</div>
-			</div>
-      	</div>
-      <% else %>
-	  <a href="/auth/lastfm" class="btn">Connect with Last.fm</a>
-	  <% end %>
-    </div>
-    <div class="tab-pane" id="profile">
-		<%= render 'form_edit' %>
-    </div>
-  </div>
+<div class="row-fluid">
+	<div class="span8">
+		<div class="well">
+			<%= render 'form_edit' %>
+		</div>
+	</div>
+	<div class="span4">
+		<%= render 'panel' %>
+	</div>
 </div>

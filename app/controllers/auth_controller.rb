@@ -17,7 +17,7 @@ class AuthController < ApplicationController
       current_user.lastfm_username = session['name']
       current_user.save
       
-      redirect_to '/account', :notice => 'You have successfully been connected with your Last.fm account.'
+      redirect_to '/account/social', :notice => 'You have successfully been connected with your Last.fm account.'
     end
   end
   
@@ -43,7 +43,7 @@ class AuthController < ApplicationController
       current_user.facebook_token = self.get_fb_access_token code
       current_user.save
       
-      redirect_to '/account', :notice => 'You have successfully been connected with your Facebook account.'   
+      redirect_to '/account/social', :notice => 'You have successfully been connected with your Facebook account.'   
     else  
       # state is does not match
     end

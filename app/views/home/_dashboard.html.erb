@@ -1,0 +1,39 @@
+<div class="row-fluid">
+	<div class="span6">
+		<div class="page-header">
+		  <h3>Last.fm cloud <small>Based on your top artists</small></h3>
+		</div>
+		<div>
+		<% if current_user.lastfm_token %>
+				<%	
+					if @top_artists.size > 0
+						@top_artists.each do |artist|
+				%>
+					  	
+						<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>"><span class="label label-info"><%= artist['name'] %></span></a>  					
+					<% end %>
+				<% else %>
+					No top artists on Last.fm
+				<% end %>	
+		<% else %>
+			<a href="/auth/facebook" class="btn btn-danger">Connect with Last.fm</a>
+		<% end %>
+		</div>
+	</div>
+	<div class="span6">
+		<div class="page-header">
+		  <h3>Facebook cloud <small>Based on your likes</small></h3>
+		</div>
+		<div>
+		<% if current_user.facebook_token %>
+			<% @likes.each do |like| %>
+				<% if like['category'] == 'Musician/band' %>
+					<a href="/artists/<%= url_to_lastfm(like['name']) %>"><span class="label label-info"><%= like['name'] %></span></a>
+				<% end %>
+			<% end %>
+		<% else %>
+			<a href="/auth/facebook" class="btn btn-primary">Connect with Facebook</a>
+		<% end %>
+		</div>
+	</div>
+</div>

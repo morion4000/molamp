@@ -11,6 +11,8 @@ Lastfmyoutube::Application.routes.draw do
   resources :privacy
   resources :tos
 
+  match 'account/social' => 'users#social'
+
   match 'artists/:id' => 'artists#show', :constraints => { :id => /[^\/]*/ } #:id => /[0-9a-zA-Z.&+%]+/
   match 'artists/:artist/:album' => 'albums#show', :constraints => { :artist => /[^\/]*/, :album => /[^\/]*/ } #:artist => /[0-9a-zA-Z.&+%'_-]+/, :album => %r{[0-9a-zA-Z.&':()+/!-_]+}i
   match 'artists/:artist/_/:track' => 'tracks#show', :constraints => { :artist => /[^\/]*/, :track => /[^\/]*/ }
