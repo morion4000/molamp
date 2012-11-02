@@ -4,17 +4,6 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
-    
-    code = params[:code]
-    
-    if !code.to_s.blank?
-      auth_controller = AuthController.new
-      facebook_token = auth_controller.get_fb_access_token code
-      
-      #@facebook = Koala::Facebook::API.new(facebook_token)
-      
-      @profile = facebook_token #@facebook.get_object('me')
-    end
   end
   
   def create

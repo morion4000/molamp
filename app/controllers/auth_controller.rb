@@ -23,7 +23,6 @@ class AuthController < ApplicationController
   
   def facebook
     code = params[:code]
-    redirect_url = 'http://www.molamp.net/auth/facebook'
     scope = 'user_likes,publish_actions'
         
     if code.to_s.blank?
@@ -32,7 +31,7 @@ class AuthController < ApplicationController
       redirect_to 'https://www.facebook.com/dialog/oauth?client_id=' +
                   APP_CONFIG['facebook_api_key'].to_s + 
                   '&redirect_uri=' +
-                  redirect_url +
+                  @@facebook_redirect_url +
                   '&state=' + 
                   session[:facebook_state] +
                   '&scope=' + scope
