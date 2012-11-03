@@ -25,7 +25,7 @@ class AjaxController < ApplicationController
     
     if current_user.facebook_token and current_user.activity_mode === true and Rails.env.production?
       Thread.new {
-        @facebook.put_connections('me', 'music.listens', :song => song_url)
+        @facebook.put_connections('me', 'molamp_net.play', :song => song_url)
       }
     end
     
