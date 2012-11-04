@@ -167,6 +167,7 @@ var Playlist = {
 		$('#current_playing').html(
 			template({
 				title: track.title,
+				artist: track.artist,
 				url: '#'+track.mbid,
 				image: track.image
 			})
