@@ -90,11 +90,13 @@ $(function() {
 	});
 	
 	setTimeout(function() {
+		/*
 		var rgb = getAverageRGB(document.getElementById('artist_image')),
 			start_color = 'whiteSmoke',
 			end_color = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')',
 			style = 'backgroundColor: '+end_color+'; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from('+start_color+'), to('+end_color+')); background: -webkit-linear-gradient(top, '+start_color+', '+end_color+'); background: -moz-linear-gradient(top, '+start_color+', '+end_color+'); background: -ms-linear-gradient(top, '+start_color+', '+end_color+'); background: -o-linear-gradient(top, '+start_color+', '+end_color+')';
 		
     	$('#application_main_content').attr('style', style);
+    	*/
   	}, 3000);
 });

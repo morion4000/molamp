@@ -8,7 +8,7 @@
 	  <div class="span3">  	
 	  	<%= 
 	  		if @artist['image'][3]['content'] 
-	  			image_tag('/ajax/image?url='+@artist['image'][3]['content'], :alt => @artist['name'], :class => 'img-polaroid', :id => 'artist_image')
+	  			image_tag(@artist['image'][3]['content'], :alt => @artist['name'], :class => 'img-polaroid', :id => 'artist_image')
 	  		else 
 	  			image_tag('noimage_big.jpg', :alt => 'Sorry, no image available')
 	  		end 
