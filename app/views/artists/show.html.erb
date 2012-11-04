@@ -16,12 +16,15 @@
 	  </div>
 	  <div class="span9">
 	  	<div class="row-fluid">
-			<div class="span9">
+			<div class="span10">
 				<h1 itemprop="name"><%= @artist['name'] %></h1>
 				<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
 			</div>
-			<div class="span3">
-				
+			<div class="span2">
+				<br />
+				<div class="fb-like" data-href="http://www.molamp.net/artists/<%= url_to_lastfm(@artist['name']) %>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+				<br /><br />
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net/artists/<%= url_to_lastfm(@artist['name']) %>" data-text="Listen to <%= @artist['name'] %>" data-via="molamp" data-related="molamp">Tweet</a>
 			</div>
 		</div>
 		<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
@@ -142,8 +145,7 @@
 		<div class="span5">	
 			<div id="right_content">
 			<div id="ytplayer" style="width:362px;height:280px;"></div>
-			
-			
+				
 			<% if @artist['similar']['artist'].size > 0 %>
 				
 				<h4 class="lead">Similar Artists</h4>
