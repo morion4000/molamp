@@ -26,6 +26,7 @@ Lastfmyoutube::Application.routes.draw do
   match 'ajax/activity_mode' => 'ajax#activity_mode'
   match 'ajax/scrobble'      => 'ajax#scrobble'
   match 'ajax/activity'      => 'ajax#activity'
+  match 'ajax/image'         => 'ajax#get_image'
 
   root :to => "home#index"
 

@@ -69,17 +69,7 @@ var Playlist = {
 	next: function() {
 		var uid = 0,
 			mbid = null;
-		
-		// Scrobble the current track first
-		if (Alike.scrobble === true) {
-			Lastfm.scrobble(Playlist.currentTrack.artist, Playlist.currentTrack.title);
-		}
-		
-		// Activity feed
-		if (Alike.activity === true) {
-			Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
-		}
-		
+				
 		/*
 		 * If similar is an array (object) then the track is a normal track
 		 * and if similar is an integer then the track is similar
@@ -136,7 +126,10 @@ var Playlist = {
 		}
 	},
 	
-	highlightTrack: function(track) {		
+	highlightTrack: function(track) {
+		var source = $("#current-track-template").html(),
+			template = Handlebars.compile(source);
+					
 		if (Playlist.currentTrack != null) {
 			if (typeof Playlist.currentTrack.similar != 'object') {
 				// Similar
@@ -170,6 +163,14 @@ var Playlist = {
 				fontWeight: 'bold'
 			});
 		}
+		
+		$('#current_playing').html(
+			template({
+				title: track.title,
+				url: '#'+track.mbid,
+				image: track.image
+			})
+		);
 	},
 	
 	searchTrack: function(tracks, attribute, value) {

@@ -12,8 +12,34 @@ $(function() {
 		// time: 6000 // hang on the screen for...
 	});
 	
-	$('#right_content').scrollToFixed();
+	/*
+	$('#right_content').scrollToFixed({
+		marginTop: 60,
+		limit: $(document).height() - 700,
+		zIndex: 10,
+		offsets: true
+	});
+	*/
 	
+	$('#footer').scrollToFixed( {
+        bottom: 0,
+        limit: $('#footer').offset().top,
+        preFixed: function() { 
+        	$(this).css({
+        		border: '1px solid #DDDDDD',
+        		borderRadius: 0,
+        		opacity: 0.9
+        	}); 
+        },
+        postFixed: function() { 
+        	$(this).css({
+        		border: 'none',
+        		borderRadius: 4,
+        		opacity: 1.0
+        	}); 
+        }
+    });
+
 	$('.similar_tracks').live('click', function(e) {
 		var mbid = $(this).parent().parent().parent().parent().attr('id'),
 			track = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid);
@@ -62,4 +88,13 @@ $(function() {
 		Alike.toggleActivity('on');
 		Alike.activity = true;
 	});
+	
+	setTimeout(function() {
+		var rgb = getAverageRGB(document.getElementById('artist_image')),
+			start_color = 'whiteSmoke',
+			end_color = 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')',
+			style = 'backgroundColor: '+end_color+'; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from('+start_color+'), to('+end_color+')); background: -webkit-linear-gradient(top, '+start_color+', '+end_color+'); background: -moz-linear-gradient(top, '+start_color+', '+end_color+'); background: -ms-linear-gradient(top, '+start_color+', '+end_color+'); background: -o-linear-gradient(top, '+start_color+', '+end_color+')';
+		
+    	$('#application_main_content').attr('style', style);
+  	}, 1000);
 });

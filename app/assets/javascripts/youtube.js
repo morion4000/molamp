@@ -21,6 +21,16 @@ function onYoutubeEventFired(e) {
 	switch(e.data) {
 		// Ended
 		case 0:
+			// Scrobble the current track first
+			if (Alike.scrobble === true) {
+				Lastfm.scrobble(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+			}
+			
+			// Activity feed
+			if (Alike.activity === true) {
+				Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+			}
+		
 			Playlist.next();
 		break;
 	}

@@ -25,4 +25,5 @@
 //= require phpjs/strstr.js
 //= require phpjs/date.js
 //= require phpjs/gmdate.js
+//= require get-average-rgb.js
 //= require_tree .

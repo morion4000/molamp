@@ -5,8 +5,14 @@
 	<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist['bio']['summary']), :length => 150) %>
 	
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
-	  <div class="span3">
-	  	<%= @artist['image'][3]['content'] ? image_tag(@artist['image'][3]['content'], :alt => @artist['name'], :class => 'img-polaroid') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available') %>
+	  <div class="span3">  	
+	  	<%= 
+	  		if @artist['image'][3]['content'] 
+	  			image_tag('/ajax/image?url='+@artist['image'][3]['content'], :alt => @artist['name'], :class => 'img-polaroid', :id => 'artist_image')
+	  		else 
+	  			image_tag('noimage_big.jpg', :alt => 'Sorry, no image available')
+	  		end 
+	  	%>
 	  </div>
 	  <div class="span9">
 	  	<div class="row-fluid">
@@ -37,7 +43,7 @@
 	 
 			<div class="tab-content">
 			  <div class="tab-pane active" id="top-tracks">
-					<table class="table table-bordered table-condensed table-hover datatable" style="border-top: none;">
+					<table class="table table-bordered table-condensed table-hover" style="border-top: none;">
 						<thead></thead>
 						<tbody>
 						<% if @top_tracks %>
@@ -79,7 +85,7 @@
 								</td>
 							</tr>
 							<% i=i+1; end %>
-							<tr id="more-row">
+							<tr id="more-row" style="background-color: #FFF">
 								<td colspan="2">
 									<a href="javascript:;" class="btn btn-block btn-primary" id="more-tracks">More tracks...</a>
 								</td>
@@ -133,31 +139,54 @@
 			</div>
 		</div>
 		
-		<div class="span5">		
+		<div class="span5">	
 			<div id="right_content">
-				<div id="ytplayer" style="width:340px;height:250px;"></div>
+			<div id="ytplayer" style="width:362px;height:280px;"></div>
+			
+			
+			<% if @artist['similar']['artist'].size > 0 %>
 				
-				<% if @artist['similar']['artist'].size > 0 %>
-				<h4 class="lead">Similar artists:</h4>
-				<div class="well" style="background-color:#EEE">
-					<div class="row-fluid">
-						<% @artist['similar']['artist'].each do |artist| %>
-				    	<div class="span2" style="width:90px;padding:10px;height:140px;text-align:center;">
-					    	<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
-						      	<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :height => 90, :class => 'img-polaroid') : 
-						      										image_tag('noimage_big.jpg', :alt => 'Sorry, no image available', :height => 90, :class => 'img-polaroid') %>
-						      	<br />
-						     	<%= artist['name'] %>
-					     	</a>
-				    	</div>
-						<% end %>
-						<div class="span2"></div>
-					</div>
+				<h4 class="lead">Similar Artists</h4>
+				<div style="background-color:#EEE">	
+					<table class="table table-hover">
+						<thead></thead>
+						<tbody>
+							<% @artist['similar']['artist'].each do |artist| %>
+							<tr>
+								<td>
+									<a class="pull-left" href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
+							    		<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :width => 64, :class => 'media-object img-rounded') : 
+						   													image_tag('noimage_big.jpg', :alt => 'Sorry, no image available', :height => 64, :class => 'media-object img-rounded') %>
+							  		</a>
+							  		&nbsp;
+									<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>"><%= artist['name'] %></a>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
 				</div>
-				<% end %>
+				
+			<% end %>
 			</div>
 		</div>
 	</div>
+	
+	<div id="footer" style="background-color: #EEE;padding:15px;">
+		<div class="row-fluid">
+			<div class="span1">
+				<a href="javascript:Playlist.next()" class="btn btn-large btn-primary">Next</a>
+			</div>
+			<div class="span9">
+				<div id="current_playing"></div>
+			</div>
+			<div class="span2">
+				<h4 class="lead" style="margin-bottom:0"><a href="#">Go to Top</a></h4>
+			</div>
+		</div>
+	</div>
+	
+	<br />
 	
 	<ul class="breadcrumb">
 	  <li><a href="/">Home</a> <span class="divider">/</span></li>

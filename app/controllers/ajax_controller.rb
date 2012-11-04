@@ -65,4 +65,11 @@ class AjaxController < ApplicationController
       format.html { render :json => true }
     end
   end
+  
+  def get_image
+    uri = URI.parse(params[:url])
+    response = Net::HTTP.get_response(uri)
+        
+    send_data(response.body , :filename => 'image.png', :type=> 'image/png')
+  end
 end
