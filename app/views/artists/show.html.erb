@@ -156,7 +156,7 @@
 								<td>
 									<a class="pull-left" href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
 							    		<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :width => 64, :class => 'media-object img-rounded') : 
-						   													image_tag('noimage_big.jpg', :alt => 'Sorry, no image available', :height => 64, :class => 'media-object img-rounded') %>
+						   													image_tag('noimage.jpg', :alt => 'Sorry, no image available', :height => 64, :class => 'media-object img-rounded', :style => 'height:none') %>
 							  		</a>
 							  		&nbsp;
 									<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>"><%= artist['name'] %></a>
