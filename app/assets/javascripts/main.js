@@ -21,6 +21,7 @@ $(function() {
 	});
 	*/
 	
+	/*
 	$('#footer').scrollToFixed( {
         bottom: 0,
         limit: $('#footer').offset().top,
@@ -39,6 +40,7 @@ $(function() {
         	}); 
         }
     });
+    */
 
 	$('.similar_tracks').live('click', function(e) {
 		var mbid = $(this).parent().parent().parent().parent().attr('id'),
