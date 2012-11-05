@@ -6,6 +6,7 @@ var Youtube = {
 	  height: '340',
 	  width: '250'
 	},
+	watchTimeout: null,
 	key: 'AI39si5R6V7abxfitoVlki1bxJmGmMzYBtupUi4Dy7R9Ae7eu_ASK4uZhNgozUYFSNa7u_6mleqoJtQZOuUBuUtOEFj_3DEGvg',
 	
 	init: function() {
@@ -22,11 +23,19 @@ function onYoutubeEventFired(e) {
 		// Started
 		case 1:
 			// Post to Facebook timeline after 10 seconds
-			setTimeout(function() {
-				if (Alike.activity === true) {
-					Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
-				}
-			}, 10*1000);
+			if (Youtube.watchTimeout == null) {
+				Youtube.watchTimeout = setTimeout(function() {
+					if (Alike.activity === true) {
+						Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+					}
+				}, 10*1000);
+			}
+		break;
+		
+		// Paused
+		case 2:
+			clearTimeout(Youtube.watchTimeout);
+			Youtube.watchTimeout = null;
 		break;
 		
 		// Ended
