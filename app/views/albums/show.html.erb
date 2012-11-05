@@ -92,6 +92,13 @@
 		<div class="span5">
 			<div id="right_content">
 				<div id="ytplayer" style="width:362px;height:280px;"></div>
+				
+				<% if @current_user.respond_to?('facebook_token') and @current_user.facebook_token %>
+					<div class="alert alert-info">
+			  			<button type="button" class="close" data-dismiss="alert">×</button>
+			  			<strong>Heads up!</strong> Molamp is set to publish the videos you watch on your Facebook timelime. You can change that on your <a href="/account/social">account</a>.
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>

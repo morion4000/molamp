@@ -75,8 +75,8 @@ var Lastfm = {
 			url: '/ajax/activity',
 			success: function(data) {
 				$.gritter.add({
-					title: 'Track posted on activity feed...',
-					text: '<strong>' + artist + ' - ' + track + '</strong> was posted on Facebook activity feed'
+					title: 'Video posted on timeline...',
+					text: '<strong>' + artist + ' - ' + track + '</strong> was posted on your Facebook timeline'
 				});
 			},
 			data: {

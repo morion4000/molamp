@@ -19,18 +19,23 @@ var Youtube = {
 
 function onYoutubeEventFired(e) {	
 	switch(e.data) {
+		// Started
+		case 1:
+			// Post to Facebook timeline after 10 seconds
+			setTimeout(function() {
+				if (Alike.activity === true) {
+					Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+				}
+			}, 10*1000);
+		break;
+		
 		// Ended
 		case 0:
 			// Scrobble the current track first
 			if (Alike.scrobble === true) {
 				Lastfm.scrobble(Playlist.currentTrack.artist, Playlist.currentTrack.title);
 			}
-			
-			// Activity feed
-			if (Alike.activity === true) {
-				Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
-			}
-		
+					
 			Playlist.next();
 		break;
 	}
