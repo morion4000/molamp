@@ -3,6 +3,15 @@
 <% else %>
 	<% title @artist['name'], false %>
 	<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist['bio']['summary']), :length => 150) %>
+	<% meta_var = 
+			'<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">'+
+			'<meta property="fb:app_id" content="224617567667902" />'+
+			'<meta property="og:type" content="music.playlist" />'+
+			'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@artist['name'])+'" />'+
+			'<meta property="og:title" content="Listen to tracks from '+@artist['name']+' and similar artists" />'+
+			'<meta property="og:image" content="'+@artist['image'][3]['content']+'" />'+
+			'<meta property="music:song:url" content="" />'
+	meta meta_var.html_safe %>
 	
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">  	

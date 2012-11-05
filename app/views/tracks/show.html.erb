@@ -3,7 +3,8 @@
 <% else %>
 <% title @track['artist']['name'] + ' - ' + @track['name'], false %>
 <% description 'Listen to ' + @track['artist']['name'] + ' - ' + @track['name'] + ' and other great tracks from ' + @track['artist']['name'] + ' and similar artists on Molamp' %>
-<% meta_var = 
+<% meta_var =
+		'<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">'+ 
 		'<meta property="fb:app_id" content="224617567667902" />'+
 		'<meta property="og:type" content="music.song" />'+
 		'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@track['artist']['name'])+'/_/'+url_to_lastfm(@track['name'])+'" />'+

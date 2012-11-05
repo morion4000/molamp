@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#"> 
-  	<%= content_for?(:meta) ? yield(:meta) : '' %>
+  	<%= 
+  		if content_for?(:meta)  
+  			yield(:meta)
+  		else
+  			meta_var = 
+  			'<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">'+
+		    '<meta property="fb:app_id"               content="224617567667902">'+ 
+		    '<meta property="og:type"                 content="website">'+
+		    '<meta property="og:url"                  content="http://www.molamp.net">'+ 
+		    '<meta property="og:image"                content="URL to an image">'+
+		    '<meta property="og:title"                content="Molamp - Discover your music">'+
+		    '<meta property="og:description"          content="Description of object">'
+  			meta_var.html_safe
+  		end
+   	%>
     <meta charset="utf-8">
     <title><%= content_for?(:title) ? yield(:title) : 'Molamp - Discover your music' %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
