@@ -7,14 +7,10 @@ class AjaxController < ApplicationController
     if current_user.lastfm_token and current_user.scrobble_mode === true and Rails.env.production?
       tracks = Track.new(track, artist, @lastfm)
       
-      if tracks.scrobble
-        result = {:result => 'successfull'}
-      end
+      tracks.scrobble
     end
     
-    respond_to do |format|
-      format.html { render :json => result }
-    end
+    render :nothing => true
   end
   
   def activity
@@ -29,9 +25,7 @@ class AjaxController < ApplicationController
       }
     end
     
-    respond_to do |format|
-      format.html { render :json => true }
-    end
+    render :nothing => true
   end
   
   def scrobble_mode
@@ -45,9 +39,7 @@ class AjaxController < ApplicationController
     
     current_user.save
     
-    respond_to do |format|
-      format.html { render :json => true }
-    end
+    render :nothing => true
   end
   
   def activity_mode
@@ -61,9 +53,7 @@ class AjaxController < ApplicationController
     
     current_user.save
     
-    respond_to do |format|
-      format.html { render :json => true }
-    end
+    render :nothing => true
   end
   
   def get_image
