@@ -38,9 +38,8 @@ class AuthController < ApplicationController
     end
     
     if session[:facebook_state] and session[:facebook_state] === params[:state]
-        current_user.facebook_token = self.get_fb_access_token code
-        current_user.save
-      end
+      current_user.facebook_token = self.get_fb_access_token code
+      current_user.save
       
       redirect_to '/account/social', :notice => 'You have successfully been connected with your Facebook account.'   
     else  
