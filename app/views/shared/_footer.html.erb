@@ -1,0 +1,18 @@
+<%= render :partial => 'shared/social' %>
+
+<div class="row-fluid">
+	<div class="span9">
+		<footer class="footer">
+			<p>
+				&copy; <%= Date.today.year %> Molamp <sup><span class="label label-info">beta</span></sup>. <small><%= ENV['rel'] %></small>
+			</p>
+		</footer>
+	</div>
+	<div class="span3">
+		<ul class="unstyled pull-right">
+			<li style="display: inline;margin-left:10px"><a href="/privacy">Privacy</a></li>
+			<li style="display: inline;margin-left:10px"><a data-toggle="modal" href="#aboutModal">About</a></li>
+			<li style="display: inline;margin-left:10px"><a href="/faq">FAQ</a></li>
+		</ul>
+	</div>
+</div>

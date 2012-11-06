@@ -1,0 +1,13 @@
+<% if flash[:notice] %>
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Hurray!</strong> <%= flash[:notice] %>
+</div>
+<% end %>
+
+<% if 0 == 1 %>
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Warning!</strong> We are experiencing some problems with the YouTube player API at the moment. The tracks are not buffering properly.
+</div>
+<% end %>

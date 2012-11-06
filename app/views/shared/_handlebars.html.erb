@@ -1,0 +1,47 @@
+<script id="similar-template" type="text/x-handlebars-template">
+<tr class="similar_row" style="display:none;background-color:#FFF;cursor:pointer" id="{{parent_mbid}}_{{mbid}}" onclick="javascript:Playlist.play('{{parent_mbid}}', '{{mbid}}')">
+	<td colspan="2">
+		<div class="row-fluid">
+			<div class="span1">
+		  		<img alt="{{name}}" src="{{image}}" width="35" />
+		  	</div>
+		  	<div class="span9" style="color: #08C">
+		  		&nbsp;{{artist}} - {{name}}
+		  	</div>
+		  	<div class="span2">
+		  		{{#if duration}}
+  				<span class="label pull-right">{{duration}}</span>
+  				{{/if}}
+  			</div>
+		</div>
+	</td>
+</tr>
+</script>
+
+<script id="track-template" type="text/x-handlebars-template">
+<tr class="similar_row" style="background-color:#FFF;cursor:pointer" id="{{mbid}}" onclick="javascript:Playlist.play('{{mbid}}', null)">
+	<td>{{no}}</td>
+	<td>
+		<div class="row-fluid">
+			<div class="span1">
+				<img src="{{image}}" alt="{{name}}" width="35" />
+			</div>
+			<div class="span7" style="color: #08C">
+				&nbsp;{{name}}
+			</div>
+			<div class="span2">
+				{{#if duration}}
+  				<span class="label pull-right">{{duration}}</span>
+  				{{/if}}
+  			</div>
+			<div class="span2">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>
+			</div>
+		</div>
+	</td>
+</tr>
+</script>
+
+<script id="current-track-template" type="text/x-handlebars-template">
+<h4 style="margin:0">Playing: <img src="{{image}}" width="20" class="img-rounded" /> {{artist}} - <a href="{{url}}">{{title}}</a></h4>
+</script>
