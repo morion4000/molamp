@@ -16,3 +16,5 @@
 		</ul>
 	</div>
 </div>
+
+<%= Rails.env.development? ? (render :partial => 'shared/debug') : nil %>
