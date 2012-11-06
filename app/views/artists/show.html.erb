@@ -1,17 +1,20 @@
 <% if !@artist %>
+	<% title 'The artist could not be found' %>
 	<div class="alert alert-error">The artist could not be found. Please try searching again.</div>
 <% else %>
-	<% title @artist['name'], false %>
-	<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist['bio']['summary']), :length => 150) %>
-	<% meta_var = 
-			'<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">'+
-			'<meta property="fb:app_id" content="224617567667902" />'+
-			'<meta property="og:type" content="music.playlist" />'+
-			'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@artist['name'])+'" />'+
-			'<meta property="og:title" content="'+@artist['name']+'" />'+
-			'<meta property="og:image" content="'+@artist['image'][3]['content']+'" />'
-	meta meta_var.html_safe %>
-	
+	<% content_for :head do %>
+	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">
+	<% end %>
+	<% content_for :meta do %>
+	<meta property="fb:app_id" content="224617567667902" />
+	<meta property="og:type" content="music.playlist" />
+	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@artist['name']) %>" />
+	<meta property="og:title" content="<%= @artist['name'] %>" />
+	<meta property="og:image" content="<%= @artist['image'][3]['content'] %>" />
+	<% end %>
+	<% title @artist['name'] %>
+	<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : @artist['bio']['summary'] %>
+
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">  	
 	  	<%= 

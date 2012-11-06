@@ -1,4 +1,5 @@
 <% if !@album %>
+	<% title 'The album could not be found' %>
 	<div class="alert alert-error">The album could not be found. Please try searching again.</div>
 <% else %>
 	<%
@@ -7,19 +8,21 @@
 			@album['tracks']['track'] = [@album['tracks']['track']]
 		end 
 	%>
-
-	<% title @album['artist'] + ' - ' + @album['name'], false %>
-	<% description 'Listen to all the tracks from the album ' + @album['name'] + ' by ' + @album['artist'] + ' and other great tracks from similar artists on Molamp' %>
-	<% meta_var = 
-			'<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">'+
-			'<meta property="fb:app_id" content="224617567667902" />'+
-			'<meta property="og:type" content="music.album" />'+
-			'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@album['artist'])+'/'+url_to_lastfm(@album['name'])+'" />'+
-			'<meta property="og:title" content="'+@album['name']+'" />'+
-			'<meta property="og:image" content="'+@album['image'][4]['content']+'" />'+
-			'<meta property="music:song:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@album['artist'])+'/_/'+url_to_lastfm(@album['tracks']['track'][0]['name'])+'" />'
-	meta meta_var.html_safe %>
 	
+	<% content_for :head do %>
+	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">
+	<% end %>
+	<% content_for :meta do %>
+	<meta property="fb:app_id" content="224617567667902" />
+	<meta property="og:type" content="music.album" />
+	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@album['artist']) + '/' + url_to_lastfm(@album['name']) %>" />
+	<meta property="og:title" content="<%= @album['name'] %>" />
+	<meta property="og:image" content="<%= @album['image'][4]['content'] %>" />
+	<meta property="music:song:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@album['artist']) + '/_/' + url_to_lastfm(@album['tracks']['track'][0]['name']) %>" />
+	<% end %>
+	<% title @album['artist'] + ' - ' + @album['name'] %>
+	<% description 'Listen to all the tracks from the album ' + @album['name'] + ' by ' + @album['artist'] + ' and other great tracks from similar artists on Molamp' %>
+				
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">
 	  	<%= @album['image'][3]['content'] ? image_tag(@album['image'][4]['content'], :alt => @album['name'], :class => 'img-polaroid') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available', :class => 'img-polaroid') %>

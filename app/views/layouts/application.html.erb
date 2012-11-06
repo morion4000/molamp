@@ -1,31 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  	<%= 
-  		if content_for?(:meta)  
-  			yield(:meta)
-  		else
-  			meta_var = 
-  			'<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">'+
-		    '<meta property="fb:app_id"               content="224617567667902">'+ 
-		    '<meta property="og:type"                 content="website">'+
-		    '<meta property="og:url"                  content="http://www.molamp.net">'+ 
-		    '<meta property="og:image"                content="http://www.molamp.net/assets/screenshot1.png">'+
-		    '<meta property="og:title"                content="Molamp - Discover your music">'+
-		    '<meta property="og:description"          content="A music search, play and suggestion mashup. Discover and rediscover a lot of great music.">'
-  			meta_var.html_safe
-  		end
-   	%>
-    <meta charset="utf-8">
-    <title><%= content_for?(:title) ? yield(:title) : 'Molamp - Discover your music' %></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Music Online Amplifier' %>">
-    <meta name="author" content="Ionut Moraru">
-  	<%= stylesheet_link_tag    "application", :media => "all" %>
-  	<%= javascript_include_tag "application" %>
-  	<%= csrf_meta_tags %>
-  	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-  	<%= Rails.env.production? ? (render :partial => 'shared/widgets/googleanalytics') : nil %>
-</head>
+<%= render :partial => 'shared/head' %>
 <body>
 
 <%= render :partial => 'shared/widgets/facebook' %>

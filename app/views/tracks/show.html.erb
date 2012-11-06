@@ -1,18 +1,21 @@
 <% if !@track %>
+	<% title 'The track could not be found' %>
 	<div class="alert alert-error">The track could not be found. Please try searching again.</div>
 <% else %>
-<% title @track['artist']['name'] + ' - ' + @track['name'], false %>
-<% description 'Listen to ' + @track['artist']['name'] + ' - ' + @track['name'] + ' and other great tracks from ' + @track['artist']['name'] + ' and similar artists on Molamp' %>
-<% meta_var =
-		'<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# video: http://ogp.me/ns/video#">'+ 
-		'<meta property="fb:app_id" content="224617567667902" />'+
-		'<meta property="og:type" content="video.other" />'+
-		'<meta property="og:url" content="http://www.molamp.net/artists/'+url_to_lastfm(@track['artist']['name'])+'/_/'+url_to_lastfm(@track['name'])+'" />'+
-		'<meta property="og:title" content="'+@track['artist']['name'] + ' - ' + @track['name']+'" />'+
-		'<meta property="og:description" content="Listen to ' + @track['name'] + ' from ' + @track['artist']['name'] + ' and other great tracks from ' + @track['artist']['name'] + ' and similar artists on Molamp" />'+
-		'<meta property="og:image" content="'+@track['album']['image'][3]['content']+'" />'
-meta meta_var.html_safe %>
-
+	<% content_for :head do %>
+	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# video: http://ogp.me/ns/video#">
+	<% end %>
+	<% content_for :meta do %>
+	<meta property="fb:app_id" content="224617567667902" />
+	<meta property="og:type" content="video.other" />
+	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@track['artist']['name']) + '/_/' + url_to_lastfm(@track['name']) %>" />
+	<meta property="og:title" content="<%= @track['artist']['name'] + ' - ' + @track['name'] %>" />
+	<meta property="og:description" content="Listen to <%= @track['name'] %> from <%= @track['artist']['name'] %> and other great tracks from <%= @track['artist']['name'] %> and similar artists on Molamp" />
+	<meta property="og:image" content="<%= @track['album']['image'][3]['content'] %>" />
+	<% end %>
+	<% title @track['artist']['name'] + ' - ' + @track['name'] %>
+	<% description 'Listen to ' + @track['artist']['name'] + ' - ' + @track['name'] + ' and other great tracks from ' + @track['artist']['name'] + ' and similar artists on Molamp' %>
+	
 <div>
 	<div class="page-header">
 		<h3><%= link_to @track['artist']['name'], '/artists/' + url_to_lastfm(@track['artist']['name'])  %> <small><%= @track['name'] %></small></h3>

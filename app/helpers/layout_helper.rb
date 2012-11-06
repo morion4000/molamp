@@ -1,21 +1,20 @@
 module LayoutHelper
-  def title(page_title, show_title = true)
-    content_for(:title) { h(page_title.to_s) }
-    @show_title = show_title
-  end
-
-  def show_title?
-    @show_title
-  end
-  
-  def description(description)
-    content_for(:description) { h(description.to_s) }
+  def head(head)
+    content_for(:head) { head.to_s }
   end
   
   def meta(meta)
-    content_for(:meta) { h(meta.to_s) }
+    content_for(:meta) { meta.to_s }
   end
   
+  def title(title)
+    content_for(:title) { h title.to_s }
+  end
+
+  def description(description) 
+    content_for(:description) { h truncate(Sanitize.clean(description), :length => 150).to_s }
+  end
+    
   def get_image(image, size)
     result = '/assets/noimage.jpg'
     
