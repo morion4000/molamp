@@ -43,6 +43,10 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
+    
+    def logged_in?
+      current_user && !current_user_session.stale?
+    end
   
   protected
   
@@ -55,7 +59,7 @@ class ApplicationController < ActionController::Base
   end
   
   def check_url
-    redirect_to request.protocol + "www." + request.host_with_port + request.fullpath if !/^www/.match(request.host) if Rails.env.production? 
+    redirect_to request.protocol + "www." + request.host_with_port + request.fullpath, :status => 301 if /^molamp.net/.match(request.host) if !/^www/.match(request.host) if Rails.env.production? 
   end
   
   def set_lastfm
