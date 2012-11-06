@@ -38,18 +38,8 @@ class AuthController < ApplicationController
     end
     
     if session[:facebook_state] and session[:facebook_state] === params[:state]
-      facebook_token = self.get_fb_access_token code
-      
-      # If logged in then update the fb token, else create a new account just with the fb token
-      if current_user.respond_to?('facebook_token') and current_user.facebook_token
-        current_user.facebook_token = facebook_token
+        current_user.facebook_token = self.get_fb_access_token code
         current_user.save
-      else
-        current_user = User.new(:facebook_token => facebook_token)
-
-        if !current_user.save
-          
-        end
       end
       
       redirect_to '/account/social', :notice => 'You have successfully been connected with your Facebook account.'   
