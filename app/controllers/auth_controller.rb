@@ -48,7 +48,7 @@ class AuthController < ApplicationController
         current_user = User.new(:facebook_token => facebook_token)
 
         if !current_user.save
-          redirect_to '/', :notice => 'There was a problem.'
+          
         end
       end
       
