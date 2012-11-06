@@ -1,14 +1,18 @@
 development:
   perform_authentication: false
-  lastfm_api_key: 930976e93a9a305ccd319242e2a90e58
-  lastfm_api_secret: fa79a2ce3ac9477157b158fd08bf06f4
+  
+  lastfm_api_key: 3d9b9dee569530f8aabb1c1e2a36ed0f
+  lastfm_api_secret: d5b2889a579282cd7512840781afd928
+  
   facebook_api_key: 224617567667902
   facebook_api_secret: 44309bdacf4fa3a1db3de688d9d96503
 
 test:
   perform_authentication: false
-  lastfm_api_key: 930976e93a9a305ccd319242e2a90e58
-  lastfm_api_secret: fa79a2ce3ac9477157b158fd08bf06f4
+  
+  lastfm_api_key: 3d9b9dee569530f8aabb1c1e2a36ed0f
+  lastfm_api_secret: d5b2889a579282cd7512840781afd928
+  
   facebook_api_key: 224617567667902
   facebook_api_secret: 44309bdacf4fa3a1db3de688d9d96503
 
@@ -16,7 +20,9 @@ production:
   perform_authentication: false
   username: admin
   password: secret
+  
   lastfm_api_key: 930976e93a9a305ccd319242e2a90e58
   lastfm_api_secret: fa79a2ce3ac9477157b158fd08bf06f4
+  
   facebook_api_key: 224617567667902
   facebook_api_secret: 44309bdacf4fa3a1db3de688d9d96503
