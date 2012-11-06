@@ -1,4 +1,4 @@
-Lastfmyoutube::Application.configure do
+Molamp::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -50,8 +50,19 @@ Lastfmyoutube::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
-  # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  # ActionMailer setup
+  config.action_mailer.default_url_options = { :host => 'molamp.net' }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+      :address  => 'smtp.mandrillapp.com',
+      :port  => 587,
+      :user_name  => 'morion4000',
+      :password  => '250e923c-4df6-4e38-9393-ca4f588aad4a'
+  }
 
   # Enable threaded mode
   # config.threadsafe!

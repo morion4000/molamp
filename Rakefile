@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Lastfmyoutube::Application.load_tasks
+Molamp::Application.load_tasks

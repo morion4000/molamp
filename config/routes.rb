@@ -1,4 +1,4 @@
-Lastfmyoutube::Application.routes.draw do
+Molamp::Application.routes.draw do
   resource :account, :controller => "users"
   resources :users
   resource :user_session
