@@ -6,7 +6,7 @@
 	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">
 	<% end %>
 	<% content_for :meta do %>
-	<meta property="fb:app_id" content="224617567667902" />
+	<meta property="fb:app_id" content="<%= APP_CONFIG['facebook_api_key'].to_s %>" />
 	<meta property="og:type" content="music.playlist" />
 	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@artist['name']) %>" />
 	<meta property="og:title" content="<%= @artist['name'] %>" />

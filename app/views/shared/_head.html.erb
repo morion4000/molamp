@@ -7,7 +7,7 @@
 <% if content_for?(:meta) %>
 <%= yield(:meta) %>
 <% else %>
-	<meta property="fb:app_id" content="224617567667902"> 
+	<meta property="fb:app_id" content="<%= APP_CONFIG['facebook_api_key'].to_s %>" /> 
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="http://www.molamp.net"> 
 	<meta property="og:image" content="http://www.molamp.net/assets/screenshot1.png">
