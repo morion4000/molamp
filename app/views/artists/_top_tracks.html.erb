@@ -1,0 +1,25 @@
+<table class="table table-bordered table-condensed table-hover">
+	<thead></thead>
+	<tbody>
+	<% if @top_tracks %>
+		<% 
+			# if the artist only has one song then lastfm sends a hash instead of an array
+			if @top_tracks.is_a?(Hash)
+				@top_tracks = [@top_tracks]
+			end
+		%>
+		
+		<%= render :partial => 'track', :collection => @top_tracks, :locals => {:artist => artist} %>
+		
+		<tr id="more-row">
+			<td colspan="2">
+				<a href="javascript:;" class="btn btn-block btn-primary" id="more-tracks">More tracks...</a>
+			</td>
+		</tr>
+	<% else %>
+		<tr>
+			<td>Artist has no tracks.</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,34 @@
+<%	
+	# some songs don't have an mbid so i'll generate one
+	if !track['mbid'].is_a?(String)
+		track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + artist)
+	end
+%>
+<tr id="<%= track['mbid'] %>" onclick="javascript:Playlist.play('<%= track['mbid'] %>', null)">
+	<td><%= track_counter + 1 %></td>
+	<td>
+		<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
+			<div class="span1">
+				<% if controller.controller_name === 'artists' %>
+					<%= image_tag(get_image(track['image'], 1), :alt => track['name'], :width => 35) %>
+				<% else %>
+					<%= image_tag(get_image(@album['image'], 1), :alt => track['name'], :width => 35) %>
+				<% end %>
+			</div>
+			<div class="span7" itemprop="name" style="color: #08C;">
+				&nbsp;<%= track['name'] %>
+			</div>
+			<meta itemprop="url" content ="/artists/<%= url_to_lastfm(artist) + '/_/' + url_to_lastfm(track['name']) %>">
+			<div class="span2">
+				<% if track['duration'].is_a?(Hash) %>
+				<span class="label pull-right"><%= convert_seconds_to_time track['duration'].to_i, false %></span>
+				<meta itemprop="duration" content="PT<%= convert_seconds_to_time track['duration'].to_i, true %>" />
+				<meta itemprop="interactionCount" content="UserPlays:<%= track['playcount'] %>"/>
+				<% end %>
+			</div>
+			<div class="span2">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>
+			</div>
+		</div>
+	</td>
+</tr>

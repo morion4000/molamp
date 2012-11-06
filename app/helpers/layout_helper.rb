@@ -16,7 +16,11 @@ module LayoutHelper
   end
     
   def get_image(image, size)
-    result = '/assets/noimage.jpg'
+    if size < 3
+      result = '/assets/noimage.jpg'
+    else
+      result = '/assets/noimage_big.jpg'
+    end
     
     if image and image[size]['content'] != nil 
       result = image[size]['content']

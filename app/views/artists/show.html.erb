@@ -17,19 +17,13 @@
 
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">  	
-	  	<%= 
-	  		if @artist['image'][3]['content'] 
-	  			image_tag(@artist['image'][3]['content'], :alt => @artist['name'], :class => 'img-polaroid', :id => 'artist_image')
-	  		else 
-	  			image_tag('noimage_big.jpg', :alt => 'Sorry, no image available')
-	  		end 
-	  	%>
+	  	<%= image_tag(get_image(@artist['image'], 3), :alt => @artist['name'], :class => 'img-polaroid', :id => 'artist_image') %>
 	  </div>
 	  <div class="span9">
 	  	<div class="row-fluid">
 			<div class="span10">
 				<h1 itemprop="name"><%= @artist['name'] %></h1>
-				<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <a href="<%= @artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
+				<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @artist['url'], :target => '_blank' %></>
 			</div>
 			<div class="span2">
 				<br />
@@ -57,98 +51,11 @@
 	 
 			<div class="tab-content">
 			  <div class="tab-pane active" id="top-tracks">
-					<table class="table table-bordered table-condensed table-hover" style="border-top: none;">
-						<thead></thead>
-						<tbody>
-						<% if @top_tracks %>
-							<% 
-								# if the artist only has one song then lastfm sends a hash instead of an array
-								if @top_tracks.is_a?(Hash)
-									@top_tracks = [@top_tracks]
-								end 
-								
-								i=0 
-								@top_tracks.each do |track|							
-									# some songs don't have an mbid so i'll generate one
-									if !track['mbid'].is_a?(String)
-										track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @artist['name'])
-									end
-							%>
-							<tr id="<%= track['mbid'] %>" style="background-color: #FFF;cursor:pointer" onclick="javascript:Playlist.play('<%= track['mbid'] %>', null)">
-								<td><%= i+1 %></td>
-								<td>
-									<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
-					  					<div class="span1">
-					  						<%= track['image'] ? image_tag(track['image'][0]['content'], :alt => track['name'], :width => 35) : image_tag('noimage.jpg', :alt => 'Sorry, no image available', :width => 35) %>
-					  					</div>
-					  					<div class="span7" itemprop="name" style="color: #08C">
-					  						&nbsp;<%= track['name'] %>
-					  					</div>
-					  					<meta itemprop="url" content ="/artists/<%= url_to_lastfm(@artist['name']) + '/_/' + url_to_lastfm(track['name']) %>">
-					  					<div class="span2">
-					  						<% if !track['duration'].is_a?(Hash) %>
-					  						<span class="label pull-right"><%= convert_seconds_to_time track['duration'].to_i, false %></span>
-					  						<meta itemprop="duration" content="PT<%= convert_seconds_to_time track['duration'].to_i, true %>" />
-					  						<meta itemprop="interactionCount" content="UserPlays:<%= track['playcount'] %>"/>
-					  						<% end %>
-					  					</div>
-					  					<div class="span2">
-					  						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="btn btn-info btn-small similar_tracks"><i class="icon-plus-sign"></i></a>
-					  					</div>
-									</div>
-								</td>
-							</tr>
-							<% i=i+1; end %>
-							<tr id="more-row" style="background-color: #FFF">
-								<td colspan="2">
-									<a href="javascript:;" class="btn btn-block btn-primary" id="more-tracks">More tracks...</a>
-								</td>
-							</tr>
-						<% else %>
-							<tr>
-								<td>Artist has no tracks.</td>
-							</tr>
-						<% end %>
-						</tbody>
-					</table>
+					<%= render :partial => 'top_tracks', :locals => {:artist => @artist['name']} %>
 			  </div>
 			  
 			  <div class="tab-pane" id="top-albums">
-			  		<table class="table table-bordered table-condensed table-hover" style="border-top: none">
-						<thead></thead>
-						<tbody>
-						<% if @top_albums %>
-							<% 
-								# if the artist only has one album then lastfm sends a hash instead of an array
-								if @top_albums.is_a?(Hash)
-									@top_albums = [@top_albums]
-								end 
-							%>
-							<% i=0; @top_albums.each do |album| %>
-							<tr id="album-<%= i.to_s() %>" style="background-color: #FFF">
-								<td><%= i+1 %></td>
-								<td>
-									<div class="row-fluid">
-					  					<div class="span2">
-					  						<a href="<%= '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name']) %>">
-					  							<%= album['image'] ? image_tag(album['image'][1]['content'], :alt => album['name'], :width => 70, :class => 'img-rounded') : image_tag('noimage.jpg', :alt => 'Sorry, no image available', :width => 70, :class => 'img-rounded') %>
-					  						</a>
-					  					</div>
-					  					<div class="span10" style="vertical-align:top">
-					  						&nbsp;&nbsp;<%= link_to(album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(album['name'])) %><br />
-					  						&nbsp;&nbsp;<span class="badge"><%= album['playcount'] %></span> times played on <a href="<%= album['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
-					  					</div>
-									</div>
-								</td>
-							</tr>
-							<% i=i+1; end %>
-						<% else %>
-							<tr>
-								<td>Artist has no albums.</td>
-							</tr>
-						<% end %>
-						</tbody>
-					</table>
+			  		<%= render :partial => 'top_albums' %>
 			  </div>
 			</div>
 		</div>
@@ -166,26 +73,7 @@
 				
 			<% if @artist['similar']['artist'].size > 0 %>
 				
-				<h4 class="lead">Similar Artists</h4>
-				<div style="background-color:#EEE">	
-					<table class="table table-hover">
-						<thead></thead>
-						<tbody>
-							<% @artist['similar']['artist'].each do |artist| %>
-							<tr>
-								<td>
-									<a class="pull-left" href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
-							    		<%= artist['image'][2]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :width => 64, :class => 'media-object img-rounded') : 
-						   													image_tag('noimage.jpg', :alt => 'Sorry, no image available', :height => 64, :class => 'media-object img-rounded', :style => 'height:none') %>
-							  		</a>
-							  		&nbsp;
-									<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>"><%= artist['name'] %></a>
-								</td>
-							</tr>
-							<% end %>
-						</tbody>
-					</table>
-				</div>
+				<%= render :partial => 'similar_artists' %>
 				
 			<% end %>
 			</div>

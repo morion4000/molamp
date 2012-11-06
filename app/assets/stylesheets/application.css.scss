@@ -36,3 +36,28 @@ body {
     
   }
 }
+
+.brand {
+  padding:3px 20px 3px !important;
+}
+
+.similar_artists {
+  background-color:#EEE;
+}
+
+#top-albums table {
+  border-top: none;
+  
+  tr {
+    background-color: #FFF;
+  }
+}
+
+#top-tracks table, #album-tracks table {
+  border-top: none;
+  
+  tr {
+    background-color: #FFF;
+    cursor:pointer;
+  }
+}

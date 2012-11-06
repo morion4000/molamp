@@ -1,0 +1,9 @@
+<tr>
+	<td>
+		<%= link_to image_tag(get_image(similar_artist['image'], 2), :alt => similar_artist['name'], :width => 64, :class => 'media-object img-rounded'), 
+					'/artists/' + url_to_lastfm(similar_artist['name']), 
+					:class => 'pull-left' %>
+  		&nbsp;
+  		<%= link_to similar_artist['name'], '/artists/' + url_to_lastfm(similar_artist['name']) %>
+	</td>
+</tr>

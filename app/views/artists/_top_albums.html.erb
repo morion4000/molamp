@@ -1,0 +1,19 @@
+<table class="table table-bordered table-condensed table-hover">
+	<thead></thead>
+	<tbody>
+	<% if @top_albums %>
+		<% 
+			# if the artist only has one album then lastfm sends a hash instead of an array
+			if @top_albums.is_a?(Hash)
+				@top_albums = [@top_albums]
+			end 
+		%>
+		
+		<%= render :partial => 'top_album', :collection => @top_albums %>
+	<% else %>
+		<tr>
+			<td>Artist has no albums.</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

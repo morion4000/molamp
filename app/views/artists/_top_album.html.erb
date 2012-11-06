@@ -1,0 +1,15 @@
+<tr>
+	<td><%= top_album_counter + 1 %></td>
+	<td>
+		<div class="row-fluid">
+			<div class="span2">
+				<%= link_to image_tag(get_image(top_album['image'], 1), :alt => top_album['name'], :width => 70, :class => 'img-rounded'), 
+							'/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(top_album['name']) %>
+			</div>
+			<div class="span10" style="vertical-align:top">
+				&nbsp;&nbsp;<%= link_to(top_album['name'], '/artists/' + url_to_lastfm(@artist['name']) + '/' + url_to_lastfm(top_album['name'])) %><br />
+				&nbsp;&nbsp;<span class="badge"><%= top_album['playcount'] %></span> times played on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), top_album['url']  %>
+			</div>
+		</div>
+	</td>
+</tr>
