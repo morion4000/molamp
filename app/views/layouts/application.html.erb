@@ -29,5 +29,7 @@ $(function() {
 });
 </script>
 
+<%= Rails.env.development? && 1==0 ? (render :partial => 'shared/debug') : nil %>
+
 </body>
 </html>

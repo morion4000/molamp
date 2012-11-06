@@ -6,9 +6,9 @@ var Playlist = {
 	tracks: [],
 	searchData: [],
 	
-	play: function(mbid, similar) {
+	play: function(mbid, similar, _event) {
 		var track = null,
-			e = typeof event != 'undefined' ? event : {},
+			e = typeof event != 'undefined' ? event : _event,
 			target = e.target || e.srcElement,
 			targetClass = $(target).attr('class');
 

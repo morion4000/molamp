@@ -29,3 +29,5 @@
 //= require phpjs/gmdate.js
 //= require get-average-rgb.js
 //= require_tree .
+
+var _gaq = _gaq || {push:function() {}};

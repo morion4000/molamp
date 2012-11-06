@@ -4,15 +4,15 @@
 		track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + artist)
 	end
 %>
-<tr id="<%= track['mbid'] %>" onclick="javascript:Playlist.play('<%= track['mbid'] %>', null)">
+<tr id="<%= track['mbid'] %>" class="playlist_track">
 	<td><%= track_counter + 1 %></td>
 	<td>
 		<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
 			<div class="span1">
 				<% if controller.controller_name === 'artists' %>
-					<%= image_tag(get_image(track['image'], 1), :alt => track['name'], :width => 35) %>
+					<%= image_tag(get_image(track['image'], 1), :alt => track['name'], :size => '35x35') %>
 				<% else %>
-					<%= image_tag(get_image(@album['image'], 1), :alt => track['name'], :width => 35) %>
+					<%= image_tag(get_image(@album['image'], 1), :alt => track['name'], :size => '35x35') %>
 				<% end %>
 			</div>
 			<div class="span7" itemprop="name" style="color: #08C;">

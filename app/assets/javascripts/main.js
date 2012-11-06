@@ -91,6 +91,21 @@ $(function() {
 		Alike.activity = true;
 	});
 	
+	$('.playlist_track').live('click', function(e) {
+		var track = $(this),
+			track_id = track.attr('id');
+		
+		Playlist.play(track_id, null, e);
+	});
+	
+	$('.similar_row').live('click', function(e) {
+		var track = $(this),
+			track_id = track.attr('id'),
+			params = track_id.split('_');
+				
+		Playlist.play(params[0], params[1], e);
+	});
+	
 	setTimeout(function() {
 		/*
 		var rgb = getAverageRGB(document.getElementById('artist_image')),

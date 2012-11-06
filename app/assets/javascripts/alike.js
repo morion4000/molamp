@@ -55,7 +55,7 @@ var Alike = {
 			}
 		}
 		
-		$('tr[class=similar_row]').show('slow');
+		$('table tbody').find('tr[class=similar_row]').show('slow');
 		
 		$.gritter.add({
 			title: 'Similar tracks...',

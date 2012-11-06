@@ -1,5 +1,5 @@
 <script id="similar-template" type="text/x-handlebars-template">
-<tr class="similar_row" style="display:none;" id="{{parent_mbid}}_{{mbid}}" onclick="javascript:Playlist.play('{{parent_mbid}}', '{{mbid}}')">
+<tr class="similar_row" id="{{parent_mbid}}_{{mbid}}" style="display:none">
 	<td colspan="2">
 		<div class="row-fluid">
 			<div class="span1">
@@ -19,7 +19,7 @@
 </script>
 
 <script id="track-template" type="text/x-handlebars-template">
-<tr class="similar_row" id="{{mbid}}" onclick="javascript:Playlist.play('{{mbid}}', null)">
+<tr id="{{mbid}}" class="playlist_track">
 	<td>{{no}}</td>
 	<td>
 		<div class="row-fluid">
