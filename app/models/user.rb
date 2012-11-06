@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation
   
   def deliver_signup_notification
-    UserMailer.signup_notification(self)
+    UserMailer.signup_notification(self).deliver
   end
 end

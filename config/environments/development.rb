@@ -26,8 +26,7 @@ Molamp::Application.configure do
       :address  => 'smtp.mandrillapp.com',
       :port  => 587,
       :user_name  => 'morion4000',
-      :password  => '250e923c-4df6-4e38-9393-ca4f588aad4a',
-      :authentication => :plain
+      :password  => '250e923c-4df6-4e38-9393-ca4f588aad4a'
   }
 
   # Print deprecation notices to the Rails logger
