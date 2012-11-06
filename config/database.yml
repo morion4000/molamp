@@ -15,10 +15,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: molamp_development
+  database: lastfmyoutube_development
   pool: 5
-  username: molamp
-  password: 9de709469be5161d2e19465403e32e8a
+  username: lastfmyoutube
+  password: parola
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: molamp_test
+  database: lastfmyoutube_test
   pool: 5
-  username: molamp
-  password: test
+  username: lastfmyoutube
+  password: parola
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: molamp_production
+  database: lastfmyoutube_production
   pool: 5
-  username: molamp
-  password: ad0c69a5ea62af54aff0424e36ad7898
+  username: lastfmyoutube
+  password: parola
