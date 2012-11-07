@@ -11,19 +11,10 @@ class Artist
                 :bio
                 
   def image(size)  
-    if size < 3
-      result = 'noimage.jpg'
-    else
-      result = 'noimage_big.jpg'
-    end
+    image = Image.new
+    image.image = @image
     
-    # TODO: try a smaller and smaller image until there are no more image
-    
-    if @image and @image[size]['content'] != nil 
-      result = @image[size]['content']
-    end
-    
-    return result
+    return image.get(size)
   end
   
   def similar
