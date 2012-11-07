@@ -65,13 +65,13 @@ class ApplicationController < ActionController::Base
   def set_lastfm
     @lastfm = Lastfm.new(APP_CONFIG['lastfm_api_key'], APP_CONFIG['lastfm_api_secret'])
     
-    if current_user.respond_to?('lastfm_token')
+    if logged_in? and current_user.lastfm_token
       @lastfm.session = current_user.lastfm_token
     end
   end
   
   def set_facebook
-    if current_user.respond_to?('facebook_token')
+    if logged_in? and current_user.facebook_token
       @facebook = Koala::Facebook::API.new(current_user.facebook_token)
     end
   end

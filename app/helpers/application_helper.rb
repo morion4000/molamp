@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def logged_in?
+      current_user && !current_user_session.stale?
+  end
+  
   def url_to_lastfm(name)
     name.gsub(' ', '+')
   end

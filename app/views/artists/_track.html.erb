@@ -4,9 +4,9 @@
 		<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
 			<div class="span1">
 				<% if controller.controller_name === 'artists' %>
-					<%= image_tag(track.image(1), :alt => track.name, :size => '35x35') %>
+					<%= image_tag(track.image(0), :alt => track.name, :size => '35x35') %>
 				<% else %>
-					<%= image_tag(@album.image(1), :alt => track.name, :size => '35x35') %>
+					<%= image_tag(@album.image(0), :alt => track.name, :size => '35x35') %>
 				<% end %>
 			</div>
 			<div class="span7" itemprop="name" style="color: #08C;">

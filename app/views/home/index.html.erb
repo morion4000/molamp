@@ -16,7 +16,7 @@
 
 <div>
 	<%= 
-		if current_user != nil
+		if logged_in?
 			render 'dashboard'
 		else
 			render 'static'

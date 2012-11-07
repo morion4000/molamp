@@ -11,7 +11,7 @@
 	<meta property="og:type" content="music.album" />
 	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@album.artist) + '/' + url_to_lastfm(@album.name) %>" />
 	<meta property="og:title" content="<%= @album.name %>" />
-	<meta property="og:image" content="<%= @album.image(4) %>" />
+	<meta property="og:image" content="<%= @album.image(3) %>" />
 	<meta property="music:song:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@album.artist) + '/_/' + url_to_lastfm(@album.tracks[0].name) %>" />
 	<% end %>
 	<% title @album.artist + ' - ' + @album.name %>
@@ -19,7 +19,7 @@
 				
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">
-	  	<%= image_tag(@album.image(4), :alt => @album.name, :class => 'img-polaroid') %>
+	  	<%= image_tag(@album.image(3), :alt => @album.name, :class => 'img-polaroid') %>
 	  </div>
 	  <div class="span9">
   		<div class="row-fluid">
@@ -50,7 +50,7 @@
 			<div id="right_content">
 				<div id="ytplayer" style="width:362px;height:280px;"></div>
 				
-				<% if @current_user.respond_to?('activity_mode') and @current_user.activity_mode %>
+				<% if logged_in? and @current_user.activity_mode %>
 					<div class="alert alert-info">
 			  			<button type="button" class="close" data-dismiss="alert">×</button>
 			  			<strong>Heads up!</strong> Molamp is set to publish the videos you watch on your Facebook timelime. You can change that on your <a href="/account/social">account</a>.
@@ -85,7 +85,7 @@
 		// Need to wait until the youtube player initializes
 		setTimeout(function() {
 			Playlist.play(Playlist.tracks[0].mbid, null);
-		}, 3000); 
+		}, 3000);
 		<% end %>
 	});
 	</script>
