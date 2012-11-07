@@ -11,18 +11,10 @@
 		<div class="span5">
 			<div class="pull-right">
 				<span>Follow Molamp on</span>
-				<a href="http://www.facebook.com/pages/Molamp/282623645175841" style="text-decoration:none;">
-					<img src="/assets/facebook_logo.png" alt="Facebook" style="border:0;width:32px;height:32px;" />
-				</a>
-				<a href="http://www.twitter.com/molamp" style="text-decoration:none;">
-					<img src="/assets/twitter_logo.png" alt="Twitter" style="border:0;width:32px;height:32px;" class="img-rounded" />
-				</a>
-				<a href="http://www.last.fm/group/Molamp" style="text-decoration:none;">
-					<img src="/assets/lastfm_logo.png" alt="Last.fm" style="border:0;width:32px;height:32px;" />
-				</a>
-				<a href="https://plus.google.com/113049647993771497908?prsrc=3" rel="publisher" style="text-decoration:none;">
-					<img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;"/>
-				</a>
+				<%= link_to image_tag('facebook_icon.png', :alt => 'Facebook', :size => '32x32'), 'http://www.facebook.com/pages/Molamp/282623645175841', :style => 'text-decoration:none' %>
+				<%= link_to image_tag('twitter_icon.png', :alt => 'Twitter', :size => '32x32'), 'http://www.twitter.com/molamp', :style => 'text-decoration:none' %>
+				<%= link_to image_tag('lastfm_icon_big.png', :alt => 'Last.fm', :size => '32x32'), 'http://www.last.fm/group/Molamp', :style => 'text-decoration:none' %>
+				<%= link_to image_tag('//ssl.gstatic.com/images/icons/gplus-32.png', :alt => 'Google+', :size => '32x32'), 'https://plus.google.com/113049647993771497908?prsrc=3', :style => 'text-decoration:none', :rel => 'publisher' %>
 			</div>
 		</div>
 	</div>
