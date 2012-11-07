@@ -14,18 +14,4 @@ module LayoutHelper
   def description(description) 
     content_for(:description) { h truncate(Sanitize.clean(description), :length => 150).to_s }
   end
-    
-  def get_image(image, size)
-    if size < 3
-      result = '/assets/noimage.jpg'
-    else
-      result = '/assets/noimage_big.jpg'
-    end
-    
-    if image and image[size]['content'] != nil 
-      result = image[size]['content']
-    end
-    
-    return result
-  end
 end
