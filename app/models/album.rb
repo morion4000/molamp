@@ -26,25 +26,27 @@ class Album
       @tracks['track'] = [@tracks['track']]
     end
     
-    @tracks['track'].each do |track|
-      t = Track.new
-      t.name = track['name']
-      
-      # some songs don't have an mbid so i'll generate one
-      unless track['mbid'].is_a?(String)
-        track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @artist)
+    if @tracks['track']
+      @tracks['track'].each do |track|
+        t = Track.new
+        t.name = track['name']
+        
+        # some songs don't have an mbid so i'll generate one
+        unless track['mbid'].is_a?(String)
+          track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @artist)
+        end
+        
+        t.mbid = track['mbid']
+        
+        # if duration is a hash it means that duration is not set
+        if track['duration'].is_a?(Hash)
+          track['duration'] = '0'
+        end
+        
+        t.duration = track['duration']
+        
+        result.push t
       end
-      
-      t.mbid = track['mbid']
-      
-      # if duration is a hash it means that duration is not set
-      if track['duration'].is_a?(Hash)
-        track['duration'] = '0'
-      end
-      
-      t.duration = track['duration']
-      
-      result.push t
     end
     
     return result
