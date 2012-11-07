@@ -1,5 +1,6 @@
 <div class="well">
 	<div class="row-fluid">
+		<% if Rails.env.production? %>
 		<div class="span1">
 			<div class="fb-like" data-href="http://www.molamp.net" data-send="false" data-layout="button_count" data-width="30" data-show-faces="true"></div>
 		</div>
@@ -7,6 +8,7 @@
 		<div class="span6">
 			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net" data-text="Molamp - Discover your music" data-via="molamp" data-related="molamp">Tweet</a>
 		</div>
+		<% end %>
 		
 		<div class="span5">
 			<div class="pull-right">

@@ -91,7 +91,7 @@ var Alike = {
 			}
 						
 			var container = template({
-				no: Playlist.tracks.length + 1,
+				no: (Playlist.tracksPage - 1) * Playlist.tracksLimit + i + 1,
 				mbid: tracks[i].mbid, 
 				name: tracks[i].name,
 				image: Alike.getImage(tracks[i].image, 0),
@@ -116,16 +116,56 @@ var Alike = {
 		
 		$.gritter.add({
 			title: 'More tracks...',
-			text: 'Added ' + Playlist.limit + ' more tracks for <strong>' + tracks[0].artist.name + '</strong>'
+			text: 'Added ' + Playlist.tracksLimit + ' more tracks for <strong>' + Playlist.tracks[0].artist + '</strong>'
 		});
 		
-		_gaq.push(['_trackEvent', 'More', 'Click', tracks[0].artist.name]);
+		_gaq.push(['_trackEvent', 'More', 'Tracks', Playlist.tracks[0].artist]);
+	},
+	
+	appendAlbums: function(data) {
+		var source = $("#album-template").html();
+			template = Handlebars.compile(source),
+			albums = data.topalbums.album,
+			table = $('#top-albums table tbody'),
+			moreRow = $('#top-albums table tbody').find('tr#more-row');
+		
+		moreRow.remove();
+				
+		for (var i=0, l=albums.length; i<l; i++) {
+			console.log(albums[i]);
+									
+			var container = template({
+				no: (Playlist.albumsPage - 1) * Playlist.albumsLimit + i + 1,
+				name: albums[i].name,
+				image: Alike.getImage(albums[i].image, 1),
+				playcount: albums[i].playcount,
+				url: '/artists/' + Alike.url_to_lastfm(Playlist.tracks[0].artist) + '/' + Alike.url_to_lastfm(albums[i].name),
+				lastfm_url: albums[i].url
+			});
+			
+			table.append(container);
+		}
+		
+		table.append(moreRow);
+		
+		$.gritter.add({
+			title: 'More albums...',
+			text: 'Added ' + Playlist.albumsLimit + ' more albums for <strong>' + Playlist.tracks[0].artist + '</strong>'
+		});
+		
+		_gaq.push(['_trackEvent', 'More', 'Albums', Playlist.tracks[0].artist]);
 	},
 	
 	moreTracks: function() {
-		Playlist.page += 1;
+		Playlist.tracksPage += 1;
 		
 		Lastfm.moreTracks();
+	},
+	
+	moreAlbums: function() {
+		Playlist.albumsPage += 1;
+		
+		Lastfm.moreAlbums();
 	},
 	
 	getImage: function(array, size) {
@@ -146,5 +186,10 @@ var Alike = {
 	
 	toggleActivity: function(state) {
 		$.ajax('/ajax/activity_mode?mode='+state);
+	},
+	
+	url_to_lastfm: function(url) {
+		// replace all spaces with +
+		return url.replace(/ /gi, '+');
 	}
 };

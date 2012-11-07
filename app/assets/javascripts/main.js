@@ -71,6 +71,10 @@ $(function() {
 		Alike.moreTracks();
 	});
 	
+	$('#more-albums').live('click', function(e) {
+		Alike.moreAlbums();
+	});
+	
 	$('#scrobble_setting_off').click(function() {
 		Alike.toggleScrobble('off');
 		Alike.scrobble = false;

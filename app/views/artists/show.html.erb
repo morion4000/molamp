@@ -27,10 +27,12 @@
 				<p><span class="badge"><%= @artist.listeners %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @artist.url, :target => '_blank' %></>
 			</div>
 			<div class="span2">
+				<% if Rails.env.production? %>
 				<br />
 				<div class="fb-like" data-href="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
 				<br /><br />
 				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" data-text="Listen to <%= @artist.name %>" data-via="molamp" data-related="molamp">Tweet</a>
+				<% end %>
 			</div>
 		</div>
 		<p><%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist.bio['summary']) %></p>	
@@ -42,8 +44,8 @@
 	<div class="row-fluid">
 		<div class="span7">
 			<ul class="nav nav-tabs" style="border-bottom: none; margin-bottom: 0">
-			  <li class="active"><a href="#top-tracks" data-toggle="tab">Top tracks</a></li>
-			  <li><a href="#top-albums" data-toggle="tab">Top albums</a></li>
+			  <li class="active"><a href="#top-tracks" data-toggle="tab">Top Tracks</a></li>
+			  <li><a href="#top-albums" data-toggle="tab">Top Albums</a></li>
 			  <li>
 			  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			  	<input type="text" class="typeahead" data-provide="typeahead" placeholder="Search in tracklist..." />
@@ -80,22 +82,6 @@
 			</div>
 		</div>
 	</div>
-	
-	<div id="footer" style="background-color: #EEE;padding:10px;">
-		<div class="row-fluid">
-			<div class="span1">
-				<a href="javascript:Playlist.next()" class="btn btn-primary">Next</a>
-			</div>
-			<div class="span9">
-				<span id="current_playing"></span>
-			</div>
-			<div class="span2">
-				<h5 style="margin:0"><a href="#">Go to Top</a></h5>
-			</div>
-		</div>
-	</div>
-	
-	<br />
 	
 	<ul class="breadcrumb">
 	  <li><a href="/">Home</a> <span class="divider">/</span></li>

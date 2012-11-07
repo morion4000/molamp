@@ -41,14 +41,35 @@ var Lastfm = {
 	moreTracks: function() {
 		Lastfm.pointer.artist.getTopTracks({
 			artist: Playlist.tracks[0].artist,
-			page: Playlist.page,
-			limit: Playlist.limit
+			page: Playlist.tracksPage,
+			limit: Playlist.tracksLimit
 		}, {
 			success: function(data) {
 				Alike.appendTracks(data);
 			},
 			error: function(code, message) {
-				alert(message);
+				$.gritter.add({
+					title: 'Error...',
+					text: message
+				});
+			}
+		});
+	},
+	
+	moreAlbums: function() {
+		Lastfm.pointer.artist.getTopAlbums({
+			artist: Playlist.tracks[0].artist,
+			page: Playlist.albumsPage,
+			limit: Playlist.albumsLimit
+		}, {
+			success: function(data) {
+				Alike.appendAlbums(data);
+			},
+			error: function(code, message) {
+				$.gritter.add({
+					title: 'Error...',
+					text: message
+				});
 			}
 		});
 	},
