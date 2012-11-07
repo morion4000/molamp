@@ -56,6 +56,25 @@ class AjaxController < ApplicationController
     render :nothing => true
   end
   
+  def autocomplete
+    query = params[:query]
+    result = []
+    
+    begin
+      response = @lastfm.artist.search(:artist => query, :limit => 5)
+      
+      if response
+        response['results']['artistmatches']['artist'].each do |artist|
+          result.push artist['name']
+        end
+      end
+    rescue
+      result = []
+    end
+    
+    render :json => result 
+  end
+  
   def get_image
     uri = URI.parse(params[:url])
     response = Net::HTTP.get_response(uri)

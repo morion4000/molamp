@@ -29,6 +29,7 @@ Molamp::Application.routes.draw do
   match 'ajax/scrobble'      => 'ajax#scrobble'
   match 'ajax/activity'      => 'ajax#activity'
   match 'ajax/image'         => 'ajax#get_image'
+  match 'ajax/autocomplete'  => 'ajax#autocomplete'
 
   root :to => "home#index"
 

@@ -26,6 +26,19 @@
 $(function() {
 	Alike.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
 	Alike.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
+	
+	$('#generic_search, #main_search').typeahead({
+		source: function(query, process) {
+			$.ajax('/ajax/autocomplete?query='+query).done(function(data) {
+				process(data);
+			});
+		},
+		updater:function (item) {
+			location.href = '/artists/' + Alike.url_to_lastfm(item);
+						
+        	return item;
+		}
+	});
 });
 </script>
 
