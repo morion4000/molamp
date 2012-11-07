@@ -10,7 +10,7 @@ class LastfmSearch < Search
   
   def artist_search
     Rails.cache.fetch("/search/artists/#{@artist}", :expires_in => 7.days, :compress => true) do
-      @lastfm.artist.search(:artist => @artist)
+      @lastfm.artist.search(:artist => @artist, :limit => 10)
     end
   end
 end
