@@ -20,7 +20,7 @@
 			</div>
 			<meta itemprop="url" content ="/artists/<%= url_to_lastfm(artist) + '/_/' + url_to_lastfm(track['name']) %>">
 			<div class="span2">
-				<% if track['duration'].is_a?(Hash) %>
+				<% unless track['duration'].is_a?(Hash) %>
 				<span class="label pull-right"><%= convert_seconds_to_time track['duration'].to_i, false %></span>
 				<meta itemprop="duration" content="PT<%= convert_seconds_to_time track['duration'].to_i, true %>" />
 				<meta itemprop="interactionCount" content="UserPlays:<%= track['playcount'] %>"/>
