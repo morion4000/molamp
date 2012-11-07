@@ -7,8 +7,7 @@
     @query = params[:q]
     @where = params[:w]
     
-    artist = Artist.new(@query, @lastfm)
-    #album = Album.new(@query, nil, @lastfm)
+    artist = LastfmArtist.new(@query, @lastfm)
     
     @artists = artist.find()
     #@albums = album.find()

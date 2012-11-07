@@ -4,13 +4,13 @@
 		<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
 			<div class="span1">
 				<% if controller.controller_name === 'artists' %>
-					<%= image_tag(track.image(0), :alt => track.name, :size => '35x35') %>
+					<%= image_tag(track.image(0), :alt => track.name, :size => '32x32') %>
 				<% else %>
-					<%= image_tag(@album.image(0), :alt => track.name, :size => '35x35') %>
+					<%= image_tag(@album.image(0), :alt => track.name, :size => '32x32') %>
 				<% end %>
 			</div>
 			<div class="span7" itemprop="name" style="color: #08C;">
-				&nbsp;<%= track.name %>
+				&nbsp;&nbsp;<%= track.name %>
 			</div>
 			<meta itemprop="url" content ="/artists/<%= url_to_lastfm(artist) + '/_/' + url_to_lastfm(track.name) %>">
 			<div class="span2">
