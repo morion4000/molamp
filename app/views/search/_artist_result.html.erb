@@ -1,0 +1,17 @@
+<% unless artist_result_counter == 0 %>
+<tr>
+	<td>
+		<div class="row-fluid">
+		  <div class="span2">
+		  	<a href="<%= '/artists/' + url_to_lastfm(artist_result.name) %>">
+		  		<%= image_tag(artist_result.image(2), :alt => artist_result.name, :width => 110, :class => 'img-rounded') %>
+		  	</a>
+		  </div>
+		  <div class="span10" style="vertical-align:top;margin-left:0">
+		  	<h4><%= link_to artist_result.name, '/artists/' + url_to_lastfm(artist_result.name) %></h4>
+			<p><span class="badge"><%= artist_result.listeners %></span> listeners on <a href="<%= artist_result.url %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
+		  </div>
+		</div>
+	</td>
+</tr>
+<% end %>

@@ -1,41 +1,5 @@
 <% title 'Search results for ' + @query %>
 
-<div>Search results for <strong><%= @query %></strong>:</div>
-<br />
-<table class="table">
-	<thead>
-	</thead>
-	<tbody>
-	<% if !@artists['results']['artistmatches']['artist'].nil? %>
-	<% 
-		# if the search only has one result then lastfm sends a hash instead of an array
-		if @artists['results']['artistmatches']['artist'].is_a?(Hash)
-			@artists['results']['artistmatches']['artist'] = [@artists['results']['artistmatches']['artist']]
-		end 
-	%>
-	<% @artists['results']['artistmatches']['artist'].each do |artist| %>
-		<tr>
-			<td>
-				<div class="row-fluid">
-				  <div class="span2">
-				  	<a href="<%= '/artists/' + url_to_lastfm(artist['name']) %>">
-				  		<%= artist['image'][1]['content'] ? image_tag(artist['image'][2]['content'], :alt => artist['name'], :width => 110, :class => 'img-rounded') : image_tag('noimage_big.jpg', :alt => 'Sorry, no image available', :width => 110, :class => 'img-rounded') %>
-				  	</a>
-				  </div>
-				  <div class="span10" style="vertical-align:top;margin-left:0">
-				  	<h4><%= link_to artist['name'], '/artists/' + url_to_lastfm(artist['name']) %></h4>
-					<p><span class="badge"><%= artist['listeners'] %></span> listeners on <a href="<%= artist['url'] %>" target="_blank"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a></p>
-				  </div>
-				</div>
-			</td>
-		</tr>	
-	<% end %>
-	<% else %>
-		<tr>
-			<td>
-				No results found...
-			</td>
-		</tr>
-	<% end %>
-	</tbody>
-</table>
+<h2 class="lead">Search results for <strong><%= @query %></strong>:</h2>
+<%= render :partial => 'artist_featured' %>
+<%= render :partial => 'artist_results' %>

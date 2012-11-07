@@ -12,7 +12,7 @@ class ArtistsController < ApplicationController
     @autoplay = params[:autoplay]
     
     begin
-      @artist = LastfmArtist.new(@query, @lastfm)
+      @artist = LastfmArtist.new(@query, @lastfm, true)
     rescue
       @artist = nil
     end

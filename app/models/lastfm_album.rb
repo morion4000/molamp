@@ -27,9 +27,4 @@ class LastfmAlbum < Album
       @lastfm.album.get_info(:artist => @artist, :album => @name)
     end
   end
-  
-  def find(*name)
-    #return @lastfm.album.search(@name)
-    return nil
-  end
 end

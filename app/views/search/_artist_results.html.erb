@@ -1,0 +1,16 @@
+<br />
+<table class="table">
+	<thead>
+	</thead>
+	<tbody>
+	<% if @search.artistmatches.size > 0 %>
+		<%= render :partial => 'artist_result', :collection => @search.artistmatches %>
+	<% else %>
+		<tr>
+			<td>
+				No artists found based on your search query
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

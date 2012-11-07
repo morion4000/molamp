@@ -7,18 +7,23 @@
     @query = params[:q]
     @where = params[:w]
     
-    artist = LastfmArtist.new(@query, @lastfm)
+    begin
+      @search = LastfmSearch.new(@query, @lastfm)
+    rescue
+      @search = nil
+    end
     
-    @artists = artist.find()
-    #@albums = album.find()
-    
-    if @where == 'home' and !@artists['results']['artistmatches']['artist'].nil?
-      first_artist = @artists['results']['artistmatches']['artist'][0]
-      redirect_to '/artists/' + first_artist['name'].gsub(' ', '+')
-    else
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render :json => @artists }
+    if @search and @search.artistmatches.size > 0
+      featured = @search.artistmatches[0]
+      
+      if @where == 'home'
+        redirect_to '/artists/' + featured.name.gsub(' ', '+')
+      else
+         begin
+           @featured = LastfmArtist.new(featured.name, @lastfm, false)
+         rescue
+           @featured = nil
+         end
       end
     end
   end

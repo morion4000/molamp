@@ -1,0 +1,13 @@
+<% if @featured %>
+<br />
+<div class="row-fluid">
+	<div class="span3">
+		<%= link_to image_tag(@featured.image(3), :alt => @featured.name, :class => 'img-polaroid', :id => 'artist_image'), '/artists/' + url_to_lastfm(@featured.name) %>
+	</div>
+	<div class="span9">
+		<h2 itemprop="name"><%= link_to @featured.name, '/artists/' + url_to_lastfm(@featured.name) %></h2>
+		<p><span class="badge"><%= @featured.listeners %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @featured.url, :target => '_blank' %></p>
+		<p><%= @featured.bio['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@featured.bio['summary']) %></p>
+	</div>
+</div>
+<% end %>

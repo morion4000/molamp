@@ -1,7 +1,7 @@
 class LastfmArtist < Artist
   attr_accessor :lastfm
   
-  def initialize(name, lastfm)
+  def initialize(name, lastfm, full_init)
     @lastfm = lastfm
     
     @name = name
@@ -18,8 +18,10 @@ class LastfmArtist < Artist
     @tags = info['tags']
     @bio = info['bio']
     
-    @top_tracks = get_top_tracks
-    @top_albums = get_top_albums
+    if full_init
+      @top_tracks = get_top_tracks
+      @top_albums = get_top_albums
+    end
   end
   
   def get_info
@@ -37,16 +39,6 @@ class LastfmArtist < Artist
   def get_top_albums
     Rails.cache.fetch("/artists/#{@name}#top_albums", :expires_in => 7.days, :compress => true) do
       @lastfm.artist.get_top_albums(:artist => @name, :limit => 10)
-    end
-  end
-  
-  def find(*name)
-    if !name
-      name = @name  
-    end
-    
-    Rails.cache.fetch("/artists/#{@name}#search", :expires_in => 7.days, :compress => true) do
-      @lastfm.artist.search(:artist => @name)
     end
   end
 end
