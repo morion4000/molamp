@@ -3,7 +3,7 @@
 	<table class="table table-hover">
 		<thead></thead>
 		<tbody>
-			<%= render :partial => 'similar_artist', :collection => @artist['similar']['artist'] %>
+			<%= render :partial => 'similar_artist', :collection => @artist.similar %>
 		</tbody>
 	</table>
 </div>

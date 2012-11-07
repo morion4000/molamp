@@ -2,37 +2,38 @@
 	<% title 'The artist could not be found' %>
 	<div class="alert alert-error">The artist could not be found. Please try searching again.</div>
 <% else %>
+
 	<% content_for :head do %>
 	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">
 	<% end %>
 	<% content_for :meta do %>
 	<meta property="fb:app_id" content="<%= APP_CONFIG['facebook_api_key'].to_s %>" />
 	<meta property="og:type" content="music.playlist" />
-	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@artist['name']) %>" />
-	<meta property="og:title" content="<%= @artist['name'] %>" />
-	<meta property="og:image" content="<%= @artist['image'][3]['content'] %>" />
+	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" />
+	<meta property="og:title" content="<%= @artist.name %>" />
+	<meta property="og:image" content="<%= @artist.image(3) %>" />
 	<% end %>
-	<% title @artist['name'] %>
-	<% description @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : @artist['bio']['summary'] %>
+	<% title @artist.name %>
+	<% description @artist.bio['summary'].is_a?(Hash) ? 'No bio' : @artist.bio['summary'] %>
 
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">  	
-	  	<%= image_tag(get_image(@artist['image'], 3), :alt => @artist['name'], :class => 'img-polaroid', :id => 'artist_image') %>
+	  	<%= image_tag(@artist.image(3), :alt => @artist.name, :class => 'img-polaroid', :id => 'artist_image') %>
 	  </div>
 	  <div class="span9">
 	  	<div class="row-fluid">
 			<div class="span10">
-				<h1 itemprop="name"><%= @artist['name'] %></h1>
-				<p><span class="badge"><%= @artist['stats']['listeners'] %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @artist['url'], :target => '_blank' %></>
+				<h1 itemprop="name"><%= @artist.name %></h1>
+				<p><span class="badge"><%= @artist.listeners %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @artist.url, :target => '_blank' %></>
 			</div>
 			<div class="span2">
 				<br />
-				<div class="fb-like" data-href="http://www.molamp.net/artists/<%= url_to_lastfm(@artist['name']) %>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+				<div class="fb-like" data-href="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
 				<br /><br />
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net/artists/<%= url_to_lastfm(@artist['name']) %>" data-text="Listen to <%= @artist['name'] %>" data-via="molamp" data-related="molamp">Tweet</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" data-text="Listen to <%= @artist.name %>" data-via="molamp" data-related="molamp">Tweet</a>
 			</div>
 		</div>
-		<p><%= @artist['bio']['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist['bio']['summary']) %></p>	
+		<p><%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist.bio['summary']) %></p>	
 	  </div>
 	</div>
 	
@@ -51,7 +52,7 @@
 	 
 			<div class="tab-content">
 			  <div class="tab-pane active" id="top-tracks">
-					<%= render :partial => 'top_tracks', :locals => {:artist => @artist['name']} %>
+					<%= render :partial => 'top_tracks' %>
 			  </div>
 			  
 			  <div class="tab-pane" id="top-albums">
@@ -71,7 +72,7 @@
 				</div>
 			<% end %>
 				
-			<% if @artist['similar']['artist'].size > 0 %>
+			<% if @artist.similar.size > 0 %>
 				
 				<%= render :partial => 'similar_artists' %>
 				
@@ -98,23 +99,23 @@
 	
 	<ul class="breadcrumb">
 	  <li><a href="/">Home</a> <span class="divider">/</span></li>
-	  <li class="active"><%= @artist['name'] %></li>
+	  <li class="active"><%= @artist.name %></li>
 	</ul>
 	
-	<% if @top_tracks %>
+	<% if @artist.top_tracks.size > 0 %>
 	<script type="text/javascript">
 	$(function() {		
-		<% i=0; @top_tracks.each do |track| %>
+		<% i=0; @artist.top_tracks.each do |track| %>
 		Playlist.tracks.push({
 			uid: <%= i.to_s() %>,
-			mbid: "<%= track['mbid'] %>",
-			artist: "<%= @artist['name'] %>", 
-			title: "<%= track['name'] %>",
-			image: "<%= track['image'] ? track['image'][0]['content'] : '/assets/noimage.jpg' %>",
+			mbid: "<%= track.mbid %>",
+			artist: "<%= @artist.name %>", 
+			title: "<%= track.name %>",
+			image: "<%= track.image(0) %>",
 			similar: []
 		});
 		
-		Playlist.searchData.push("<%= track['name'] %>");
+		Playlist.searchData.push("<%= track.name %>");
 		<% i=i+1; end %>
 		
 		<% if @autoplay == '1' or @autoplay == 'true' %>

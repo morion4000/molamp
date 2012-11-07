@@ -5,8 +5,7 @@ class AlbumsController < ApplicationController
     @autoplay = params[:autoplay]
     
     begin
-      album = Album.new(album, artist, @lastfm)
-      @album = album.info
+      @album = LastfmAlbum.new(album, artist, @lastfm)
     rescue
       @album = nil
     end

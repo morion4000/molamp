@@ -2,43 +2,37 @@
 	<% title 'The album could not be found' %>
 	<div class="alert alert-error">The album could not be found. Please try searching again.</div>
 <% else %>
-	<%
-		# if the album only has one track then lastfm sends a hash instead of an array
-		if @album['tracks']['track'].is_a?(Hash)
-			@album['tracks']['track'] = [@album['tracks']['track']]
-		end 
-	%>
-	
+
 	<% content_for :head do %>
 	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">
 	<% end %>
 	<% content_for :meta do %>
 	<meta property="fb:app_id" content="<%= APP_CONFIG['facebook_api_key'].to_s %>" />
 	<meta property="og:type" content="music.album" />
-	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@album['artist']) + '/' + url_to_lastfm(@album['name']) %>" />
-	<meta property="og:title" content="<%= @album['name'] %>" />
-	<meta property="og:image" content="<%= @album['image'][4]['content'] %>" />
-	<meta property="music:song:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@album['artist']) + '/_/' + url_to_lastfm(@album['tracks']['track'][0]['name']) %>" />
+	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@album.artist) + '/' + url_to_lastfm(@album.name) %>" />
+	<meta property="og:title" content="<%= @album.name %>" />
+	<meta property="og:image" content="<%= @album.image(4) %>" />
+	<meta property="music:song:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@album.artist) + '/_/' + url_to_lastfm(@album.tracks[0].name) %>" />
 	<% end %>
-	<% title @album['artist'] + ' - ' + @album['name'] %>
-	<% description 'Listen to all the tracks from the album ' + @album['name'] + ' by ' + @album['artist'] + ' and other great tracks from similar artists on Molamp' %>
+	<% title @album.artist + ' - ' + @album.name %>
+	<% description 'Listen to all the tracks from the album ' + @album.name + ' by ' + @album.artist + ' and other great tracks from similar artists on Molamp' %>
 				
 	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
 	  <div class="span3">
-	  	<%= image_tag(get_image(@album['image'], 4), :alt => @album['name'], :class => 'img-polaroid') %>
+	  	<%= image_tag(@album.image(4), :alt => @album.name, :class => 'img-polaroid') %>
 	  </div>
 	  <div class="span9">
   		<div class="row-fluid">
 			<div class="span10">
-				<h1><%= @album['name'] %></h1>
-				<h2 itemprop="name"><%= link_to(@album['artist'], '/artists/' + url_to_lastfm(@album['artist'])) %></h2>
-				<p><span class="badge"><%= @album['playcount'] %></span> times played on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @album['url'], :target => '_blank' %></>
+				<h1><%= @album.name %></h1>
+				<h2 itemprop="name"><%= link_to(@album.artist, '/artists/' + url_to_lastfm(@album.artist)) %></h2>
+				<p><span class="badge"><%= @album.playcount %></span> times played on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @album.url, :target => '_blank' %></>
 			</div>
 			<div class="span2">
 				<br />
-				<div class="fb-like" data-href="http://www.molamp.net/artists/<%= url_to_lastfm(@album['artist']) %>/<%= url_to_lastfm(@album['name']) %>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+				<div class="fb-like" data-href="http://www.molamp.net/artists/<%= url_to_lastfm(@album.artist) %>/<%= url_to_lastfm(@album.name) %>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
 				<br /><br />
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net/artists/<%= url_to_lastfm(@album['artist']) %>/<%= url_to_lastfm(@album['name']) %>" data-text="Listen to <%= @album['name'] %> by <%= @album['artist'] %>" data-via="molamp" data-related="molamp">Tweet</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net/artists/<%= url_to_lastfm(@album.artist) %>/<%= url_to_lastfm(@album.name) %>" data-text="Listen to <%= @album.name %> by <%= @album.artist %>" data-via="molamp" data-related="molamp">Tweet</a>
 			</div>
 		</div>
 	  </div>
@@ -49,7 +43,7 @@
 	<div class="row-fluid">
 		<div class="span7">
 			<div id="album-tracks">
-				<%= render :partial => 'album_tracks', :locals => {:artist => @album['artist']} %>
+				<%= render :partial => 'album_tracks' %>
 			</div>
 		</div>
 		<div class="span5">
@@ -68,21 +62,21 @@
 	
 	<ul class="breadcrumb">
 	  <li><a href="/">Home</a> <span class="divider">/</span></li>
-	  <li><a href="/artists/<%= url_to_lastfm(@album['artist']) %>"><%= @album['artist'] %></a> <span class="divider">/</span></li>
-	  <li class="active"><%= @album['name'] %></li>
+	  <li><a href="/artists/<%= url_to_lastfm(@album.artist) %>"><%= @album.artist %></a> <span class="divider">/</span></li>
+	  <li class="active"><%= @album.name %></li>
 	</ul>
 	
-	<% if @album['tracks']['track'] and @album['tracks']['track'].size > 0 %>
+	<% if @album.tracks.size > 0 %>
 	<script type="text/javascript">
 	$(function() {
-		Playlist.artist = "<%= @album['artist'] %>";
-		<% i=0; @album['tracks']['track'].each do |track| %>
+		Playlist.artist = "<%= @album.artist %>";
+		<% i=0; @album.tracks.each do |track| %>
 		Playlist.tracks.push({
 			uid: <%= i.to_s() %>, 
-			mbid: "<%= track['mbid'] %>",
-			artist: "<%= @album['artist'] %>", 
-			title: "<%= track['name'] %>",
-			image: "<%= get_image @album['image'], 0 %>",
+			mbid: "<%= track.mbid %>",
+			artist: "<%= @album.artist %>", 
+			title: "<%= track.name %>",
+			image: "<%= @album.image(0) %>",
 			similar: []
 		});
 		<% i=i+1; end %>

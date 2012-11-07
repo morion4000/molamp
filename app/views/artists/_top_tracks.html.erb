@@ -1,15 +1,8 @@
 <table class="table table-bordered table-condensed table-hover">
 	<thead></thead>
 	<tbody>
-	<% if @top_tracks %>
-		<% 
-			# if the artist only has one song then lastfm sends a hash instead of an array
-			if @top_tracks.is_a?(Hash)
-				@top_tracks = [@top_tracks]
-			end
-		%>
-		
-		<%= render :partial => 'track', :collection => @top_tracks, :locals => {:artist => artist} %>
+	<% if @artist.top_tracks.size > 0 %>		
+		<%= render :partial => 'track', :collection => @artist.top_tracks, :locals => {:artist => @artist.name} %>
 		
 		<tr id="more-row">
 			<td colspan="2">

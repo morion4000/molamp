@@ -2,7 +2,7 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    redirect_to '/'
+    redirect_to root_path
   end
 
   # GET /artists/1
@@ -12,20 +12,14 @@ class ArtistsController < ApplicationController
     @autoplay = params[:autoplay]
     
     begin
-      artist = Artist.new(@query, @lastfm)
-      
-      @top_tracks = artist.top_tracks
-      @top_albums = artist.top_albums
-      @artist = artist.info
+      @artist = LastfmArtist.new(@query, @lastfm)
     rescue
-      @top_tracks  = nil
-      @top_albums  = nil
       @artist = nil
     end
     
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @top_tracks }
+      format.json { render :json => @artist }
     end
   end
 end

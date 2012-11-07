@@ -1,21 +1,30 @@
-class Track 
-  attr_accessor :name, :artist, :mbid, :lastfm
-  
-  def initialize(name, artist, lastfm)
-    @name = name
-    @artist = artist
-    @lastfm = lastfm
-  end
-  
-  def info
-    return @lastfm.track.get_info(:artist => @artist, :track => @name)
-  end
-  
-  def similar
-    return @lastfm.track.get_similar(:artist => @artist, :track => @name)
-  end
-  
-  def scrobble
-      return @lastfm.track.scrobble(:artist => @artist, :track => @name)
+class Track
+  attr_accessor :id, 
+                :mbid, 
+                :name, 
+                :artist, 
+                :image, 
+                :url, 
+                :duration, 
+                :album, 
+                :listeners,
+                :playcount, 
+                :toptags, 
+                :wiki
+   
+  def image(size)  
+    if size < 3
+      result = 'noimage.jpg'
+    else
+      result = 'noimage_big.jpg'
+    end
+    
+    # TODO: try a smaller and smaller image until there are no more image
+    
+    if @image and @image[size]['content'] != nil 
+      result = @image[size]['content']
+    end
+    
+    return result
   end
 end

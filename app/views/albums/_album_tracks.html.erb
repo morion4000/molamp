@@ -1,8 +1,8 @@
 <table class="table table-bordered table-condensed table-hover">
 	<thead></thead>
 	<tbody>
-	<% if @album['tracks']['track'] and @album['tracks']['track'].size > 0 %>
-		<%= render :partial => 'artists/track', :collection =>  @album['tracks']['track'], :locals => {:artist => artist} %>
+	<% if @album.tracks.size > 0 %>
+		<%= render :partial => 'artists/track', :collection =>  @album.tracks, :locals => {:artist => @album.artist} %>
 	<% else %>
 		<tr>
 			<td>Album has no tracks.</td>

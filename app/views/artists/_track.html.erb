@@ -1,29 +1,23 @@
-<%	
-	# some songs don't have an mbid so i'll generate one
-	if !track['mbid'].is_a?(String)
-		track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + artist)
-	end
-%>
-<tr id="<%= track['mbid'] %>" class="playlist_track">
+<tr id="<%= track.mbid %>" class="playlist_track">
 	<td><%= track_counter + 1 %></td>
 	<td>
 		<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
 			<div class="span1">
 				<% if controller.controller_name === 'artists' %>
-					<%= image_tag(get_image(track['image'], 1), :alt => track['name'], :size => '35x35') %>
+					<%= image_tag(track.image(1), :alt => track.name, :size => '35x35') %>
 				<% else %>
-					<%= image_tag(get_image(@album['image'], 1), :alt => track['name'], :size => '35x35') %>
+					<%= image_tag(@album.image(1), :alt => track.name, :size => '35x35') %>
 				<% end %>
 			</div>
 			<div class="span7" itemprop="name" style="color: #08C;">
-				&nbsp;<%= track['name'] %>
+				&nbsp;<%= track.name %>
 			</div>
-			<meta itemprop="url" content ="/artists/<%= url_to_lastfm(artist) + '/_/' + url_to_lastfm(track['name']) %>">
+			<meta itemprop="url" content ="/artists/<%= url_to_lastfm(artist) + '/_/' + url_to_lastfm(track.name) %>">
 			<div class="span2">
-				<% unless track['duration'].is_a?(Hash) %>
-				<span class="label pull-right"><%= convert_seconds_to_time track['duration'].to_i, false %></span>
-				<meta itemprop="duration" content="PT<%= convert_seconds_to_time track['duration'].to_i, true %>" />
-				<meta itemprop="interactionCount" content="UserPlays:<%= track['playcount'] %>"/>
+				<% if track.duration.to_i > 0 %>
+				<span class="label pull-right"><%= convert_seconds_to_time track.duration.to_i, false %></span>
+				<meta itemprop="duration" content="PT<%= convert_seconds_to_time track.duration.to_i, true %>" />
+				<meta itemprop="interactionCount" content="UserPlays:<%= track.playcount %>"/>
 				<% end %>
 			</div>
 			<div class="span2">
