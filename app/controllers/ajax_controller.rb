@@ -5,9 +5,9 @@ class AjaxController < ApplicationController
     result = {:result => 'failed'}
     
     if current_user.lastfm_token and current_user.scrobble_mode === true and Rails.env.production?
-      tracks = Track.new(track, artist, @lastfm)
+      t = LastfmTrack.new(track, artist, @lastfm)
       
-      tracks.scrobble
+      t.scrobble
     end
     
     render :nothing => true

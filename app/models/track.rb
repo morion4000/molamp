@@ -27,4 +27,19 @@ class Track
     
     return result
   end
+  
+  def artist
+    a = Artist.new
+    a.name = @artist['name']
+    
+    return a
+  end
+  
+  def album
+    a = Album.new
+    a.name = @album['name']
+    a.image = @album['image']
+    
+    return a
+  end
 end

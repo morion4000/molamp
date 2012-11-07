@@ -5,8 +5,7 @@ class TracksController < ApplicationController
     @autoplay = params[:autoplay]
     
     begin
-      track = LastfmTrack.new(track, artist, @lastfm)
-      @track = track.info
+      @track = LastfmTrack.new(track, artist, @lastfm)
     rescue
       @track = nil
     end
