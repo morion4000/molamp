@@ -29,8 +29,28 @@ $(function() {
 	
 	$('#generic_search, #main_search').typeahead({
 		source: function(query, process) {
+			/*
 			$.ajax('/ajax/autocomplete?query='+query).done(function(data) {
 				process(data);
+			});
+			*/
+			
+			Lastfm.pointer.artist.search({
+				artist: query,
+				limit: 10
+			}, {
+				success: function(data) {
+					var results = data.results.artistmatches.artist; 
+					if (typeof results === 'object') {
+						var data = [];
+						
+						for (var i=0, l=results.length; i<l; i++) {							
+							data.push(results[i]['name']);
+						}
+						
+						process(data);
+					}
+				}
 			});
 		},
 		updater:function (item) {
