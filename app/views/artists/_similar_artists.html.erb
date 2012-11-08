@@ -1,9 +1,11 @@
-<h4 class="lead">Similar Artists</h4>
-<div class="similar_artists">	
-	<table class="table table-hover">
-		<thead></thead>
-		<tbody>
-			<%= render :partial => 'similar_artist', :collection => @artist.similar %>
-		</tbody>
-	</table>
-</div>
+<% if @artist.similar.size > 0 %>
+	<h4 class="lead">Similar Artists</h4>
+	<div class="similar_artists">	
+		<table class="table table-hover">
+			<thead></thead>
+			<tbody>
+				<%= render :partial => 'similar_artist', :collection => @artist.similar %>
+			</tbody>
+		</table>
+	</div>
+<% end %>

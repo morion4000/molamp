@@ -1,9 +1,37 @@
+var popover_options = {
+		placement: 'right',
+		html: true,
+		content: function() {
+			var id = $(this).attr('id'),
+				track = Playlist.searchTrack(Playlist.tracks, 'mbid', id),
+				source = $("#track-tooltip-template").html();
+				template = Handlebars.compile(source);
+				
+			return template({
+				name: track.title,
+				artist: track.artist,
+				image: track.image,
+				playcount: track.playcount
+			});
+		},
+		title: function() {
+			var id = $(this).attr('id'),
+				track = Playlist.searchTrack(Playlist.tracks, 'mbid', id);
+				
+			return track.artist;
+		},
+		delay: { show: 500, hide: 100 },
+		trigger: 'hover'
+	};
+	
 $(function() {
 	Alike.init();
 	
 	$('#aboutModal').modal({
 		show: false
 	});
+	
+	$('[rel=tooltip]').tooltip();
 	
 	$.extend($.gritter.options, { 
 		position: 'top-left' // defaults to 'top-right' but can be 'bottom-left', 'bottom-right', 'top-left', 'top-right' (added in 1.7.1)
@@ -109,6 +137,8 @@ $(function() {
 				
 		Playlist.play(params[0], params[1], e);
 	});
+	
+	$('#top-tracks table tr').popover(popover_options);
 	
 	setTimeout(function() {
 		/*

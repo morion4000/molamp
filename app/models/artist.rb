@@ -29,7 +29,7 @@ class Artist
       @similar['artist'].each do |artist|
         a = Artist.new
         a.name = artist['name']
-        a.image = artist['image']  
+        a.image = artist['image']
         
         result.push a
       end
@@ -64,7 +64,10 @@ class Artist
         end
         
         t.duration = track['duration']
-        t.image = track['image'] 
+        t.image = track['image']
+        t.listeners = track['listeners']
+        t.playcount = track['playcount']
+        t.url = track['url']
         
         result.push t
       end

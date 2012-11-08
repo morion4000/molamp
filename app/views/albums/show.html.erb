@@ -50,9 +50,10 @@
 		</div>
 		<div class="span5">
 			<div id="right_content">
-				<div id="ytplayer" style="width:362px;height:280px;"></div>
+				<div id="ytplayer"></div>
 				
 				<% if logged_in? and @current_user.activity_mode %>
+					<br /><br />
 					<div class="alert alert-info">
 			  			<button type="button" class="close" data-dismiss="alert">×</button>
 			  			<strong>Heads up!</strong> Molamp is set to publish the videos you watch on your Facebook timelime. You can change that on your <a href="/account/social">account</a>.
@@ -79,6 +80,9 @@
 			artist: "<%= @album.artist %>", 
 			title: "<%= track.name %>",
 			image: "<%= @album.image(0) %>",
+			listeners: "<%= track.listeners %>",
+			playcount: "<%= track.playcount %>",
+			url: "<%= track.url %>",
 			similar: []
 		});
 		<% i=i+1; end %>

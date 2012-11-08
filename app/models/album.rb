@@ -44,6 +44,9 @@ class Album
         end
         
         t.duration = track['duration']
+        t.listeners = track['listeners']
+        t.playcount = track['playcount']
+        t.url = track['url']
         
         result.push t
       end

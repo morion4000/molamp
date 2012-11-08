@@ -48,7 +48,7 @@ var Alike = {
 					artist: tracks[i].artist.name,
 					title: tracks[i].name,
 					image: Alike.getImage(tracks[i].image, 0),
-					similar: track.uid 
+					similar: track.uid
 				});
 				
 				//Playlist.searchData.push(tracks[i].name);
@@ -106,6 +106,9 @@ var Alike = {
 				artist: tracks[i].artist.name,
 				title: tracks[i].name,
 				image: Alike.getImage(tracks[i].image, 0),
+				listeners: tracks[i].listeners,
+				playcount: tracks[i].playcount,
+				url: tracks[i].playcount,
 				similar: [] 
 			});
 			
@@ -118,6 +121,12 @@ var Alike = {
 			title: 'More tracks...',
 			text: 'Added ' + Playlist.tracksLimit + ' more tracks for <strong>' + Playlist.tracks[0].artist + '</strong>'
 		});
+		
+		$('[rel=tooltip]').tooltip('destroy');
+		$('[rel=tooltip]').tooltip();
+		
+		$('#top-tracks table tr').popover('destroy');
+		$('#top-tracks table tr').popover(popover_options);
 		
 		_gaq.push(['_trackEvent', 'More', 'Tracks', Playlist.tracks[0].artist]);
 	},
