@@ -72,11 +72,13 @@
 					<br /><br />
 					<div class="alert alert-info">
 			  			<button type="button" class="close" data-dismiss="alert">×</button>
-			  			<strong>Heads up!</strong> Molamp is set to publish the videos you watch on your Facebook timelime. You can change that on your <a href="/account/social">account</a>.
+			  			<strong>Social Sharing is ON.</strong> Molamp is set to publish the videos you watch on your Facebook timelime. You can disable this setting on your <a href="/account/social">account</a>.
 					</div>
 				<% end %>
 					
-				<%= render :partial => 'similar_artists' %>	
+				<%= render :partial => 'similar_artists' %>
+				
+				<%= render :partial => 'social_activity' %>	
 			</div>
 		</div>
 	</div>

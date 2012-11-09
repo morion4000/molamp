@@ -27,6 +27,8 @@ function onYoutubeEventFired(e) {
 				Youtube.watchTimeout = setTimeout(function() {
 					if (Alike.activity === true) {
 						Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+						
+						Youtube.watchTimeout = null;
 					}
 				}, 10*1000);
 			}

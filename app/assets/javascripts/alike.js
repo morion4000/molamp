@@ -125,8 +125,8 @@ var Alike = {
 		$('[rel=tooltip]').tooltip('destroy');
 		$('[rel=tooltip]').tooltip();
 		
-		$('#top-tracks table tr').popover('destroy');
-		$('#top-tracks table tr').popover(popover_options);
+		//$('#top-tracks table tr').popover('destroy');
+		//$('#top-tracks table tr').popover(popover_options);
 		
 		_gaq.push(['_trackEvent', 'More', 'Tracks', Playlist.tracks[0].artist]);
 	},

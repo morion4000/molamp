@@ -33,6 +33,8 @@ $(function() {
 	
 	$('[rel=tooltip]').tooltip();
 	
+	//$('#top-tracks table tr').popover(popover_options);
+	
 	$.extend($.gritter.options, { 
 		position: 'top-left' // defaults to 'top-right' but can be 'bottom-left', 'bottom-right', 'top-left', 'top-right' (added in 1.7.1)
 		// fade_in_speed: 'medium', // how fast notifications fade in (string or int)
@@ -137,8 +139,6 @@ $(function() {
 				
 		Playlist.play(params[0], params[1], e);
 	});
-	
-	$('#top-tracks table tr').popover(popover_options);
 	
 	setTimeout(function() {
 		/*

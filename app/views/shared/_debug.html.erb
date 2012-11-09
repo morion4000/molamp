@@ -1,28 +1,30 @@
-<div class="well">
-  <div id="debug">
-  	<%= link_to 'params', "javascript:$('#params_debug_info').toggle()" %> |
-  	<%= link_to 'env', "javascript:$('#env_debug_info').toggle()" %> |
-  	<%= link_to 'request', "javascript:$('#request_debug_info').toggle()" %> 
-  
-    <fieldset id="params_debug_info" class="debug_info" style="display: none">
-      <legend>params</legend>
-      <pre class="pre-scrollable">
-      	<%= debug(params) %>
-      </pre>
-    </fieldset>
-  
-    <fieldset id="env_debug_info" class="debug_info" style="display: none">
-      <legend>env</legend>
-      <pre class="pre-scrollable">
-      	<%= debug(request.env) %>
-      </pre>
-    </fieldset>
-    
-    <fieldset id="request_debug_info" class="debug_info" style="display: none">
-      <legend>request</legend>
-      <pre class="pre-scrollable">
-      	<%= debug(request) %>
-      </pre>
-    </fieldset>
-  </div>
-</div>
+<% if Rails.env.development? && 1==0 %> 
+	<div class="well">
+	  <div id="debug">
+	  	<%= link_to 'params', "javascript:$('#params_debug_info').toggle()" %> |
+	  	<%= link_to 'env', "javascript:$('#env_debug_info').toggle()" %> |
+	  	<%= link_to 'request', "javascript:$('#request_debug_info').toggle()" %> 
+	  
+	    <fieldset id="params_debug_info" class="debug_info" style="display: none">
+	      <legend>params</legend>
+	      <pre class="pre-scrollable">
+	      	<%= debug(params) %>
+	      </pre>
+	    </fieldset>
+	  
+	    <fieldset id="env_debug_info" class="debug_info" style="display: none">
+	      <legend>env</legend>
+	      <pre class="pre-scrollable">
+	      	<%= debug(request.env) %>
+	      </pre>
+	    </fieldset>
+	    
+	    <fieldset id="request_debug_info" class="debug_info" style="display: none">
+	      <legend>request</legend>
+	      <pre class="pre-scrollable">
+	      	<%= debug(request) %>
+	      </pre>
+	    </fieldset>
+	  </div>
+	</div>
+<% end %>

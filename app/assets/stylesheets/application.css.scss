@@ -45,6 +45,10 @@ body {
   background-color:#EEE;
 }
 
+.social_activity {
+  background-color:#EEE;
+}
+
 #top-albums table {
   border-top: none;
   
@@ -77,3 +81,8 @@ body {
   line-height:20px;
 }
 
+#homepage_static {
+  li.span2 {
+    width:255px;
+  }
+}

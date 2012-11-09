@@ -3,7 +3,7 @@
 	<div class="span8">
 		<div class="well">
 		  <h3>Facebook</h3>
-	      <% if @user.facebook_token %>
+	      <% if @user.facebook_token and @profile %>
 	      	<div class="row-fluid">
 	      		<div class="span1">
 	      			<%= image_tag @profile_pic, :width => 50, :class => 'img-rounded' %>
@@ -14,7 +14,7 @@
 	      			<a href="/auth/facebook/logout" class="btn">Disconnect</a>
 	      		</div>
 	      		<div class="span3">
-					Activity Mode <a href="/faq#activity-mode" target="_blank" title="Learn about Activity Mode"><i class="icon-info-sign"></i></a> 
+					Social Sharing <a href="/faq#social-sharing" target="_blank" title="Learn about Social Sharing"><i class="icon-info-sign"></i></a> 
 					<div class="btn-group" data-toggle="buttons-radio" id="activity_setting">
 		  				<button id="activity_setting_off" type="button" class="btn btn-danger <%= !@user.activity_mode ? 'active' : nil %>">Off</button>
 		  				<button id="activity_setting_on" type="button" class="btn btn-info <%= @user.activity_mode ? 'active' : nil %>">On</button>

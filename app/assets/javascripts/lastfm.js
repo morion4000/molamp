@@ -77,7 +77,13 @@ var Lastfm = {
 	scrobble: function(artist, track) {
 		$.ajax({
 			url: '/ajax/scrobble',
-			success: function(data) {
+			success: function(data) {				
+				Activity.add({
+					id: md5(new Date()),
+					artist: artist,
+					track: track
+				}, Activity.SCROBBLE);
+		
 				$.gritter.add({
 					title: 'Track scrobbled...',
 					text: '<strong>' + artist + ' - ' + track + '</strong> was scrobbled on Last.fm'
@@ -94,7 +100,13 @@ var Lastfm = {
 	activity: function(artist, track) {
 		$.ajax({
 			url: '/ajax/activity',
-			success: function(data) {
+			success: function(data) {				
+				Activity.add({
+					id: data.id,
+					artist: artist,
+					track: track
+				}, Activity.TIMELINE);
+		
 				$.gritter.add({
 					title: 'Video posted on timeline...',
 					text: '<strong>' + artist + ' - ' + track + '</strong> was posted on your Facebook timeline'

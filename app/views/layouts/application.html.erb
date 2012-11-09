@@ -9,16 +9,17 @@
 <div class="container main_content">
 	<%= render :partial => 'shared/header' %>
 	
-	<div class="well" id="application_main_content">
+	<div id="application_main_content">
 		<%= yield %>
 	</div>
 	
+	<%= render :partial => 'shared/social' %>
 	<%= render :partial => 'shared/footer' %>	
 </div>
 	
 <%= render :partial => 'shared/about' %>
 
-<%= Rails.env.production? ? (render :partial => 'shared/widgets/uservoice') : nil %>
+<%= render :partial => 'shared/widgets/uservoice' %>
 
 <%= render :partial => 'shared/handlebars'%>
 
@@ -62,7 +63,7 @@ $(function() {
 });
 </script>
 
-<%= Rails.env.development? && 1==0 ? (render :partial => 'shared/debug') : nil %>
+<%= render :partial => 'shared/debug' %>
 
 </body>
 </html>
