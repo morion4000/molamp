@@ -46,9 +46,12 @@ body {
 }
 
 .social_activity {
-  background-color: #EEE;
   height: 420px;
   overflow-y: scroll;
+  
+  table {
+    background-color: #EEE;
+  }
 }
 
 #top-albums table {
