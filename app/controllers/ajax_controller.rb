@@ -16,19 +16,22 @@ class AjaxController < ApplicationController
   def activity
     artist = params[:artist]
     track = params[:track]
-    result = nil
-    #queue = Queue.new
+    queue = Queue.new
+    queue << nil
     
     video_url = 'http://www.molamp.net/artists/' + artist.gsub(' ', '+') + '/_/' + track.gsub(' ', '+')
     
     if current_user.facebook_token and current_user.activity_mode === true and Rails.env.production?
-      #Thread.new {
-        result = @facebook.put_connections('me', 'video.watches', :video => video_url)
-        #queue << result
-      #}
+      begin
+        Thread.new {
+          queue << @facebook.put_connections('me', 'video.watches', :video => video_url)
+        }
+      rescue
+        queue << nil
+      end
     end
     
-    render :json => result 
+    render :json => queue.top 
   end
   
   def activity_delete
