@@ -2,33 +2,33 @@ class AjaxController < ApplicationController
   def scrobble
     artist = params[:artist]
     track = params[:track]
-    result = {:result => 'failed'}
+    result = nil
     
-    if current_user.lastfm_token and current_user.scrobble_mode === true and Rails.env.production?
+    if current_user.lastfm_token and current_user.scrobble_mode === true# and Rails.env.production?
       t = LastfmTrack.new(track, artist, @lastfm)
       
-      t.scrobble
+      result = t.scrobble
     end
     
-    render :nothing => true
+    render :json => result
   end
   
   def activity
     artist = params[:artist]
     track = params[:track]
     result = nil
-    queue = Queue.new
+    #queue = Queue.new
     
     video_url = 'http://www.molamp.net/artists/' + artist.gsub(' ', '+') + '/_/' + track.gsub(' ', '+')
     
     if current_user.facebook_token and current_user.activity_mode === true and Rails.env.production?
-      Thread.new {
+      #Thread.new {
         result = @facebook.put_connections('me', 'video.watches', :video => video_url)
-        queue << result
-      }
+        #queue << result
+      #}
     end
     
-    render :json => queue.pop 
+    render :json => result 
   end
   
   def activity_delete

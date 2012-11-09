@@ -24,7 +24,7 @@ var Activity = {
 					id: obj.id,
 					object: obj.artist + ' - ' + obj.track,
 					action: 'was posted on your Last.fm account',
-					remove_link: '#',
+					remove_link: 'javascript:Activity.remove("' + obj.id + '", ' + Activity.SCROBBLE + ')',
 					remove_text: 'Remove'
 				});	
 			break; 

@@ -30,10 +30,10 @@ class LastfmTrack < Track
   end
   
   def get_similar
-    return @lastfm.track.get_similar(:artist => @artist, :track => @name)
+    return @lastfm.track.get_similar(:artist => @artist['name'], :track => @name)
   end
   
   def scrobble
-      return @lastfm.track.scrobble(:artist => @artist, :track => @name)
+      return @lastfm.track.scrobble(:artist => @artist['name'], :track => @name)
   end
 end
