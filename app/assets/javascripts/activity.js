@@ -1,7 +1,9 @@
 var Activity = {
+	no: 0,
 	TIMELINE: 0,
 	SCROBBLE: 1,
 	selector: '.social_activity',
+	badge: '.lead .badge',
 	
 	add: function(obj, mode) {
 		var table = $(Activity.selector).find('table tbody'),
@@ -31,6 +33,9 @@ var Activity = {
 		}
 		
 		table.prepend(container);
+		
+		Activity.no++;
+		$(Activity.badge).text(Activity.no);
 	},
 	
 	remove: function(id, mode) {
@@ -49,5 +54,8 @@ var Activity = {
 				row.remove();
 			break;
 		}
+		
+		Activity.no--;
+		$(Activity.badge).text(Activity.no);
 	}
 };
