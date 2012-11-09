@@ -26,7 +26,7 @@ class AjaxController < ApplicationController
         }
     end
     
-    sleep(3);
+    sleep(10);
     
     result = thread ? thread[:output] : nil
     
