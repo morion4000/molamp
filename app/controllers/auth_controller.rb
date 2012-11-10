@@ -58,7 +58,7 @@ class AuthController < ApplicationController
     fb_access_token_url = URI.parse(
                               'https://graph.facebook.com/oauth/access_token?client_id=' +
                               APP_CONFIG['facebook_api_key'].to_s +
-                              '&redirect_uri=' + APP_CONFIG['facebook_redirect_url'].to_s +
+                              '&redirect_uri=' + 'http://www.molamp.net' +#APP_CONFIG['facebook_redirect_url'].to_s +
                               '&client_secret=' + APP_CONFIG['facebook_api_secret'].to_s +
                               '&code=' + code
                             )
