@@ -4,7 +4,7 @@ class AjaxController < ApplicationController
     track = params[:track]
     result = nil
     
-    if current_user.lastfm_token and current_user.scrobble_mode === true# and Rails.env.production?
+    if current_user.lastfm_token and current_user.scrobble_mode === true and Rails.env.production?
       t = LastfmTrack.new(track, artist, @lastfm)
       
       result = t.scrobble

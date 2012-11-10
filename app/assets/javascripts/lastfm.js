@@ -100,6 +100,7 @@ var Lastfm = {
 	activity: function(artist, track) {
 		$.ajax({
 			url: '/ajax/activity',
+			timeout: 20*1000,
 			success: function(data) {				
 				Activity.add({
 					id: data.id,
