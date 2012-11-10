@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :check_url, :set_lastfm, :set_facebook, :authenticate
+  before_filter :check_url, :set_lastfm, :set_facebook, :authenticate, :check_facebook_referral
   
   helper :all
   helper_method :current_user_session, :current_user
@@ -73,6 +73,18 @@ class ApplicationController < ActionController::Base
   def set_facebook
     if logged_in? and current_user.facebook_token
       @facebook = Koala::Facebook::API.new(current_user.facebook_token)
+    end
+  end
+  
+  def check_facebook_referral
+    code = params[:code]
+    return_to = params[:return_to]
+    
+    if !code.to_s.blank? and return_to.to_s.blank? 
+      # Auth referral
+      redirect_to '/auth/facebook?return_to=' +
+                   request.protocol + "www." + request.host_with_port + request.path +
+                  '&code='+code
     end
   end
 end

@@ -17,6 +17,7 @@ class AuthController < ApplicationController
   
   def facebook
     code = params[:code]
+    referral = params[:referral]
     scope = 'user_likes,publish_actions'
         
     if code.to_s.blank?
@@ -31,19 +32,18 @@ class AuthController < ApplicationController
                   '&scope=' + scope and return
     end
     
-    facebook_token = self.get_fb_access_token code
-    
-    unless facebook_token
-      #redirect_to root_path, :notice => 'There was an error while trying to connect with Facebook. Please try again later.' and return
-    end
-    
     unless logged_in?
       # Auth referral
+      redirect_url = params[:return_to]
+      facebook_token = self.get_fb_access_token code, redirect_url
+      
       user = User.new(:facebook_token => facebook_token)
     
-      render :json => facebook_token and return
+      render :text => redirect_url and return
     else
       #if session[:facebook_state] and session[:facebook_state] === params[:state]
+      facebook_token = self.get_fb_access_token code, APP_CONFIG['facebook_redirect_url'].to_s
+      
       current_user.facebook_token = facebook_token
       current_user.save
       
@@ -51,14 +51,14 @@ class AuthController < ApplicationController
       #else  
       #  render :text => 'Error. The state does not match.' and return
       #end
-    end 
+    end
   end
   
-  def get_fb_access_token(code)
+  def get_fb_access_token(code, redirect_url)
     fb_access_token_url = URI.parse(
                               'https://graph.facebook.com/oauth/access_token?client_id=' +
                               APP_CONFIG['facebook_api_key'].to_s +
-                              '&redirect_uri=' + 'http://www.molamp.net' +#APP_CONFIG['facebook_redirect_url'].to_s +
+                              '&redirect_uri=' + redirect_url +
                               '&client_secret=' + APP_CONFIG['facebook_api_secret'].to_s +
                               '&code=' + code
                             )
