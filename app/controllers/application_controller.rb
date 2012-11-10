@@ -83,7 +83,7 @@ class ApplicationController < ActionController::Base
     if !code.to_s.blank? and return_to.to_s.blank? 
       # Auth referral
         query = Rack::Utils.parse_nested_query(request.query_string)
-        query.delete('code')
+        #query.delete('code')
         query_string = Rack::Utils.build_query(query)
                   
         redirect_to '/auth/facebook?return_to=' +
