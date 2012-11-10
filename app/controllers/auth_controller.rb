@@ -34,13 +34,13 @@ class AuthController < ApplicationController
     
     unless logged_in?
       # Auth referral
-      redirect_url = Base64::decode64(params[:return_to])
+      redirect_url = session[:fb_return_to]
       facebook_token = self.get_fb_access_token code, redirect_url
       
       user = User.new(:facebook_token => facebook_token)
     
-      #render :json => facebook_token
-      render :text => redirect_url
+      render :json => facebook_token
+      #render :text => redirect_url
       #redirect_to redirect_url, :notice => "fb: #{facebook_token}" and return
     else
       #if session[:facebook_state] and session[:facebook_state] === params[:state]

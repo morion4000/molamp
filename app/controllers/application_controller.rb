@@ -81,13 +81,15 @@ class ApplicationController < ActionController::Base
     return_to = params[:return_to]
     
     if !code.to_s.blank? and return_to.to_s.blank? 
+        session[:fb_return_to] = request.url
+
       # Auth referral
-        query = Rack::Utils.parse_nested_query(request.query_string)
+        #query = Rack::Utils.parse_nested_query(request.query_string)
         #query.delete('code')
-        query_string = Rack::Utils.build_query(query)
+        #query_string = Rack::Utils.build_query(query)
                   
-        redirect_to '/auth/facebook?return_to=' +
-                  Base64::encode64(request.protocol + request.host_with_port + request.path + '?' + query_string) +
+        redirect_to '/auth/facebook?return_to=test' +
+                  #Base64::encode64(request.protocol + request.host_with_port + request.path + '?' + query_string) +
                   '&code='+code
     end
   end
