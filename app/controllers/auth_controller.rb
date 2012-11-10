@@ -35,11 +35,12 @@ class AuthController < ApplicationController
     unless logged_in?
       # Auth referral
       redirect_url = params[:return_to]
-      facebook_token = self.get_fb_access_token code, CGI::escape(redirect_url)
+      facebook_token = self.get_fb_access_token code, CGI::escape(redirect_url+'/')
       
       user = User.new(:facebook_token => facebook_token)
     
-      redirect_to redirect_url, :notice => "fb: #{facebook_token}" and return
+      render :json => facebook_token
+      #redirect_to redirect_url, :notice => "fb: #{facebook_token}" and return
     else
       #if session[:facebook_state] and session[:facebook_state] === params[:state]
       facebook_token = self.get_fb_access_token code, APP_CONFIG['facebook_redirect_url'].to_s
@@ -71,7 +72,7 @@ class AuthController < ApplicationController
       
       parameters = Rack::Utils.parse_nested_query(response.body)
       
-      return parameters['access_token']
+      return parameters
   end
   
   def logout_lastfm
