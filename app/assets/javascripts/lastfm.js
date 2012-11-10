@@ -74,14 +74,15 @@ var Lastfm = {
 		});
 	},
 	
-	scrobble: function(artist, track) {
+	scrobble: function(artist, track, image) {
 		$.ajax({
 			url: '/ajax/scrobble',
 			success: function(data) {				
 				Activity.add({
 					id: md5(new Date()),
 					artist: artist,
-					track: track
+					track: track,
+					image: image
 				}, Activity.SCROBBLE);
 		
 				$.gritter.add({
@@ -97,7 +98,7 @@ var Lastfm = {
 		});
 	},
 	
-	activity: function(artist, track) {
+	activity: function(artist, track, image) {
 		$.ajax({
 			url: '/ajax/activity',
 			timeout: 20*1000,
@@ -105,7 +106,8 @@ var Lastfm = {
 				Activity.add({
 					id: data.id,
 					artist: artist,
-					track: track
+					track: track,
+					image: image
 				}, Activity.TIMELINE);
 		
 				$.gritter.add({

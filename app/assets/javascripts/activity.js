@@ -14,7 +14,11 @@ var Activity = {
 			case Activity.TIMELINE:
 				container = template({
 					id: obj.id,
-					object: obj.artist + ' - ' + obj.track,
+					artist: obj.artist,
+					track: obj.track,
+					artist_url: Alike.url_to_lastfm(obj.artist),
+					track_url: Alike.url_to_lastfm(obj.track),
+					image: obj.image,
 					action: 'was shared with your friends on Facebook',
 					remove_link: 'javascript:Activity.remove("' + obj.id + '", ' + Activity.TIMELINE + ')',
 					remove_text: 'Remove from Timeline'
@@ -24,7 +28,11 @@ var Activity = {
 			case Activity.SCROBBLE:
 				container = template({
 					id: obj.id,
-					object: obj.artist + ' - ' + obj.track,
+					artist: obj.artist,
+					track: obj.track,
+					artist_url: Alike.url_to_lastfm(obj.artist),
+					track_url: Alike.url_to_lastfm(obj.track),
+					image: obj.image,
 					action: 'was posted on your Last.fm account',
 					remove_link: 'javascript:Activity.remove("' + obj.id + '", ' + Activity.SCROBBLE + ')',
 					remove_text: 'Remove'

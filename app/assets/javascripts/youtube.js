@@ -26,7 +26,7 @@ function onYoutubeEventFired(e) {
 			if (Youtube.watchTimeout == null) {
 				Youtube.watchTimeout = setTimeout(function() {
 					if (Alike.activity === true) {
-						Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+						Lastfm.activity(Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image);
 						
 						Youtube.watchTimeout = null;
 					}
@@ -44,7 +44,7 @@ function onYoutubeEventFired(e) {
 		case 0:
 			// Scrobble the current track first
 			if (Alike.scrobble === true) {
-				Lastfm.scrobble(Playlist.currentTrack.artist, Playlist.currentTrack.title);
+				Lastfm.scrobble(Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image);
 			}
 					
 			Playlist.next();
