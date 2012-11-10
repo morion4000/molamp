@@ -2,9 +2,10 @@ class HomeController < ApplicationController
   def index
     code = params[:code]
     
-    #if !code.to_s.blank?
-    #  redirect_to '/account/new?code='+code
-    #end
+    if !code.to_s.blank?
+      # Auth referral
+      redirect_to '/auth/facebook?code='+code
+    end
     
     if current_user.respond_to?('lastfm_token') and current_user.lastfm_token
       begin

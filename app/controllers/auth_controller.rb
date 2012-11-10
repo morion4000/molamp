@@ -1,10 +1,4 @@
-class AuthController < ApplicationController
-  @@facebook_redirect_url = 'http://www.molamp.net/auth/facebook'
-  
-  def self.facebook_redirect_url
-    @@facebook_redirect_url
-  end
-  
+class AuthController < ApplicationController  
   def lastfm
     token = params[:token]
     
@@ -31,27 +25,40 @@ class AuthController < ApplicationController
       redirect_to 'https://www.facebook.com/dialog/oauth?client_id=' +
                   APP_CONFIG['facebook_api_key'].to_s + 
                   '&redirect_uri=' +
-                  @@facebook_redirect_url +
+                  APP_CONFIG['facebook_redirect_url'].to_s +
                   '&state=' + 
                   session[:facebook_state] +
-                  '&scope=' + scope
+                  '&scope=' + scope and return
     end
     
-    if session[:facebook_state] and session[:facebook_state] === params[:state]
-      current_user.facebook_token = self.get_fb_access_token code
+    facebook_token = self.get_fb_access_token code
+    
+    unless facebook_token
+      #redirect_to root_path, :notice => 'There was an error while trying to connect with Facebook. Please try again later.' and return
+    end
+    
+    unless logged_in?
+      # Auth referral
+      user = User.new(:facebook_token => facebook_token)
+    
+      render :json => facebook_token and return
+    else
+      #if session[:facebook_state] and session[:facebook_state] === params[:state]
+      current_user.facebook_token = facebook_token
       current_user.save
       
-      redirect_to '/account/social', :notice => 'You have successfully been connected with your Facebook account.'   
-    else  
-      # state is does not match
-    end
+      redirect_to '/account/social', :notice => 'You have successfully been connected with your Facebook account.' and return
+      #else  
+      #  render :text => 'Error. The state does not match.' and return
+      #end
+    end 
   end
   
   def get_fb_access_token(code)
     fb_access_token_url = URI.parse(
                               'https://graph.facebook.com/oauth/access_token?client_id=' +
                               APP_CONFIG['facebook_api_key'].to_s +
-                              '&redirect_uri=' + @@facebook_redirect_url +
+                              '&redirect_uri=' + APP_CONFIG['facebook_redirect_url'].to_s +
                               '&client_secret=' + APP_CONFIG['facebook_api_secret'].to_s +
                               '&code=' + code
                             )

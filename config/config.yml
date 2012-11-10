@@ -6,6 +6,7 @@ development:
   
   facebook_api_key: 324417074332331
   facebook_api_secret: 974439f50e8cd27feef52bd0f8880765
+  facebook_redirect_url: http://localhost:3000/auth/facebook
 
 test:
   perform_authentication: false
@@ -15,6 +16,7 @@ test:
   
   facebook_api_key: 324417074332331
   facebook_api_secret: 974439f50e8cd27feef52bd0f8880765
+  facebook_redirect_url: http://localhost:3000/auth/facebook
 
 production:
   perform_authentication: false
@@ -26,3 +28,4 @@ production:
   
   facebook_api_key: 224617567667902
   facebook_api_secret: 44309bdacf4fa3a1db3de688d9d96503
+  facebook_redirect_url: http://www.molamp.net/auth/facebook
