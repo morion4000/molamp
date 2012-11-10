@@ -39,7 +39,8 @@ class AuthController < ApplicationController
       
       user = User.new(:facebook_token => facebook_token)
     
-      render :json => facebook_token
+      #render :json => facebook_token
+      render :text => redirect_url
       #redirect_to redirect_url, :notice => "fb: #{facebook_token}" and return
     else
       #if session[:facebook_state] and session[:facebook_state] === params[:state]
