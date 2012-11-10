@@ -83,7 +83,7 @@ class ApplicationController < ActionController::Base
     if !code.to_s.blank? and return_to.to_s.blank? 
       # Auth referral
       redirect_to '/auth/facebook?return_to=' +
-                   request.protocol + request.host_with_port + request.path +
+                   URI::encode(request.protocol + request.host_with_port + request.path) +
                   '&code='+code
     end
   end
