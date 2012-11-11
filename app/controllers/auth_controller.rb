@@ -40,7 +40,9 @@ class AuthController < ApplicationController
           
           facebook = Koala::Facebook::API.new(access_token)
           
-          profile = facebook.get_object('me')
+          profile = facebook.get_object('me', {:fields => 'email'})
+          
+          #profile['email'] = 'testsssss@tessss.com'
           
           user = User.find_or_create_by_email(
             :email => profile['email'],
@@ -48,7 +50,7 @@ class AuthController < ApplicationController
             :password => Digest::MD5.hexdigest(rand(999999).to_s + access_token),
             :manual => false
            )
-          
+                    
           unless user.facebook_token
             user.facebook_token = access_token
           end
@@ -70,7 +72,7 @@ class AuthController < ApplicationController
           end
       end
     else
-      render :text => 'Error. The state session does not match. Please try again later.'
+      render :text => 'Error. The state session does not match. Please try again later.' and return
     end
     
     redirect_to '/', :notice => 'There was an error with your Facebook access token.' and return

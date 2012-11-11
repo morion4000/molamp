@@ -30,7 +30,7 @@ class AjaxController < ApplicationController
     
     result = thread ? thread[:output] : nil
     
-    render :json => result 
+    render :json => result and return
   end
   
   def activity_delete

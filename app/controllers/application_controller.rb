@@ -85,17 +85,17 @@ class ApplicationController < ActionController::Base
       query.delete('code')
       query_string = Rack::Utils.build_query(query)
                  
-      return_to = request.protocol + request.host_with_port + request.path + '?' + query_string
+      session[:fb_return_to] = request.protocol + request.host_with_port + request.path + '?' + query_string
       
       unless logged_in?
         redirect_to '/auth/facebook' and return
-        #redirect_to return_to, :notice => 'You can <a href="/auth/facebook">login with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
+        #redirect_to session[:fb_return_to], :notice => 'You can <a href="/auth/facebook">login with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
       else
         if not current_user.facebook_token
           redirect_to '/auth/facebook' and return
-          #redirect_to return_to, :notice => 'You can <a href="/auth/facebook">connect with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
+          #redirect_to session[:fb_return_to], :notice => 'You can <a href="/auth/facebook">connect with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
         else
-          redirect_to return_to, :notice => 'Welcome back from Facebook.' and return
+          redirect_to session[:fb_return_to], :notice => 'Welcome back from Facebook.' and return
         end
       end
     end
