@@ -12,6 +12,7 @@
 	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" />
 	<meta property="og:title" content="<%= @artist.name %>" />
 	<meta property="og:image" content="<%= @artist.image(3) %>" />
+	<meta property="og:description" content="<%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist.bio['summary']), :length => 150).to_s %>" />
 	<% end %>
 	<% title @artist.name %>
 	<% description @artist.bio['summary'].is_a?(Hash) ? 'No bio' : @artist.bio['summary'] %>
