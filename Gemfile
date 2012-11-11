@@ -19,6 +19,8 @@ gem 'newrelic_rpm'
 
 gem 'authlogic'
 
+gem 'system_timer', '~> 1.2.4' # for faraday (koala)
+
 #gem 'turbolinks'
 #gem 'jquery-turbolinks'
 
