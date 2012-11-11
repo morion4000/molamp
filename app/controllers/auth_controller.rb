@@ -49,6 +49,10 @@ class AuthController < ApplicationController
             :manual => false
            )
           
+          unless user.facebook_token
+            user.facebook_token = access_token
+          end
+          
           user.save
           
           UserSession.create(user, true) # skip authentication and log the user in directly, the true means "remember me"

@@ -87,14 +87,16 @@ class ApplicationController < ActionController::Base
                  
       return_to = request.protocol + request.host_with_port + request.path + '?' + query_string
       
-      if logged_in? and not current_user.facebook_token
-        redirect_to return_to, :notice => 'You can <a href="/auth/facebook">connect with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
-      end
-      
       unless logged_in?
-        redirect_to return_to, :notice => 'You can <a href="/auth/facebook">login with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
+        redirect_to '/auth/facebook' and return
+        #redirect_to return_to, :notice => 'You can <a href="/auth/facebook">login with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
       else
-        redirect_to return_to, :notice => 'Welcome back from Facebook.' and return
+        if not current_user.facebook_token
+          redirect_to '/auth/facebook' and return
+          #redirect_to return_to, :notice => 'You can <a href="/auth/facebook">connect with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
+        else
+          redirect_to return_to, :notice => 'Welcome back from Facebook.' and return
+        end
       end
     end
   end
