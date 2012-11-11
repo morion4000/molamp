@@ -10,9 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101175443) do
+ActiveRecord::Schema.define(:version => 20121111173541) do
+
+  create_table "playlists", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.string   "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "email",                                 :null => false
     t.string   "crypted_password",                      :null => false
     t.string   "password_salt",                         :null => false
@@ -20,19 +30,17 @@ ActiveRecord::Schema.define(:version => 20121101175443) do
     t.string   "single_access_token",                   :null => false
     t.string   "perishable_token",                      :null => false
     t.integer  "login_count",         :default => 0,    :null => false
-    t.integer  "failed_login_count",  :default => 0,    :null => false
     t.datetime "last_request_at"
-    t.datetime "current_login_at"
     t.datetime "last_login_at"
-    t.string   "current_login_ip"
+    t.datetime "current_login_at"
     t.string   "last_login_ip"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.string   "current_login_ip"
     t.string   "facebook_token"
     t.string   "lastfm_token"
     t.string   "lastfm_username"
     t.boolean  "activity_mode",       :default => true, :null => false
     t.boolean  "scrobble_mode",       :default => true, :null => false
+    t.boolean  "manual",              :default => true, :null => false
   end
 
 end
