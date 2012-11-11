@@ -76,21 +76,22 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def remove_code_from_redirect_uri(redirect_uri)
+    url, params = redirect_uri.split("?")
+    params = params.split('&').inject({}) { |hash, param| k, v = param.split('='); hash[k] = v; hash }
+    params.delete("code")
+    url + '?' + CGI::unescape(params.to_query)
+  end
+  
   def check_facebook_referral
     code = params[:code]
-    return_to = params[:return_to]
+    controller = params[:controller]
     
-    if !code.to_s.blank? and return_to.to_s.blank? 
-        session[:fb_return_to] = request.url
-
-      # Auth referral
-        #query = Rack::Utils.parse_nested_query(request.query_string)
-        #query.delete('code')
-        #query_string = Rack::Utils.build_query(query)
-                  
-        redirect_to '/auth/facebook?return_to=test' +
-                  #Base64::encode64(request.protocol + request.host_with_port + request.path + '?' + query_string) +
-                  '&code='+code
+    # Auth referral
+    if !code.to_s.blank? and controller != 'auth'           
+      session[:fb_return_to] = remove_code_from_redirect_uri(request.url)
+  
+      redirect_to '/auth/facebook' and return
     end
   end
 end

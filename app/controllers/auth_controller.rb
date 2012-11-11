@@ -17,9 +17,9 @@ class AuthController < ApplicationController
   
   def facebook
     code = params[:code]
-    referral = params[:referral]
+    #mode = params[:mode]
     scope = 'user_likes,publish_actions'
-        
+    
     if code.to_s.blank?
       session[:facebook_state] = Digest::MD5.hexdigest(rand(1000).to_s);
       
@@ -32,31 +32,32 @@ class AuthController < ApplicationController
                   '&scope=' + scope and return
     end
     
-    unless logged_in?
-      # Auth referral
-      redirect_url = session[:fb_return_to]
-      facebook_token = self.get_fb_access_token code, redirect_url
-      
-      user = User.new(:facebook_token => facebook_token)
-    
-      render :json => facebook_token
-      #render :text => redirect_url
-      #redirect_to redirect_url, :notice => "fb: #{facebook_token}" and return
+    if session[:facebook_state] and session[:facebook_state] === params[:state]
+      unless logged_in?
+        # Auth referral
+        redirect_url = session[:fb_return_to]
+        
+        facebook_token = self.get_fb_access_token code, redirect_url
+        
+        user = User.new(:facebook_token => facebook_token)
+        
+        render :json => facebook_token
+      else
+          facebook_token = self.get_fb_access_token code, APP_CONFIG['facebook_redirect_url'].to_s
+          
+          if facebook_token.has_key?('access_token')
+            current_user.facebook_token = facebook_token['access_token']
+            current_user.save
+            
+            redirect_to '/account/social', :notice => 'You have successfully been connected with your Facebook account.' and return
+          end
+      end
     else
-      #if session[:facebook_state] and session[:facebook_state] === params[:state]
-      facebook_token = self.get_fb_access_token code, APP_CONFIG['facebook_redirect_url'].to_s
-      
-      current_user.facebook_token = facebook_token
-      current_user.save
-      
-      redirect_to '/account/social', :notice => 'You have successfully been connected with your Facebook account.' and return
-      #else  
-      #  render :text => 'Error. The state does not match.' and return
-      #end
+      render :text => 'Error. The state session does not match. Please try again later.'
     end
   end
   
-  def get_fb_access_token(code, redirect_url)
+  def get_fb_access_token(code, redirect_url)    
     fb_access_token_url = URI.parse(
                               'https://graph.facebook.com/oauth/access_token?client_id=' +
                               APP_CONFIG['facebook_api_key'].to_s +
