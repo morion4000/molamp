@@ -3,7 +3,7 @@
 	<div class="span8">
 		<div class="well">
 		  <h3>Facebook</h3>
-	      <% if @user.facebook_token and @profile %>
+	      <% if current_user.facebook_token and @profile %>
 	      	<div class="row-fluid">
 	      		<div class="span1">
 	      			<%= image_tag @profile_pic, :width => 50, :class => 'img-rounded' %>
