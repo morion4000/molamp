@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = 'Account registered!'
-      redirect_to '/account/social'
+      redirect_to root_path
     else
       render :action => :new
     end
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   def update
     @user = @current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
+      flash[:notice] = 'Account updated!'
       redirect_to account_url
     else
       render :action => :edit
