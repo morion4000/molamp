@@ -76,22 +76,26 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def remove_code_from_redirect_uri(redirect_uri)
-    url, params = redirect_uri.split("?")
-    params = params.split('&').inject({}) { |hash, param| k, v = param.split('='); hash[k] = v; hash }
-    params.delete("code")
-    url + '?' + CGI::unescape(params.to_query)
-  end
-  
   def check_facebook_referral
     code = params[:code]
     controller = params[:controller]
     
-    # Auth referral
-    if !code.to_s.blank? and controller != 'auth'           
-      session[:fb_return_to] = remove_code_from_redirect_uri(request.url)
-  
-      redirect_to '/auth/facebook' and return
+    if !code.to_s.blank? and controller != 'auth'
+      query = Rack::Utils.parse_nested_query(request.query_string)
+      query.delete('code')
+      query_string = Rack::Utils.build_query(query)
+                 
+      return_to = request.protocol + request.host_with_port + request.path + '?' + query_string
+      
+      if logged_in? and not current_user.facebook_token
+        redirect_to return_to, :notice => 'You can <a href="/auth/facebook">connect with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
+      end
+      
+      unless logged_in?
+        redirect_to return_to, :notice => 'You can <a href="/auth/facebook">login with your Facebook account</a> to retreive your favorite artists and post on your Timeline.'.html_safe and return
+      else
+        redirect_to return_to, :notice => 'Welcome back from Facebook.' and return
+      end
     end
   end
 end

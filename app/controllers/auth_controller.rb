@@ -17,8 +17,7 @@ class AuthController < ApplicationController
   
   def facebook
     code = params[:code]
-    #mode = params[:mode]
-    scope = 'user_likes,publish_actions'
+    scope = 'user_likes,publish_actions,email'
     
     if code.to_s.blank?
       session[:facebook_state] = Digest::MD5.hexdigest(rand(1000).to_s);
@@ -34,14 +33,28 @@ class AuthController < ApplicationController
     
     if session[:facebook_state] and session[:facebook_state] === params[:state]
       unless logged_in?
-        # Auth referral
-        redirect_url = session[:fb_return_to]
+        facebook_token = self.get_fb_access_token code, APP_CONFIG['facebook_redirect_url'].to_s
         
-        facebook_token = self.get_fb_access_token code, redirect_url
-        
-        user = User.new(:facebook_token => facebook_token)
-        
-        render :json => facebook_token
+        if facebook_token.has_key?('access_token')
+          access_token = facebook_token['access_token']
+          
+          facebook = Koala::Facebook::API.new(access_token)
+          
+          profile = facebook.get_object('me')
+          
+          user = User.find_or_create_by_email(
+            :email => profile['email'],
+            :facebook_token => access_token, 
+            :password => Digest::MD5.hexdigest(rand(999999).to_s + access_token),
+            :manual => false
+           )
+          
+          user.save
+          
+          UserSession.create(user, true) # skip authentication and log the user in directly, the true means "remember me"
+  
+          redirect_to session[:fb_return_to], :notice => 'You have successfully been logged in with your Facebook account.' and return
+        end
       else
           facebook_token = self.get_fb_access_token code, APP_CONFIG['facebook_redirect_url'].to_s
           
@@ -55,6 +68,8 @@ class AuthController < ApplicationController
     else
       render :text => 'Error. The state session does not match. Please try again later.'
     end
+    
+    redirect_to '/', :notice => 'There was an error with your Facebook access token.' and return
   end
   
   def get_fb_access_token(code, redirect_url)    
