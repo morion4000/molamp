@@ -9,20 +9,21 @@
       <%= link_to image_tag('logo_123x35.png', :alt => 'Logo', :size => '123x35'), root_path, :class => 'brand' %>
       <div class="nav-collapse">
         <ul class="nav">
-        	<% if !current_user %>
+        	<% unless logged_in? %>
           		<li><a href="<%= new_user_session_path %>">Log In</a></li>
           		<li><a href="/account/new">Sign Up</a></li>
           	<% end %>
         </ul>
-        <% if current_user %>
+        <% if logged_in? %>
         <ul class="nav pull-right">
           <li class="divider-vertical"></li>
           <li class="dropdown">
-          	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user[:email] %> <b class="caret"></b></a>
+          	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "My Account", account_path %></li> 
+              <li><%= link_to 'Profile', account_path %></li>
+              <li><%= link_to 'Social', account_social_path %></li> 
               <li class="divider"></li>
-              <li><%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %></li>
+              <li><%= link_to 'Logout', user_session_path, :method => :delete, :confirm => 'Are you sure you want to logout?' %></li>
             </ul>
           </li>
         </ul>
