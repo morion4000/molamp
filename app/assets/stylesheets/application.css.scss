@@ -42,15 +42,18 @@ body {
 }
 
 .similar_artists {
-  background-color:#EEE;
+  background-color: #EEE;
+  border-radius: 4px;
 }
 
 .social_activity {
-  height: 420px;
-  overflow-y: scroll;
+  background-color: #EEE;
+  border-radius: 4px;
+  /*height: 420px;
+  overflow-y: scroll;*/
   
   table {
-    background-color: #EEE;
+    
   }
 }
 
