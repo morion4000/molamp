@@ -59,6 +59,8 @@
 			  			Molamp is set to publish the videos you watch for more than 10 seconds on your Facebook timelime. You can disable this setting on your <a href="/account/social">account</a>.
 					</div>
 				<% end %>
+				
+				<%= render :partial => 'shared/widgets/facebookcomment', :locals => {:url => 'http://www.molamp.net/artists/' + url_to_lastfm(@album.artist) + '/' + url_to_lastfm(@album.name) } %>
 			</div>
 		</div>
 	</div>

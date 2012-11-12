@@ -81,6 +81,8 @@
 				<%= render :partial => 'similar_artists' %>
 				
 				<%= render :partial => 'social_activity' %>	
+				
+				<%= render :partial => 'shared/widgets/facebookcomment', :locals => {:url => 'http://www.molamp.net/artists/' + url_to_lastfm(@artist.name)} %>
 			</div>
 		</div>
 	</div>
