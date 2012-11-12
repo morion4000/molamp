@@ -20,7 +20,7 @@ class AjaxController < ApplicationController
     
     video_url = 'http://www.molamp.net/artists/' + artist.gsub(' ', '+') + '/_/' + track.gsub(' ', '+')
     
-    if current_user.facebook_token and current_user.activity_mode === true# and Rails.env.production?
+    if current_user.facebook_token and current_user.activity_mode === true and Rails.env.production?
         thread = Thread.new {
           Thread.current[:output] = @facebook.put_connections('me', 'video.watches', :video => video_url)
         }
