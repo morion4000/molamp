@@ -80,8 +80,8 @@ $(function() {
 			// Active
 			Alike.removeSimilarTracks(mbid);
 			
-			$(this).addClass('btn-info');
-			$(this).removeClass('btn-danger');
+			//$(this).addClass('btn-info');
+			//$(this).removeClass('btn-danger');
 			
 			$(this).children('i').addClass('icon-plus-sign');
 			$(this).children('i').removeClass('icon-minus-sign');
@@ -89,8 +89,8 @@ $(function() {
 			// Inactive
 			Lastfm.similarTracks(mbid);
 			
-			$(this).removeClass('btn-info');
-			$(this).addClass('btn-danger');
+			//$(this).removeClass('btn-info');
+			//$(this).addClass('btn-danger');
 			
 			$(this).children('i').removeClass('icon-plus-sign');
 			$(this).children('i').addClass('icon-minus-sign');

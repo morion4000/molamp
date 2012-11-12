@@ -13,8 +13,18 @@
  *= require_tree .
  */
 
-.main_content {
+.main_content, .footer_content {
   max-width: 940px;
+}
+
+.footer_content {
+  padding: 30px;
+}
+
+#application_footer {
+  background-color: #EEE;
+  border-top: 1px solid #DDD;
+  margin-top: 20px;
 }
 
 .content {
@@ -58,8 +68,10 @@ body {
 }
 
 .facebook_comments {
+  /*
   background-color: #EEE;
   border-radius: 4px;
+  */
 }
 
 .breadcrumb {

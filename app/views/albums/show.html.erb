@@ -47,6 +47,8 @@
 			<div id="album-tracks">
 				<%= render :partial => 'album_tracks' %>
 			</div>
+			
+			<%= render :partial => 'shared/widgets/facebookcomment', :locals => {:url => 'http://www.molamp.net/artists/' + url_to_lastfm(@album.artist) + '/' + url_to_lastfm(@album.name) } %>
 		</div>
 		<div class="span5">
 			<div id="right_content">
@@ -58,9 +60,7 @@
 			  			<button type="button" class="close" data-dismiss="alert">×</button>
 			  			Molamp is set to publish the videos you watch for more than 10 seconds on your Facebook timelime. You can disable this setting on your <a href="/account/social">account</a>.
 					</div>
-				<% end %>
-				
-				<%= render :partial => 'shared/widgets/facebookcomment', :locals => {:url => 'http://www.molamp.net/artists/' + url_to_lastfm(@album.artist) + '/' + url_to_lastfm(@album.name) } %>
+				<% end %>				
 			</div>
 		</div>
 	</div>
