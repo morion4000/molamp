@@ -125,14 +125,22 @@ $(function() {
 		Alike.activity = true;
 	});
 	
-	$('.playlist_track').live('click', function(e) {
-		var track = $(this),
-			track_id = track.attr('id');
-		
-		Playlist.play(track_id, null, e);
+	$('.playlist_track').on({
+		click: function(e) {
+			var track = $(this),
+				track_id = track.attr('id');
+			
+			Playlist.play(track_id, null, e);
+		},
+		mouseenter: function(e) {
+			$(this).find('a.similar_tracks').removeClass('disabled');
+		},
+		mouseleave: function(e) {
+			$(this).find('a.similar_tracks').addClass('disabled');
+		}
 	});
 	
-	$('.similar_row').live('click', function(e) {
+	$('.similar_row').on('click', function(e) {
 		var track = $(this),
 			track_id = track.attr('id'),
 			params = track_id.split('_');
