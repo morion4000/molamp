@@ -22,6 +22,8 @@ class AuthController < ApplicationController
     if code.to_s.blank?
       session[:facebook_state] = Digest::MD5.hexdigest(rand(1000).to_s);
       
+      flash.keep(:notice)
+      
       redirect_to 'https://www.facebook.com/dialog/oauth?client_id=' +
                   APP_CONFIG['facebook_api_key'].to_s + 
                   '&redirect_uri=' +
@@ -59,7 +61,13 @@ class AuthController < ApplicationController
           
           UserSession.create(user, true) # skip authentication and log the user in directly, the true means "remember me"
   
-          redirect_to session[:fb_return_to], :notice => 'You have successfully been logged in with your Facebook account.' and return
+          if flash[:notice]
+            redirect_url = flash[:notice]
+          else
+            redirect_url = root_path
+          end 
+  
+          redirect_to redirect_url, :notice => 'You have successfully been logged in with your Facebook account.' and return
         end
       else
           facebook_token = self.get_fb_access_token code, APP_CONFIG['facebook_redirect_url'].to_s
