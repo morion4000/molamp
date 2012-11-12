@@ -125,7 +125,7 @@ $(function() {
 		Alike.activity = true;
 	});
 	
-	$('.playlist_track').on({
+	$('.playlist_track').live({
 		click: function(e) {
 			var track = $(this),
 				track_id = track.attr('id');
@@ -140,7 +140,7 @@ $(function() {
 		}
 	});
 	
-	$('.similar_row').on('click', function(e) {
+	$('.similar_row').live('click', function(e) {
 		var track = $(this),
 			track_id = track.attr('id'),
 			params = track_id.split('_');
