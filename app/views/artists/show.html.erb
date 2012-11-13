@@ -40,8 +40,8 @@
 <div class="row-fluid">
 	<div class="span7">
 		<ul class="nav nav-tabs" style="border-bottom: none; margin-bottom: 0">
-		  <li class="active"><a href="#top-tracks" data-toggle="tab">Top Tracks</a></li>
-		  <li><a href="#top-albums" data-toggle="tab">Top Albums</a></li>
+		  <li class="active"><a href="#top-tracks" data-toggle="tab" id="toggle_top_tracks">Top Tracks</a></li>
+		  <li><a href="#top-albums" data-toggle="tab" id="toggle_top_albums">Top Albums</a></li>
 		  <li id="track_list">
 		  	<div class="pull-right">
 		  		<input type="text" class="typeahead" data-provide="typeahead" placeholder="Search in tracklist..." />
@@ -112,17 +112,6 @@ $(function() {
 		Playlist.play(Playlist.tracks[0].mbid, null);
 	}, 3000); 
 	<% end %>
-	
-	$('.typeahead').typeahead({
-		source: Playlist.searchData,
-		updater:function (item) {
-			var track = Playlist.searchTrack(Playlist.tracks, 'title', item);
-
-			Playlist.play(track.mbid, null);
-			
-        	return '';
-		}
-	});
 });
 </script>
 <% end %>

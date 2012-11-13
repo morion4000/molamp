@@ -31,39 +31,6 @@
 $(function() {
 	Alike.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
 	Alike.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
-	
-	$('#generic_search, #main_search').typeahead({
-		source: function(query, process) {
-			/*
-			$.ajax('/ajax/autocomplete?query='+query).done(function(data) {
-				process(data);
-			});
-			*/
-			
-			Lastfm.pointer.artist.search({
-				artist: query,
-				limit: 10
-			}, {
-				success: function(data) {
-					var results = data.results.artistmatches.artist; 
-					if (typeof results === 'object') {
-						var data = [];
-						
-						for (var i=0, l=results.length; i<l; i++) {							
-							data.push(results[i]['name']);
-						}
-						
-						process(data);
-					}
-				}
-			});
-		},
-		updater:function (item) {
-			location.href = '/artists/' + Alike.url_to_lastfm(item);
-						
-        	return item;
-		}
-	});
 });
 </script>
 

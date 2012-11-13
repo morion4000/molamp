@@ -1,28 +1,30 @@
+var _gaq = _gaq || [];
+
 var popover_options = {
-		placement: 'right',
-		html: true,
-		content: function() {
-			var id = $(this).attr('id'),
-				track = Playlist.searchTrack(Playlist.tracks, 'mbid', id),
-				source = $("#track-tooltip-template").html();
-				template = Handlebars.compile(source);
-				
-			return template({
-				name: track.title,
-				artist: track.artist,
-				image: track.image,
-				playcount: track.playcount
-			});
-		},
-		title: function() {
-			var id = $(this).attr('id'),
-				track = Playlist.searchTrack(Playlist.tracks, 'mbid', id);
-				
-			return track.artist;
-		},
-		delay: { show: 500, hide: 100 },
-		trigger: 'hover'
-	};
+	placement: 'right',
+	html: true,
+	content: function() {
+		var id = $(this).attr('id'),
+			track = Playlist.searchTrack(Playlist.tracks, 'mbid', id),
+			source = $("#track-tooltip-template").html();
+			template = Handlebars.compile(source);
+			
+		return template({
+			name: track.title,
+			artist: track.artist,
+			image: track.image,
+			playcount: track.playcount
+		});
+	},
+	title: function() {
+		var id = $(this).attr('id'),
+			track = Playlist.searchTrack(Playlist.tracks, 'mbid', id);
+			
+		return track.artist;
+	},
+	delay: { show: 500, hide: 100 },
+	trigger: 'hover'
+};
 	
 $(function() {
 	Alike.init();
@@ -146,6 +148,75 @@ $(function() {
 			params = track_id.split('_');
 				
 		Playlist.play(params[0], params[1], e);
+	});
+	
+	$('#toggle_top_tracks').click(function(e) {
+		_gaq.push(['_trackEvent', 'Clicks', 'Tabs', 'Top Tracks']);
+	});
+	
+	$('#toggle_top_albums').click(function(e) {
+		_gaq.push(['_trackEvent', 'Clicks', 'Tabs', 'Top Albums']);
+	});
+	
+	$('.typeahead').typeahead({
+		source: Playlist.searchData,
+		updater:function (item) {
+			var track = Playlist.searchTrack(Playlist.tracks, 'title', item);
+
+			Playlist.play(track.mbid, null);
+			
+			_gaq.push(['_trackEvent', 'Search', 'Tracklist', item]);
+			
+        	return '';
+		}
+	});
+	
+	var search_source = function(query, process) {
+		/*
+		$.ajax('/ajax/autocomplete?query='+query).done(function(data) {
+			process(data);
+		});
+		*/
+		
+		Lastfm.pointer.artist.search({
+			artist: query,
+			limit: 10
+		}, {
+			success: function(data) {
+				var results = data.results.artistmatches.artist; 
+				if (typeof results === 'object') {
+					var data = [];
+					
+					for (var i=0, l=results.length; i<l; i++) {							
+						data.push(results[i]['name']);
+					}
+					
+					process(data);
+				}
+			}
+		});
+	}
+
+	$('#generic_search').typeahead({
+		source: search_source,
+		updater: function (item) {
+			_gaq.push(['_trackEvent', 'Search', 'Generic', item]);
+			
+			location.href = '/artists/' + Alike.url_to_lastfm(item);
+			
+	    	return item;
+		}
+	});
+	
+	$('#main_search').typeahead({
+		source: search_source,
+		updater: function (item) {
+			_gaq.push(['_trackEvent', 'Search', 'Main', item]);
+			
+			location.href = '/artists/' + Alike.url_to_lastfm(item);
+			
+	    	return item;
+		}
 	});
 	
 	setTimeout(function() {
