@@ -1,5 +1,9 @@
 class AjaxController < ApplicationController
   def scrobble
+    unless current_user
+      render :nothing => true and return
+    end
+    
     artist = params[:artist]
     track = params[:track]
     result = nil
@@ -14,6 +18,10 @@ class AjaxController < ApplicationController
   end
   
   def activity
+    unless current_user
+      render :nothing => true and return
+    end
+    
     artist = params[:artist]
     track = params[:track]
     thread = nil
@@ -34,6 +42,10 @@ class AjaxController < ApplicationController
   end
   
   def activity_delete
+    unless current_user
+      render :nothing => true and return
+    end
+    
     id = params[:id]
     result = nil
     
@@ -49,6 +61,10 @@ class AjaxController < ApplicationController
   end
   
   def scrobble_mode
+    unless current_user
+      render :nothing => true and return
+    end
+    
     mode = params[:mode]
     
     if mode == 'on'
@@ -63,6 +79,10 @@ class AjaxController < ApplicationController
   end
   
   def activity_mode
+    unless current_user
+      render :nothing => true and return
+    end
+    
     mode = params[:mode]
     
     if mode == 'on'
