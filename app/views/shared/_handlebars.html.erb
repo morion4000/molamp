@@ -15,13 +15,15 @@
 
 <script id="track-template" type="text/x-handlebars-template">
 <tr id="{{mbid}}" class="playlist_track">
-	<td>{{no}}</td>
 	<td>
 		<div class="row-fluid">
 			<div class="span1">
+				<span class="track_number">{{no}}</span>
+			</div>
+			<div class="span1">
 				<img src="{{image}}" alt="{{name}}" width="35" />
 			</div>
-			<div class="span10" style="color: #08C">
+			<div class="span9" style="color: #08C">
 				&nbsp;&nbsp;{{name}}
 			</div>
 			<div class="span1">
@@ -34,14 +36,13 @@
 
 <script id="album-template" type="text/x-handlebars-template">
 <tr>
-	<td>{{no}}</td>
 	<td>
-		<div class="row-fluid">
+		<div class="row-fluid" style="padding:10px;">
 			<div class="span2">
 				<a href="{{url}}"><img src="{{image}}" width="70" class="img-rounded" alt="{{name}}" /></a>
 			</div>
 			<div class="span10" style="vertical-align:top">
-				&nbsp;&nbsp;<a href="{{url}}">{{name}}</a><br />
+				&nbsp;&nbsp;<a href="{{url}}" class="lead">{{name}}</a><br />
 				&nbsp;&nbsp;<span class="badge">{{playcount}}</span> times played on <a href="{{lastfm_url}}"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
 			</div>
 		</div>

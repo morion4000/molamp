@@ -1,7 +1,9 @@
 <tr id="<%= track.mbid %>" class="playlist_track">
-	<td><%= track_counter + 1 %></td>
 	<td>
 		<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
+			<div class="span1">
+				<span class="track_number"><%= track_counter + 1 %></span>
+			</div>
 			<div class="span1">
 				<% if controller.controller_name === 'artists' %>
 					<%= image_tag(track.image(0), :alt => track.name, :size => '32x32') %>
@@ -9,12 +11,11 @@
 					<%= image_tag(@album.image(0), :alt => track.name, :size => '32x32') %>
 				<% end %>
 			</div>
-			<div class="span10" itemprop="name" style="color: #08C;">
+			<div class="span9" itemprop="name" style="color: #08C;">
 				&nbsp;&nbsp;<%= track.name %>
 			</div>
 			<meta itemprop="url" content ="/artists/<%= url_to_lastfm(artist) + '/_/' + url_to_lastfm(track.name) %>">
 			<% if track.duration.to_i > 0 %>
-				<!--<span class="label pull-right"><%= convert_seconds_to_time track.duration.to_i, false %></span>-->
 				<meta itemprop="duration" content="PT<%= convert_seconds_to_time track.duration.to_i, true %>" />
 				<meta itemprop="interactionCount" content="UserPlays:<%= track.playcount %>"/>
 			<% end %>
