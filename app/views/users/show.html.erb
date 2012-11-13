@@ -2,7 +2,9 @@
 <div class="row-fluid">
 	<div class="span8">
 		<div class="well">
-			<%= render 'form_edit' %>
+			<p class="lead">Change your account password:</p>
+			
+			<%= render :partial => 'form_edit', :locals => { :submit_name => 'Update' } %>
 		</div>
 	</div>
 	<div class="span4">

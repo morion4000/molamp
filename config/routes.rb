@@ -12,6 +12,7 @@ Molamp::Application.routes.draw do
   resources :tos
 
   match 'account/social' => 'users#social'
+  match 'account/claim' => 'users#claim'
 
   match 'artists' => 'artists#index'
   

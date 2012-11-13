@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <input type="hidden" name="user[claimed]" value="true" />
+  
   <div class="field">
     <%= f.label :password %>
     <%= f.password_field :password %>
@@ -22,7 +24,7 @@
   </div>
   <br />
   <div class="actions">
-    <%= f.submit 'Update', :class => 'btn btn-large' %>
+    <%= f.submit submit_name, :class => 'btn btn-large' %>
   </div>
 
 <% end %>

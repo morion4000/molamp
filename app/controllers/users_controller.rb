@@ -22,6 +22,12 @@ class UsersController < ApplicationController
     @user = @current_user
   end
   
+  def claim
+    require_user
+    
+    @user = @current_user
+  end
+  
   def social
     require_user
     
