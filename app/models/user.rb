@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
                   :password_confirmation, 
                   :facebook_token,
                   :facebook_username,
-                  :facebook_image, 
                   :manual, 
                   :claimed
   
