@@ -10,6 +10,10 @@ class AlbumsController < ApplicationController
       @album = nil
     end
     
+    unless @album
+      not_found
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @album }

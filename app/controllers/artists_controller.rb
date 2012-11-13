@@ -17,6 +17,10 @@ class ArtistsController < ApplicationController
       @artist = nil
     end
     
+    unless @artist
+      not_found
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @artist }

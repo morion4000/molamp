@@ -1,136 +1,129 @@
-<% if !@artist %>
-	<% title 'The artist could not be found' %>
-	<div class="alert alert-error">The artist could not be found. Please try searching again.</div>
-<% else %>
+<% content_for :head do %>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">
+<% end %>
+<% content_for :meta do %>
+<meta property="fb:app_id" content="<%= APP_CONFIG['facebook_api_key'].to_s %>" />
+<meta property="og:type" content="music.playlist" />
+<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" />
+<meta property="og:title" content="<%= @artist.name %>" />
+<meta property="og:image" content="<%= @artist.image(3) %>" />
+<meta property="og:description" content="<%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist.bio['summary']), :length => 150).to_s %>" />
+<% end %>
+<% title @artist.name %>
+<% description @artist.bio['summary'].is_a?(Hash) ? 'No bio' : @artist.bio['summary'] %>
 
-	<% content_for :head do %>
-	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">
-	<% end %>
-	<% content_for :meta do %>
-	<meta property="fb:app_id" content="<%= APP_CONFIG['facebook_api_key'].to_s %>" />
-	<meta property="og:type" content="music.playlist" />
-	<meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" />
-	<meta property="og:title" content="<%= @artist.name %>" />
-	<meta property="og:image" content="<%= @artist.image(3) %>" />
-	<meta property="og:description" content="<%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist.bio['summary']), :length => 150).to_s %>" />
-	<% end %>
-	<% title @artist.name %>
-	<% description @artist.bio['summary'].is_a?(Hash) ? 'No bio' : @artist.bio['summary'] %>
-
-	<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
-	  <div class="span3">  	
-	  	<%= image_tag(@artist.image(3), :alt => @artist.name, :class => 'img-polaroid', :id => 'artist_image') %>
-	  </div>
-	  <div class="span9">
-	  	<div class="row-fluid">
-			<div class="span10">
-				<h1 itemprop="name"><%= @artist.name %></h1>
-				<p><span class="badge"><%= @artist.listeners %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @artist.url, :target => '_blank' %></>
-			</div>
-			<div class="span2">
-				<% if Rails.env.production? %>
-				<br />
-				<div class="fb-like" data-href="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
-				<br /><br />
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" data-text="Listen to <%= @artist.name %>" data-via="molamp" data-related="molamp">Tweet</a>
-				<% end %>
-			</div>
+<div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
+  <div class="span3">  	
+  	<%= image_tag(@artist.image(3), :alt => @artist.name, :class => 'img-polaroid', :id => 'artist_image') %>
+  </div>
+  <div class="span9">
+  	<div class="row-fluid">
+		<div class="span10">
+			<h1 itemprop="name"><%= @artist.name %></h1>
+			<p><span class="badge"><%= @artist.listeners %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @artist.url, :target => '_blank' %></>
 		</div>
-		<p><%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist.bio['summary']) %></p>	
-	  </div>
+		<div class="span2">
+			<% if Rails.env.production? %>
+			<br />
+			<div class="fb-like" data-href="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" data-send="false" data-layout="button_count" data-width="30" data-show-faces="false"></div>
+			<br /><br />
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" data-text="Listen to <%= @artist.name %>" data-via="molamp" data-related="molamp">Tweet</a>
+			<% end %>
+		</div>
+	</div>
+	<p><%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist.bio['summary']) %></p>	
+  </div>
+</div>
+
+<br />
+
+<div class="row-fluid">
+	<div class="span7">
+		<ul class="nav nav-tabs" style="border-bottom: none; margin-bottom: 0">
+		  <li class="active"><a href="#top-tracks" data-toggle="tab">Top Tracks</a></li>
+		  <li><a href="#top-albums" data-toggle="tab">Top Albums</a></li>
+		  <li id="track_list">
+		  	<div class="pull-right">
+		  		<input type="text" class="typeahead" data-provide="typeahead" placeholder="Search in tracklist..." />
+		  	</div>
+		  </li>
+		</ul>
+ 
+		<div class="tab-content">
+		  <div class="tab-pane active" id="top-tracks">
+				<%= render :partial => 'top_tracks' %>
+		  </div>
+		  
+		  <div class="tab-pane" id="top-albums">
+		  		<%= render :partial => 'top_albums' %>
+		  </div>
+		</div>
+		
+		<%= render :partial => 'shared/widgets/facebookcomment', :locals => {:url => 'http://www.molamp.net/artists/' + url_to_lastfm(@artist.name)} %>
 	</div>
 	
-	<br />
-	
-	<div class="row-fluid">
-		<div class="span7">
-			<ul class="nav nav-tabs" style="border-bottom: none; margin-bottom: 0">
-			  <li class="active"><a href="#top-tracks" data-toggle="tab">Top Tracks</a></li>
-			  <li><a href="#top-albums" data-toggle="tab">Top Albums</a></li>
-			  <li id="track_list">
-			  	<div class="pull-right">
-			  		<input type="text" class="typeahead" data-provide="typeahead" placeholder="Search in tracklist..." />
-			  	</div>
-			  </li>
-			</ul>
-	 
-			<div class="tab-content">
-			  <div class="tab-pane active" id="top-tracks">
-					<%= render :partial => 'top_tracks' %>
-			  </div>
-			  
-			  <div class="tab-pane" id="top-albums">
-			  		<%= render :partial => 'top_albums' %>
-			  </div>
-			</div>
+	<div class="span5">	
+		<div id="right_content">
+			<h4 class="lead" id="youtube_video">Youtube Video</h4>
+			<div id="ytplayer"></div>
 			
-			<%= render :partial => 'shared/widgets/facebookcomment', :locals => {:url => 'http://www.molamp.net/artists/' + url_to_lastfm(@artist.name)} %>
-		</div>
-		
-		<div class="span5">	
-			<div id="right_content">
-				<h4 class="lead" id="youtube_video">Youtube Video</h4>
-				<div id="ytplayer"></div>
+			<% if logged_in? and @current_user.activity_mode %>
+				<br /><br />
+				<div class="alert alert-info">
+		  			<button type="button" class="close" data-dismiss="alert">×</button>
+		  			<strong>Social Sharing is ON.</strong> Molamp is set to publish the videos you watch on your Facebook timelime. You can disable this setting on your <a href="/account/social">account</a>.
+				</div>
+			<% end %>
 				
-				<% if logged_in? and @current_user.activity_mode %>
-					<br /><br />
-					<div class="alert alert-info">
-			  			<button type="button" class="close" data-dismiss="alert">×</button>
-			  			<strong>Social Sharing is ON.</strong> Molamp is set to publish the videos you watch on your Facebook timelime. You can disable this setting on your <a href="/account/social">account</a>.
-					</div>
-				<% end %>
-					
-				<%= render :partial => 'similar_artists' %>
-				
-				<%= render :partial => 'social_activity' %>	
-			</div>
+			<%= render :partial => 'similar_artists' %>
+			
+			<%= render :partial => 'social_activity' %>	
 		</div>
 	</div>
-	
-	<ul class="breadcrumb">
-	  <li><a href="/">Home</a> <span class="divider">/</span></li>
-	  <li class="active"><%= @artist.name %></li>
-	</ul>
-	
-	<% if @artist.top_tracks.size > 0 %>
-	<script type="text/javascript">
-	$(function() {		
-		<% i=0; @artist.top_tracks.each do |track| %>
-		Playlist.tracks.push({
-			uid: <%= i.to_s() %>,
-			mbid: "<%= track.mbid %>",
-			artist: "<%= @artist.name %>", 
-			title: "<%= track.name %>",
-			image: "<%= track.image(0) %>",
-			listeners: "<%= track.listeners %>",
-			playcount: "<%= track.playcount %>",
-			url: "<%= track.url %>",
-			similar: []
-		});
-		
-		Playlist.searchData.push("<%= track.name %>");
-		<% i=i+1; end %>
-		
-		<% if @autoplay == '1' or @autoplay == 'true' %>
-		// Need to wait until the youtube player initializes
-		setTimeout(function() {
-			Playlist.play(Playlist.tracks[0].mbid, null);
-		}, 3000); 
-		<% end %>
-		
-		$('.typeahead').typeahead({
-			source: Playlist.searchData,
-			updater:function (item) {
-				var track = Playlist.searchTrack(Playlist.tracks, 'title', item);
+</div>
 
-				Playlist.play(track.mbid, null);
-				
-	        	return '';
-    		}
-		});
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li class="active"><%= @artist.name %></li>
+</ul>
+
+<% if @artist.top_tracks.size > 0 %>
+<script type="text/javascript">
+$(function() {		
+	<% i=0; @artist.top_tracks.each do |track| %>
+	Playlist.tracks.push({
+		uid: <%= i.to_s() %>,
+		mbid: "<%= track.mbid %>",
+		artist: "<%= @artist.name %>", 
+		title: "<%= track.name %>",
+		image: "<%= track.image(0) %>",
+		listeners: "<%= track.listeners %>",
+		playcount: "<%= track.playcount %>",
+		url: "<%= track.url %>",
+		similar: []
 	});
-	</script>
+	
+	Playlist.searchData.push("<%= track.name %>");
+	<% i=i+1; end %>
+	
+	<% if @autoplay == '1' or @autoplay == 'true' %>
+	// Need to wait until the youtube player initializes
+	setTimeout(function() {
+		Playlist.play(Playlist.tracks[0].mbid, null);
+	}, 3000); 
 	<% end %>
 	
+	$('.typeahead').typeahead({
+		source: Playlist.searchData,
+		updater:function (item) {
+			var track = Playlist.searchTrack(Playlist.tracks, 'title', item);
+
+			Playlist.play(track.mbid, null);
+			
+        	return '';
+		}
+	});
+});
+</script>
 <% end %>
 
