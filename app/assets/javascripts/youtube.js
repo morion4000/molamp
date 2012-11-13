@@ -4,7 +4,17 @@ var Youtube = {
 	domElement: 'ytplayer',
 	options: {
 	  height: '340',
-	  width: '250'
+	  width: '250',
+	  playerVars: {
+	  	rel: 0,
+	  	enablejsapi: 1,
+	  	theme: 'light',
+	  	color: 'red',
+	  	controls: 2,
+	  	iv_load_policy: 3,
+	  	modestbranding: 1,
+		origin: 'http://www.molamp.net'
+	  }
 	},
 	watchTimeout: null,
 	key: 'AI39si5R6V7abxfitoVlki1bxJmGmMzYBtupUi4Dy7R9Ae7eu_ASK4uZhNgozUYFSNa7u_6mleqoJtQZOuUBuUtOEFj_3DEGvg',
