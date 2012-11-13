@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121111173541) do
+ActiveRecord::Schema.define(:version => 20121113175823) do
 
   create_table "playlists", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,10 @@ ActiveRecord::Schema.define(:version => 20121111173541) do
     t.boolean  "activity_mode",       :default => true, :null => false
     t.boolean  "scrobble_mode",       :default => true, :null => false
     t.boolean  "manual",              :default => true, :null => false
+    t.string   "facebook_image"
+    t.string   "facebook_username"
+    t.string   "lastfm_image"
+    t.boolean  "claimed",             :default => true, :null => false
   end
 
 end
