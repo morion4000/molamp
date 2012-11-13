@@ -1,5 +1,5 @@
 Molamp::Application.routes.draw do
-  resource :account, :controller => "users"
+  resource :account, :controller => 'users'
   resources :users
   resource :user_session
   #root :controller => "user_sessions", :action => "new"
@@ -31,6 +31,10 @@ Molamp::Application.routes.draw do
   match 'ajax/activity/delete' => 'ajax#activity_delete'
   match 'ajax/image'         => 'ajax#get_image'
   match 'ajax/autocomplete'  => 'ajax#autocomplete'
+  
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found' => 'errors#error_404'
+  end
 
   root :to => "home#index"
 
