@@ -33,6 +33,26 @@ $(function() {
 		show: false
 	});
 	
+	$('#confirmModal').modal({
+		show: false
+	});
+	
+	$('a').live('click', function(e) {
+		if ($(this).attr('id') == 'leave_url' || Youtube.player.getPlayerState() != 1) {
+			return true;	
+		} 
+		
+		var href = $(this).attr('href') || ' ';
+		
+		if (!strstr(href, 'javascript:') && href[0] != '#') {
+			e.preventDefault();
+			
+			$('#confirmModal').modal('show');
+				
+			$('#confirmModal #leave_url').attr('href', href);
+		} 
+	});
+	
 	$('[rel=tooltip]').tooltip();
 	
 	//$('#top-tracks table tr').popover(popover_options);
