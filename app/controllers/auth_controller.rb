@@ -75,8 +75,16 @@ class AuthController < ApplicationController
           facebook_token = self.get_fb_access_token code, APP_CONFIG['facebook_redirect_url'].to_s
           
           if facebook_token.has_key?('access_token')
-            current_user.facebook_token = facebook_token['access_token']
-            current_user.save
+            facebook = Koala::Facebook::API.new(facebook_token['access_token'])
+          
+            profile = facebook.get_object('me', {:fields => 'username'})
+            
+            unless current_user.facebook_token or current_user.facebook_username
+              current_user.facebook_token = facebook_token['access_token']
+              current_user.facebook_username = profile['username']
+              
+              current_user.save
+            end
             
             redirect_to '/account/social', :notice => 'You have successfully been connected with your Facebook account.' and return
           end
