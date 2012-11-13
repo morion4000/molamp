@@ -128,7 +128,7 @@ var Alike = {
 		//$('#top-tracks table tr').popover('destroy');
 		//$('#top-tracks table tr').popover(popover_options);
 		
-		_gaq.push(['_trackEvent', 'More', 'Tracks', Playlist.tracks[0].artist]);
+		_gaq.push(['_trackEvent', 'More', 'Click', 'Tracks']);
 	},
 	
 	appendAlbums: function(data) {
@@ -162,7 +162,7 @@ var Alike = {
 			text: 'Added ' + Playlist.albumsLimit + ' more albums for <strong>' + Playlist.tracks[0].artist + '</strong>'
 		});
 		
-		_gaq.push(['_trackEvent', 'More', 'Albums', Playlist.tracks[0].artist]);
+		_gaq.push(['_trackEvent', 'More', 'Click', 'Albums']);
 	},
 	
 	moreTracks: function() {

@@ -151,11 +151,11 @@ $(function() {
 	});
 	
 	$('#toggle_top_tracks').click(function(e) {
-		_gaq.push(['_trackEvent', 'Clicks', 'Tabs', 'Top Tracks']);
+		_gaq.push(['_trackEvent', 'Tabs', 'Click', 'Top Tracks']);
 	});
 	
 	$('#toggle_top_albums').click(function(e) {
-		_gaq.push(['_trackEvent', 'Clicks', 'Tabs', 'Top Albums']);
+		_gaq.push(['_trackEvent', 'Tabs', 'Click', 'Top Albums']);
 	});
 	
 	$('.typeahead').typeahead({
@@ -165,7 +165,7 @@ $(function() {
 
 			Playlist.play(track.mbid, null);
 			
-			_gaq.push(['_trackEvent', 'Search', 'Tracklist', item]);
+			_gaq.push(['_trackEvent', 'Tracks', 'Search', item]);
 			
         	return '';
 		}
@@ -200,7 +200,7 @@ $(function() {
 	$('#generic_search').typeahead({
 		source: search_source,
 		updater: function (item) {
-			_gaq.push(['_trackEvent', 'Search', 'Generic', item]);
+			_gaq.push(['_trackEvent', 'Menu', 'Search', item]);
 			
 			location.href = '/artists/' + Alike.url_to_lastfm(item);
 			
@@ -211,7 +211,7 @@ $(function() {
 	$('#main_search').typeahead({
 		source: search_source,
 		updater: function (item) {
-			_gaq.push(['_trackEvent', 'Search', 'Main', item]);
+			_gaq.push(['_trackEvent', 'Hero', 'Search', item]);
 			
 			location.href = '/artists/' + Alike.url_to_lastfm(item);
 			
