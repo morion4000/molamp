@@ -1,5 +1,7 @@
+<% if Rails.env.production? and 1==0 %>
 <div class="facebook_comments">
 	<div class="fb-comments" data-href="<%= url %>" data-num-posts="3" data-width="538"></div>
 </div>
 
 <br />
+<% end %>
