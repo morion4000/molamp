@@ -42,7 +42,7 @@ class AuthController < ApplicationController
           
           facebook = Koala::Facebook::API.new(access_token)
           
-          profile = facebook.get_object('me', {:fields => 'email'})
+          profile = facebook.get_object('me', {:fields => 'email,username'})
           
           #profile['email'] = 'testsssss@tessss.com'
           
@@ -50,11 +50,13 @@ class AuthController < ApplicationController
             :email => profile['email'],
             :facebook_token => access_token, 
             :password => Digest::MD5.hexdigest(rand(999999).to_s + access_token),
-            :manual => false
+            :manual => false,
+            :claimed => false
            )
                     
-          unless user.facebook_token
+          unless user.facebook_token or user.facebook_username
             user.facebook_token = access_token
+            user.facebook_username = profile['username']
           end
           
           user.save

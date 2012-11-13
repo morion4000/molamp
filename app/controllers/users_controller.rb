@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     
     if current_user.facebook_token
       begin
-        @profile = @facebook.get_object('me')
+        @profile = @facebook.get_object('me', {:fields => 'link,name'})
         @profile_pic = @facebook.get_picture('me')
       rescue
         @profile = nil
