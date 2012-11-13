@@ -17,10 +17,14 @@ class UsersController < ApplicationController
   end
   
   def index
+    require_user
+    
     @user = @current_user
   end
   
   def social
+    require_user
+    
     @user = @current_user
     
     if current_user.lastfm_token
