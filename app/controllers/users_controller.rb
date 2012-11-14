@@ -78,4 +78,17 @@ class UsersController < ApplicationController
       render :action => :edit
     end
   end
+  
+  def destroy
+    @user = @current_user
+    
+    if @user.delete
+      current_user_session.destroy
+      flash[:notice] = 'Your account was successfully deleted!'
+      redirect_to new_user_session_url  
+    else
+      flash[:notice] = 'There was a problem deleting your account!'
+      redirect_to new_user_session_url
+    end
+  end
 end
