@@ -13,8 +13,6 @@
 //= require jquery
 //= require jquery.cookie
 //= require jquery_ujs
-// require turbolinks
-// require jquery.turbolinks
 //= require bootstrap
 //= require gritter
 //= require javascript-last.fm-api/lastfm.api.js
