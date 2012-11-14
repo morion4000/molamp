@@ -1,12 +1,18 @@
 <script id="similar-template" type="text/x-handlebars-template">
 <tr class="similar_row" id="{{parent_mbid}}_{{mbid}}" style="display:none">
-	<td colspan="2">
+	<td>
 		<div class="row-fluid">
+			<div class="span1">
+				<center><span class="track_number"><small>{{no_parent}}.{{no}}</small></span></center>
+			</div>
 			<div class="span1">
 		  		<img alt="{{name}}" src="{{image}}" width="35" />
 		  	</div>
-		  	<div class="span11" style="color: #08C">
-		  		&nbsp;&nbsp;{{artist}} - {{name}}
+		  	<div class="span10" style="color: #08C">
+		  		&nbsp;&nbsp;{{name}} 
+		  		{{#if artist}}
+		  			- <small>{{artist}}</small>
+		  		{{/if}}
 		  	</div>
 		</div>
 	</td>

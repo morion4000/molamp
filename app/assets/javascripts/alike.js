@@ -26,15 +26,23 @@ var Alike = {
 			template = Handlebars.compile(source);
 				
 		for (i=tracks.length-1; i>=0; i--) {
+			var container, artist = false;
+			
 			if (tracks[i].mbid == '') {
 				tracks[i].mbid = '_' + md5(tracks[i].name + tracks[i].artist.name);
 			}
+			
+			if (tracks[i].artist.name != Playlist.tracks[0].artist) {
+				artist = tracks[i].artist.name;
+			}
 					
-			var container = template({
+			container = template({
+				no_parent: track.uid+1,
+				no: (i+1),
 				mbid: tracks[i].mbid,
 				parent_mbid: track.mbid, 
 				name: tracks[i].name,
-				artist: tracks[i].artist.name,
+				artist: artist,
 				image: Alike.getImage(tracks[i].image, 0),
 				duration: tracks[i].duration != 0 ? gmdate('i:s', tracks[i].duration/1000) : null
 			});
