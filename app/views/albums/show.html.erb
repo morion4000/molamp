@@ -89,7 +89,7 @@ $(function() {
 	<% if @autoplay == '1' or @autoplay == 'true' %>
 	// Need to wait until the youtube player initializes
 	setTimeout(function() {
-		Playlist.play(Playlist.tracks[0].mbid, null);
+		Playlist.play(Playlist.tracks[0].mbid, null, {target:null});
 	}, 3000);
 	<% end %>
 });
