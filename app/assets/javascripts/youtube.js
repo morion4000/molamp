@@ -3,8 +3,9 @@ var Youtube = {
 	url: 'https://gdata.youtube.com/feeds/api/videos',
 	domElement: 'ytplayer',
 	options: {
-	  height: '340',
+	  videoId: 'XkemFr6gmZo',
 	  width: '250',
+	  height: '340',
 	  playerVars: {
 	  	rel: 0,
 	  	enablejsapi: 1,
