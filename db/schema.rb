@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113175823) do
+ActiveRecord::Schema.define(:version => 20121114182348) do
 
   create_table "playlists", :force => true do |t|
     t.string   "title"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20121113175823) do
     t.boolean  "manual",              :default => true, :null => false
     t.string   "facebook_username"
     t.boolean  "claimed",             :default => true, :null => false
+    t.string   "username"
   end
 
 end
