@@ -75,7 +75,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'Account updated!'
       redirect_to account_url
     else
-      render :action => :edit
+      render :action => :show
     end
   end
   
