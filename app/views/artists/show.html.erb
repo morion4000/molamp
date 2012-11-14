@@ -1,3 +1,7 @@
+<% 
+	@no_bio_html = 'This artist has not biography. You can add a biography at ' + link_to('Last.fm', 'http://www.last.fm/music/' + url_to_lastfm(@artist.name) + '/+wiki', :target => '_blank') + '.'
+	@no_bio_text = 'Listen to ' + @artist.name + ' and other great similar artists.' 
+%>
 <% content_for :head do %>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# music: http://ogp.me/ns/music#">
 <% end %>
@@ -7,10 +11,10 @@
 <meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@artist.name) %>" />
 <meta property="og:title" content="<%= @artist.name %>" />
 <meta property="og:image" content="<%= @artist.image(3) %>" />
-<meta property="og:description" content="<%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : truncate(Sanitize.clean(@artist.bio['summary']), :length => 150).to_s %>" />
+<meta property="og:description" content="<%= @artist.bio['summary'].is_a?(Hash) ? @no_bio_text : truncate(Sanitize.clean(@artist.bio['summary']), :length => 150).to_s %>" />
 <% end %>
 <% title @artist.name %>
-<% description @artist.bio['summary'].is_a?(Hash) ? 'No bio' : @artist.bio['summary'] %>
+<% description @artist.bio['summary'].is_a?(Hash) ? @no_bio_text : @artist.bio['summary'] %>
 
 <div class="row-fluid" itemscope itemtype="http://schema.org/MusicGroup">
   <div class="span3">  	
@@ -31,7 +35,7 @@
 			<% end %>
 		</div>
 	</div>
-	<p><%= @artist.bio['summary'].is_a?(Hash) ? 'No bio' : Sanitize.clean(@artist.bio['summary']) %></p>	
+	<p><%= @artist.bio['summary'].is_a?(Hash) ? @no_bio_html.html_safe : Sanitize.clean(@artist.bio['summary']) %></p>	
   </div>
 </div>
 
