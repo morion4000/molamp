@@ -4,6 +4,6 @@ class UserMailer < ActionMailer::Base
   def signup_notification(user)
     @user = user
     @url  = 'http://www.molamp.net/login'
-    mail(:to => user.email, :subject => 'Welcome')
+    mail(:to => 'morion4000@gmail.com', :subject => 'New user registered')
   end
 end

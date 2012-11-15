@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
   end
   
   def deliver_signup_notification
-    #UserMailer.signup_notification(self).deliver
+    UserMailer.signup_notification(self).deliver
   end
 end
