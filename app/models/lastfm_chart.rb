@@ -9,7 +9,7 @@ class LastfmChart < Chart
   
   def get_hyped_artists
     Rails.cache.fetch("/charts#hyped_artists", :expires_in => 7.days, :compress => true) do
-      return @lastfm.chart.get_hyped_artists(:limit => 20)
+      return @lastfm.chart.get_hyped_artists(:limit => 24)
     end
   end
 end

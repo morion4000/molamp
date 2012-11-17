@@ -3,7 +3,7 @@
 		<div id="hyped_artists">
 			<% @hyped_artists.each do |artist| %>
 				<div class="crop" rel="tooltip" title="Listen to <%= artist.name %>">
-					<%= link_to image_tag(artist.image(2), :alt => artist.name, :size => '125x125'), '/artists/' + url_to_lastfm(artist.name) %>
+					<%= link_to image_tag(artist.image(3), :alt => artist.name, :size => '125x125'), '/artists/' + url_to_lastfm(artist.name) %>
 				</div>	
 			<% end %>
 		</div>
