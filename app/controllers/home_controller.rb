@@ -19,5 +19,15 @@ class HomeController < ApplicationController
         @likes = nil
       end
     end
+    
+    unless logged_in?
+      begin
+        chart = LastfmChart.new(@lastfm)
+        
+        @hyped_artists = chart.hyped_artists
+      rescue
+        @hyped_artists = nil
+      end
+    end
   end
 end

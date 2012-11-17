@@ -4,11 +4,18 @@ class LastfmUser
   def initialize(name, lastfm)
     @name = name
     @lastfm = lastfm
+    @group = 'mnml' 
   end
   
   def info
     Rails.cache.fetch("/users/#{@name}#info", :expires_in => 7.days, :compress => true) do
       @lastfm.user.get_info(:user => @name)
+    end
+  end
+  
+  def get_weekly_chart_list
+    Rails.cache.fetch("/users/#{@group}#weekly_chart_list", :expires_in => 7.days, :compress => true) do
+      @lastfm.user.get_weekly_chart_list(:group => @group)
     end
   end
   

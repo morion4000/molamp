@@ -1,0 +1,37 @@
+<% if @hyped_artists %>
+	<div class="image_carousel">
+		<div id="hyped_artists">
+			<% @hyped_artists.each do |artist| %>
+				<div class="crop" rel="tooltip" title="Listen to <%= artist.name %>">
+					<%= link_to image_tag(artist.image(2), :alt => artist.name, :size => '125x125'), '/artists/' + url_to_lastfm(artist.name) %>
+				</div>	
+			<% end %>
+		</div>
+		
+		<div class="clearfix"></div>
+		<a class="prev" id="hyped_artists_prev" href="#"><span>prev</span></a>
+		<a class="next" id="hyped_artists_next" href="#"><span>next</span></a>
+		<div class="pagination_carousel" id="hyped_artists_pag"></div>
+	</div>
+	
+	<script type="text/javascript">
+		$(function() {
+			$('#hyped_artists').carouFredSel({
+				circular: false,
+				infinite: false,
+				auto 	: {
+					pauseOnHover: true
+				},
+				prev	: {	
+					button	: '#hyped_artists_prev',
+					key		: 'left'
+				},
+				next	: { 
+					button	: '#hyped_artists_next',
+					key		: 'right'
+				},
+				pagination	: '#hyped_artists_pag'
+			});
+		});
+	</script>
+<% end %>

@@ -26,4 +26,5 @@
 //= require phpjs/date.js
 //= require phpjs/gmdate.js
 //= require get-average-rgb.js
+//= require caroufredsel-6.1.0/jquery.caroufredsel-6.1.0.js
 //= require_tree .
