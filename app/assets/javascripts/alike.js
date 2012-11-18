@@ -29,7 +29,7 @@ var Alike = {
 			var container, artist = false;
 			
 			if (tracks[i].mbid == '') {
-				tracks[i].mbid = '_' + md5(tracks[i].name + tracks[i].artist.name);
+				tracks[i].mbid = '~' + md5(tracks[i].name + tracks[i].artist.name);
 			}
 			
 			if (tracks[i].artist.name != Playlist.tracks[0].artist) {
@@ -95,7 +95,7 @@ var Alike = {
 				
 		for (var i=0, l=tracks.length; i<l; i++) {
 			if (tracks[i].mbid == '') {
-				tracks[i].mbid = '_' + md5(tracks[i].name + tracks[i].artist.name);
+				tracks[i].mbid = '~' + md5(tracks[i].name + tracks[i].artist.name);
 			}
 						
 			var container = template({

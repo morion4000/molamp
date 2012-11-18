@@ -33,7 +33,7 @@ class Album
         
         # some songs don't have an mbid so i'll generate one
         unless track['mbid'].is_a?(String)
-          track['mbid'] = '_' + Digest::MD5.hexdigest(track['name'] + @artist)
+          track['mbid'] = '~' + Digest::MD5.hexdigest(track['name'] + @artist)
         end
         
         t.mbid = track['mbid']
