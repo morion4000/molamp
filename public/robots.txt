@@ -5,3 +5,6 @@
 # Ban all albums pages (too many pages already...)
 # Disallow: /*/*/
 # Disallow: /*/*/*/
+
+User-Agent: VoilaBot
+Disallow: *
