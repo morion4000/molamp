@@ -1,0 +1,22 @@
+<% if params['controller'] === 'artists' or params['controller'] === 'albums' or params['controller'] === 'tracks' %>
+<div class="player_controls">
+	<div class="row-fluid">
+		<div class="span3">
+			<center>
+				<a href="javascript:;" class="btn btn-large" id="toggle_play">
+					<i class="icon-play"></i>
+				</a>
+				<a href="javascript:;" class="btn btn-large" id="next_play">
+					<i class="icon-forward"></i>
+				</a>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="current_time">00:00</span> / <span id="total_time">00:00</span>
+			</center>
+		</div>
+		<div class="span8">
+			<div id="progress_bar"></div>
+		</div>
+	</div>
+</div>
+<% end %>

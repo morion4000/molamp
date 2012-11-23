@@ -9,15 +9,20 @@ var Playlist = {
 	searchData: [],
 	
 	play: function(mbid, similar, _event) {
-		var track = null,
+		var track = null;
+		
+		// TODO: Implement better logic for this...
+		if (_event === null || typeof event == 'undefined') {
+		} else {
 			e = typeof event != 'undefined' ? event : _event,
 			target = e.target || e.srcElement,
 			targetClass = $(target).attr('class');
 
-		if (strstr(targetClass, 'icon') || strstr(targetClass, 'btn')) {
-			return true;
+			if (strstr(targetClass, 'icon') || strstr(targetClass, 'btn')) {
+				return true;
+			}
 		}
-
+			
 		if (similar != null) {
 			var parent = Playlist.searchTrack(Playlist.tracks, 'mbid', mbid);
 			
@@ -87,7 +92,7 @@ var Playlist = {
 				
 				mbid = Playlist.searchTrack(Playlist.currentTrack.similar, 'uid', uid).mbid;
 				
-				Playlist.play(Playlist.currentTrack.mbid, mbid, {});
+				Playlist.play(Playlist.currentTrack.mbid, mbid, null);
 			} else {
 				// Play normal track
 				if (Playlist.tracks.length > parseInt(Playlist.currentTrack.uid) + 1) {
@@ -100,7 +105,7 @@ var Playlist = {
 				
 				mbid = Playlist.searchTrack(Playlist.tracks, 'uid', uid).mbid;
 				
-				Playlist.play(mbid, null, {});
+				Playlist.play(mbid, null, null);
 			}
 		} else {
 			// Track is similar
@@ -112,7 +117,7 @@ var Playlist = {
 				
 				mbid = Playlist.searchTrack(parent.similar, 'uid', uid).mbid;
 						
-				Playlist.play(parent.mbid, mbid, {});
+				Playlist.play(parent.mbid, mbid, null);
 			} else {
 				// Similar tracks ended, play next normal track
 				if (Playlist.tracks.length > parseInt(parent.uid) + 1) {
@@ -123,7 +128,7 @@ var Playlist = {
 				
 				mbid = Playlist.searchTrack(Playlist.tracks, 'uid', uid).mbid;
 						
-				Playlist.play(mbid, null, {});
+				Playlist.play(mbid, null, null);
 			}
 		}
 	},

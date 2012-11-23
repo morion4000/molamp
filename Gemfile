@@ -21,6 +21,7 @@ gem 'authlogic'
 
 gem 'jquery-rails' #, '~> 2.0.2'
 gem 'jquery-cookie-rails' #, '~> 0.1.1'
+gem 'jquery-ui-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

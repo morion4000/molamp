@@ -73,26 +73,60 @@ $(function() {
 	});
 	*/
 	
-	/*
-	$('#footer').scrollToFixed( {
-        bottom: 0,
-        limit: $('#footer').offset().top,
-        preFixed: function() { 
-        	$(this).css({
-        		border: '1px solid #DDDDDD',
-        		borderRadius: 0,
-        		opacity: 0.9
-        	}); 
-        },
-        postFixed: function() { 
-        	$(this).css({
-        		border: 'none',
-        		borderRadius: 4,
-        		opacity: 1.0
-        	}); 
+	$('.player_controls').scrollToFixed({
+	    bottom: 0,
+	    limit: $('.player_controls').offset().top
+	});
+	
+	$(window).resize(function() {
+		var similar_width = $('.similar_artists').width();
+		
+		$('#ytplayer').width(similar_width);
+	});
+	
+	$('body').resize(function() {
+		if ($.isScrollToFixed('.player_controls')) {
+			$('.player_controls').trigger('remove.ScrollToFixed');
+		}
+		
+		$('.player_controls').scrollToFixed({
+		    bottom: 0,
+		    limit: $('.player_controls').offset().top
+		});
+	});
+
+	$('#progress_bar').slider({
+		range: 'min',
+        value: 0,
+        min: 0,
+        max: 100,
+        slide: function(event, e) {
+        	var percentage = e.value * Youtube.player.getDuration() / 100;
+        	 
+            Youtube.player.seekTo(percentage, false);
+            // TODO: Look into the seekTo options...
         }
-    });
-    */
+	});
+	
+	$('#toggle_play').click(function() {
+		if (Youtube.playing === true) {
+			Youtube.playing = false;
+			
+			Youtube.player.pauseVideo();
+			
+			$(this).find('i').attr('class', 'icon-play');
+		} else {
+			Youtube.playing = true;
+			
+			Youtube.player.playVideo();
+			
+			$(this).find('i').attr('class', 'icon-pause');
+		}
+	});
+	
+	$('#next_play').click(function() {
+		Playlist.next();
+	});
 
 	$('.similar_tracks').live('click', function(e) {
 		var mbid = $(this).parent().parent().parent().parent().attr('id'),
