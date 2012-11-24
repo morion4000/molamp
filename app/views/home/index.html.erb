@@ -12,6 +12,18 @@
 			<button class="btn" type="submit"><i class="icon-search"></i></button>
 		</div>
 	</form>
+	
+	<% if Rails.env.production? %>
+	<div class="row-fluid">
+		<div class="span1">
+			<div class="fb-like" data-href="http://www.molamp.net" data-send="false" data-layout="button_count" data-width="30" data-show-faces="true"></div>
+		</div>
+		
+		<div class="span10">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.molamp.net" data-text="Molamp - Discover your music" data-via="molamp" data-related="molamp">Tweet</a>
+		</div>
+	</div>
+	<% end %>
 </div>
 
 <div>
