@@ -73,10 +73,12 @@ $(function() {
 	});
 	*/
 	
-	$('.player_controls').scrollToFixed({
-	    bottom: 0,
-	    limit: $('.player_controls').offset().top
-	});
+	if ($('.player_controls').size() > 0) {
+		$('.player_controls').scrollToFixed({
+		    bottom: 0,
+		    limit: $('.player_controls').offset().top
+		});
+	}
 	
 	$(window).resize(function() {
 		var similar_width = $('.similar_artists').width();
@@ -85,14 +87,16 @@ $(function() {
 	});
 	
 	$('body').resize(function() {
-		if ($.isScrollToFixed('.player_controls')) {
-			$('.player_controls').trigger('remove.ScrollToFixed');
+		if ($('.player_controls').size() > 0) {
+			if ($.isScrollToFixed('.player_controls')) {
+				$('.player_controls').trigger('remove.ScrollToFixed');
+			}
+			
+			$('.player_controls').scrollToFixed({
+			    bottom: 0,
+			    limit: $('.player_controls').offset().top
+			});
 		}
-		
-		$('.player_controls').scrollToFixed({
-		    bottom: 0,
-		    limit: $('.player_controls').offset().top
-		});
 	});
 
 	$('#progress_bar').slider({
