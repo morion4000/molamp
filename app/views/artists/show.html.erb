@@ -24,7 +24,7 @@
   	<div class="row-fluid">
 		<div class="span10">
 			<h1 itemprop="name"><%= @artist.name %></h1>
-			<p><span class="badge"><%= @artist.listeners %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @artist.url, :target => '_blank' %></>
+			<p><span class="badge"><%= @artist.listeners %></span> listeners on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @artist.url, :target => '_blank' %></p>
 		</div>
 		<div class="span2">
 			<% if Rails.env.production? %>

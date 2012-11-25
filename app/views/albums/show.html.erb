@@ -21,7 +21,7 @@
 		<div class="span10">
 			<h1><%= @album.name %></h1>
 			<h2 itemprop="name"><%= link_to(@album.artist, '/artists/' + url_to_lastfm(@album.artist)) %></h2>
-			<p><span class="badge"><%= @album.playcount %></span> times played on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @album.url, :target => '_blank' %></>
+			<p><span class="badge"><%= @album.playcount %></span> times played on <%= link_to image_tag('lastfm_icon.png', :alt => 'Last.fm'), @album.url, :target => '_blank' %></p>
 		</div>
 		<div class="span2">
 			<% if Rails.env.production? %>
