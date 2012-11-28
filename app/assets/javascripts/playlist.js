@@ -12,7 +12,7 @@ var Playlist = {
 		var track = null;
 		
 		// TODO: Implement better logic for this...
-		if (_event === null || typeof event == 'undefined') {
+		if (_event === null && typeof event == 'undefined') {
 		} else {
 			e = typeof event != 'undefined' ? event : _event,
 			target = e.target || e.srcElement,

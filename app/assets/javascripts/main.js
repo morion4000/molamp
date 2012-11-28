@@ -217,7 +217,7 @@ $(function() {
 		updater:function (item) {
 			var track = Playlist.searchTrack(Playlist.tracks, 'title', item);
 
-			Playlist.play(track.mbid, null);
+			Playlist.play(track.mbid, null, null);
 			
 			_gaq.push(['_trackEvent', 'Tracks', 'Search', item]);
 			
