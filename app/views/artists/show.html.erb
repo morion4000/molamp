@@ -35,7 +35,14 @@
 			<% end %>
 		</div>
 	</div>
-	<p><%= @artist.bio['summary'].is_a?(Hash) ? @no_bio_html.html_safe : Sanitize.clean(@artist.bio['summary']) %></p>	
+	<p>
+		<% if @artist.bio['summary'].is_a?(Hash) %>
+		<%= @no_bio_html.html_safe %>
+		<% else %>
+		<%= Sanitize.clean(@artist.bio['summary']) %>
+		<a href="http://www.last.fm/music/<%= url_to_lastfm(@artist.name) %>/+wiki">Read more</a>.
+		<% end %>
+	</p>
   </div>
 </div>
 
