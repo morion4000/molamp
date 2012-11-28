@@ -10,6 +10,7 @@ Molamp::Application.routes.draw do
   resources :faq
   resources :privacy
   resources :tos
+  resources :about
 
   match 'account/social' => 'users#social'
   match 'account/claim' => 'users#claim'

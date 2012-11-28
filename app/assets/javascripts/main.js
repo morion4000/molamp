@@ -29,10 +29,6 @@ var popover_options = {
 $(function() {
 	Alike.init();
 	
-	$('#aboutModal').modal({
-		show: false
-	});
-	
 	$('#confirmModal').modal({
 		show: false
 	});
