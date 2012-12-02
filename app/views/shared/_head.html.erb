@@ -8,21 +8,21 @@
 <%= yield(:meta) %>
 <% else %>
 	<meta property="fb:app_id" content="<%= APP_CONFIG['facebook_api_key'].to_s %>" /> 
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="http://www.molamp.net"> 
-	<meta property="og:image" content="http://www.molamp.net/assets/screenshot1.png">
-	<meta property="og:title" content="Molamp - Discover your music">
-	<meta property="og:description" content="A music search, play and suggestion mashup. Discover and rediscover a lot of great music.">
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://www.molamp.net" /> 
+	<meta property="og:image" content="http://www.molamp.net/assets/screenshot1.png" />
+	<meta property="og:title" content="Molamp - Discover your music" />
+	<meta property="og:description" content="A music search, play and suggestion mashup. Discover and rediscover a lot of great music." />
 <% end %>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Ionut Moraru">
-	<meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Molamp is a music search, play and suggestion mashup. Discover and rediscover a lot of great music.' %>">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Ionut Moraru" />
+	<meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Molamp is a music search, play and suggestion mashup. Discover and rediscover a lot of great music.' %>" />
 	<title><%= content_for?(:title) ? yield(:title) : 'Molamp - Discover your music' %></title>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
-	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
 	<%= render :partial => 'shared/widgets/googleanalytics' %>
 </head>
