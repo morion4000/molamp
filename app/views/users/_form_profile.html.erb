@@ -1,15 +1,17 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% if @user.errors.any? %>
+	  <br />
+	  	<div class="alert alert-block alert-error">
+	        <h4 class="alert-heading">Please correct the following errors:</h4>	        
+	      	<br />
+	        <p>
+	      	<% @user.errors.full_messages.each do |msg| %>
+	    		<%= msg %><br />
+	      	<% end %>
+	      	</p>
+	    </div>
+	<% end %>
 
   <input type="hidden" name="user[claimed]" value="true" />
   

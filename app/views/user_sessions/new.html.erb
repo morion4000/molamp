@@ -6,22 +6,22 @@
 	<%= form_for @user_session, :url => user_session_path do |f| %>
 	
 	  <% if @user_session.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this user from being saved:</h2>
-	
-	      <ul>
-	      <% @user_session.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
+	  	<div class="alert alert-block alert-error">
+	        <h4 class="alert-heading">Please correct the following errors:</h4>	        
+	      	<br />
+	        <p>
+	      	<% @user_session.errors.full_messages.each do |msg| %>
+	    		<%= msg %><br />
+	      	<% end %>
+	      	</p>
 	    </div>
 	  <% end %>
 	  
 	  <%= f.label :email %>
-	  <%= f.text_field :email %><br />
+	  <%= f.text_field :email, :placeholder => 'Email' %><br />
 	  <br />
 	  <%= f.label :password %>
-	  <%= f.password_field :password %><br />
+	  <%= f.password_field :password, :placeholder => 'Password' %><br />
 	  <br />
 	  <%= f.check_box :remember_me %> <%= f.label :remember_me, :style => 'display:inline;' %><br />
 	  <br />
