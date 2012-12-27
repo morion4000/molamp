@@ -1,27 +1,25 @@
-<tr id="<%= track.mbid %>" class="playlist_track">
+<tr data-service-id="<%= track.mbid %>">
 	<td>
 		<div class="row-fluid" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
 			<div class="span1">
 				<center><span class="track_number"><%= track_counter + 1 %></span></center>
 			</div>
 			<div class="span1">
-				<% if controller.controller_name === 'artists' %>
-					<%= image_tag(track.image(0), :alt => track.name, :size => '32x32') %>
-				<% else %>
-					<%= image_tag(@album.image(0), :alt => track.name, :size => '32x32') %>
-				<% end %>
+				<% 
+				if controller.controller_name === 'artists'
+					track_image = track.image(0)
+				else
+					track_image = @album.image(0)
+				end
+				%>
+				<meta itemprop="image" content ="<%= track_image %>">
 			</div>
-			<div class="span9" itemprop="name" style="color: #08C;">
-				&nbsp;&nbsp;<%= track.name %>
-			</div>
+			<div class="span10" itemprop="name"><%= track.name %></div>
 			<meta itemprop="url" content ="/artists/<%= url_to_lastfm(artist) + '/_/' + url_to_lastfm(track.name) %>">
 			<% if track.duration.to_i > 0 %>
 				<meta itemprop="duration" content="PT<%= convert_seconds_to_time track.duration.to_i, true %>" />
 				<meta itemprop="interactionCount" content="UserPlays:<%= track.playcount %>"/>
 			<% end %>
-			<div class="span1">
-				<a href="javascript:;" class="btn btn-small similar_tracks disabled" rel="tooltip" title="Add tracks similar to <%= track.name %>"><i class="icon-plus-sign"></i></a>
-			</div>
 		</div>
 	</td>
 </tr>

@@ -1,0 +1,14 @@
+<td>
+	<div class="row-fluid">
+		<div class="span1">
+			<center><span class="track_number"><%= track.uid %></span></center>
+		</div>
+		<div class="span1">
+			<img src="<%= track.image %>" alt="<%= track.title %>" width="35" />
+		</div>
+		<div class="span9" itemprop="name"><%= track.title %></div>
+		<div class="span1">
+			<a href="javascript:;" style="display:none" class="btn btn-small similar_track disabled" rel="tooltip" title="Add tracks similar to <%= track.title %>"><i class="icon-plus-sign"></i></a>
+		</div>
+	</div>
+</td>
