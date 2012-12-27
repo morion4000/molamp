@@ -10,23 +10,25 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery.ui.all
-//= require jquery.cookie
-//= require jquery.ba-resize.js
+//= require primordial
+//= require jquery.ui.slider
 //= require jquery_ujs
 //= require bootstrap
-//= require gritter
-//= require javascript-last.fm-api/lastfm.api.js
-//= require javascript-last.fm-api/lastfm.api.md5.js
-//= require javascript-last.fm-api/lastfm.api.cache.js
-//= require jquery-scrolltofixed-min.js
-//= require handlebars-1.0.0.beta.6.js
-//= require phpjs/utf8_encode.js
-//= require phpjs/md5.js
-//= require phpjs/strstr.js
-//= require phpjs/date.js
-//= require phpjs/gmdate.js
-//= require get-average-rgb.js
-//= require caroufredsel-6.1.0/jquery.caroufredsel-6.1.0.js
-//= require_tree .
+//= require javascript-last.fm-api/lastfm.api
+//= require javascript-last.fm-api/lastfm.api.md5
+//= require javascript-last.fm-api/lastfm.api.cache
+//= require phpjs/utf8_encode
+//= require phpjs/md5
+//= require phpjs/strstr
+//= require phpjs/date
+//= require phpjs/gmdate
+//= require jquery.spin
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/molamp
+//= require classes/defaults
+//= require classes/lastfm
+//= require classes/utils
+
