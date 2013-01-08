@@ -13,7 +13,21 @@ class Molamp.Users
       @toggleActivity on
       
   toggleScrobble: (state) ->
-    $.ajax '/ajax/scrobble_mode?mode=' + state
+    $('.ajax-spinner').spin Molamp.Defaults::SPIN_OPTIONS
+    
+    $.ajax 
+      url: '/ajax/scrobble_mode'
+      success: ->
+        $('.ajax-spinner').spin off    
+      data:
+        mode: state  
   
   toggleActivity: (state) ->
-    $.ajax '/ajax/activity_mode?mode=' + state
+    $('.ajax-spinner').spin Molamp.Defaults::SPIN_OPTIONS
+    
+    $.ajax 
+      url: '/ajax/activity_mode'
+      success: ->
+        $('.ajax-spinner').spin off    
+      data:
+        mode: state  
