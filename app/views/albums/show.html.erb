@@ -68,13 +68,18 @@
   <li class="active"><%= @album.name %></li>
 </ul>
 
-<% if @album.tracks.size > 0 %>
-<script type="text/javascript">
+<%= render :partial => 'shared/handlebars'%>
+
+<%= javascript_tag do %>
 $(function() {
+	Alike.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
+	Alike.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
+	
 	Playlist.artist = "<%= @album.artist %>";
-	<% i=0; @album.tracks.each do |track| %>
+	
+	<% @album.tracks.each_with_index do |track, index| %>
 	Playlist.tracks.push({
-		uid: <%= i.to_s() %>, 
+		uid: <%= index.to_s %>, 
 		mbid: "<%= track.mbid %>",
 		artist: "<%= @album.artist %>", 
 		title: "<%= track.name %>",
@@ -84,7 +89,7 @@ $(function() {
 		url: "<%= track.url %>",
 		similar: []
 	});
-	<% i=i+1; end %>
+	<% end %>
 	
 	<% if @autoplay == '1' or @autoplay == 'true' %>
 	// Need to wait until the youtube player initializes
@@ -93,5 +98,4 @@ $(function() {
 	}, 3000);
 	<% end %>
 });
-</script>
 <% end %>

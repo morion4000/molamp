@@ -27,40 +27,12 @@
   <li class="active"><%= @track.name  %></li>
 </ul>
 
-<script type="text/javascript">
-	function searchYoutubeVideo() {
-		$.ajax({
-			url: Youtube.url,
-			success: function(data) {				
-				if (typeof data.feed.entry !== 'undefined') {
-					var song_url = data.feed.entry[0].link[0].href,
-						regex = /[a-zA-Z0-9_-]+(?=&)/,
-						matched = regex.exec(song_url);
-	
-					Youtube.player.cueVideoById(matched[0]);
-	
-					_gaq.push(['_trackEvent', 'Tracks', 'Play', track.artist + ' - ' + track.title]);
-				} else {
-					$.gritter.add({
-						title: 'Track not found...',
-						image: track.image,
-						text: track.artist + ' - ' + track.title
-					});
-				}
-			},
-			data: {
-				q: '<%= @track.artist.name + ' ' + @track.name %>',
-				orderby: 'relevance',
-				alt: 'json',
-				format: 5,
-				key: Youtube.key
-				//restriction: 'RO'
-			},
-			dataType: 'json'
-		});
-	}
-	
-	$(function() {
-		setTimeout(searchYoutubeVideo, 2000); 
-	});
-</script>
+<%= render :partial => 'shared/handlebars'%>
+
+<%= javascript_tag do %>
+$(function() {
+	setTimeout(function() {
+		searchYoutubeVideo("<%= @track.artist.name %>", "<%= @track.name %>");
+	}, 2000);
+});
+<% end %>

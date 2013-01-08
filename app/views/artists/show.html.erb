@@ -98,32 +98,23 @@
   <li class="active"><%= @artist.name %></li>
 </ul>
 
-<% if @artist.top_tracks.size > 0 %>
-<script type="text/javascript">
-$(function() {		
-	<% i=0; @artist.top_tracks.each do |track| %>
-	Playlist.tracks.push({
-		uid: <%= i.to_s() %>,
-		mbid: "<%= track.mbid %>",
-		artist: "<%= @artist.name %>", 
-		title: "<%= track.name %>",
-		image: "<%= track.image(0) %>",
-		listeners: "<%= track.listeners %>",
-		playcount: "<%= track.playcount %>",
-		url: "<%= track.url %>",
-		similar: []
-	});
+<%= javascript_tag do %>
+var page;
+
+$(function() {
+	_.extend(Dispatcher, Backbone.Events);
 	
-	Playlist.searchData.push("<%= track.name %>");
-	<% i=i+1; end %>
-	
+  	page = new Molamp.Artists("<%= @artist.name %>");
+  	
+  	page.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
+  	page.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
+  	
 	<% if @autoplay == '1' or @autoplay == 'true' %>
 	// Need to wait until the youtube player initializes
 	setTimeout(function() {
-		Playlist.play(Playlist.tracks[0].mbid, null, {target:null});
+		//Playlist.play(Playlist.tracks[0].mbid, null, {target:null});
 	}, 3000); 
 	<% end %>
 });
-</script>
 <% end %>
 
