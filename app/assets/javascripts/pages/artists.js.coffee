@@ -15,7 +15,7 @@ class Molamp.Artists extends Molamp.Player
   albumsLimit: 10
 
   constructor: (artist) ->
-    _super()
+    super()
     
     @artist = artist
     
@@ -42,96 +42,10 @@ class Molamp.Artists extends Molamp.Player
     
     $('#more-albums').live 'click', =>
       @moreAlbums()
-      
-    Molamp.YoutubeWrapper::loadPlayer()
-      
-    Dispatcher.on 'player:play', (e) =>
-       @play(e)
-       
-    Dispatcher.on 'player:next', =>
-      @next()
-      
-    Dispatcher.on 'player:previous', =>
-      @previous()
-      
-    Dispatcher.on 'player:toggle', =>
-      if @playing is on
-        @pause()
-        
-        $('#toggle_play').find('i').attr class: 'icon-play'
-      else 
-        @resume()
-        
-        $('#toggle_play').find('i').attr class: 'icon-pause'
-    
-    Dispatcher.on 'youtube:ready', ->
-      window.Youtube = new YT.Player Molamp.Defaults::YOUTUBE_OPTIONS.domElement, Molamp.Defaults::YOUTUBE_OPTIONS.playerOptions
-      
-      Youtube.addEventListener 'onStateChange', 'onYouTubePlayerEvent'
-      Youtube.addEventListener 'onError', 'onYouTubePlayerError'
-            
-    Dispatcher.on 'youtube:event', (e) =>
-      switch e.data
-        # Started
-        when 1
-          @playing = on
-          $('#toggle_play').find('i').attr class: 'icon-pause'
           
-          # Post to Facebook timeline after 10 seconds
-          if @watchTimeout?
-            @watchTimeout = setTimeout =>
-              if @activity is on
-                #Lastfm.activity Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image
-                  
-                @watchTimeout = null
-            , 10*1000
-            
-          $('#total_time').text(gmdate 'i:s', Youtube.getDuration())
-            
-          if not @playingInterval?
-            @playingInterval = setInterval =>
-              percentage = Youtube.getCurrentTime() / Youtube.getDuration() * 100
-                
-              $('#current_time').text(gmdate 'i:s', Youtube.getCurrentTime())
-              $('#progress_bar').slider value: percentage
-            , 500
-          
-        # Paused
-        when 2
-          @playing = false
-          $('#toggle_play').find('i').attr class: 'icon-play'
-            
-          clearTimeout @watchTimeout
-          @watchTimeout = null
-            
-          clearInterval @playingInterval
-          @playingInterval = null
-          
-        # Ended
-        when 0
-          @playing = false
-          $('#toggle_play').find('i').attr class: 'icon-play'
-            
-          clearTimeout @watchTimeout
-          @watchTimeout = null
-            
-          clearInterval @playingInterval
-          @playingInterval = null
-            
-          # Scrobble the current track first
-          # if @scrobble is on
-            # Lastfm.scrobble Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image
-                
-          @next()
-      
-    Dispatcher.on 'youtube:error', (e) =>
-      Molamp.Utils::log e
-      
-      @next()
-    
     # Build the Tracks collection based on the page Markup    
     $('#top-tracks table tbody tr').each (index, element) =>
-      if $(element).attr('id') isnt 'more-row'
+      if $(element).attr('id') isnt 'more-row' and $(element).attr('id') isnt 'no-tracks'
         track = new Molamp.Models.Track
           uid: index + 1
           mbid: $(element).attr('data-service-id')
@@ -148,15 +62,14 @@ class Molamp.Artists extends Molamp.Player
     moreRow = $('#top-tracks table tbody').find 'tr#more-row'
     moreRow.remove()
     
-    @tracksView.render()
+    if @tracks.size() > 0
+      @tracksView.render()
     
     $('#top-tracks table tbody').append moreRow
     
-    @history = new Molamp.Collections.History
-    
     # Build the Albums collection based on the page Markup    
     $('#top-albums table tbody tr').each (index, element) =>
-      if $(element).attr('id') isnt 'more-row'
+      if $(element).attr('id') isnt 'more-row' and $(element).attr('id') isnt 'no-albums' 
         album = new Molamp.Models.Track
           title: $(element).find('a[class=lead]').text()
           image: $(element).find('meta[itemprop=image]').attr 'content'
@@ -170,7 +83,8 @@ class Molamp.Artists extends Molamp.Player
     moreRow = $('#top-albums table tbody').find 'tr#more-row'
     moreRow.remove()
     
-    @albumsView.render()
+    if @albums.size() > 0
+      @albumsView.render()
     
     $('#top-albums table tbody').append moreRow
     

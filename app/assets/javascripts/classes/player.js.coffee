@@ -1,10 +1,95 @@
 class Molamp.Player
-  history: null
+  history: new Molamp.Collections.History
   playing: off
   playingInterval: null
   watchTimeout: null
   
   constructor: ->
+    Molamp.YoutubeWrapper::loadPlayer()
+    
+    Dispatcher.on 'player:play', (e) =>
+       @play(e)
+       
+    Dispatcher.on 'player:next', =>
+      @next()
+      
+    Dispatcher.on 'player:previous', =>
+      @previous()
+      
+    Dispatcher.on 'player:toggle', =>
+      if @playing is on
+        @pause()
+        
+        $('#toggle_play').find('i').attr class: 'icon-play'
+      else 
+        @resume()
+        
+        $('#toggle_play').find('i').attr class: 'icon-pause'
+    
+    Dispatcher.on 'youtube:ready', ->
+      window.Youtube = new YT.Player Molamp.Defaults::YOUTUBE_OPTIONS.domElement, Molamp.Defaults::YOUTUBE_OPTIONS.playerOptions
+      
+      Youtube.addEventListener 'onStateChange', 'onYouTubePlayerEvent'
+      Youtube.addEventListener 'onError', 'onYouTubePlayerError'
+            
+    Dispatcher.on 'youtube:event', (e) =>
+      switch e.data
+        # Started
+        when 1
+          @playing = on
+          $('#toggle_play').find('i').attr class: 'icon-pause'
+          
+          # Post to Facebook timeline after 10 seconds
+          if @watchTimeout?
+            @watchTimeout = setTimeout =>
+              if @activity is on
+                #Lastfm.activity Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image
+                  
+                @watchTimeout = null
+            , 10*1000
+            
+          $('#total_time').text(gmdate 'i:s', Youtube.getDuration())
+            
+          if not @playingInterval?
+            @playingInterval = setInterval =>
+              percentage = Youtube.getCurrentTime() / Youtube.getDuration() * 100
+                
+              $('#current_time').text(gmdate 'i:s', Youtube.getCurrentTime())
+              $('#progress_bar').slider value: percentage
+            , 500
+          
+        # Paused
+        when 2
+          @playing = off
+          $('#toggle_play').find('i').attr class: 'icon-play'
+            
+          clearTimeout @watchTimeout
+          @watchTimeout = null
+            
+          clearInterval @playingInterval
+          @playingInterval = null
+          
+        # Ended
+        when 0
+          @playing = off
+          $('#toggle_play').find('i').attr class: 'icon-play'
+            
+          clearTimeout @watchTimeout
+          @watchTimeout = null
+            
+          clearInterval @playingInterval
+          @playingInterval = null
+            
+          # Scrobble the current track first
+          # if @scrobble is on
+            # Lastfm.scrobble Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image
+                
+          @next()
+      
+    Dispatcher.on 'youtube:error', (e) =>
+      Molamp.Utils::log e
+      
+      @next()
     
   play: (track, history = on) ->
     youtube = new Molamp.YoutubeWrapper
@@ -22,7 +107,7 @@ class Molamp.Player
         
         if history is on
           @history.push track
-          alert 'history'
+          # alert 'history'
                    
         $('#toggle_play').find('i').attr class: 'icon-pause'
         
