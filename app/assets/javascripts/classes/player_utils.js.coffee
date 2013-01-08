@@ -9,10 +9,10 @@ $ ->
     show: false
 
   $('a').live 'click', (e) ->
-    if $(@).attr('id') is 'leave_url' #or Youtube.YT.getPlayerState() isnt 1
+    if $(@).attr('id') is 'leave_url' or Youtube.getPlayerState() isnt 1
       return
     
-    href = $(@).attr 'href' or ' '
+    href = $(@).attr('href') or ' '
     
     if not strstr(href, 'javascript:') and href[0] isnt '#'
       e.preventDefault()

@@ -12,7 +12,7 @@
 					track_image = @album.image(0)
 				end
 				%>
-				<meta itemprop="image" content ="<%= track_image %>">
+				<meta itemprop="image" content="<%= track_image %>">
 			</div>
 			<div class="span10" itemprop="name"><%= track.name %></div>
 			<meta itemprop="url" content ="/artists/<%= url_to_lastfm(artist) + '/_/' + url_to_lastfm(track.name) %>">

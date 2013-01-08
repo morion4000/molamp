@@ -15,8 +15,13 @@ class Molamp.Player
         
         Youtube.loadVideoById results[0]
         
-        @history.add track
-                
+        # Highlight current track
+        # $(track).css 
+            # backgroundColor: '#EEE'
+            # fontWeight: 'bold'
+        
+        @history.push track
+                        
         $('#toggle_play').find('i').attr class: 'icon-pause'
         
         document.title = track.get('artist') + ' - ' + track.get('title')        

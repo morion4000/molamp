@@ -21,21 +21,14 @@
 		<%= render :partial => 'shared/footer' %>
 	</div>
 </div>
-		
-<%= render :partial => 'shared/modals' %>
 
 <%= render :partial => 'shared/widgets/uservoice' %>
 
-<%= render :partial => 'shared/handlebars'%>
-
-<script type="text/javascript">
-$(function() {
-	Alike.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
-	Alike.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
-});
-</script>
+<%= render :partial => 'shared/modals' %>
 
 <%= render :partial => 'shared/debug' %>
+
+<%= javascript_include_tag "pages/"+controller.controller_name, "pages/all" %>
 
 </body>
 </html>

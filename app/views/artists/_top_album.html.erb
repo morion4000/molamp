@@ -2,8 +2,7 @@
 	<td>
 		<div class="row-fluid" style="margin:5px;">
 			<div class="span2">
-				<%= link_to image_tag(top_album.image(1), :alt => top_album.name, :width => 70, :class => 'img-rounded'), 
-							'/artists/' + url_to_lastfm(@artist.name) + '/' + url_to_lastfm(top_album.name) %>
+				<meta itemprop="image" content="<%= top_album.image(1) %>">
 			</div>
 			<div class="span10" style="vertical-align:top">
 				&nbsp;&nbsp;<%= link_to top_album.name, '/artists/' + url_to_lastfm(@artist.name) + '/' + url_to_lastfm(top_album.name), :class => 'lead' %><br />

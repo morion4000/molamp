@@ -5,9 +5,9 @@ class Molamp.Views.Tracks.TrackView extends Backbone.View
   tagName: 'tr'
   events:
     'click': 'play'
-    'click .similar_track': 'similar'
-    'mouseenter': 'highlight_on'
-    'mouseleave': 'highlight_off'
+    #'click .similar_track': 'similar'
+    #'mouseenter': 'highlight_on'
+    #'mouseleave': 'highlight_off'
 
   initialize: ->
     console.log 'init track view'
@@ -20,29 +20,25 @@ class Molamp.Views.Tracks.TrackView extends Backbone.View
   play: ->    
     Dispatcher.trigger 'player:play', @model
     
-    $(@.el).css 
-        backgroundColor: '#EEE'
-        fontWeight: 'bold'
-    
-  similar: (e) ->
-    # Do not play the track
-    e.stopPropagation()
-    
-    button = $(@.el).find('a.similar_track').children('i')
-        
-    if button.attr('class') is 'icon-plus-sign'
-      Molamp.similarTracks @
-
-      button.removeClass('icon-plus-sign')
-      button.addClass('icon-minus-sign') 
-    else
-      Molamp.removeSimilarTracks @
+  # similar: (e) ->
+    # # Do not play the track
+    # e.stopPropagation()
+#     
+    # button = $(@.el).find('a.similar_track').children('i')
+#         
+    # if button.attr('class') is 'icon-plus-sign'
+      # Molamp.similarTracks @
+# 
+      # button.removeClass('icon-plus-sign')
+      # button.addClass('icon-minus-sign') 
+    # else
+      # Molamp.removeSimilarTracks @
+#   
+      # button.addClass('icon-plus-sign')
+      # button.removeClass('icon-minus-sign')
   
-      button.addClass('icon-plus-sign')
-      button.removeClass('icon-minus-sign')
-  
-  highlight_on: ->
-    $(@.el).find('a.similar_track').removeClass 'disabled'
-
-  highlight_off: ->
-    $(@.el).find('a.similar_track').addClass 'disabled'
+  # highlight_on: ->
+    # $(@.el).find('a.similar_track').removeClass 'disabled'
+# 
+  # highlight_off: ->
+    # $(@.el).find('a.similar_track').addClass 'disabled'
