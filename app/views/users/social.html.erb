@@ -55,3 +55,9 @@
 		<%= render 'panel' %>
 	</div>
 </div>
+
+<%= javascript_tag do %>
+$(function() {
+	var page = new Molamp.Users();
+});
+<% end %>

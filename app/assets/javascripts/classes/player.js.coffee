@@ -25,13 +25,7 @@ class Molamp.Player
         @resume()
         
         $('#toggle_play').find('i').attr class: 'icon-pause'
-    
-    Dispatcher.on 'youtube:ready', ->
-      window.Youtube = new YT.Player Molamp.Defaults::YOUTUBE_OPTIONS.domElement, Molamp.Defaults::YOUTUBE_OPTIONS.playerOptions
-      
-      Youtube.addEventListener 'onStateChange', 'onYouTubePlayerEvent'
-      Youtube.addEventListener 'onError', 'onYouTubePlayerError'
-            
+                
     Dispatcher.on 'youtube:event', (e) =>
       switch e.data
         # Started
@@ -160,7 +154,7 @@ class Molamp.Player
     @play(track)
     
   previous: ->
-    console.log @history
+    #console.log @history
     
     if @history.size() > 1
       track = @history.at(@history.size() - 2)

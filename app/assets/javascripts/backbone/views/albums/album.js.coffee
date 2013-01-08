@@ -7,7 +7,7 @@ class Molamp.Views.Albums.AlbumView extends Backbone.View
     'click': 'go'
 
   initialize: ->
-    console.log 'init album view'
+    #console.log 'init album view'
 
   render: ->
     @.$el.html(@template album: @model.toJSON())

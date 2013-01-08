@@ -10,7 +10,7 @@ class Molamp.Views.Tracks.TrackView extends Backbone.View
     #'mouseleave': 'highlight_off'
 
   initialize: ->
-    console.log 'init track view'
+    #console.log 'init track view'
 
   render: ->
     @.$el.html(@template track: @model.toJSON())

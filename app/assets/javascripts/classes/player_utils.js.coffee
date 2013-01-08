@@ -3,7 +3,13 @@
 #= require jquery-scrolltofixed-min.js
 #= require jquery.ba-resize.js
 
-$ ->  
+$ ->
+  Dispatcher.on 'youtube:ready', ->
+    window.Youtube = new YT.Player Molamp.Defaults::YOUTUBE_OPTIONS.domElement, Molamp.Defaults::YOUTUBE_OPTIONS.playerOptions
+    
+    Youtube.addEventListener 'onStateChange', 'onYouTubePlayerEvent'
+    Youtube.addEventListener 'onError', 'onYouTubePlayerError'
+    
   # Prompt users when leaving the page and the player is still playing
   $('#confirmModal').modal
     show: false

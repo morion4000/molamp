@@ -27,12 +27,14 @@
   <li class="active"><%= @track.name  %></li>
 </ul>
 
-<%= render :partial => 'shared/handlebars'%>
-
 <%= javascript_tag do %>
 $(function() {
+	_.extend(Dispatcher, Backbone.Events);
+	
+	var page = new Molamp.Tracks();
+	
 	setTimeout(function() {
-		searchYoutubeVideo("<%= @track.artist.name %>", "<%= @track.name %>");
-	}, 2000);
+		page.searchYoutubeVideo("<%= @track.artist.name %>", "<%= @track.name %>");
+	}, 3000);
 });
 <% end %>
