@@ -6,7 +6,7 @@ class Molamp.Player
   
   constructor: ->
     
-  play: (track) ->
+  play: (track, history = on) ->
     youtube = new Molamp.YoutubeWrapper
         
     youtube.search track.get('artist'), track.get('title'), (results) =>
@@ -20,8 +20,10 @@ class Molamp.Player
             # backgroundColor: '#EEE'
             # fontWeight: 'bold'
         
-        @history.push track
-                        
+        if history is on
+          @history.push track
+          alert 'history'
+                   
         $('#toggle_play').find('i').attr class: 'icon-pause'
         
         document.title = track.get('artist') + ' - ' + track.get('title')        
@@ -56,13 +58,28 @@ class Molamp.Player
   stop: ->
     @playing = off
     
-  next: ->
-    alert 'next'
-    
-    #@play(track)
+  next: ->    
+    if @history.size() >= 1
+      currentTrackResults = @tracks.where
+        mbid: @history.last().get('mbid')
+      
+      currentTrack = _.first(currentTrackResults)
+      
+      nextTrackResults = @tracks.where
+        uid: currentTrack.get('uid') + 1
+      
+      track = _.first(nextTrackResults)
+    else
+      track = @tracks.at(0)
+        
+    @play(track)
     
   previous: ->
+    console.log @history
+    
     if @history.size() > 1
       track = @history.at(@history.size() - 2)
+    else
+      track = @tracks.at(0)
       
-      @play(track)
+    @play track, off 

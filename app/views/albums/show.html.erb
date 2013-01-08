@@ -68,34 +68,22 @@
   <li class="active"><%= @album.name %></li>
 </ul>
 
-<%= render :partial => 'shared/handlebars'%>
-
 <%= javascript_tag do %>
+var page;
+
 $(function() {
-	Alike.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
-	Alike.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
+	_.extend(Dispatcher, Backbone.Events);
 	
-	Playlist.artist = "<%= @album.artist %>";
-	
-	<% @album.tracks.each_with_index do |track, index| %>
-	Playlist.tracks.push({
-		uid: <%= index.to_s %>, 
-		mbid: "<%= track.mbid %>",
-		artist: "<%= @album.artist %>", 
-		title: "<%= track.name %>",
-		image: "<%= @album.image(0) %>",
-		listeners: "<%= track.listeners %>",
-		playcount: "<%= track.playcount %>",
-		url: "<%= track.url %>",
-		similar: []
-	});
-	<% end %>
-	
+  	page = new Molamp.Albums("<%= @album.artist %>");
+  	
+  	page.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
+  	page.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
+  	
 	<% if @autoplay == '1' or @autoplay == 'true' %>
 	// Need to wait until the youtube player initializes
 	setTimeout(function() {
-		Playlist.play(Playlist.tracks[0].mbid, null, {target:null});
-	}, 3000);
+		//Playlist.play(Playlist.tracks[0].mbid, null, {target:null});
+	}, 3000); 
 	<% end %>
 });
 <% end %>

@@ -1,4 +1,3 @@
-#= require handlebars-1.0.0.beta.6.js
 #= require ../classes/youtube
 #= require ../classes/player
 #= require ../classes/player_utils
@@ -71,7 +70,7 @@ class Molamp.Artists extends Molamp.Player
       Youtube.addEventListener 'onStateChange', 'onYouTubePlayerEvent'
       Youtube.addEventListener 'onError', 'onYouTubePlayerError'
             
-    Dispatcher.on 'youtube:event', (e) ->
+    Dispatcher.on 'youtube:event', (e) =>
       switch e.data
         # Started
         when 1
@@ -125,7 +124,7 @@ class Molamp.Artists extends Molamp.Player
                 
           @next()
       
-    Dispatcher.on 'youtube:error', (e) ->
+    Dispatcher.on 'youtube:error', (e) =>
       Molamp.Utils::log e
       
       @next()
