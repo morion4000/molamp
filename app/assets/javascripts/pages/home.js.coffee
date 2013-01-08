@@ -33,6 +33,6 @@ class Molamp.Home
           item
         ]
         
-        location.href = '/artists/' + Alike.url_to_lastfm item
+        location.href = '/artists/' +  Molamp.Utils::url_to_lastfm item
         
         item
