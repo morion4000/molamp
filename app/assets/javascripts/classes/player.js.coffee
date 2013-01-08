@@ -3,6 +3,7 @@ class Molamp.Player
   playing: off
   playingInterval: null
   watchTimeout: null
+  scrobbleTimeout: null
   
   constructor: ->
     Molamp.YoutubeWrapper::loadPlayer()
@@ -34,7 +35,7 @@ class Molamp.Player
           $('#toggle_play').find('i').attr class: 'icon-pause'
           
           # Post to Facebook timeline after 10 seconds
-          if @watchTimeout?
+          if @watchTimeout isnt null
             @watchTimeout = setTimeout =>
               if @activity is on
                 #Lastfm.activity Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image
@@ -44,7 +45,7 @@ class Molamp.Player
             
           $('#total_time').text(gmdate 'i:s', Youtube.getDuration())
             
-          if not @playingInterval?
+          if @playingInterval is null
             @playingInterval = setInterval =>
               percentage = Youtube.getCurrentTime() / Youtube.getDuration() * 100
                 
@@ -73,11 +74,7 @@ class Molamp.Player
             
           clearInterval @playingInterval
           @playingInterval = null
-            
-          # Scrobble the current track first
-          # if @scrobble is on
-            # Lastfm.scrobble Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image
-                
+                    
           @next()
       
     Dispatcher.on 'youtube:error', (e) =>
@@ -99,6 +96,16 @@ class Molamp.Player
             # backgroundColor: '#EEE'
             # fontWeight: 'bold'
         
+        if @scrobbleTimeout isnt null
+          clearTimeout @scrobbleTimeout
+          @scrobbleTimeout = null
+          
+        # Scrobble the track after listening for 3 seconds
+        if @scrobble is on
+            @scrobbleTimeout = setTimeout =>
+              @doScrobble track.get('artist'), track.get('title'), track.get('image')
+            , 3000
+          
         if history is on
           @history.push track
           # alert 'history'
@@ -161,4 +168,43 @@ class Molamp.Player
     else
       track = @tracks.at(0)
       
-    @play track, off 
+    @play track, off
+    
+  doScrobble: (artist, track, image) ->
+    $.ajax
+      url: '/ajax/scrobble'
+      success: (data) ->       
+        # Activity.add
+          # id: md5(new Date())
+          # artist: artist
+          # track: track
+          # image: image
+        # , Activity.SCROBBLE
+    
+        $.gritter.add
+          title: 'Track scrobbled...'
+          text: "<strong>#{artist} - #{track}</strong> was scrobbled on Last.fm"
+      data:
+        artist: artist
+        track: track
+      dataType: 'json'
+
+  doActivity: (artist, track, image) ->
+    $.ajax
+      url: '/ajax/activity'
+      timeout: 20*1000
+      success: (data) ->
+        # Activity.add
+          # id: data.id
+          # artist: artist
+          # track: track
+          # image: image
+        # , Activity.TIMELINE
+    
+        $.gritter.add
+          title: 'Video posted on timeline...'
+          text: "<strong>#{artist} - #{track}</strong> was posted on your Facebook timeline"
+      data:
+        artist: artist
+        track: track
+      dataType: 'json'
