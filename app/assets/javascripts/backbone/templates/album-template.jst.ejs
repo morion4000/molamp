@@ -1,13 +1,11 @@
-<tr>
-	<td>
-		<div class="row-fluid" style="margin:5px;">
-			<div class="span2">
-				<a href="<%= album.url %>"><img src="<%= album.image %>" width="70" class="img-rounded" alt="<%= album.name %>" /></a>
-			</div>
-			<div class="span10" style="vertical-align:top">
-				&nbsp;&nbsp;<a href="<%= album.url %>" class="lead"><%= album.title %></a><br />
-				&nbsp;&nbsp;<span class="badge"><%= album.playcount %></span> times played on <a href="<%= album.lastfm_url %>"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
-			</div>
+<td>
+	<div class="row-fluid" style="margin:5px;">
+		<div class="span2">
+			<a href="<%= album.url %>"><img src="<%= album.image %>" width="70" class="img-rounded" alt="<%= album.name %>" /></a>
 		</div>
-	</td>
-</tr>
+		<div class="span10" style="vertical-align:top">
+			&nbsp;&nbsp;<a href="<%= album.url %>" class="lead"><%= album.title %></a><br />
+			&nbsp;&nbsp;<span class="badge"><%= album.playcount %></span> times played on <a href="<%= album.lastfm_url %>"><img src="/assets/lastfm_icon.png" alt="Last.fm" /></a>
+		</div>
+	</div>
+</td>
