@@ -28,7 +28,15 @@ class Molamp.Artists extends Molamp.Player
         'Top Tracks'
       ]
        
-    $('#toggle_top_albums').click ->
+    $('#toggle_top_albums').click =>
+      if @albums.size() > 0
+        moreRow = $('#top-albums table tbody').find 'tr#more-row'
+        moreRow.remove()
+    
+        @albumsView.render()
+        
+        $('#top-albums table tbody').append moreRow
+      
       _gaq.push [
         '_trackEvent'
         'Tabs'
@@ -79,14 +87,6 @@ class Molamp.Artists extends Molamp.Player
         @albums.add album
     
     @albumsView = new Molamp.Views.Albums.AlbumsView model: @albums
-    
-    moreRow = $('#top-albums table tbody').find 'tr#more-row'
-    moreRow.remove()
-    
-    if @albums.size() > 0
-      @albumsView.render()
-    
-    $('#top-albums table tbody').append moreRow
     
     @initPlaylistSearch()
               
