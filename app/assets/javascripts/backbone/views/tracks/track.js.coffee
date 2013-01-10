@@ -11,6 +11,7 @@ class Molamp.Views.Tracks.TrackView extends Backbone.View
 
   initialize: ->
     _.bindAll @
+    
     @model.on 'change:isSelected', @onSelectedChange
 
   render: ->
@@ -19,8 +20,6 @@ class Molamp.Views.Tracks.TrackView extends Backbone.View
     @
     
   play: ->
-    @highlightTrack()
-    
     Dispatcher.trigger 'player:play', @model
   
   onSelectedChange: -> 
@@ -28,10 +27,6 @@ class Molamp.Views.Tracks.TrackView extends Backbone.View
       @.$el.addClass 'active_track'
     else
       @.$el.removeClass 'active_track'
-  
-  highlightTrack: ->
-    @model.set
-      isSelected: on
        
   # similar: (e) ->
     # # Do not play the track

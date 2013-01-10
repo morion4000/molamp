@@ -91,6 +91,9 @@ class Molamp.Player
         
         Youtube.loadVideoById results[0]
         
+        track.set
+          isSelected: on
+        
         if @scrobbleTimeout isnt null
           clearTimeout @scrobbleTimeout
           @scrobbleTimeout = null
