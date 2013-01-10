@@ -91,11 +91,6 @@ class Molamp.Player
         
         Youtube.loadVideoById results[0]
         
-        # Highlight current track
-        # $(track).css 
-            # backgroundColor: '#EEE'
-            # fontWeight: 'bold'
-        
         if @scrobbleTimeout isnt null
           clearTimeout @scrobbleTimeout
           @scrobbleTimeout = null
@@ -104,20 +99,19 @@ class Molamp.Player
         if @scrobble is on
             @scrobbleTimeout = setTimeout =>
               @doScrobble track.get('artist'), track.get('title'), track.get('image')
-            , 3000
-          
+            , 5000
+                    
         if history is on
           @history.push track
-          # alert 'history'
-                   
+        
         $('#toggle_play').find('i').attr class: 'icon-pause'
         
         document.title = track.get('artist') + ' - ' + track.get('title')        
         
         $.gritter.add
-          title: 'Now playing...'
+          title: track.get('title')
           image: track.get('image')
-          text: track.get('artist') + ' - ' + track.get('title')
+          text: track.get('artist')
         
         _gaq.push [
           '_trackEvent'
@@ -169,7 +163,7 @@ class Molamp.Player
       track = @tracks.at(0)
       
     @play track, off
-    
+      
   doScrobble: (artist, track, image) ->
     $.ajax
       url: '/ajax/scrobble'

@@ -137,6 +137,11 @@ body {
   margin-right:4px;
 }
 
+.active_track {
+  background-color: #EEE !important;
+  font-weight: bold !important;
+}
+
 .powered_by {
   color: #999;
   text-shadow:0 1px 0 #EEE;
@@ -152,7 +157,6 @@ body {
 .player_controls {
   background-color: #000;
   opacity: 0.8;
-  border: 1px solid #BCE8F1;
   height: 40px;
   padding: 10px 5px 5px 5px;
   color: #FFF;

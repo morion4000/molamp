@@ -10,16 +10,29 @@ class Molamp.Views.Tracks.TrackView extends Backbone.View
     #'mouseleave': 'highlight_off'
 
   initialize: ->
-    #console.log 'init track view'
+    _.bindAll @
+    @model.on 'change:isSelected', @onSelectedChange
 
   render: ->
     @.$el.html(@template track: @model.toJSON())
     
     @
     
-  play: ->    
-    Dispatcher.trigger 'player:play', @model
+  play: ->
+    @highlightTrack()
     
+    Dispatcher.trigger 'player:play', @model
+  
+  onSelectedChange: -> 
+    if @model.get('isSelected') is on
+      @.$el.addClass 'active_track'
+    else
+      @.$el.removeClass 'active_track'
+  
+  highlightTrack: ->
+    @model.set
+      isSelected: on
+       
   # similar: (e) ->
     # # Do not play the track
     # e.stopPropagation()
