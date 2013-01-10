@@ -64,8 +64,26 @@ $ ->
        
       Youtube.seekTo percentage, false
       # TODO: Look into the seekTo options...
-    
-  # TODO: Get the artist image average color and change the background of the application with it
+  
+  toggle_volume_icon = $('#toggle_volume').find('i')
+  
+  $('#progress_bar_volume').slider
+    orientation: 'vertical'
+    range: 'min'
+    value: 100
+    min: 0
+    max: 100
+    slide: (event, e) ->
+      Youtube.setVolume e.value
+      
+      if e.value is 0
+        toggle_volume_icon.attr class: 'icon-volume-off'
+      else if e.value >= 50
+        toggle_volume_icon.attr class: 'icon-volume-up'
+      else
+        toggle_volume_icon.attr class: 'icon-volume-down'
+
+  # Get the artist image average color and change the background of the application with it
   # setTimeout ->
       # rgb = getAverageRGB(document.getElementById 'artist_image')
       # start_color = 'whiteSmoke'
@@ -75,7 +93,9 @@ $ ->
       # $('#application_main_content').attr 'style', style
   # , 3000
   
-  # Don't know what this is
+  $('#toggle_volume').click ->
+    $('.progress_bar_volume_container').toggle()  
+  
   $('#toggle_play').click ->
     Dispatcher.trigger 'player:toggle'
   

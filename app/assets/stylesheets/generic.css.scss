@@ -164,6 +164,21 @@ body {
   #progress_bar {
     margin-top:11px;
   }
+  
+  .progress_bar_volume_container {
+    display:none;
+    background-color:#000;
+    position:absolute;
+    width:45px;
+    height:150px;
+    margin-top:-150px;  
+      
+    #progress_bar_volume {
+      height:120px;
+      margin-top:10px;
+      margin-left:15px;
+    }
+  }
 }
 
 div[itemprop=name] {
