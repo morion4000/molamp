@@ -1,0 +1,11 @@
+/* TEAM */
+Founder: Ionut Moraru
+Site: http://www.morion4000.com
+Twitter: morion4000
+From: Drobeta-Turnu Severin, Romania
+                
+/* SITE */
+Last update: 2013/01/10
+Standards: HTML5, CSS3
+Components: Backbone.js, Twitter Bootstrap, CoffeeScript, jQuery, Rails
+Software: Aptana Studio 3
