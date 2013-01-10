@@ -189,10 +189,6 @@ class Molamp.Artists extends Molamp.Player
     
     # BUG: Reset the playlist search typehead component
     @initPlaylistSearch()
-    
-    $.gritter.add
-      title: 'More tracks...'
-      text: "Added #{@.tracksLimit} more tracks for <strong>#{@.artist}</strong>"
        
     _gaq.push [
       '_trackEvent' 
@@ -219,10 +215,6 @@ class Molamp.Artists extends Molamp.Player
       @albums.add albumModel
     
     table.append moreRow
-    
-    $.gritter.add
-      title: 'More albums...'
-      text: "Added #{@.albumsLimit} more albums for <strong>#{@.artist}</strong>"
     
     _gaq.push [
       '_trackEvent' 
