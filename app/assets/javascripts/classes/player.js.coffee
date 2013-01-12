@@ -139,16 +139,37 @@ class Molamp.Player
     
     Youtube.pauseVideo()
     
+    _gaq.push [
+      '_trackEvent'
+      'Tracks'
+      'Pause'
+      track.get('artist') + ' - ' + track.get('title')
+    ]
+  
   resume: ->
     @playing = on
     
     Youtube.playVideo()
        
+    _gaq.push [
+      '_trackEvent'
+      'Tracks'
+      'Resume'
+      track.get('artist') + ' - ' + track.get('title')
+    ]
+       
   stop: ->
     @playing = off
     
+    _gaq.push [
+      '_trackEvent'
+      'Tracks'
+      'Stop'
+      track.get('artist') + ' - ' + track.get('title')
+    ]
+    
   next: ->    
-    if @history.size() >= 1
+    if @history.size() > 0
       currentTrackResults = @tracks.where
         mbid: @history.last().get('mbid')
       
@@ -163,6 +184,13 @@ class Molamp.Player
         
     @play(track)
     
+    _gaq.push [
+      '_trackEvent'
+      'Tracks'
+      'Next'
+      track.get('artist') + ' - ' + track.get('title')
+    ]
+    
   previous: ->
     #console.log @history
     
@@ -172,6 +200,13 @@ class Molamp.Player
       track = @tracks.at(0)
       
     @play track, off
+    
+    _gaq.push [
+      '_trackEvent'
+      'Tracks'
+      'Previous'
+      track.get('artist') + ' - ' + track.get('title')
+    ]
       
   doScrobble: (artist, track, image) ->
     $.ajax
