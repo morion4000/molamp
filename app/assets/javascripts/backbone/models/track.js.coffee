@@ -15,10 +15,10 @@ class Molamp.Collections.Tracks extends Backbone.Collection
   model: Molamp.Models.Track
   
   initialize: ->
-    @on 'change:isSelected', @onSelectedChanged, @
+    @on 'change:isSelected', @onSelectedChanged
   
-  onSelectedChanged: (model) ->
+  onSelectedChanged: ->
     @each (model) ->
-      if model.get('isSelected') is true and not model.hasChanged('isSelected')  
+      if model.get('isSelected') is on and not model.hasChanged('isSelected')  
           model.set
             isSelected: no

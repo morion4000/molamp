@@ -91,6 +91,12 @@ class Molamp.Player
         
         Youtube.loadVideoById results[0]
         
+        ###
+        Hack to fix the tracks not being having their highlight removed
+        on the production instance. It isn't necessarily on development. 
+        ###
+        $('#top-tracks table tbody tr').removeClass 'active_track'
+        
         track.set
           isSelected: on
         
