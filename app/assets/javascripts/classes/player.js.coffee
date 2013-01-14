@@ -75,12 +75,12 @@ class Molamp.Player
           clearInterval @playingInterval
           @playingInterval = null
                     
-          @next()
+          Dispatcher.trigger 'player:next'
       
     Dispatcher.on 'youtube:error', (e) =>
       Molamp.Utils::log e
       
-      @next()
+      Dispatcher.trigger 'player:next'
     
   play: (track, history = on) ->
     youtube = new Molamp.YoutubeWrapper
@@ -138,35 +138,14 @@ class Molamp.Player
     @playing = off
     
     Youtube.pauseVideo()
-    
-    _gaq.push [
-      '_trackEvent'
-      'Tracks'
-      'Pause'
-      track.get('artist') + ' - ' + track.get('title')
-    ]
   
   resume: ->
     @playing = on
     
     Youtube.playVideo()
        
-    _gaq.push [
-      '_trackEvent'
-      'Tracks'
-      'Resume'
-      track.get('artist') + ' - ' + track.get('title')
-    ]
-       
   stop: ->
     @playing = off
-    
-    _gaq.push [
-      '_trackEvent'
-      'Tracks'
-      'Stop'
-      track.get('artist') + ' - ' + track.get('title')
-    ]
     
   next: ->    
     if @history.size() > 0
