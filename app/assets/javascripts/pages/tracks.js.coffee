@@ -9,6 +9,12 @@ class Molamp.Tracks extends Molamp.Player
     super()
     
     Molamp.YoutubeWrapper::loadPlayer()
+    
+    $('#next_play').addClass 'disabled'
+    $('#previous_play').addClass 'disabled'
+    
+    Dispatcher.off 'player:next'
+    Dispatcher.off 'player:previous'
   
   searchYoutubeVideo: (artist, track) ->
     $.ajax

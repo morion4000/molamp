@@ -4,7 +4,7 @@
 #= require jquery.ba-resize.js
 
 $ ->
-  Dispatcher.on 'youtube:ready', ->
+  Dispatcher.once 'youtube:ready', ->
     window.Youtube = new YT.Player Molamp.Defaults::YOUTUBE_OPTIONS.domElement, Molamp.Defaults::YOUTUBE_OPTIONS.playerOptions
     
     Youtube.addEventListener 'onStateChange', 'onYouTubePlayerEvent'
