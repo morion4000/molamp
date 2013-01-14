@@ -15,10 +15,7 @@ class Molamp.Collections.Tracks extends Backbone.Collection
   model: Molamp.Models.Track
   
   initialize: ->
-    ### Hack to prevent removing the selection on a track if the user clicks it twice.
-    Player.play already handles removing the selection on all tracks.
-    ###
-    #@on 'change:isSelected', @onSelectedChanged
+    @on 'change:isSelected', @onSelectedChanged
   
   onSelectedChanged: ->
     @each (model) ->
