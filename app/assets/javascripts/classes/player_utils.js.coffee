@@ -1,6 +1,6 @@
 #= require gritter
 # require jquery.ui.slider # This fucks up things by re-including jquery.js
-#= require jquery-scrolltofixed-min.js
+#= require jquery-scrolltofixed.js
 #= require jquery.ba-resize.js
 
 $ ->
@@ -44,15 +44,14 @@ $ ->
     $('#ytplayer').width $('.similar_artists').width()
   
   $('body').resize ->
-    if $('.player_controls').size() > 0
-      
+    if $('.player_controls').size() > 0      
       if $.isScrollToFixed '.player_controls'
-        $('.player_controls').trigger 'remove.ScrollToFixed'
-      
+        $('.player_controls').trigger 'detach.ScrollToFixed'
+  
       $('.player_controls').scrollToFixed
           bottom: 0
           limit: $('.player_controls').offset().top
-  
+    
   # JQuery UI Slider for the player controls 
   $('#progress_bar').slider
     range: 'min'

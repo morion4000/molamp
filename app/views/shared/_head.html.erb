@@ -20,6 +20,13 @@
 	<meta name="author" content="Ionut Moraru" />
 	<meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Molamp is a music search, play and suggestion mashup. Discover and rediscover a lot of great music.' %>" />
 	<title><%= content_for?(:title) ? yield(:title) : 'Molamp - Discover your music' %></title>
+	<script>
+	    var _errs=["5104fcbc60dbfe3441000012"];(function(a,b){a.onerror=function(){_errs.push(arguments)};
+	    var d=function(){var a=b.createElement("script"),c=b.getElementsByTagName("script")[0];
+	    a.src="//d15qhc0lu1ghnk.cloudfront.net/beacon.js";a.async=!0;
+	    c.parentNode.insertBefore(a,c)};a.addEventListener?a.addEventListener("load",d,!1):
+	    a.attachEvent("onload",d)})(window,document);
+	</script>
 	<%= stylesheet_link_tag    "application", :media => "all" %>
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
