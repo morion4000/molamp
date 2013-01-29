@@ -41,7 +41,8 @@ $ ->
       limit: $('.player_controls').offset().top
   
   $(window).resize ->
-    $('#ytplayer').width $('.similar_artists').width()
+    if $('#ytplayer').css('position') isnt 'fixed'
+      $('#ytplayer').width $('.similar_artists').width()
   
   $('body').resize ->
     if $('.player_controls').size() > 0      
@@ -95,13 +96,14 @@ $ ->
   $('#toggle_volume').click ->
     $('.progress_bar_volume_container').toggle()  
   
+  $('#toggle_fullscreen').click ->
+    Dispatcher.trigger 'player:fullscreen'
+  
   $('#toggle_play').click ->
     Dispatcher.trigger 'player:toggle'
   
-  # Bind the next button
   $('#next_play').click ->
     Dispatcher.trigger 'player:next'
     
-  # Bind the next button
   $('#previous_play').click ->
     Dispatcher.trigger 'player:previous'

@@ -2,11 +2,36 @@ class Molamp.Player
   history: new Molamp.Collections.History
   playing: off
   playingInterval: null
+  fullscreen: off
   watchTimeout: null
   scrobbleTimeout: null
   
   constructor: ->
     Molamp.YoutubeWrapper::loadPlayer()
+    
+    Dispatcher.on 'player:fullscreen', (e) =>
+      @fullscreen = not @fullscreen
+      
+      if @fullscreen is on
+        $('#toggle_fullscreen').find('i').attr class: 'icon-resize-small'
+        
+        $('#ytplayer').css
+          position: 'fixed'
+          left: 0
+          top: 41
+          width: $(window).width()
+          height: $(window).height() - $('.player_controls').height() - $('.navbar-inner').height() - 14
+          
+        $('body').css overflow: 'hidden'
+      else
+        $('#toggle_fullscreen').find('i').attr class: 'icon-resize-full'
+      
+        $('#ytplayer').css
+          position: 'static'
+          width: $('.similar_artists').width()
+          height: 300
+      
+        $('body').css overflow: 'visible'
     
     Dispatcher.on 'player:play', (e) =>
        @play(e)
