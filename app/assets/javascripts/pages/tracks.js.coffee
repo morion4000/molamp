@@ -17,16 +17,20 @@ class Molamp.Tracks extends Molamp.Player
     Dispatcher.off 'player:previous'
   
   searchYoutubeVideo: (artist, track) ->
+    $('.ajax-spinner').spin Molamp.Defaults::SPIN_OPTIONS
+    
     $.ajax
       url: Molamp.Defaults::YOUTUBE_OPTIONS.apiUrl
       success: (data) ->
+        $('.ajax-spinner').spin off
+        
         if data.feed.entry?
           song_url = data.feed.entry[0].link[0].href
           regex = /[a-zA-Z0-9_-]+(?=&)/
           matched = regex.exec song_url
   
           Youtube.cueVideoById matched[0]
-          
+                    
           # TODO: Send a more specific event
           _gaq.push ['_trackEvent', 'Tracks', 'Play', artist + ' - ' + track]
         else

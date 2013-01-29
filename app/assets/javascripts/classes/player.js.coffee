@@ -188,9 +188,13 @@ class Molamp.Player
     ]
       
   doScrobble: (artist, track, image) ->
+    $('.ajax-spinner').spin Molamp.Defaults::SPIN_OPTIONS
+    
     $.ajax
       url: '/ajax/scrobble'
-      success: (data) ->       
+      success: (data) ->
+        $('.ajax-spinner').spin off
+             
         # Activity.add
           # id: md5(new Date())
           # artist: artist
@@ -207,10 +211,14 @@ class Molamp.Player
       dataType: 'json'
 
   doActivity: (artist, track, image) ->
+    $('.ajax-spinner').spin Molamp.Defaults::SPIN_OPTIONS
+    
     $.ajax
       url: '/ajax/activity'
       timeout: 20*1000
       success: (data) ->
+        $('.ajax-spinner').spin off
+        
         # Activity.add
           # id: data.id
           # artist: artist
