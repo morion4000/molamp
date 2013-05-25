@@ -8,3 +8,4 @@ class Stats
     sock.send "#{apikey}.#{metric} #{value}\n", 0, "carbon.hostedgraphite.com", 2003
   end
 
+end
