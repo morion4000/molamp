@@ -23,6 +23,6 @@ class User < ActiveRecord::Base
 
   def send_stats_for_new_user
     stats = Stats.new
-    stats.send("users.count", 1)
+    stats.send("users", 1)
   end
 end
