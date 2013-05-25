@@ -1,0 +1,10 @@
+//= require about
+//= require albums
+//= require all
+//= require artists
+//= require faq
+//= require home
+//= require privacy
+//= require search
+//= require tracks
+//= require users
