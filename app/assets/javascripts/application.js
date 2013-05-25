@@ -31,4 +31,13 @@
 //= require classes/defaults
 //= require classes/lastfm
 //= require classes/utils
-//= require pages/
+//= require pages/about
+//= require pages/albums
+//= require pages/all
+//= require pages/artists
+//= require pages/faq
+//= require pages/home
+//= require pages/privacy
+//= require pages/search
+//= require pages/tracks
+//= require pages/users
