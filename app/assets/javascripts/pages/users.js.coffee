@@ -7,10 +7,10 @@ class Molamp.Users
       @toggleScrobble on
     
     $('#activity_setting_off').click =>
-      @toggleActivity off
+      #@toggleActivity off
     
     $('#activity_setting_on').click =>
-      @toggleActivity on
+      #@toggleActivity on
       
   toggleScrobble: (state) ->
     $('.ajax-spinner').spin Molamp.Defaults::SPIN_OPTIONS

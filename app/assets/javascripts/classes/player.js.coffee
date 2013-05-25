@@ -5,7 +5,7 @@ class Molamp.Player
   fullscreen: off
   watchTimeout: null
   scrobbleTimeout: null
-  
+
   constructor: ->
     Molamp.YoutubeWrapper::loadPlayer()
     
@@ -51,12 +51,14 @@ class Molamp.Player
         @resume()
         
         $('#toggle_play').find('i').attr class: 'icon-pause'
-                
+    
     Dispatcher.on 'youtube:event', (e) =>
       switch e.data
-        # Started
-        when 1
+        when YT.PlayerState.PLAYING
           @playing = on
+          
+          @faviconPlay()
+          
           $('#toggle_play').find('i').attr class: 'icon-pause'
           
           # Post to Facebook timeline after 10 seconds
@@ -69,18 +71,33 @@ class Molamp.Player
             , 10*1000
             
           $('#total_time').text(gmdate 'i:s', Youtube.getDuration())
-            
+          
           if @playingInterval is null
             @playingInterval = setInterval =>
               percentage = Youtube.getCurrentTime() / Youtube.getDuration() * 100
-                
+              
               $('#current_time').text(gmdate 'i:s', Youtube.getCurrentTime())
               $('#progress_bar').slider value: percentage
             , 500
           
-        # Paused
-        when 2
+        when YT.PlayerState.PAUSED
           @playing = off
+
+          @faviconPause()
+
+          $('#toggle_play').find('i').attr class: 'icon-play'
+          
+          clearTimeout @watchTimeout
+          @watchTimeout = null
+          
+          clearInterval @playingInterval
+          @playingInterval = null
+          
+        when YT.PlayerState.ENDED
+          @playing = off
+
+          @faviconPause()
+
           $('#toggle_play').find('i').attr class: 'icon-play'
             
           clearTimeout @watchTimeout
@@ -89,17 +106,6 @@ class Molamp.Player
           clearInterval @playingInterval
           @playingInterval = null
           
-        # Ended
-        when 0
-          @playing = off
-          $('#toggle_play').find('i').attr class: 'icon-play'
-            
-          clearTimeout @watchTimeout
-          @watchTimeout = null
-            
-          clearInterval @playingInterval
-          @playingInterval = null
-                    
           Dispatcher.trigger 'player:next'
       
     Dispatcher.on 'youtube:error', (e) =>
@@ -109,12 +115,14 @@ class Molamp.Player
     
   play: (track, history = on) ->
     youtube = new Molamp.YoutubeWrapper
-        
+    
     youtube.search track.get('artist'), track.get('title'), (results) =>
       if results isnt null
         @playing = on
         
-        Youtube.loadVideoById results[0]
+        @faviconPlay()
+
+        Youtube.loadVideoById results.id
         
         ###
         Hack to fix the tracks not being having their highlight removed
@@ -129,18 +137,18 @@ class Molamp.Player
           clearTimeout @scrobbleTimeout
           @scrobbleTimeout = null
           
-        # Scrobble the track after listening for 3 seconds
+        # Scrobble the track after listening for 30 seconds
         if @scrobble is on
             @scrobbleTimeout = setTimeout =>
               @doScrobble track.get('artist'), track.get('title'), track.get('image')
-            , 5000
+            , 30*1000
                     
         if history is on
           @history.push track
         
         $('#toggle_play').find('i').attr class: 'icon-pause'
         
-        document.title = track.get('artist') + ' - ' + track.get('title')        
+        document.title = track.get('artist') + ' - ' + track.get('title')
         
         $.gritter.add
           title: track.get('title')
@@ -161,17 +169,17 @@ class Molamp.Player
 
   pause: ->
     @playing = off
-    
+
     Youtube.pauseVideo()
   
   resume: ->
     @playing = on
-    
+
     Youtube.playVideo()
-       
+
   stop: ->
     @playing = off
-    
+
   next: ->    
     if @history.size() > 0
       currentTrackResults = @tracks.where
@@ -194,7 +202,7 @@ class Molamp.Player
       'Next'
       track.get('artist') + ' - ' + track.get('title')
     ]
-    
+
   previous: ->
     #console.log @history
     
@@ -211,7 +219,13 @@ class Molamp.Player
       'Previous'
       track.get('artist') + ' - ' + track.get('title')
     ]
-      
+
+  faviconPlay: ->
+    $('#favicon').attr 'href', '/assets/play_favicon.ico'
+
+  faviconPause: ->
+    $('#favicon').attr 'href', '/assets/pause_favicon.ico'
+
   doScrobble: (artist, track, image) ->
     $('.ajax-spinner').spin Molamp.Defaults::SPIN_OPTIONS
     
@@ -220,13 +234,6 @@ class Molamp.Player
       success: (data) ->
         $('.ajax-spinner').spin off
              
-        # Activity.add
-          # id: md5(new Date())
-          # artist: artist
-          # track: track
-          # image: image
-        # , Activity.SCROBBLE
-    
         $.gritter.add
           title: 'Track scrobbled...'
           text: "<strong>#{artist} - #{track}</strong> was scrobbled on Last.fm"
@@ -243,13 +250,6 @@ class Molamp.Player
       timeout: 20*1000
       success: (data) ->
         $('.ajax-spinner').spin off
-        
-        # Activity.add
-          # id: data.id
-          # artist: artist
-          # track: track
-          # image: image
-        # , Activity.TIMELINE
     
         $.gritter.add
           title: 'Video posted on timeline...'

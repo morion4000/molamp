@@ -18,8 +18,8 @@
 	      		<div class="span3">
 					Social Sharing <a href="/faq#social-sharing" target="_blank" title="Learn about Social Sharing"><i class="icon-info-sign"></i></a> 
 					<div class="btn-group" data-toggle="buttons-radio" id="activity_setting">
-		  				<button id="activity_setting_off" type="button" class="btn btn-danger <%= !@user.activity_mode ? 'active' : nil %>">Off</button>
-		  				<button id="activity_setting_on" type="button" class="btn btn-info <%= @user.activity_mode ? 'active' : nil %>">On</button>
+		  				<button id="activity_setting_off" type="button" class="btn btn-danger disabled <%= !@user.activity_mode ? 'active' : nil %>">Off</button>
+		  				<button id="activity_setting_on" type="button" class="btn btn-info disabled <%= @user.activity_mode ? 'active' : nil %>">On</button>
 					</div>
 				</div>
 	      	</div>

@@ -16,10 +16,15 @@ class Molamp.YoutubeWrapper
         
         if typeof data.feed.entry isnt 'undefined'
           song_url = data.feed.entry[0].link[0].href
+          song_title = data.feed.entry[0].title.$t
           regex = /[a-zA-Z0-9_-]+(?=&)/
-          matched = regex.exec song_url
+          matched_id = regex.exec song_url
 
-          callback matched
+          callback {
+            'id': matched_id[0],
+            'url': song_url,
+            'title': song_title
+          }
         else
           callback null
       data:
