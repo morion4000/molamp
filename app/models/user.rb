@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  after_create :deliver_signup_notification
+  after_create :deliver_signup_notification,
+               :send_stats_for_new_user
   
   attr_accessible :email, 
                   :password,
@@ -18,5 +19,9 @@ class User < ActiveRecord::Base
   
   def deliver_signup_notification
     UserMailer.signup_notification(self).deliver
+  end
+
+  def send_stats_for_new_user
+    Stats.send("users.count", 1)
   end
 end
