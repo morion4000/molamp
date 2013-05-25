@@ -44,11 +44,11 @@ class Molamp.Artists extends Molamp.Player
         'Top Albums'
       ]
       
-    # Bing to the click events for "More" buttons
-    $('#more-tracks').live 'click', =>      
+    # Bind to the click events for "More" buttons
+    $(document).on 'click', '#more-tracks', =>
       @moreTracks()
     
-    $('#more-albums').live 'click', =>
+    $(document).on 'click', '#more-albums', =>
       @moreAlbums()
           
     # Build the Tracks collection based on the page Markup    

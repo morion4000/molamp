@@ -1,10 +1,9 @@
 #= require gritter
-# require jquery.ui.slider # This fucks up things by re-including jquery.js
 #= require jquery-scrolltofixed.js
 #= require jquery.ba-resize.js
 
 $ ->
-  Dispatcher.once 'youtube:ready', ->
+  Dispatcher.on 'youtube:ready', ->
     window.Youtube = new YT.Player Molamp.Defaults::YOUTUBE_OPTIONS.domElement, Molamp.Defaults::YOUTUBE_OPTIONS.playerOptions
     
     Youtube.addEventListener 'onStateChange', 'onYouTubePlayerEvent'
@@ -14,7 +13,7 @@ $ ->
   $('#confirmModal').modal
     show: false
 
-  $('a').live 'click', (e) ->
+  $(document).on 'click', 'a', (e) ->
     if $(@).attr('id') is 'leave_url' or Youtube.getPlayerState() isnt 1
       return
     

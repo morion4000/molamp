@@ -12,6 +12,7 @@
 //
 //= require primordial
 //= require jquery
+//= require jquery-migrate-1.2.1
 //= require jquery_ujs
 //= require jquery.ui.slider
 //= require bootstrap
