@@ -31,3 +31,4 @@
 //= require classes/defaults
 //= require classes/lastfm
 //= require classes/utils
+//= require pages/
