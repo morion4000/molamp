@@ -11,8 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require primordial
-//= require jquery.ui.slider
+//= require jquery
 //= require jquery_ujs
+//= require jquery.ui.slider
 //= require bootstrap
 //= require javascript-last.fm-api/lastfm.api
 //= require javascript-last.fm-api/lastfm.api.md5

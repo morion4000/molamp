@@ -60,5 +60,7 @@ module Molamp
     config.assets.version = '1.2'
 
     config.assets.initialize_on_precompile = false
+
+    config.assets.precompile += ['pages']
   end
 end
