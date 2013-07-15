@@ -4,6 +4,7 @@ class Molamp.Player
   playingInterval: null
   fullscreen: off
   watchTimeout: null
+  activityTimeout: null
   scrobbleTimeout: null
 
   constructor: ->
@@ -66,7 +67,6 @@ class Molamp.Player
             @watchTimeout = setTimeout =>
               if @activity is on
                 #Lastfm.activity Playlist.currentTrack.artist, Playlist.currentTrack.title, Playlist.currentTrack.image
-                  
                 @watchTimeout = null
             , 10*1000
             
@@ -136,13 +136,23 @@ class Molamp.Player
         if @scrobbleTimeout isnt null
           clearTimeout @scrobbleTimeout
           @scrobbleTimeout = null
-          
+        
+        if @activityTimeout isnt null
+          clearTimeout @activityTimeout
+          @activityTimeout = null
+
         # Scrobble the track after listening for 30 seconds
         if @scrobble is on
             @scrobbleTimeout = setTimeout =>
               @doScrobble track.get('artist'), track.get('title'), track.get('image')
             , 30*1000
-                    
+
+        # Post the track on Facebook after 30 seconds
+        if @activity is on
+            @activityTimeout = setTimeout =>
+              @doActivity track.get('artist'), track.get('title'), track.get('image')
+            , 30*1000
+
         if history is on
           @history.push track
         
@@ -180,7 +190,7 @@ class Molamp.Player
   stop: ->
     @playing = off
 
-  next: ->    
+  next: ->
     if @history.size() > 0
       currentTrackResults = @tracks.where
         mbid: @history.last().get('mbid')
