@@ -67,7 +67,7 @@ class AjaxController < ApplicationController
     
     mode = params[:mode]
     
-    if mode == 'on'
+    if mode == 'true'
       current_user.scrobble_mode = true
     else
       current_user.scrobble_mode = false
