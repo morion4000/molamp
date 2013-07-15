@@ -24,19 +24,18 @@ class AjaxController < ApplicationController
 
     artist = params[:artist]
     track = params[:track]
-    thread = nil
+    result = nil
 
     video_url = 'http://www.molamp.net/artists/' + artist.gsub(' ', '+') + '/_/' + track.gsub(' ', '+')
 
-    sleep(5)
+    sleep(10)
 
     if current_user.facebook_token and current_user.activity_mode === true and Rails.env.production?
-        thread = Thread.new {
-          Thread.current[:output] = @facebook.put_connections('me', 'video.watches', :video => video_url)
-        }
+      result = @facebook.put_connections('me', 'video.watches', :video => video_url)
+      #thread = Thread.new {
+      #Thread.current[:output] = 
+      #}
     end
-
-    result = thread ? thread[:output] : nil
 
     render :json => result and return
   end
