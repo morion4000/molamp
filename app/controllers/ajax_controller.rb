@@ -28,13 +28,11 @@ class AjaxController < ApplicationController
 
     video_url = 'http://www.molamp.net/artists/' + artist.gsub(' ', '+') + '/_/' + track.gsub(' ', '+')
 
-    sleep(10)
+    # Heroku does not allow two simultaneous requests on a single dyno
+    sleep(5)
 
     if current_user.facebook_token and current_user.activity_mode === true and Rails.env.production?
       result = @facebook.put_connections('me', 'video.watches', :video => video_url)
-      #thread = Thread.new {
-      #Thread.current[:output] = 
-      #}
     end
 
     render :json => result and return

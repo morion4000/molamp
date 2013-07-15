@@ -6,10 +6,11 @@ class Molamp.Player
   watchTimeout: null
   activityTimeout: null
   scrobbleTimeout: null
+  activityHelper: new Molamp.Activity
 
   constructor: ->
     Molamp.YoutubeWrapper::loadPlayer()
-    
+
     Dispatcher.on 'player:fullscreen', (e) =>
       @fullscreen = not @fullscreen
       
@@ -145,13 +146,13 @@ class Molamp.Player
         if @scrobble is on
             @scrobbleTimeout = setTimeout =>
               @doScrobble track.get('artist'), track.get('title'), track.get('image')
-            , 30*1000
+            , 10*1000
 
         # Post the track on Facebook after 30 seconds
         if @activity is on
             @activityTimeout = setTimeout =>
               @doActivity track.get('artist'), track.get('title'), track.get('image')
-            , 30*1000
+            , 10*1000
 
         if history is on
           @history.push track
@@ -241,12 +242,20 @@ class Molamp.Player
     
     $.ajax
       url: '/ajax/scrobble'
-      success: (data) ->
+      success: (data) =>
         $('.ajax-spinner').spin off
              
         $.gritter.add
           title: 'Track scrobbled...'
           text: "<strong>#{artist} - #{track}</strong> was scrobbled on Last.fm"
+          
+        @activityHelper.add
+          id: md5(artist+track)
+          artist: artist
+          track: track
+          image: image
+        , 'scrobble'
+
       data:
         artist: artist
         track: track
@@ -258,21 +267,19 @@ class Molamp.Player
     $.ajax
       url: '/ajax/activity'
       timeout: 20*1000
-      success: (data) ->
+      success: (data) =>
         $('.ajax-spinner').spin off
     
         $.gritter.add
           title: 'Video posted on timeline...'
           text: "<strong>#{artist} - #{track}</strong> was posted on your Facebook timeline"
-        
-        console.log data
 
-        Molamp.Activity::add
-          id: 'x'
+        @activityHelper.add
+          id: data.id
           artist: artist
           track: track
           image: image
-        , 1
+        , 'activity'
 
       data:
         artist: artist

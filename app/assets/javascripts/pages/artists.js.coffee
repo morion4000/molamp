@@ -7,6 +7,7 @@ class Molamp.Artists extends Molamp.Player
   tracks: new Molamp.Collections.Tracks
   albums: new Molamp.Collections.Albums
   tracksView: null
+  albumsView: null
   scrobble: no
   activity: no
   tracksPage: 1
@@ -200,7 +201,7 @@ class Molamp.Artists extends Molamp.Player
   appendAlbums: (data) ->    
     albums = data.topalbums.album
     table = $('#top-albums table tbody')
-    moreRow = $('#top-albums table tbody').find 'tr#more-row'
+    moreRow = table.find 'tr#more-row'
     
     # Remove the More button to add it later
     moreRow.remove()

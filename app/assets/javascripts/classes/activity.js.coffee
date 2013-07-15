@@ -1,45 +1,45 @@
 class Molamp.Activity
-  nr: 0
-  TIMELINE: 0
-  SCROBBLE: 1
-  domElement: '.social_activity'
-  badgeElement: '.lead .badge'
+  no: 0
+  activities: new Molamp.Collections.Activities
+  activitiesView: null
+  badgeSelector: '.lead .badge'
   
   constructor: ->
+    @activitiesView = new Molamp.Views.Activities.ActivitiesView model: @activities
+    @activitiesView.render()
   
   add: (obj, mode) ->
-    table = $(@domElement).find 'table tbody'
-    template = Handlebars.compile($("#social-activity-template").html())
-
     switch mode
-      when @TIMELINE
-        container = template
+      when 'activity'
+        model = new Molamp.Models.Activity
           id: obj.id
           artist: obj.artist
           track: obj.track
-          artist_url: Molamp.url_to_lastfm obj.artist
-          track_url: Molamp.url_to_lastfm obj.track
+          artist_url: Molamp.Utils::url_to_lastfm obj.artist
+          track_url: Molamp.Utils::url_to_lastfm obj.track
           image: obj.image
           action: 'was shared with your friends on Facebook'
           remove_link: "javascript:Activity.remove(#{obj.id}, #{@TIMELINE})"
           remove_text: 'Remove from Timeline'
       
-      when @SCROBBLE
-        container = template
+      when 'scrobble'
+        model = new Molamp.Models.Activity
           id: obj.id
           artist: obj.artist
           track: obj.track
-          artist_url: Molamp.url_to_lastfm(obj.artist)
-          track_url: Molamp.url_to_lastfm(obj.track)
+          artist_url: Molamp.Utils::url_to_lastfm(obj.artist)
+          track_url: Molamp.Utils::url_to_lastfm(obj.track)
           image: obj.image
           action: 'was posted on your Last.fm account'
-          remove_link: "javascript:Activity.remove(#{obj.id}, #{@SCROBBLE})"
-          remove_text: 'Remove'
+          remove_link: "javascript:;"
+          remove_text: ''
 
-    table.prepend container
+    @activities.add model
+          
     
-    Activity.no++
-    $(Activity.badge).text @nr
+          
+    @no++
+    $(@badgeSelector).text @no
     
   remove: (id, mode) ->
     row = $(@domElement).find('table tbody').find('tr[id='+id+']');
@@ -47,12 +47,12 @@ class Molamp.Activity
     row.css backgroundColor: '#ADD8E6'
     
     switch mode
-      when @TIMELINE
+      when 'activity'
         $.ajax('/ajax/activity/delete?id='+id).done (data) ->
           row.remove()
      
       else
         row.remove()
    
-    Activity.no--
-    $(Activity.badge).text @nr
+    @no--
+    $(@badgeSelector).text @no
