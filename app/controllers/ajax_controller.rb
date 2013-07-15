@@ -16,31 +16,31 @@ class AjaxController < ApplicationController
     
     render :json => result
   end
-  
+
   def activity
     unless current_user
       render :nothing => true and return
     end
-    
+
     artist = params[:artist]
     track = params[:track]
     thread = nil
-    
+
     video_url = 'http://www.molamp.net/artists/' + artist.gsub(' ', '+') + '/_/' + track.gsub(' ', '+')
-    
+
+    sleep(5)
+
     if current_user.facebook_token and current_user.activity_mode === true and Rails.env.production?
         thread = Thread.new {
           Thread.current[:output] = @facebook.put_connections('me', 'video.watches', :video => video_url)
         }
     end
-    
-    sleep(10);
-    
+
     result = thread ? thread[:output] : nil
-    
+
     render :json => result and return
   end
-  
+
   def activity_delete
     unless current_user
       render :nothing => true and return
