@@ -1,4 +1,4 @@
-class Activity
+class Molamp.Activity
   nr: 0
   TIMELINE: 0
   SCROBBLE: 1
@@ -8,7 +8,7 @@ class Activity
   constructor: ->
   
   add: (obj, mode) ->
-    table = $(Activity.selector).find 'table tbody'
+    table = $(@domElement).find 'table tbody'
     template = Handlebars.compile($("#social-activity-template").html())
 
     switch mode

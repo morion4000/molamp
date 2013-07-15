@@ -264,6 +264,16 @@ class Molamp.Player
         $.gritter.add
           title: 'Video posted on timeline...'
           text: "<strong>#{artist} - #{track}</strong> was posted on your Facebook timeline"
+        
+        console.log data
+
+        Molamp.Activity::add
+          id: 'x'
+          artist: artist
+          track: track
+          image: image
+        , 1
+
       data:
         artist: artist
         track: track
