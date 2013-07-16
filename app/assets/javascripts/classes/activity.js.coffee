@@ -19,8 +19,8 @@ class Molamp.Activity
           track_url: Molamp.Utils::url_to_lastfm obj.track
           image: obj.image
           action: 'was shared with your friends on Facebook'
-          remove_link: "javascript:Activity.remove(#{obj.id}, #{@TIMELINE})"
-          remove_text: 'Remove from Timeline'
+          remove_link: "javascript:var u=new Molamp.Utils; u.removeActivity(#{obj.id})"
+          remove_text: 'Remove'
       
       when 'scrobble'
         model = new Molamp.Models.Activity
@@ -35,24 +35,6 @@ class Molamp.Activity
           remove_text: ''
 
     @activities.add model
-          
-    
-          
+
     @no++
-    $(@badgeSelector).text @no
-    
-  remove: (id, mode) ->
-    row = $(@domElement).find('table tbody').find('tr[id='+id+']');
-    
-    row.css backgroundColor: '#ADD8E6'
-    
-    switch mode
-      when 'activity'
-        $.ajax('/ajax/activity/delete?id='+id).done (data) ->
-          row.remove()
-     
-      else
-        row.remove()
-   
-    @no--
     $(@badgeSelector).text @no
