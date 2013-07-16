@@ -17,11 +17,16 @@ class Molamp.Utils
     url.replace /\ /g, '+'
   
   removeActivity: (id) ->
-    row = $('.social_activity table tbody').find('tr td[id='+id+']')
-    row.css backgroundColor: '#ADD8E6'
+    $('.social_activity table tbody').find('tr td[id='+id+']').remove()
+    
+    $('.ajax-spinner').spin Molamp.Defaults::SPIN_OPTIONS
     
     $.ajax('/ajax/activity/delete?id='+id).done (data) ->
-      row.remove()
+      $('.ajax-spinner').spin off
+      
+      $.gritter.add
+          title: 'Video deleted'
+          text: "The video was deleted from your Facebook Activity Log"
 
     badge = $('.lead .badge')
     badge.text = parseInt(badge.text) - 1

@@ -19,7 +19,7 @@ class Molamp.Activity
           track_url: Molamp.Utils::url_to_lastfm obj.track
           image: obj.image
           action: 'was shared with your friends on Facebook'
-          remove_link: "javascript:var u=new Molamp.Utils; u.removeActivity(#{obj.id})"
+          remove_link: "javascript:var u=new Molamp.Utils; u.removeActivity('#{obj.id}')"
           remove_text: 'Remove'
       
       when 'scrobble'

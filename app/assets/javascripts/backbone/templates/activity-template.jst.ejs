@@ -5,10 +5,9 @@
 		</a>
 		<div class="media-body">
 			<h5 class="media-heading">
-				<a href="/artists/<%= activity.artist_url %>"><%= activity.artist %></a> - 
 				<a href="/artists/<%= activity.artist_url %>/_/<%= activity.track_url %>"><%= activity.track %></a>
 			</h5>
-			<%= activity.action %>
+			<i><%= activity.action %></i>
 			
 			<div><a href="<%= activity.remove_link %>"><%= activity.remove_text %></a></div>
 		</div>
