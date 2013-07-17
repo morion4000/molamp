@@ -29,4 +29,4 @@ class Molamp.Utils
           text: "The video was deleted from your Facebook Activity Log"
 
     badge = $('.lead .badge')
-    badge.text = parseInt(badge.text) - 1
+    badge.text = parseInt(badge.text()) - 1
