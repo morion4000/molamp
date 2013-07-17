@@ -76,8 +76,8 @@ $(function() {
 	
   	page = new Molamp.Albums("<%= @album.artist %>");
   	
-  	page.scrobble = <%= current_user.respond_to?('scrobble_mode') and current_user.scrobble_mode === true ? 'true' : 'false' %>;
-  	page.activity = <%= current_user.respond_to?('activity_mode') and current_user.activity_mode === true ? 'true' : 'false' %>;
+  	page.scrobble = <%= current_user.respond_to?('lastfm_token') and current_user.lastfm_token != nil and current_user.scrobble_mode === true ? 'true' : 'false' %>;
+  	page.activity = <%= current_user.respond_to?('facebook_token') and current_user.facebook_token != nil and current_user.activity_mode === true ? 'true' : 'false' %>;
   	
 	<% if @autoplay == '1' or @autoplay == 'true' %>
 	// Need to wait until the youtube player initializes
