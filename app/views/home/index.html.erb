@@ -13,9 +13,13 @@
 		</div>
 	</form>
 
-    <div>
-        <a class="btn btn-primary btn-large" href="/auth/facebook">Login with Facebook</a>
-    </div>
+
+    <% if not logged_in? %>
+    <br />
+    <a class="btn btn-primary btn-large" href="/auth/facebook">Login with Facebook</a>
+    <br />
+    <br />
+    <% end %>
 
 	<% if Rails.env.production? %>
 	<div class="row-fluid">
