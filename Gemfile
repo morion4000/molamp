@@ -17,6 +17,7 @@ gem 'json'
 gem 'dalli'
 gem 'newrelic_rpm'
 gem 'sentry-raven'
+gem 'memcachier'
 
 gem 'authlogic'
 
