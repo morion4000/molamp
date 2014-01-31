@@ -210,7 +210,8 @@ class Molamp.Artists extends Molamp.Player
     for album in albums
       albumModel = new Molamp.Models.Album
         title: album.name
-        url: album.url
+        url: '/artists/' + Molamp.Utils::url_to_lastfm @artist +
+             '/' + Molamp.Utils::url_to_lastfm album.name 
         image: Molamp.Utils::getImage album.image, 1
         playcount: album.playcount
       
