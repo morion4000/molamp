@@ -7,7 +7,9 @@ namespace :heroku do
   
   task :push do
     puts "Deploying to Heroku..."
+    sh "heroku maintenance:on"
     sh "git push heroku master"
+    sh "heroku maintenance:off"
   end
   
   task :version do
