@@ -6,29 +6,27 @@ gem 'rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'sqlite3'
-gem 'unicorn'
+gem 'sqlite3', :group => [:test, :development]
+gem 'unicorn', :group => [:production]
 gem 'bootstrap-sass', '~> 2.3.1.2'
 gem 'sanitize'
 gem 'lastfm', :git => 'git://github.com/morion4000/ruby-lastfm.git'
 gem 'koala'
-gem 'gritter', '1.0.2'
+gem 'gritter', '1.0.2', :group => [:development, :production]
 gem 'json'
 
 gem 'dalli'
-gem 'newrelic_rpm'
-gem 'sentry-raven'
+gem 'newrelic_rpm', :group => [:production]
+gem 'sentry-raven', :group => [:production]
 gem 'memcachier'
 
 gem 'authlogic'
 
-gem 'jquery-rails' #, '~> 2.0.2'
-gem 'jquery-cookie-rails' #, '~> 0.1.1'
-gem 'jquery-ui-rails'
-
-gem 'rails-backbone'
-
-gem 'spinjs-rails'
+gem 'jquery-rails', :group => [:development, :production]
+gem 'jquery-cookie-rails', :group => [:development, :production]
+gem 'jquery-ui-rails', :group => [:development, :production]
+gem 'rails-backbone', :group => [:development, :production]
+gem 'spinjs-rails', :group => [:development, :production]
 
 # Gems used only for assets and not required
 # in production environments by default.
