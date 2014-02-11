@@ -1,5 +1,4 @@
 language: ruby
-install: bundle install --without assets development production
 rvm:
   - 1.9.3
 env:
