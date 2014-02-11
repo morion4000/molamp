@@ -6,6 +6,7 @@ gem 'rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'sqlite3'
 gem 'unicorn'
 gem 'bootstrap-sass', '~> 2.3.1.2'
 gem 'sanitize'
