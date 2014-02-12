@@ -25,8 +25,8 @@ Molamp::Application.configure do
   config.action_mailer.smtp_settings = {
       :address  => 'smtp.mandrillapp.com',
       :port  => 587,
-      :user_name  => 'morion4000',
-      :password  => '250e923c-4df6-4e38-9393-ca4f588aad4a'
+      :user_name  => ENV['MANDRILL_API_KEY'],
+      :password  => ENV['MANDRILL_API_SECRET']
   }
 
   # Print deprecation notices to the Rails logger

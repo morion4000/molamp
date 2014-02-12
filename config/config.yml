@@ -23,9 +23,9 @@ production:
   username: admin
   password: secret
   
-  lastfm_api_key: 930976e93a9a305ccd319242e2a90e58
-  lastfm_api_secret: fa79a2ce3ac9477157b158fd08bf06f4
+  lastfm_api_key: <%= ENV['LASTFM_API_KEY'] %>
+  lastfm_api_secret: <%= ENV['LASTFM_API_SECRET'] %>
   
-  facebook_api_key: 224617567667902
-  facebook_api_secret: 44309bdacf4fa3a1db3de688d9d96503
+  facebook_api_key: <%= ENV['FACEBOOK_API_KEY'] %>
+  facebook_api_secret: <%= ENV['FACEBOOK_API_SECRET'] %>
   facebook_redirect_url: http://www.molamp.net/auth/facebook
