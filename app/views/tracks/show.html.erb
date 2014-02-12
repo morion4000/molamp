@@ -2,7 +2,7 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# video: http://ogp.me/ns/video#">
 <% end %>
 <% content_for :meta do %>
-<meta property="fb:app_id" content="<%= APP_CONFIG['facebook_api_key'].to_s %>" />
+<meta property="fb:app_id" content="<%= ENV['FACEBOOK_API_KEY'].to_s %>" />
 <meta property="og:type" content="video.other" />
 <meta property="og:url" content="http://www.molamp.net/artists/<%= url_to_lastfm(@track.artist.name) + '/_/' + url_to_lastfm(@track.name) %>" />
 <meta property="og:title" content="<%= @track.artist.name + ' - ' + @track.name %>" />

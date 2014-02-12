@@ -79,7 +79,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_lastfm
-    @lastfm = Lastfm.new(APP_CONFIG['lastfm_api_key'], APP_CONFIG['lastfm_api_secret'])
+    @lastfm = Lastfm.new(ENV['LASTFM_API_KEY'], ENV['LASTFM_API_SECRET'])
     
     if logged_in? and current_user.lastfm_token
       @lastfm.session = current_user.lastfm_token

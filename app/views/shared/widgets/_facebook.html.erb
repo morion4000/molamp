@@ -3,7 +3,7 @@
 window.fbAsyncInit = function() {
     // init the FB JS SDK
     FB.init({
-      appId      : '<%= APP_CONFIG['facebook_api_key'] %>', // App ID from the App Dashboard
+      appId      : '<%= ENV['FACEBOOK_API_KEY'] %>', // App ID from the App Dashboard
       channelUrl : '//www.molamp.net/channel.html', // Channel File for x-domain communication
       status     : false, // check the login status upon init?
       cookie     : false, // set sessions cookies to allow your server to access the session?

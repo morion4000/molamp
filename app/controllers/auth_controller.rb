@@ -3,7 +3,7 @@ class AuthController < ApplicationController
     token = params[:token]
     
     if token.to_s.blank?
-      redirect_to 'http://www.last.fm/api/auth/?api_key=' + APP_CONFIG['lastfm_api_key'].to_s
+      redirect_to 'http://www.last.fm/api/auth/?api_key=' + ENV['LASTFM_API_KEY'].to_s
     else
       session = @lastfm.auth.get_session(:token => token)
       
@@ -25,7 +25,7 @@ class AuthController < ApplicationController
       flash.keep(:notice)
       
       redirect_to 'https://www.facebook.com/dialog/oauth?client_id=' +
-                  APP_CONFIG['facebook_api_key'].to_s + 
+                  ENV['FACEBOOK_API_KEY'].to_s + 
                   '&redirect_uri=' +
                   APP_CONFIG['facebook_redirect_url'].to_s +
                   '&state=' + 
@@ -99,9 +99,9 @@ class AuthController < ApplicationController
   def get_fb_access_token(code, redirect_url)    
     fb_access_token_url = URI.parse(
                               'https://graph.facebook.com/oauth/access_token?client_id=' +
-                              APP_CONFIG['facebook_api_key'].to_s +
+                              ENV['FACEBOOK_API_KEY'].to_s +
                               '&redirect_uri=' + redirect_url +
-                              '&client_secret=' + APP_CONFIG['facebook_api_secret'].to_s +
+                              '&client_secret=' + ENV['FACEBOOK_API_SECRET'].to_s +
                               '&code=' + code
                             )
         

@@ -1,21 +1,11 @@
 development:
   perform_authentication: false
   
-  lastfm_api_key: 3d9b9dee569530f8aabb1c1e2a36ed0f
-  lastfm_api_secret: d5b2889a579282cd7512840781afd928
-  
-  facebook_api_key: 324417074332331
-  facebook_api_secret: 974439f50e8cd27feef52bd0f8880765
   facebook_redirect_url: http://localhost:3000/auth/facebook
 
 test:
   perform_authentication: false
   
-  lastfm_api_key: 3d9b9dee569530f8aabb1c1e2a36ed0f
-  lastfm_api_secret: d5b2889a579282cd7512840781afd928
-  
-  facebook_api_key: 324417074332331
-  facebook_api_secret: 974439f50e8cd27feef52bd0f8880765
   facebook_redirect_url: http://localhost:3000/auth/facebook
 
 production:
@@ -23,9 +13,4 @@ production:
   username: admin
   password: secret
   
-  lastfm_api_key: <%= ENV['LASTFM_API_KEY'] %>
-  lastfm_api_secret: <%= ENV['LASTFM_API_SECRET'] %>
-  
-  facebook_api_key: <%= ENV['FACEBOOK_API_KEY'] %>
-  facebook_api_secret: <%= ENV['FACEBOOK_API_SECRET'] %>
   facebook_redirect_url: http://www.molamp.net/auth/facebook
