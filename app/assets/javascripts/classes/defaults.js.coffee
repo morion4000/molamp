@@ -6,8 +6,8 @@ class Molamp.Defaults
     radius: 5 # The radius of the inner circle
   
   LASTFM_OPTIONS:
-    apiKey: '930976e93a9a305ccd319242e2a90e58'
-    apiSecret: 'fa79a2ce3ac9477157b158fd08bf06f4'
+    apiKey: ''
+    apiSecret: ''
     
   YOUTUBE_OPTIONS:
     domElement: 'ytplayer'
