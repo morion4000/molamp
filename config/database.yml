@@ -15,7 +15,7 @@
 development:
   adapter: sqlite3
   encoding: unicode
-  database: db/test.sqlite3
+  database: db/development.sqlite3
   pool: 5
 
   # Schema search path. The server defaults to $user,public
