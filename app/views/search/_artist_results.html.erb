@@ -3,7 +3,7 @@
 	<thead>
 	</thead>
 	<tbody>
-	<% if @search.artistmatches.size > 0 %>
+	<% if @search.respond_to?(:artistmatches) and @search.artistmatches.size > 0 %>
 		<%= render :partial => 'artist_result', :collection => @search.artistmatches %>
 	<% else %>
 		<tr>

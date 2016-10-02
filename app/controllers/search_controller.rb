@@ -6,16 +6,16 @@
     # BUG: If the artist name contains special characters, the application crashes
     @query = params[:q]
     @where = params[:w]
-    
+
     begin
       @search = LastfmSearch.new(@query, @lastfm)
     rescue
       @search = nil
     end
-    
-    if @search and @search.artistmatches.size > 0
+
+    if @search and @search.respond_to?(:artistmatches) and @search.artistmatches.size > 0
       featured = @search.artistmatches[0]
-      
+
       if @where == 'home'
         redirect_to '/artists/' + featured.name.gsub(' ', '+')
       else
