@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/morion4000/ruby-lastfm.git
-  revision: fc40501a0a995d461ca3092adf72bae5deabafd2
-  specs:
-    lastfm (1.11.0)
-      activesupport (>= 3.0.3)
-      httparty
-      xml-simple
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -84,6 +75,10 @@ GEM
       addressable (~> 2.2)
       faraday (~> 0.8)
       multi_json (~> 1.3)
+    lastfm (1.11.0)
+      activesupport (>= 3.0.3)
+      httparty
+      xml-simple
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -184,7 +179,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   koala
-  lastfm!
+  lastfm
   memcachier
   meta_request (= 0.2.0)
   newrelic_rpm
