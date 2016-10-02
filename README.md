@@ -2,24 +2,13 @@
 
 http://www.molamp.net - Discover your music.
 
-Built with Ruby on Rails, CoffeeScript, Twitter Bootstrap 2 and Backbone.js, hosted on Heroku.
+Built with Ruby on Rails, CoffeeScript, Twitter Bootstrap 2, and Backbone.js.
 
-### Open Sourcing
+### Getting started
 
-To be added.
-
-### Getting started locally
-
-To be added.
-
-### Getting started on Heroku
-
-To be added.
-
-### Third-Party Services
-
-To be added.
+## Install gems
+`bundle install`
 
 ### Copyright
 
-Copyright (c) 2014 morion4000. See LICENSE for details.
+Copyright (c) 2016 morion4000. See LICENSE for details.
