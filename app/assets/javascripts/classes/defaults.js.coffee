@@ -4,16 +4,16 @@ class Molamp.Defaults
     length: 4 # The length of each line
     width: 3 # The line thickness
     radius: 5 # The radius of the inner circle
-  
+
   LASTFM_OPTIONS:
     apiKey: ''
     apiSecret: ''
-    
+
   YOUTUBE_OPTIONS:
     domElement: 'ytplayer'
-    apiUrl: 'https://gdata.youtube.com/feeds/api/videos'
-    apiKey: 'AI39si5R6V7abxfitoVlki1bxJmGmMzYBtupUi4Dy7R9Ae7eu_ASK4uZhNgozUYFSNa7u_6mleqoJtQZOuUBuUtOEFj_3DEGvg'
-    playerOptions: 
+    apiUrl: 'https://www.googleapis.com/youtube/v3/search'
+    apiKey: 'AIzaSyCof4lR7pAYUvem4KdZ7xke7XvI_FqI0gY'
+    playerOptions:
       #videoId: 'XkemFr6gmZo'
       width: 250
       height: 340
