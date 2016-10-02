@@ -10,7 +10,7 @@ gem 'sqlite3', :group => [:test, :development]
 gem 'unicorn', :group => [:production]
 gem 'bootstrap-sass', '~> 2.3.1.2'
 gem 'sanitize'
-gem 'lastfm', :git => 'git://github.com/morion4000/ruby-lastfm.git'
+gem 'lastfm'
 gem 'koala'
 gem 'gritter', '1.0.2', :group => [:development, :production]
 gem 'json'
