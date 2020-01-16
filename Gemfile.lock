@@ -43,6 +43,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    crass (1.0.6)
     dalli (2.6.4)
     ejs (1.0.0)
     erubis (2.7.0)
@@ -87,13 +88,15 @@ GEM
       rack-contrib
       rails
     mime-types (1.23)
-    mini_portile (0.5.0)
+    mini_portile2 (2.4.0)
     multi_json (1.7.7)
     multi_xml (0.5.4)
     multipart-post (1.2.0)
     newrelic_rpm (3.6.5.130)
-    nokogiri (1.6.0)
-      mini_portile (~> 0.5.0)
+    nokogiri (1.10.7)
+      mini_portile2 (~> 2.4.0)
+    nokogumbo (1.5.0)
+      nokogiri
     pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -128,8 +131,10 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    sanitize (2.0.4)
-      nokogiri (~> 1.6.0)
+    sanitize (4.6.3)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.4.4)
+      nokogumbo (~> 1.4)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
